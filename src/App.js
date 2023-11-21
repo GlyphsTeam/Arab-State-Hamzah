@@ -83,17 +83,18 @@ function App() {
   const autherized = localStorage.getItem("arab_user_token");
 
   const cityId = localStorage.getItem("cityId");
-  let cityIdUrl = '/0';
+  const city_ID = process.REACT_APP_City_ID;
+  let cityIdUrl = `/${city_ID}`;
   useEffect(() => {
     if (cityId) {
       cityIdUrl = `/${cityId}`;
     } else {
-      cityIdUrl = '/0';
+      cityIdUrl = `/${city_ID}`;
     }
   }, [cityId]);
 
-  const authAPI = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/0`;
-  const guestAPI = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/0`;
+  const authAPI = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${city_ID}`;
+  const guestAPI = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${city_ID}`;
 
   useEffect(() => {
     autherized

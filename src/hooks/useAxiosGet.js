@@ -8,18 +8,20 @@ function useAxios(url) {
   const token = localStorage.getItem('arab_user_token');
 
   const cityId = localStorage.getItem("cityId");
-  let cityIdUrl = '/0';
+  const city_ID = process.REACT_APP_City_ID;
+
+  let cityIdUrl = `/${city_ID}`;
   useEffect(() => {
     if(cityId){
       cityIdUrl = `/${cityId}`;
     }else{
-      cityIdUrl = '/0';
+      cityIdUrl = `/${city_ID}`;
     }
     }, [cityId]);
 
   const baseURL = token
-  ? `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/0`
-  : `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/0`;
+  ? `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${city_ID}`
+  : `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${city_ID}`;
   useEffect(() => {
      try { 
         axios

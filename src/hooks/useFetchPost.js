@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 function useFetch(url, formData, token) {
   const [Res, setRes] = useState([]);
   const cityId = localStorage.getItem("cityId");
-  const city_ID = process.REACT_APP_City_ID;
+  const city_ID = process.env.REACT_APP_City_ID;
   let cityIdUrl = `/${city_ID}`;
   useEffect(() => {
     if(cityId){

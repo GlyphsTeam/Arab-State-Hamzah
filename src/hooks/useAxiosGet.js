@@ -8,7 +8,7 @@ function useAxios(url) {
   const token = localStorage.getItem('arab_user_token');
 
   const cityId = localStorage.getItem("cityId");
-  const city_ID = process.REACT_APP_City_ID;
+  const city_ID = process.env.REACT_APP_City_ID;
 
   let cityIdUrl = `/${city_ID}`;
   useEffect(() => {

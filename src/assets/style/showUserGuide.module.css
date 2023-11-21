@@ -1,0 +1,91 @@
+
+.showBlogImage{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    padding-top: 4px;
+    box-shadow: none !important;
+    border-radius: 25px;
+}
+.iconsShareAndSave{
+    display: flex;
+    margin-top: 30px;
+}
+.youtubIcon{
+    cursor: pointer;
+    color: var(--secondary-color);
+    font-size: 25px;
+}
+.favoriteIconCursor{
+    cursor: pointer;
+  }
+  .shareIconMargin{
+    margin: 0px 5px 0px 5px
+  }
+  .shareIconMargin{
+    cursor: pointer;
+    color: var(--secondary-color);
+  }
+.showBlogParagraph{
+    width: 100%;
+    text-align: justify;
+}
+.eventCardContainer{
+    padding-top: 100px}
+.showBlogTitle{
+    padding-top: 60px;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+.showBlogDate{
+    color: #ADA7A7
+}
+.showBlogParagraphTitle{
+    /* color: rgb(21, 56, 102); */
+    color: var(--black);
+}
+.mainSectionBlog{
+    /* background-color: #C2DEF3; */
+    width: 100%;
+    background-size: cover;
+    margin: 0 !important;
+}
+.showBlogMainTitle{
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.showBlogParagraphDiv{
+    overflow: hidden;
+}
+.youtubeDiv{
+    margin-bottom: 10px;
+}
+/* width: 100% */
+@media (max-width: 768px) {
+    .interestedCardContainerBlog{
+        /* width: 100% ; */
+        max-width: 400px;
+    }
+    .showBlogImage{
+        height: 100%;
+    width: 100%;
+    border-radius: 26px;
+    object-fit: contain;
+    padding-top: 12px;
+    }
+
+}
+@media (max-width:880px) {
+    .eventCardContainer{
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .interestedCardContainerBlog{
+
+    width: 100% !important;
+
+    }
+}

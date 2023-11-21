@@ -1,0 +1,127 @@
+.mainbox {
+    /* background-color: #95C2DE; */
+    margin: auto;
+    /* height: 600px; */
+    /* width: 600px; */
+    position: relative;
+  }
+  .err {
+    color: var(--primary-color);
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 11rem;
+    position: absolute;
+    left: 20%;
+    top: 8%;
+
+  }
+  .far {
+    position: absolute;
+    font-size: 8.5rem;
+    left: 42%;
+    top: 15%;
+    color: #FFFFFF;
+  }
+  .err2 {
+    color: var(--primary-color);
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 11rem;
+    display: flex;
+    justify-content: center;
+  }
+  .errZero{
+    color: var(--tertiary-color);
+      animation: spooky 2s alternate infinite linear;
+      display: inline-block;
+    
+  }
+  .msg {
+    text-align: center;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 1.6rem;
+    /* position: absolute;
+    left: 16%;
+    top: 45%;
+    width: 75%; */
+  }
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .colorDiv{
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      height: 74vh;
+      }
+  .homeButton{
+    color: var(--secondary-color) !important;
+    border-bottom: 1px var(--secondary-color) solid;
+  }
+  
+
+  /* CSS */
+.pageNotFoundButton {
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 20px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-top: 20px;
+  color: var(--primary-button-font-color);
+}
+
+.pageNotFoundButton:after {
+  content: "";
+  background-color: var(--secondary-color);
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.pageNotFoundButton:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+@media (min-width: 768px) {
+  .button-52 {
+    padding: 13px 50px 13px;
+  }
+}
+
+  @keyframes spooky {
+    from {
+      transform: translatey(.15em) scaley(.95);
+    }
+    
+    to {
+      transform: translatey(-.15em);
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

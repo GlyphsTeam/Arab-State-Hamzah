@@ -1,0 +1,100 @@
+.mainProductInfoDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shareSaveContainer{
+    display: flex;
+}
+
+.contactDiv{
+    display: flex;
+    padding-top: 13px;
+}
+
+
+.showProductPrice{
+    padding-top: 13px;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.locationDateContainer{
+    display: flex;
+}
+
+
+.dateStyle{
+    color: var(--secondary-color);
+    ;
+
+}
+/* .mainProductInfoDivContainer{
+    border-left: 2px solid #DC6027;
+} */
+.mainProductInfoDivContainer i{
+    padding: 0px 10px 0px 10px;
+}
+.generalTipsDiv{
+    padding-top: 13px;
+    height: 244px;
+    overflow: hidden;
+}
+.generalTipsDiv h3{
+    color: var(--primary-color);
+}
+.generalTipsDiv li{
+    list-style: unset;
+    list-style-type: none;
+}
+.generalTipsDiv ul{
+    padding: 0px !important;
+}
+.generalTipsDiv li::before {
+    color: var(--primary-color);
+    content: "• ";
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    font-size: 23px;
+    margin: -1rem 0px 0px 10px;
+}
+.shareSaveContainer i{
+    font-size: 23px;
+    color: var(--secondary-color);
+    cursor: pointer;
+
+
+}
+.locationStyle i{ 
+    color: var(--secondary-color);
+    
+    
+}
+.contactMobile i{
+    color: var(--secondary-color);
+}
+@media (max-width : 480px) {
+    .mainProductInfoDivContainer{
+        padding-top: 34px;
+        
+    }
+    .contactDiv{
+        display: flex;
+        align-items: baseline;
+    }
+    .contactMobile{
+        display: flex;
+        align-items: center;
+    }
+    .showProductPrice{
+        font-size: 29px;
+    }
+}
+
+@media (max-width: 992px) {
+    .dateStyle{
+        padding-top: 10px;
+    }
+}

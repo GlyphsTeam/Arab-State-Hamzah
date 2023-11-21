@@ -1,0 +1,19 @@
+.listStyle{
+    padding-left: 2rem !important;
+}
+
+.listStyle li{
+    list-style: disc !important;
+    padding-top: 16px;
+}
+
+.eulaContainer h1 {
+padding-top: 19px !important ;
+color: var(--primary-color);
+padding-bottom: 10px !important;
+}
+
+.eulaContainer h2{
+    color: var(--primary-color);
+
+}

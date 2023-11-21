@@ -1,0 +1,334 @@
+.mainDiv {
+  /* background: #c1def3; */
+  /* background-image: url("../../Images/home/blogWavy.png"); */
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  aspect-ratio: 5/2;
+  padding: 32px 0;
+}
+
+.cardsRowCenter {
+  justify-content: center;
+  padding-top: 10px !important;
+}
+.card {
+  text-align: center;
+}
+.cardBody {
+  position: relative;
+  margin: 10px auto;
+  /* background: var(--box-color); */
+  /* border: 3px solid var(--secondary-color); */
+  padding: 17px;
+  height: 290px;
+  /* border-radius: 40px; */
+  max-width: 350px;
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+}
+
+.img {
+  margin: 0px auto;
+  /* aspect-ratio: 4/3; */
+  object-fit: cover;
+  min-height: 160px;
+  height: 250px;
+  padding: 0px !important;
+  box-shadow: rgba(0, 0, 0, 0.28) 0px 3px 8px;
+  width: 80% !important;
+  border-radius: 0 0 0 70px;
+}
+
+.description {
+  height: 140px;
+  overflow: hidden;
+  text-align: justify;
+}
+
+.aboutArticle {
+  /* padding: 10px 20px; */
+}
+
+.aboutDisc {
+  display: none;
+    position: absolute;
+    top: 45%;
+    text-align: center !important;
+  font-size: 25px;
+  height: 45px;
+  font-weight: 500;
+  padding: 10px;
+  color: var(--white) !important;
+  margin: 0;
+  text-align: start;
+}
+
+.blogParagraph {
+  height: 50px;
+  text-align: start;
+  color: var(--primary-color) !important;
+  margin: 0;
+}
+
+.readMoreContainer {
+  display: flex;
+  justify-content: end;
+}
+
+.readMoreText {
+  color: var(--secondary-color);
+  padding: 5px 15px;
+}
+
+.cardBody:hover {
+  /* border: 3px solid var(--primary-color); */
+  transition: 500ms;
+}
+.cardBody:hover .aboutDisc {
+  /* color: var(--secondary-color) !important; */
+  transition: 500ms;
+  display: block !important;
+  padding: 0 45px;
+}
+.cardBody:hover .img {
+  filter: brightness(0.5);
+  transition: 500ms;
+}
+
+.blogTitle {
+  position: relative;
+  bottom: 250px;
+  font-weight: 900;
+  text-align: end;
+  height: 55px;
+  font-size: 2rem;
+}
+
+.blogTitle:hover {
+  /* padding: 20px 0 0px; */
+  border-bottom: 2px solid;
+  width: fit-content;
+}
+
+.blogTitleLink {
+  width: fit-content;
+  display: block;
+  /* margin: auto; */
+}
+
+.titleDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.littleTitle {
+  padding: 40px 0 0;
+  color: var(--secondary-color);
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.mainTitle {
+  margin: 0 0 1rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+.customNextArrow i {
+  position: absolute;
+  top: 150px;
+  font-size: 25px;
+  cursor: pointer;
+  right: -19px;
+}
+.customPrevArrow i {
+  position: absolute;
+  top: 150px;
+  font-size: 25px;
+  cursor: pointer;
+  left: -19px;
+}
+
+@media (max-width: 992px) {
+  .blogContainer {
+    max-width: 990px !important;
+  }
+
+  .cardBody {
+    height: 425px;
+  }
+}
+@media (max-width: 690px) {
+  .blogTitleLink {
+    margin: 0 5%;
+  }
+  .littleTitle {
+    font-size: 12px;
+  }
+  .mainTitle {
+    margin: 0 0 0.5rem;
+    font-size: 21px;
+  }
+  .cardsRowCenter {
+    padding-top: 10px !important;
+  }
+  .mainDiv {
+    height: 400px;
+  }
+  .cardBody {
+    max-width: 350px;
+  }
+  .blogTitle {
+    position: relative;
+    font-size: 25px;
+    bottom: 0px;
+    display: flex;
+    text-align: start;
+  }
+}
+@media (min-width: 690px) {
+  .mainDiv {
+    height: 400px;
+  }
+  .cardBody {
+    max-width: 350px;
+  }
+  .blogTitle {
+    position: relative;
+    /* font-size: 50px; */
+    bottom: 0px;
+    display: flex;
+    text-align: start;
+  }
+}
+@media (min-width: 320px) and (max-width: 358px) {
+  .cardBody {
+    max-width: 190px;
+  }
+}
+@media (min-width: 801px) and (max-width: 991px) {
+  .card {
+    margin: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainDiv {
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 301px;
+  }
+  .cardsRowCenter {
+    padding-top: 10px !important;
+    width: 90%;
+    margin: auto !important;
+  }
+
+  .cardBody {
+    height: 194px;
+    max-width: 225px;
+  }
+  .aboutDisc {
+    font-size: 14px;
+    padding: 10px;
+  }
+  .img {
+    aspect-ratio: 3/2;
+    height: 160px;
+  }
+
+  .blogTitle {
+    bottom: 10px;
+    padding: 0 0 4px;
+    border-bottom: 1px solid;
+    width: fit-content;
+    height: fit-content;
+  }
+  .blogParagraph{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 204px !important;
+  }
+
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  .mainTitle {
+    font-size: 28px;
+  }
+  .cardBody {
+    margin: 7px !important;
+    /* height: 289px !important; */
+    max-width: 523px;
+  }
+}
+
+@media (min-width: 990px) and (max-width: 1200px) {
+  .cardBody {
+    margin: 10px 10px auto;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+  .cardBody {
+    height: 350px;
+  }
+  .img {
+    height: 180px;
+  }
+  .aboutDisc {
+    font-size: 16px;
+  }
+}
+
+
+
+@media (min-width: 1024px) {
+  .cardsRowCenterMobile {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .cardsRowCenterDesktop {
+    display: none !important;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .customPrevArrow i {
+    position: absolute;
+    top: 120px;
+    left: 25px;
+    cursor: pointer;
+  }
+
+  .customNextArrow i {
+    position: absolute;
+    top: 120px;
+    font-size: 25px;
+    cursor: pointer;
+    right: 25px;
+  }
+}
+
+@media (max-width: 500px) {
+  .customPrevArrow i {
+    position: absolute;
+    top: 95px;
+    font-size: 25px;
+    cursor: pointer;
+    left: 15px;
+  }
+
+  .customNextArrow i {
+    position: absolute;
+    top: 95px;
+    font-size: 25px;
+    cursor: pointer;
+    right: 15px;
+  }
+}

@@ -1,0 +1,114 @@
+.categoryContainerDivAbout {
+  /* background-color: #C2DEF3; */
+  width: 100%;
+  object-fit: contain;
+  flex-direction: column;
+  padding-top: 30px;
+}
+.categoryImage{
+  margin-left: -25px;
+}
+.categoryImageAr{
+  margin-right: -20px;
+}
+.categoryImageFilter {
+  filter: brightness(0.5);
+}
+.categoryContainerDivAbout img {
+  object-fit: cover;
+  width: 100%;
+  height: 330px;
+}
+.categoryContainerDivAbout h1 {
+  color: var(--white);
+}
+.categoryContainer {
+  width: 100%;
+  object-fit: contain;
+  flex-direction: column;
+  margin-bottom: -6px;
+}
+.categoryContainer .categoryContainerDiv {
+  width: 100%;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.categoryContainer img {
+  object-fit: cover;
+  width: 100%;
+  height: 450px;
+  filter: brightness(30%);
+}
+.categoryContainer h1 {
+  color: var(--white);
+}
+.categoryContainer .categoryHeaderText {
+  color: var(--white);
+  position: absolute;
+  /* width: 10%; */
+  text-align: center;
+  color: var(--white);
+  font-size: 41px;
+  font-weight: 700;
+}
+.bannerText {
+  position: absolute;
+  /* left: 111px; */
+  bottom: 30px;
+}
+.cityDiv {
+  position: absolute;
+  right: 0;
+}
+.cityDiv p {
+  background-color: var(--primary-color);
+  font-size: 50px;
+  padding: 0 23px;
+  color: var(--primary-button-font-color);
+  border-top-left-radius: 80px;
+  border-bottom-left-radius: 80px;
+  height: 74px;
+  display: flex;
+  align-items: center;
+}
+
+
+@media screen and (min-width: 1024px) {
+  .categoryContainer img {
+    /* height: 375px; */
+    filter: brightness(30%);
+  }
+  .bannerText p {
+    color: var(--white);
+    font-size: 40px;
+    height: 75px;
+  }
+  .bannerText h1 {
+    font-size: 80px;
+  }
+}
+@media (max-width: 768px) {
+  .categoryContainerDivAboutMobile {
+    display: none !important;
+  }
+  .categoryContainer .categoryHeaderText {
+    font-size: 25px;
+  }
+}
+@media (max-width: 555px) {
+  .categoryContainer img {
+    height: 200px;
+  }
+}
+@media (max-width: 1023px) {
+  .bannerText {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  .cityDiv {
+    display: none;
+  }
+}

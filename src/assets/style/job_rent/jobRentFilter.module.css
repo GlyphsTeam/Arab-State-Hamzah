@@ -1,0 +1,53 @@
+.mainFilterDiv {
+  background-color: white;
+  padding: 15px 0px 0;
+  /* border-radius: 25px; */
+  width: 85%;
+  background: #fff;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+}
+
+.productDiv {
+  padding: 2px 20px;
+}
+
+.filterTitle {
+  padding: 0 20px;
+  font-size: 38px;
+}
+
+.productFilterTitle {
+  margin: 0;
+  padding: 10px 5px;
+  font-size: 20px;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.mainDoubleElementDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.searchableSelectDouble {
+  display: inline-block;
+  width: 45%;
+}
+
+.filterInputDouble {
+  width: 100%;
+  background: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 3px solid var(--secondary-color);
+}
+
+.searchableSelectDouble ::placeholder {
+  color: #8d8a8a;
+}
+
+@media (max-width: 992px) {
+  .mainFilterDiv {
+    margin: 23px auto;
+  }
+}

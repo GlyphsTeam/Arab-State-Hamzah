@@ -1,0 +1,16 @@
+a{
+    color: black !important;
+    text-decoration: none !important;
+}
+a:active{
+    color: black !important;
+}
+
+.deafultImge{
+    border-radius: 8px;
+}
+
+html {
+    scroll-behavior: auto !important;
+  }
+ 

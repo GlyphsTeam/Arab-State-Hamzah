@@ -1,0 +1,197 @@
+.jobContainer {
+  padding: 30px;
+  background-size: cover;
+  width: 100%;
+}
+.titleDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.littleTitle {
+  padding: 15px 0 0;
+  color: var(--secondary-color);
+  font-weight: 700;
+  font-size: 17px;
+}
+.mainTitle {
+  margin: 0 0 2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+.mainJobDiv {
+  padding-top: 15px;
+}
+.jobCard {
+  width: 92%;
+  margin: auto;
+}
+.cardsRowCenterDesktop {
+  display: flex;
+  justify-content: center;
+  padding-top: 61px;
+}
+
+.jobDivTitle {
+  background: var(--secondary-color);
+  border-radius: 15px;
+  position: absolute;
+  right: -17px;
+  top: -20px;
+}
+
+.colCenter {
+  display: flex;
+  justify-content: center;
+  max-width: 500px !important;
+  margin: 30px auto;
+  position: relative;
+}
+.cardTitle {
+  font-size: 35px;
+  font-weight: 700;
+  padding: 0 14px;
+  color: var(--secondary-color);
+  width: 99px;
+}
+
+.cardText {
+  font-size: 20px;
+  font-weight: 700;
+  background-color: var(--secondary-color);
+  color: var(--primary-button-font-color);
+  padding: 14px;
+}
+.cardParagraph {
+  margin: 15px 0;
+  height: 200px;
+  color: var(--primary-button-font-color);
+  overflow: hidden;
+  min-height: 123px;
+  /* width: 335px; */
+  width: 92%;
+  position: absolute;
+  bottom: 105px;
+  font-size: 25px;
+  text-align: inherit;
+  font-weight: 600;
+  padding: 9px;
+}
+.navLink {
+  text-decoration: none;
+  position: relative;
+  margin: 0px 41px 60px;
+}
+.jobSectionImg {
+  height: 405.186px;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(0.4);
+
+}
+
+.descriptionParagraphDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  width: 92%;
+  margin: auto;
+}
+
+@media (min-width: 800px) {
+  .cardsRowCenterMobile {
+    display: none;
+  }
+}
+
+
+@media (max-width: 800px) {
+  .cardsRowCenterDesktop{
+    display: none;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .jobCard{
+    max-width: 270px;
+  }
+  .descriptionParagraphDiv{
+    justify-content: space-around;
+    flex-direction: column;
+    max-width: 370px;
+
+  }
+  .cardTitle{
+    font-size: 25px;
+  }
+  .cardText{
+    font-size: 16px;
+
+  }
+  .cardParagraph{
+    font-size: 15px;
+    position: absolute;
+    bottom: 250px;
+    padding: 10px;                       /* Reduce padding for better spacing */
+    margin-bottom: 10px; 
+      height: auto;                        /* Allow the height to adjust based on content */
+      color: var(--primary-button-font-color);
+      overflow: hidden;                    /* Hide overflowing content */
+      min-height: 123px;                   /* Set a minimum height */
+      width: 92%;                          /* Take up 92% of the parent width */
+      position: relative;                  /* Change to relative positioning */
+      text-align: inherit;                 /* Inherit text alignment from parent */
+      font-weight: 600;
+      
+    
+    
+  }
+  .jobCard{
+    height: 405.186px;
+
+  }
+
+
+}
+
+@media (min-width: 480px) and (max-width: 992px) {
+  .jobCard{
+    height: 405.186px;
+      max-width: 306px;
+    
+
+  }
+
+  .cardParagraph{
+    width: 242px;
+    position: absolute;
+    bottom: 132px;
+  }
+  .descriptionParagraphDiv{
+    max-width: 306px;
+
+  }
+}
+
+
+@media (max-width: 768px) {
+  .customPrevArrow i {
+    position: absolute;
+    top: 207px;
+    left: 3px;
+    cursor: pointer;
+    font-size: 25px;
+
+  }
+
+  .customNextArrow i {
+    position: absolute;
+    top: 207px;
+    font-size: 25px;
+    cursor: pointer;
+    right: 3px;
+  }
+
+}

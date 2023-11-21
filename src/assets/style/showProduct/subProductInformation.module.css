@@ -1,0 +1,44 @@
+/* .subProductInformationContainer h1{
+    font-size: 28px;
+} */
+
+
+.subProductDiv{
+
+
+    border-radius: 12px;
+    margin-top: 24px;
+}
+.subProductDiv p{
+    color: var(--primary-color);
+}
+
+.subProductDiv p{
+    font-weight: bold;
+}
+
+.subProductDiv span{
+    font-weight: 400;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+
+
+
+
+@media (max-width: 480px) {
+    .subProductDiv {
+        padding: 11px;
+        width: 100% !important;
+
+    }
+    .subProductDiv span{
+        font-size: 16px;
+        padding: 5px !important;
+    }
+    .subProductDiv p {
+        font-size: 16px;
+    }
+}
+

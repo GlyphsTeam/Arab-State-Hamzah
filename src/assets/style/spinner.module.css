@@ -1,0 +1,15 @@
+.spinner{
+    background: white;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999999999;
+}

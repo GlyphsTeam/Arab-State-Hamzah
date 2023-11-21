@@ -1,0 +1,19 @@
+.form{
+    /* height: 3000px !important; */
+    height: inherit !important;
+}
+
+.expiredForm{
+    margin: 0 auto;
+    text-align: center;
+    padding: 50px 27%;
+}
+
+@media screen and (max-width:768px) {
+
+    .expiredForm{
+        padding: 50px 10%;
+        font-size: 17px;
+    }
+    
+}

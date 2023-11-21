@@ -1,0 +1,207 @@
+@import "../_App.module.scss";
+
+@mixin imgHover() {
+  filter: brightness(45%);
+  // cursor: pointer;
+}
+
+.navContainer {
+  margin: 0px;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-top: 50px;
+}
+
+.firstImage {
+  height: 420px;
+  object-fit: cover;
+}
+.sideImages {
+  padding: 0 0px 0px 10px !important;
+}
+.sideImagesArabic {
+  padding: 0 10px 0px 0px !important;
+}
+
+.sideImageTop {
+  height: 210px;
+  object-fit: cover;
+}
+.sideImageBottom {
+  // padding-top: 11px !important;
+  height: 210px;
+}
+.imageTxtContainer:hover .sideImageBottom {
+  @include imgHover;
+}
+
+.imageTxtContainer:hover .sideImageTop {
+  @include imgHover;
+}
+
+.imageTxtContainer:hover .sideImageTopPadding{
+  @include imgHover;
+
+}
+.imageTxtContainer:hover .firstImage {
+  @include imgHover;
+}
+
+.imageTxtContainer {
+  position: relative;
+  padding-bottom: 40px;
+}
+.txtDiv {
+  position: absolute;
+  top: -60px;
+  color: $white;
+  padding: 40px;
+  
+  h2 {
+    color: $white;
+    font-size: 30px;
+  }
+  p {
+    height: 91px;
+    overflow: hidden;
+    font-size: 16px;
+    // width: 92%;
+  }
+}
+.sideImageTopPadding{
+  padding-top: 10px;
+  height: 210px;
+  object-fit: cover;
+}
+
+.txtDivLeft {
+  position: absolute;
+  top: 151px;
+  left: 15px;
+  color: white;
+  padding: 30px;
+  color: $white;
+  padding: 40px 40px;
+  h2 {
+    color: $white;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  p {
+    // height: 91px;
+    // overflow: hidden;
+    font-size: 20px;
+    padding-top: 10px;
+    width: 92%;
+  }
+}
+
+.txtDivArabic {
+  position: absolute;
+  top: 150px;
+  right: 15px;
+  color: $white;
+  h2 {
+    color: $white;
+  }
+  p {
+    height: 91px;
+    overflow: hidden;
+    font-size: 20px;
+    width: 92%;
+  }
+}
+
+@media (max-width: 800px) {
+  .sideImageTop {
+    height: 165px;
+  }
+.sideImageTopPadding{
+  height: 165px;
+
+}
+  .sideImageBottom {
+    height: 165px;
+  }
+  .firstImage {
+    height: 330px;
+    object-fit: cover;
+  }
+  .largeSideImage {
+    width: 50% !important;
+  }
+  .sideImages {
+    width: 50% !important;
+  }
+  .txtDivLeft {
+    top: 120px;
+    position: absolute;
+  
+  h2 {
+    font-size: 30px;
+  }
+  p {
+    font-size: 18px;
+    padding-top: 3px;
+    height: 221px;
+    overflow: hidden;
+    width: 100%;
+  }
+}
+
+.txtDiv {
+  top: -70px;
+  position: absolute;
+
+
+h2 {
+  font-size: 30px;
+}
+p {
+  font-size: 18px;
+  padding-top: 3px;
+  height: 221px;
+  overflow: hidden;
+  width: 100%;
+}
+}
+}
+
+@media (max-width: 480px) {
+  .txtDivLeft {
+    top: 53px;
+    position: absolute;
+    h2 {
+      font-size: 24px;
+    }
+    p {
+      font-size: 12px;
+      padding-top: 3px;
+      height: 221px;
+      overflow: hidden;
+      width: 100%;
+    }
+  }
+
+  .txtDiv {
+    h2 {
+      font-size: 24px;
+    }
+    p{
+      font-size: 12px;
+      padding-top: 3px;
+      height: 95px;
+      overflow: hidden;
+      width: 100%;
+    }
+  }
+}
+@media (max-width:500px){
+  .titleH2{
+    font-size:12px !important;
+  }
+  .parH2{
+    font-size:8px !important;
+    text-overflow:ellipsis;
+  }
+}

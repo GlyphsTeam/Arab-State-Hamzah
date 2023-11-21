@@ -1,0 +1,595 @@
+.jobImageSize {
+  height: 350px;
+  border-radius: 50%;
+  width: 100% !important;
+  padding: 19px;
+  /* box-shadow: 0px 8px 13px rgba(0, 0, 0, 0.25); */
+}
+.jobImageDiv {
+  margin: 0px 51px;
+  border-radius: 180px 180px 0px 180px;
+  border: 3px solid var(--tertiary-color);
+  width: 24%;
+  height: 348px
+}
+.mainJobContainer {
+  /* background: #C2DEF3; */
+}
+.middleJobParagraph {
+  width: 85%;
+  text-align: justify;
+  color: var(--primary-color);
+  font-size: 18px;
+
+}
+.lastMainJob {
+  padding-top: 50px;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+  padding: 12px;
+  /* margin: 13px; */
+  height: 100%;
+  width: 298px;
+   text-align: center;
+}
+.lastJobParagraph {
+  color: var(--primary-color);
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.jobInfoImage img {
+
+  padding: 0px 4px 0px 0px;
+  margin: 0px 6px;
+  height: 23px;
+}
+.jobInfoImage {
+  display: flex;
+  
+  align-items: center;
+  justify-content: center;
+
+}
+.jobInfoImageAr img {
+  height: 23px;
+  padding: 0px 0px 0px 10px;
+}
+.jobInfoImageAr {
+  display: flex;
+}
+
+.contactStyle {
+  display: flex;
+  /* flex-direction: column; */
+  color: var(--primary-color);
+  padding-top: 24px;
+  width: fit-content;
+  margin: auto;
+  margin: 0 419px;
+}
+
+
+.contactTitle {
+  font-size: 24px;
+  font-weight: bold;
+}
+.imageContact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.showJobIcon {
+  margin: 0 5px;
+  cursor: pointer;
+  padding: 2px 5px;
+  font-size: 20px;
+  border-radius: 15px;
+  /* background: white; */
+  width: 47%;
+  /* box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px; */
+  height: 30px;
+  padding: 0px 5px;
+  margin: 0px 8px;
+  display: flex;
+  align-items: center;
+  color: var(--secondary-color);
+  font-size: 27px;
+}
+.iconJobMain {
+  padding: 0 8px 0 0;
+  color: var(--secondary-color);
+}
+.icon_row {
+  align-items: center;
+}
+.showJobTitle {
+  width: 69%;
+  font-size: 35px;
+  height: 100px;
+  overflow: hidden;
+}
+.descriptionTitle{
+  font-size: 28px;
+}
+.mainContainer {
+  align-items: flex-start;
+}
+.lastJobParagraphInfo {
+  width: 100%;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+.subMainJob {
+  padding-top: 25px;
+}
+/* .lastJobParagraphInfoCompany{
+  display: none;
+} */
+
+@media (min-width: 1000px) {
+  .backJobMain{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .backJob {
+    background: var(--secondary-color);
+    border-radius: 12px;
+    color: var(--primary-button-font-color);
+    padding: 10px 54px;
+    margin-bottom: 12px;
+    border: none;
+    font-weight: bold;
+    margin: 10px 61px;
+   
+  }
+  .imageContactMobile{
+    display: none;
+  }
+  .backJob:hover{
+    background: var(--primary-color);
+
+  }
+  .subMainJob {
+    display: flex;
+    width: 90%;
+    padding-top: 25px;
+  }
+  .firstSectionHide {
+    display: none;
+  }
+  .lastJobParagraphInfoCompany {
+    display: none;
+  }
+  .iconJobMain {
+    padding: 0 8px 0 9px;
+  }
+  .backArrowMobile{
+    display: none;
+  }
+}
+@media (max-width: 1000px) {
+  .backArrowMobile {
+    background-color: var(--tertiary-color);
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.05) !important;
+    /* border-radius: 50% !important; */
+    position: absolute;
+    top: 16px;
+    left: 10.5px;
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 54% !important;
+  }
+  .backArrowIconDivMobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 9px;
+  }
+  .backArrowIconDivMobile i {
+    font-weight: bold;
+    color: var(--primary-button-font-color);
+    font-size: 27px;
+  }
+  .backJob {
+    display: none;
+  }
+  .jobInfoImage {
+    display: none;
+  }
+  .jobImageSize {
+    /* height: 267px; */
+    width: 100%;
+    object-fit: cover !important;
+    border-radius: 139px !important;
+  }
+  .subMainJob {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    position: relative !important;
+  }
+  .jobImageDiv {
+    margin: 0px;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+  }
+  .jobTxtContainer {
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+  }
+  .middleJobParagraph {
+    text-align: justify;
+    padding-top: 23px;
+  }
+  .lastMainJob {
+    width: 100%;
+    display: flex;
+    padding-top: 39px;
+    flex-wrap: wrap;
+  }
+  .lastMainJobDiv {
+    margin: 0px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 27%;
+  }
+  .mainContainer {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .showJobTitle {
+    width: 100%;
+    font-size: 25px;
+  }
+  .contactStyle {
+    display: none;
+  }
+}
+@media (max-width: 472px) {
+  .lastMainJobDiv {
+    width: 42% !important;
+  }
+}
+@media (max-width: 390px) {
+  .lastMainJobDiv {
+    width: 89% !important;
+  }
+  .lastJobParagraphInfo {
+    width: 24%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1000px) {
+  .jobImageDiv{
+    width: 38%;
+  }
+  .jobImageSize {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+  .contactStyle {
+    width: 76%;
+    margin: auto;
+    padding-top: 60px;
+  }
+  /* .jobImageSize{
+    height: 300px;
+  } */
+  .lastMainJobDiv {
+    margin: 0px 89px;
+  }
+  .lastMainJobDivDesktop {
+    display: none !important;
+  }
+  .lastJobParagraphMobile {
+    display: none !important;
+  }
+  .lastMainJobDivDescription {
+    margin: 0px 66px;
+  }
+}
+@media (min-width: 1001px) and (max-width: 1024px) {
+  .lastMainJob {
+    width: 80% !important;
+  }
+}
+@media (max-width: 1000px) {
+  
+.imageContact{
+  display: none !important;
+}
+  .middleJobParagraph {
+    width: 87% !important;
+  }
+  .contactStyle {
+    padding-top: 59px;
+  }
+  .mobileFirstSection {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 34px;
+  }
+  .lastMainJobDiv {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    width: 100% !important;
+    /* justify-content: space-evenly; */
+    /* margin: 0px  !important; */
+    /* padding-top: 34px; */
+  }
+  .lastJobParagraphInfo {
+    padding: 11px;
+    font-size: 15px;
+    width: 54%;
+  }
+  .lastJobParagraph {
+    font-size: 17px;
+  }
+  .icon_row {
+    display: flex;
+    align-items: flex-start;
+  }
+  .showJobTitle {
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .lastMainJobDivDescription {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0px 15px;
+    padding-top: 32px;
+  }
+  .middleJobParagraphDiv {
+    display: none;
+  }
+  .descriptionTitleMobile {
+    font-size: 17px;
+    font-weight: bold;
+    color: var(--secondary-color);
+  }
+  .middleJobParagraph {
+    width: 100% !important;
+  }
+  .lastJobParagraphInfoCompany {
+    text-align: center !important;
+    color: var(--highlight-color);
+  }
+  .lastMainJobDivMobile {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    justify-content: end;
+    color: var(--highlight-color);
+  }
+  .lastMainJob {
+    flex-wrap: nowrap;
+    padding-top: 10px;
+  }
+  .contactParagraph {
+    color: var(--highlight-color);
+  }
+  /* .lastMainJobDiv{
+      display: flex;
+      justify-content: end;
+    } */
+}
+@media (max-width: 480px) {
+  .mainContainer {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .showJobTitle {
+    width: 100%;
+    font-size: 22px;
+  }
+  .jobTxtContainer {
+    padding-top: 31px;
+    width: 100%;
+  }
+  .jobImageSize {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+  .middleJobParagraph {
+    padding-top: 20px;
+    height: 215px;
+    overflow: hidden;
+    width: 82%;
+  }
+  /* .jobImageSize{
+    width: 79%;
+  } */
+  .lastJobParagraphInfo {
+    width: fit-content !important;
+  }
+  /* .contactParagraph{
+    display: flex;
+    align-items: center;
+  } */
+  .contactStyle {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    width: 49%;
+    margin: auto;
+  }
+  .contactParagraph {
+    display: flex;
+    align-items: center;
+  }
+  .iconJobMain {
+    padding: 0 8px 0 0;
+  }
+  .icon_row {
+    position: absolute;
+    right: 0px;
+    /* left: 0px; */
+  }
+  .middleJobParagraph {
+    height: 145px;
+    overflow: hidden;
+    width: 100% !important;
+    text-align: justify;
+  }
+  .lastMainJobDiv {
+    width: fit-content !important;
+  }
+  .lastMainJobDivDescription {
+    width: fit-content !important;
+  }
+  .lastMainJob {
+    display: flex;
+    justify-content: space-between;
+  }
+  .icon_row_ar {
+    position: absolute;
+    left: 0px;
+  }
+  /* .lastMainJob{
+    display: none;
+  } */
+}
+@media (max-width: 448px) {
+  /* .middleJobParagraph{
+    width: 69%;
+  } */
+  .showJobTitle {
+    font-size: 17px;
+  }
+}
+@media (min-width: 480px) and (max-width: 767px) {
+  .lastMainJobDiv {
+    margin: 0px 67px;
+  }
+  .icon_row {
+    margin: 0px 12% 0px 0px;
+  }
+  .lastMainJobDivDescription {
+    margin: 0px 67px;
+  }
+  .icon_row_ar {
+    margin: 0px 0% 0px 12%;
+  }
+}
+@media (max-width: 320px) {
+  .showJobTitle {
+    font-size: 16px;
+  }
+}
+@media (max-width: 656px) {
+  .middleJobParagraph {
+    height: 145px;
+    overflow: hidden;
+  }
+}
+@media (max-width: 768px) {
+  .jobImageDiv{
+    width: 211px;
+    height: 217px;
+    padding-top: 16px;
+  }
+  .contactStyle {
+    width: 78% !important;
+    margin: auto;
+  }
+  .lastMainJobDivDesktop {
+    display: none !important;
+  }
+  .lastJobParagraphMobile {
+    display: none !important;
+  }
+  .mainContainer {
+    width: 100% !important;
+  }
+  .jobImageSize {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+  .iconJobMain {
+    padding: 0 8px 0 9px;
+  }
+
+  .jobInfoImageAr {
+    display: none;
+  }
+  /* .icon_row{
+      position: absolute;
+     right: 0px;
+    } */
+}
+@media (min-width: 768px) and (max-width: 1000px) {
+  .lastMainJobDivDesktop {
+    display: none !important;
+  }
+  .lastJobParagraphMobile {
+    display: none !important;
+  }
+  .lastMainJobDivDescription {
+    margin: 0px 89px;
+  }
+  .icon_row {
+    margin: 0px 15% 0px 0px;
+  }
+  .icon_row_ar {
+    margin: 0px 0px 0px 15%;
+  }
+}
+@media (min-width: 320px) and (max-width: 370px) {
+  .mainContainer {
+    width: 100% !important;
+  }
+  /* .jobImageSize{
+    width: 79%;
+  } */
+  /* .icon_row{
+  position: relative;
+  right: 16px;  } */
+}
+@media (min-width: 350px) and (max-width: 380px) {
+  /* .icon_row{
+    position: relative;
+    right: 14px;
+  } */
+}
+/* @media (min-width: 320px) and (max-width: 379px){
+  .icon_row{
+  right: 11px;
+  }
+} */
+@media (min-width: 320px) and (max-width: 380px) {
+  /* .icon_row_ar{ 
+    position: relative !important;
+    left: 11px !important;
+} */
+}
+@media (min-width: 1024px) {
+  .subMainJob {
+    display: flex;
+    /* width: 90%; */
+    padding-top: 81px;
+    width: 100%;
+    /* justify-content: center; */
+  }
+  .jobTxtContainer {
+    width: 42%;
+    padding-top: 50px;
+  }
+  .contactStyle a {
+    color: var(--primary-color) !important;
+  }
+}

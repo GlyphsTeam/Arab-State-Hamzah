@@ -1,0 +1,66 @@
+.uploadImageDiv {
+  margin: 0px 0px 20px;
+  padding: 20px;
+  height: auto;
+  text-align: center;
+  position: relative;
+  min-height: 121px;
+  max-height: 450px;
+  border-radius: 12px;
+  border: 1px solid var(--secondary-color);
+  background: #b9b8c2;
+  box-shadow: 0px 16px 32px 0px rgba(47, 26, 14, 0.28);
+}
+.postHousingUploadImage img {
+  height: 32px;
+  cursor: pointer;
+}
+
+.postHousingUploadImage p {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 14.7px;
+  line-height: 18px;
+  padding-top: 10px !important;
+  color: #ffff;
+  cursor: pointer;
+  font-weight: bold;
+}
+.imageContainerDiv {
+  /* position: absolute; */
+  top: 2px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.imageContainerDiv img {
+  height: 75px;
+  margin: 10px;
+  max-width: 162px;
+  object-fit: cover;
+  position: relative;
+  object-fit: fill;
+  height: 70px;
+  width: 70px;
+}
+.imageContainerDiv button{
+    border: none;
+}
+.removeButton {
+  bottom: 28px;
+  position: relative;
+  right: 25px;
+  background: #fff !important;
+  border-radius: 50% !important;
+  height: 15px !important;
+  padding: 1px;
+  width: 15px;
+}
+
+.removeButton i {
+
+  font-size: 10px;
+  position: absolute;
+  top: 1px;
+  right: 2px;
+  
+}

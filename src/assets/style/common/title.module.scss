@@ -1,0 +1,23 @@
+@import "../_App.module.scss";
+
+.title {
+  color: var(--secondary-color);
+  font-weight: bold;
+  font-size: 30px;
+}
+
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 30px;
+        color: $secondary-color;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1299px){
+    .title {
+        font-size: 30px;
+        color: $secondary-color;
+
+    }
+}

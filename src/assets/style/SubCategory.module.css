@@ -1,0 +1,649 @@
+.subCategoryMainDiv {
+  /* background-color: #C2DEF3; */
+}
+
+.mapSection div div:nth-of-type(1) {
+  z-index: 2;
+}
+
+.deleteIcon{
+  color: #c81c50;
+  cursor: pointer;
+  position: relative;
+  bottom: 28px;
+  transform: translate(-50%, -50%);
+  left: 95%;
+
+}
+.showMapButton {
+  background: var(--tertiary-color);
+  width: fit-content;
+  padding: 5px 20px;
+  /* border-radius: 15px; */
+  color: var(--primary-color);
+  font-size: 18px;
+}
+.hideMapButton {
+  background: var(--primary-color);
+  width: fit-content;
+  padding: 5px 20px;
+  /* border-radius: 15px; */
+
+  color: var(--primary-color);
+  font-size: 18px;
+}
+
+.filterDiv h3 {
+  margin: 0 10px;
+  cursor: pointer;
+  padding: 15px 20px;
+  /* border-radius: 20px; */
+  color: var(--primary-color);
+}
+
+.cardDiv {
+  padding: 20px 15px;
+  min-width: 230px;
+}
+
+.subCategoryCardLink {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 15px;
+  background: var(--box-color);
+  text-align: center;
+  /* border-radius: 50px; */
+  height: 300px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.categoryImage {
+  padding: 10px 5px;
+  /* border-radius: 50px; */
+  height: 75%;
+  object-fit: cover;
+}
+
+.cardTitle {
+  height: 58px;
+  margin: 0;
+  padding: 10px 0;
+  color: var(--primary-color);
+  font-weight: 700;
+  overflow: hidden;
+}
+
+.searchResultTitleScroll {
+  scroll-margin-top: 160px;
+}
+
+.searchAnchor {
+  margin: 0 9% 25px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.anchorElement {
+  color: var(--primary-color) !important;
+  padding: 0 15px;
+  font-weight: 400;
+}
+
+/* .anchorElement:hover {
+  color: #c81c50 !important;
+} */
+
+/* .activeAnchor{
+  color: #C81C50 !important;
+} */
+
+.rentTypeTitle {
+  width: fit-content;
+  position: absolute;
+  margin: 13px;
+  background: RGB(45, 116, 180, 0.7);
+  padding: 5px 10px;
+  /* border-radius: 8px; */
+  color: white;
+}
+
+.jobUserName {
+  font-size: 18px;
+  color: #ce1b50;
+}
+
+.userJob {
+  color: var(--black);
+  font-weight: 500;
+}
+
+.filterDiv {
+  justify-content: center;
+  padding: 0px 0 20px;
+}
+
+.activeFilterBackground {
+  /* background: rgb(255, 255, 255 , 0.5); */
+  background: var(--tertiary-color);
+  color: var(--primary-button-font-color) !important;
+}
+.categoryContainer {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  /* background-image: url("../Images/subCategory/headSubCategoryBackground.png"); */
+  /* background-color: #C2DEF3; */
+  width: 100%;
+  object-fit: contain;
+  flex-direction: column;
+}
+.categoryContainer .categoryContainerDiv {
+  align-items: center;
+  display: flex !important;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+.categoryContainerDivAbout {
+  background-color: #c2def3;
+  width: 100%;
+  object-fit: contain;
+  flex-direction: column;
+}
+.categoryContainerDivAbout img {
+  object-fit: cover;
+  width: 100%;
+  height: 330px;
+}
+.categoryContainerDivAbout h1 {
+  color: var(--white);
+}
+.categoryContainer img {
+  object-fit: cover;
+  width: 100%;
+  height: 330px;
+}
+.categoryContainer h1 {
+  color: var(--white);
+}
+.categoryHeaderTextJobRent {
+  color: var(--white);
+  position: absolute;
+  left: 100px;
+  bottom: 40px;
+}
+
+.categoryHeaderTextJobRent p {
+  font-size: 41px;
+  font-weight: bold;
+}
+.categoryContainer .categoryHeaderText {
+  color: var(--white);
+  position: absolute;
+  width: 10%;
+  text-align: center;
+}
+iframe {
+  overflow: hidden;
+  background: none;
+  height: 550px;
+  width: 95%;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.mapSection {
+  padding-top: 22px;
+  padding-bottom: 20px;
+  height: fit-content;
+}
+/* .mapSection div:nth-of-type(1){
+  max-width: 430px !important;
+} */
+.categoryTitle {
+  padding: 0px 32px;
+  text-transform: capitalize;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between;
+  padding: 0 5% !important; */
+}
+
+.card {
+  margin: 10px;
+  text-align: center;
+  /* border-radius: 17px; */
+  width: 28%;
+  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+}
+.card img {
+  object-fit: fill;
+  width: 100%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.card p {
+  background-color: rgb(203, 226, 244);
+  padding: 15px;
+  /* border-radius: bottom 47px; */
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  height: 75px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.cardService {
+  margin: 10px;
+  text-align: center;
+  /* border-radius: 17px; */
+  width: 18%;
+}
+.storeCard {
+  margin: 20px auto 0 !important;
+  text-align: center;
+  /* border-radius: 17px; */
+  /* width: 18%; */
+}
+.storeCard img {
+  object-fit: cover;
+  width: 100%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.storeCard p {
+  overflow: hidden;
+  background-color: rgb(203, 226, 244);
+  padding: 15px;
+  /* border-radius: bottom 47px; */
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  height: 75px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.cardServiceContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.cardService img {
+  object-fit: cover;
+  width: 100%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.cardService p {
+  overflow: hidden;
+  background-color: rgb(203, 226, 244);
+  padding: 15px;
+  /* border-radius: bottom 47px; */
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  height: 75px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.categoryBody {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+.searchField {
+  padding: 0px 12px;
+  top: 77px;
+  width: 100% !important;
+  justify-content: center;
+  display: flex;
+}
+.searchField .searchInputEn {
+  background-color: #f0f0f0;
+  border: none;
+  /* border-radius: 10px; */
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 13px 10px;
+  width: 90%;
+  outline: none;
+}
+.searchField .searchInputAr {
+  background-color: #f0f0f0;
+  border: none;
+  /* border-radius: 10px; */
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 90%;
+  padding: 13px 10px;
+}
+.dealsContainer {
+  display: flex;
+  justify-content: center;
+}
+.dealsCard {
+  margin: 10px;
+  text-align: center;
+  /* border-radius: 27px; */
+  width: 20%;
+  background-color: rgb(171, 205, 232);
+}
+.dealsCard img {
+  object-fit: cover;
+  width: 100%;
+  /* border-radius: 25px; */
+  filter: brightness(70%);
+}
+.dealsCard p {
+  padding: 20px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  height: 70px;
+}
+.firstContainer {
+  padding-top: 73px;
+  /* background-image: url("../Images/subCategory/dealsSubCategoryBackground.png"); */
+}
+.dealsTitle {
+  width: 62%;
+  margin: auto;
+}
+.searchIcon {
+  /* -webkit-transform: scaleX(-1);
+  color: grey;
+  position: relative;
+  left: 37px;
+  right: 37px;
+  z-index: 1;
+  cursor: pointer; */
+  -webkit-transform: scaleX(-1);
+  color: white;
+  position: relative;
+  /* left: 37px;
+    right: 37px; */
+  z-index: 1;
+  cursor: pointer;
+  background: #153866;
+  padding: 16px 15px;
+  /* border-radius: 10px; */
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.searchIconAr {
+  -webkit-transform: scaleX(1);
+  color: white;
+  position: relative;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  /* left: 37px;
+  right: 37px; */
+  z-index: 1;
+  cursor: pointer;
+  background: #153866;
+  padding: 16px 15px;
+}
+.searchResultDiv {
+  margin: 10px;
+  text-align: center;
+  border-radius: 17px;
+  /* width: 19%; */
+}
+.searchResultDiv img {
+  object-fit: cover;
+  width: 100%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+.searchResult {
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; */
+  width: 83%;
+  margin: 0 auto;
+}
+.searchResult .storeParagraph {
+  background-color: rgb(203, 226, 244);
+  padding: 15px;
+  border-radius: bottom 47px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  height: 75px;
+  overflow: hidden;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.searchResultTitle {
+  display: none;
+}
+h1 {
+  color: var(--primary-color);
+}
+.cardLink {
+  text-decoration: none;
+  /* color: black; */
+  font-weight: 500;
+  font-size: 18px;
+}
+.cardLink:hover {
+  color: #153866;
+}
+.searchResultDiv {
+  margin: 10px;
+  text-align: center;
+  border-radius: 17px;
+  width: 19%;
+}
+.searchResultDiv img {
+  object-fit: cover;
+  width: 100%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+.searchResult {
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; */
+}
+.searchResult .storeParagraph {
+  background-color: rgb(203, 226, 244);
+  padding: 15px;
+  border-radius: bottom 47px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  height: 75px;
+  overflow: hidden;
+}
+.searchResultTitle {
+  display: none;
+}
+.listingSearch {
+  width: 50%;
+  margin: 15px auto 0;
+}
+@media screen and (max-width: 1200px) {
+  .cardService {
+    width: 17%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .categoryContainer img {
+    height: 411px;
+  }
+  .cardServiceContainer {
+    display: flex;
+    justify-content: flex-start;
+    margin: auto;
+    width: 96%;
+  }
+  /* .cardService {
+    width: 17%;
+  } */
+  .searchResultDiv {
+    width: 17%;
+  }
+}
+@media (max-width: 991px) {
+  .cardContainer {
+    display: flex !important;
+    justify-content: space-between !important;
+  }
+  /* .mapSection {
+    order: 1;
+  } */
+  iframe {
+    height: 400px;
+    width: 90%;
+  }
+  .cardService {
+    width: 25%;
+  }
+  .searchResultDiv {
+    width: 21%;
+  }
+}
+@media (max-width: 768px) {
+  .cardDiv {
+    min-width: 120px;
+    max-width: 150px !important;
+    margin: auto;
+    padding: 20px 5px;
+    width: 50%;
+  }
+
+  .subCategoryCardLink {
+    padding: 5px;
+    height: 160px;
+    /* border-radius: 30px; */
+  }
+  .categoryImage {
+    padding: 5px;
+    border-radius: 25px;
+    height: 60%;
+  }
+  .cardTitle {
+    height: 52px !important;
+    padding: 5px 0;
+    overflow: hidden;
+  }
+  .card {
+    width: 41%;
+  }
+  .cardContainer {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .dealsCard {
+    width: 27%;
+  }
+  .dealsTitle {
+    width: 85%;
+  }
+  .searchField input {
+    width: 90%;
+  }
+  .listingSearch {
+    width: 80%;
+  }
+  .cardService {
+    width: 46%;
+  }
+  .searchResultDiv {
+    width: 21%;
+  }
+  .categoryContainerDivAboutMobile {
+    display: none !important;
+  }
+}
+@media (min-width: 555px) and (max-width: 768px) {
+  .searchResultDiv {
+    width: 29% !important;
+  }
+}
+@media (max-width: 555px) {
+  .filterDiv {
+    display: flex;
+    justify-content: center;
+  }
+  .categoryTitle {
+    padding: 0px 17px;
+    text-transform: capitalize;
+  }
+  .categoryContainer img {
+    height: 200px;
+  }
+  .card {
+    width: 67%;
+  }
+  .cardContainer {
+    display: flex !important;
+    justify-content: start !important;
+  }
+  .searchField input {
+    width: 90%;
+    padding: 13px 10px;
+    font-size: 13px;
+  }
+  .listingSearch {
+    width: 80%;
+  }
+  .dealsCard {
+    width: 60%;
+  }
+  .dealsContainer {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+  }
+  .storeCard {
+    width: 50% !important;
+  }
+  .storeCard img {
+    height: 150px;
+  }
+
+  .cardService {
+    width: 43%;
+  }
+  .cardService img {
+    height: 150px;
+  }
+  .searchResultDiv {
+    width: 44% !important;
+  }
+  .searchResult .storeParagraph {
+    height: 96px;
+    overflow: hidden;
+  }
+  .cardService p {
+    overflow: hidden;
+    height: 100px;
+  }
+}
+@media (max-width: 350px) {
+  .searchResultDiv {
+    width: 70%;
+  }
+}
+@media (min-width: 350px) and (max-width: 400px) {
+  .searchResultDiv {
+    width: 89% !important;
+  }
+}
+@media (max-width: 480px) {
+  .card {
+    width: 43%;
+  }
+  .card img {
+    height: 128px;
+  }
+}
+
+@media (max-width: 360px) {
+  .filterDiv h3 {
+    font-size: 15px;
+  }
+  .card p {
+    height: 89px;
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,576 @@
+@import "../_App.module.scss";
+
+
+.tryAppMainContainer {
+  width: 100%;
+  margin: auto;
+  // border-radius: 25px;
+  // background-image: url("../../Images//home/tryAppBackground.png");
+  //  filter: brightness(70%);
+  // background-repeat: no-repeat;
+  padding-top: 2px;
+
+  .tryAppContainer,  
+  .tryAppContainerAr {
+    width: 100%;
+    margin: auto;
+    padding-bottom: 105px;
+    margin-bottom: 25px;
+    background-position: bottom;
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 0px;
+    
+
+    
+
+    .tryAppSubDiv,
+    .tryAppSubDivAr {
+      margin: auto;
+
+      color: white;
+      .tryAppInfo {
+        padding: 8% 14%;
+        padding: 4% 9%;
+        padding: 16px 20px;
+        // display: flex;
+        justify-content: space-between;
+        padding-top: 30px;
+      }
+      .tryAppInfoTitle {
+        margin: 0px 100px;
+        padding-right: 90px;
+        padding-top: 30px;
+
+      }
+
+      h3 {
+        font-size: 50px;
+        margin: 0px;
+      }
+     
+    }
+    .tryAppParagraph {
+      font-size: 24px;
+      margin-right: 171px;
+      margin-left: 100px;
+      height: 84px;
+      overflow: hidden;
+    }
+    .tryAppBtnDiv {
+      display: flex;
+      align-items: center;
+      padding-top: 53px;
+    
+      a{
+        margin: 0px 8px 0px 8px;
+
+      }
+  
+        .googlePlayContainer {
+          margin: 10px 0;
+          background: $box-color;
+          padding: 11px;
+          display: flex;
+          align-items: center;
+          color: $tertiary-color;
+          border-radius: 14px;
+          cursor: pointer;
+          i{
+            font-size: 39px;
+          }
+        }
+
+        .googlePlayContainer:hover {
+          color: $primary-color;
+        }
+
+
+        .googlePlayDiv{
+        padding: 0px 10px;
+        p:first-child{
+          font-size: 13px;
+        }
+        p{
+          margin-bottom: 0px !important;
+        }
+      }
+
+      .googlePlayBtnAr {
+        // background-color: #01828F;
+        border-radius: 6px;
+        border: none;
+        margin: 0px 0px 0px 27px;
+        img {
+          height: 60px;
+
+          // width: 100%;
+          object-fit: cover;
+        }
+      }
+      .playStoreContainer {
+        // background-color:  #01828F;
+        background: $box-color;
+        padding: 11px;
+        display: flex;
+        align-items: center;
+        color: $tertiary-color;
+        border-radius: 14px;
+        i{
+          font-size: 39px;
+        }
+      
+      }
+
+      .playStoreContainer:hover {
+        color: $primary-color;
+      }
+
+      .playStoreDiv{
+        padding: 0px 10px;
+        p:first-child{
+          font-size: 13px;
+        }
+        p{
+          margin-bottom: 0px !important;
+        }
+      }
+
+
+    }
+  }
+  .subscribeDiv {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+    // width: 40%;
+    .subscribeInput {
+      padding: 8px;
+      border-radius: 7px;
+      border: none;
+      background-color: $box-color;
+    }
+    .subscribeBtnDiv {
+      padding-top: 5px;
+
+      .subscribeButton {
+        background-color: #01828f;
+
+        padding: 8px;
+        border-radius: 7px;
+        border: none;
+        width: 100%;
+        color: white;
+      }
+      .subscribed {
+        background-color: #09353f;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        color: white;
+        i {
+          font-size: 18px;
+        }
+        p {
+          margin: 0;
+          padding: 0px 10px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .subscribeDivAr {
+    // width: 40%;
+    .subscribeInput {
+      padding: 8px;
+      border-radius: 7px;
+      border: none;
+      background-color: $box-color;
+    }
+    .subscribeBtnDiv {
+      padding-top: 5px;
+
+      .subscribeButton {
+        background-color: #01828f;
+
+        padding: 8px;
+        border-radius: 7px;
+        border: none;
+        width: 100%;
+        color: white;
+      }
+      .subscribed {
+        background-color: #09353f;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        color: white;
+        i {
+          font-size: 18px;
+        }
+        p {
+          margin: 0;
+          padding: 0px 10px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+.emailValidation {
+  color: red;
+}
+.subscribeParagraphAr {
+  text-align: right;
+}
+
+@media (max-width: 767px) {
+  .tryAppParagraph{
+    padding: 10px;
+    margin-right: 0px !important;
+    height: 197px !important;
+    overflow: hidden ;
+ 
+  }
+  .tryAppMainContainer {
+    width: 100%;
+    margin: auto;
+    border-radius: 0;
+    margin-top: 44px;
+  }
+
+  .tryAppMainContainer {
+    .tryAppContainer,
+    .tryAppContainerAr {
+      .tryAppSubDiv,
+      .tryAppSubDivAr {
+        .tryAppInfo {
+          flex-direction: column !important;
+          .subscribeDiv {
+            padding-top: 45px;
+          }
+        }
+      }
+    }
+  }
+  .tryAppSubDiv {
+    // background-image: url("../../images/HomePageImages/tryAppMobile.png") !important;
+    // aspect-ratio: 5/6;
+    background-size: cover;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    // .tryAppInfo {
+    //   padding: 9px 31px !important;
+    // }
+    .tryAppBtnDiv {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      img {
+        object-fit: contain;
+      }
+      // .tryAppInfoAr {
+      //   padding: 4% 14%;
+      //   p{
+      //     font-size: 14px;
+      //   }
+      // }
+    }
+  }
+
+  .tryAppSubDivAr {
+    // background-image: url("../../images/HomePageImages/tryAppMobileAr.png") !important;
+    background-size: cover;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    .tryAppInfo {
+      // padding: 4% 14%;
+      padding: 23px 15px;
+      p {
+        font-size: 14px;
+      }
+    }
+    .tryAppBtnDiv {
+      justify-content: center;
+      display: flex;
+      
+
+      img {
+        object-fit: contain;
+      }
+    }
+  }
+
+  .subscribeDiv {
+    width: 100%;
+    text-align: left;
+    padding-top: 45px;
+    p {
+      font-size: 14px !important;
+    }
+  }
+
+  .subscribeDivAr {
+    width: 50%;
+    text-align: right;
+    padding-top: 45px;
+    // position: absolute;
+    // left: 35px;
+
+    p {
+      font-size: 16px !important;
+    }
+  }
+}
+
+.BtnDiv{
+  display: flex;
+  align-items: center;
+}
+@media (min-width: 880px) {
+  .tryAppContainer {
+    // background-image: url("../../images/HomePageImages/tryAppImage.png");
+    height: 373px;
+    background-size: cover;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+  .tryAppContainerAr {
+    // background-image: url("../../images/HomePageImages/tryAppArabic.png");
+    // aspect-ratio: 6/2;
+    background-size: cover;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+  .subscribeDiv {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
+  .subscribeDivAr {
+    display: flex;
+    flex-direction: column;
+    width: 80% !important;
+    padding-top: 45px;
+  }
+  .tryAppInfoAr {
+    position: absolute;
+    left: 68px;
+    padding-top: 63px;
+    padding: 4% 9%;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 880px) {
+  .tryAppContainer {
+    background-position: bottom;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 880px) {
+  .tryAppSubDiv {
+    // background-image: url("../../images/HomePageImages/tryAppTablet.png") !important;
+    // aspect-ratio: 6/2;
+    background-size: cover;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+  }
+  .tryAppSubDivAr {
+    // background-image: url("../../images/HomePageImages/tryAppTabletAr.png") !important;
+    // aspect-ratio: 6/2;
+    background-size: cover;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+
+    background-position-x: inherit;
+  }
+
+  .tryAppParagraph{
+    height: 178px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 880px) {
+  .tryAppInfo {
+    padding: 9px 31px;
+  }
+  .tryAppInfoAr {
+    padding: 9px 31px;
+  }
+  .subscribeDiv {
+    width: 56%;
+  }
+  .subscribeDivAr {
+    width: 56%;
+  }
+}
+
+@media (max-width: 365px) {
+  .tryAppBtnDiv {
+    .googlePlayBtn {
+      margin: 0px 13px 0px 0px !important;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .tryAppSubDiv {
+    .tryAppBtnDiv {
+      display: flex;
+      flex-direction: column !important;
+    }
+  }
+  .tryAppInfo {
+    padding: 33px 1px !important;
+    .tryAppInfoTitle {
+      margin: 0px 19px !important;
+      h3 {
+        text-align: center;
+
+        font-size: 30px !important;
+      }
+    }
+  }
+  .googlePlayContainer{
+    height: 46px;
+    width: 141px;
+
+    i{
+      font-size: 26px !important;
+    }
+  
+  }
+  .googlePlayDiv {
+    width: max-content;
+    p{
+      font-size: 10px !important;
+      font-weight: 400;
+    }
+  
+  }
+
+  .playStoreContainer{
+    height: 46px;
+    width: 141px;
+
+    i{
+      font-size: 26px !important;
+    }
+  
+  }
+  .playStoreDiv {
+    width: max-content;
+    p{
+      font-size: 10px !important;
+      font-weight: 400;
+    }
+  
+  }
+}
+
+@media (max-width: 330px) {
+  .tryAppMainContainer {
+    .tryAppContainer ,.tryAppContainerAr {
+      .tryAppBtnDiv  {
+        .googlePlayBtn , .googlePlayBtnAr {
+          img {
+            height: 38px !important;
+          }
+        }
+        .appleContainer , .appleContainerAr {
+          img {
+            height: 38px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 330px) and (max-width: 480px) {
+  .tryAppMainContainer {
+    .tryAppContainer , .tryAppContainerAr {
+      .tryAppBtnDiv {
+        .googlePlayBtn  , .googlePlayBtnAr {
+          img {
+            height: 40px !important;
+          }
+        }
+        .appleContainer , .appleContainerAr{
+          img {
+            height: 40px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) and (max-width: 990px) {
+  .tryAppSubDiv,
+  .tryAppSubDivAr {
+    max-height: 305px;
+    width: 100%;
+    .tryAppInfo {
+      // display: flex;
+      // flex-direction: row !important;
+      // padding: 51px 83px !important;
+    }
+  }
+  .subscribeDiv {
+    width: 40%;
+    margin: 0px 26px;
+  }
+}
+@media (max-width:500px){
+  .tryAppBtnDiv{
+    flex-direction: column;
+  }
+}
+@media (min-width: 767px) and (max-width: 1103px) {
+  .tryAppInfoTitle {
+    margin: 0px 7px !important;
+  }
+
+  .tryAppMainContainer {
+    .tryAppContainer , .tryAppContainerAr {
+      .tryAppInfo{
+        padding: 51px 21px ;
+      .tryAppBtnDiv {
+        display: flex !important;
+      }
+    }
+  }
+}
+.googlePlayDiv{
+  width: max-content;
+  p{
+    font-size: 12px;
+  }
+}
+
+.googlePlayContainer{
+  i{
+  font-size: 30px;
+}
+
+}
+.playStoreDiv{
+  width: max-content;
+
+  p{
+    font-size: 12px;
+  }
+}
+.playStoreContainer{
+  i{
+  font-size: 30px;
+}
+}
+}

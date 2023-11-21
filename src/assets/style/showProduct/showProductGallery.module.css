@@ -1,0 +1,73 @@
+.mainGalleryDiv{
+    border: 1px solid var(--tertiary-color);
+    padding: 10px;
+    border-radius: 12px;
+}
+.subGalleryDiv{
+    display: flex;
+    justify-content: center;
+}
+.subGalleryDiv img{
+    height: 78px;
+    margin: 11px;
+    width: 96px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.mainGalleryDiv{
+    text-align: center;
+}
+.mainImageDiv img{ 
+    height: 353px;
+    margin: auto;
+    width: 467px !important;
+    border-radius: 12px;
+    border-radius: 30px;
+border: 1px solid var(--tertiary-color);
+box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+
+}
+
+
+.customNextArrow i {
+    position: absolute;
+    top: 175px;
+    font-size: 25px;
+    cursor: pointer;
+    right: 10px;
+    z-index: 22;
+  
+  }
+  .customPrevArrow i {
+    position: absolute;
+    top: 175px;
+    font-size: 25px;
+    cursor: pointer;
+    left: 10px;
+    z-index: 22;
+  }
+  
+
+
+@media (max-width: 480px) {
+    .subGalleryDiv img{
+        height: 54px;
+        margin: 6px;
+        width: 53px;
+    
+    }
+    .mainImageDiv img{
+        height: 287px;
+        width: 100% !important;
+    }
+
+}
+
+@media (min-width: 380px ) and (max-width: 480px) {
+    .subGalleryDiv img{
+        height: 64px;
+        margin: 6px;
+        width: 62px;
+    
+    }
+}

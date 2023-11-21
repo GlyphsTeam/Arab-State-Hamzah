@@ -1,0 +1,319 @@
+@import "../_App.module.scss";
+
+.userPage {
+  padding-top: 80px;
+  padding-bottom: 40px;
+  // background-image: url('../../images/userProfile/userProfileBackground.png') !important;
+  // background: #c2def3;
+}
+.cardConianerGrid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+.userFilter {
+  display: none;
+  .filterShow {
+    background: none;
+    border: none;
+    margin: 10px 30px;
+    font-size: 20px;
+    i{
+      color: $tertiary-color !important;
+    }
+  }
+}
+
+.menu {
+  background: $box-color;
+  margin: 0;
+  height: 100%;
+  min-height: 400px;
+
+  .menuTitle {
+    color: $secondary-color;
+    margin: 0px 0;
+    padding: 15px 50px;
+    padding-bottom: 20px;
+  }
+
+  .accordionTitle {
+    margin: 0;
+    padding: 2px 32px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .menuBody {
+    margin: 0;
+    padding: 2px 30px;
+    font-size: 18px;
+    color: $primary-color;
+    font-weight: 400;
+    padding-bottom: 20px;
+  }
+
+  .menuList {
+    color: $primary-color;
+    margin: 0;
+
+    li {
+      list-style: none;
+      padding: 5px 28px 0 0;
+      a {
+        color: $primary-color;
+      }
+    }
+  }
+
+  .menuSignOut {
+    color: #cf1e50;
+    // margin: 10px 0;
+    padding: 10px 50px;
+    // font-size: 20px;
+    cursor: pointer;
+  }
+
+  .menuDeleteAccount {
+    color: #cf1e50 !important;
+  }
+}
+
+
+.accordionHeader{
+  button{
+    background: transparent !important;
+    box-shadow: none !important;
+   
+    p{
+      margin: 0;
+    }
+  }
+  button:not(.collapsed){
+    color: $primary-color ;
+  }
+
+  button:not(.collapsed)::after{
+    background-image: $primary-color !important;
+  }
+  button:focus{
+    border-color: transparent !important;
+    // color: #DC6027 !important;
+  }
+}
+
+.activeP{
+  color: $secondary-color !important;
+}
+
+.userContainer {
+  margin: 4rem 0 2rem;
+
+  .userProfileRow {
+    .userProfileImageDiv {
+      position: relative;
+
+      .userImage {
+        height: 270px;
+        width: 270px;
+        margin: 0 auto 25px;
+        display: flex;
+        background: white;
+        border-radius: 50%;
+        border: 3px solid $tertiary-color;
+      }
+
+      .editIconContainer {
+        position: absolute;
+        width: fit-content;
+        top: 0;
+        right: 60px;
+        img {
+          height: 40px;
+          cursor: pointer;
+          padding-bottom: 20px;
+        }
+      }
+    }
+
+    .userProfileInput::placeholder {
+      color: $primary-color;
+    }
+    .userProfileInput {
+      width: 100%;
+      max-width: 450px;
+      display: block;
+      padding: 12px 20px;
+      margin: 0 auto 15px;
+      background: $white;
+      border: none;
+      outline: none;
+      border-radius: 12px;
+      color: $primary-color;
+      border: 2px solid $primary-color;
+    }
+    .userProfileGender {
+      width: 100%;
+      max-width: 450px;
+      display: block;
+      padding: 12px 20px;
+      margin: 0 auto 5px;
+      color: $primary-color;
+
+    }
+
+    .genderDiv {
+      width: 100%;
+      max-width: 450px;
+      display: flex;
+      padding: 0px;
+      margin: 0 auto 15px;
+      background: $white;
+      border: none;
+      outline: none;
+      border-radius: 12px;
+      color: $primary-color;
+      justify-content: space-between;
+      // border: 2px solid #06163F;
+
+      .genderMenu {
+        width: 45%;
+        display: inline-block;
+        margin: 0;
+        padding: 12px 20px;
+        cursor: pointer;
+        text-align: center;
+        background: $primary-color;
+        color: $white;
+        border-radius: 12px;
+        // margin: 0 5%;
+      }
+
+      .activeGender {
+        background: #72a4cf;
+        border-radius: 12px;
+        color: $primary-color;
+        background: $tertiary-color;
+      }
+
+      .mouseNotActive {
+        pointer-events: none;
+      }
+    }
+
+    .editBtn {
+      width: 100%;
+      max-width: 450px;
+      display: block;
+      padding: 12px;
+      margin: 30px auto;
+      background: $primary-color;
+      border: none;
+      outline: none;
+      border-radius: 12px;
+      color: $white !important;
+      text-align:center;
+      padding-bottom: 15px;
+    }
+
+    .saveDiv {
+      width: 100%;
+      max-width: 450px;
+      display: flex;
+      justify-content: space-between;
+      padding: 0px;
+      margin: 30px auto;
+      background: transparent;
+      border: none;
+      outline: none;
+      border-radius: 12px;
+      color: $primary-color;
+      
+
+      .saveMenu {
+        width: 45%;
+        display: inline-block;
+        margin: 0;
+        padding: 12px 20px;
+        cursor: pointer;
+        text-align: center;
+        background: $primary-color;
+        border-radius: 12px;
+        color: white;
+      }
+      .cancelMenu {
+        width: 45%;
+        display: inline-block;
+        margin: 0;
+        padding: 12px 20px;
+        cursor: pointer;
+        text-align: center;
+        background: #BB093C;
+        color: $white;
+        border-radius: 12px;
+      }
+    }
+  }
+}
+
+.emptyUserMessage{
+  text-align: center;
+  margin: 170px auto 0 !important;
+  font-size: 25px;
+  color: $primary-color;
+  width:1000px;
+}
+
+.savedJobRow {
+  width: 100%;
+  margin: auto !important;
+  
+}
+.cardContainerJob{
+  display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    row-gap: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .menu {
+    height: fit-content;
+  }
+  .userFilter {
+    display: block;
+  }
+
+  .menuWeb {
+    display: none !important;
+  }
+
+  .userContainer {
+    margin: 2rem 0 2rem;
+    .userProfileRow {
+      .userProfileImageDiv {
+        .userImage {
+          border-radius: 50%;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+          height: 265px;
+          width: 265px;
+        }
+      }
+    }
+  }
+  .userFilter {
+    .filterShow {
+      margin: 20px 30px 0;
+    }
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 1200px){
+  .userProfileRow{
+  .userProfileImageDiv{
+  .userImage{
+    height: 234px !important;
+    width: 231px !important;
+  }
+}
+}
+}

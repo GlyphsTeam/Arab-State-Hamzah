@@ -1,0 +1,134 @@
+.categoryContainer {
+    /* background-color: #C2DEF3; */
+    width: 100%;
+    object-fit: contain;
+    flex-direction: column;
+    margin: 0px 0 0;
+    padding: 0px !important;
+  
+    display: flex;
+  }
+
+  /* .categoryContainer .categoryContainerDiv {
+    width: 100%;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  } */
+
+  .categoryContainerDiv{
+    width: 100%;
+    height: 450px;
+  }
+  .categoryContainerDiv img {
+    /* filter: brightness(66%); */
+    object-fit: cover;
+    /* border-radius: 30px; */
+    width: 100%;
+    height: 450px;
+    /* filter: brightness(0.5); */
+
+
+  }
+
+  .categoryContainer h1 {
+    color: var(--white);
+  }
+  .categoryContainer .categoryHeaderText {
+    color: var(--white);
+    position: absolute;
+    width: 10%;
+    text-align: center;
+  }
+
+  .conatiner{
+    --bs-gutter-x: 13.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .secondAdvImg img{
+    width: 100% ;
+    height: 450px ;
+    object-fit: cover;
+    /* filter: brightness(0.5); */
+
+  }
+  .secondAdvImg{
+    width: 454px;
+
+  }
+
+@media screen and (max-width: 768px) {
+  .categoryContainer img {
+      height: 180px;
+  }
+  .categoryContainer{
+   margin: 34px 0 0 !important;
+  }
+  
+}
+
+
+
+@media (min-width: 600px) and (max-width: 1200px ) {
+     
+  .categoryContainer img {
+    height: 285px;
+  }
+   }
+
+   @media screen and (max-width: 425px) {
+    .categoryContainer {
+      /* background-color: #C2DEF3; */
+      width: 100%;
+      object-fit: contain;
+      flex-direction: column;
+      margin: 0px 0 0;
+      padding: 0px !important;
+    
+      display: flex;
+    }
+  
+    /* .categoryContainer .categoryContainerDiv {
+      width: 100%;
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+    } */
+  
+    .categoryContainerDiv{
+      width: 100%;
+      height: 150px;
+    }
+    .categoryContainerDiv img {
+      /* filter: brightness(66%); */
+      object-fit: cover;
+      /* border-radius: 30px; */
+      width: 100%;
+      height: 150px;
+      filter: brightness(0.5);
+  
+  
+    }
+  
+    .categoryContainer h1 {
+      color: var(--white);
+    }
+    .categoryContainer .categoryHeaderText {
+      color: var(--white);
+      position: absolute;
+      width: 10%;
+      text-align: center;
+    }
+  }
+
+@media (max-width:1024px){
+  .conatiner{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}

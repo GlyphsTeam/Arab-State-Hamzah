@@ -1,0 +1,18 @@
+
+:root {
+/* main color in arab chicago website  */
+--primary-color: #08343F;
+--tertiary-color: #DCA13D;
+--secondary-color : #DCA13D;
+--box-color : #E5E8E9;
+--sub-box-color :  rgba(247, 254, 255, 0.1);
+--highlight-color: #565252;
+--primary-button-font-color: #ffff;
+--black : black;
+--white: white;
+--danger-color: red;
+--success-color : green;
+--white-blue: #286084;
+--light-beige : rgba(253, 202, 104, 0.2);
+
+}

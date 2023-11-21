@@ -1,0 +1,485 @@
+.imageSize {
+  object-fit: cover;
+  height: 350px;
+  /* border-radius: 50%; */
+  width: 100%;
+  padding: 19px;
+}
+.imageDiv {
+  border-radius: 180px 180px 0px 180px;
+  /* border: 3px solid #be0040; */
+  background: #fff;
+  width: 350px;
+  height: 350px;
+}
+.RentfirstSection {
+  display: flex;
+  justify-content: center;
+  padding-top: 26px;
+}
+.RentTitle {
+  font-size: 40px;
+}
+.titleInfo {
+  font-size: 25px;
+}
+.shareSaveSection {
+  display: flex;
+  /* height: 50px; */
+  /* align-items: center; */
+  /* padding-top: 47px; */
+}
+.firstContainer {
+  display: flex;
+  color: var(--primary-color);
+  padding-top: 50px;
+  justify-content: space-evenly;
+}
+.houseNumber {
+  display: flex;
+}
+.rentIcon {
+  padding: 0 5px;
+  cursor: pointer;
+  margin: 0px 8px;
+  /* background: white; */
+  color: var(--secondary-color);
+  /* box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px; */
+  align-items: center;
+  display: flex;
+  font-size: 20px;
+  border-radius: 100px;
+  height: 30px;
+  font-size: 30px;
+}
+
+.rentParagraph {
+  /* height: 147px; */
+  text-align: justify;
+}
+.rentCardsContainer {
+  height: 253.5px;
+  margin: 0px 0px 38px 56px;
+  object-fit: cover;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 50px 0px;
+}
+
+.rentCardsContainerAr {
+  height: 253.5px;
+  margin: 0px 56px 38px 0px;
+  object-fit: cover;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 50px 0px;
+}
+
+
+
+/* .BottomRentCardContainer {
+  display: flex;
+  justify-content: center;
+  padding-top: 23px;
+  flex-wrap: wrap;
+} */
+.houseNumberParagraph {
+  /* margin: 0px 30px 0px 0px; */
+  /* color: rgb(103, 102, 102); */
+}
+.houseNumberParagraphLast {
+  margin:  0px 39px 0px 0px;
+  color: var(--highlight-color);
+}
+.houseNumberParagraphLastRight {
+  margin: 0px 0px 0px 39px;
+  color: var(--highlight-color);
+}
+.addressRentContainer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 11px;
+  align-items: center;
+}
+.rentStyle {
+  font-weight: bold;
+  font-size: 25px;
+  color: var(--secondary-color);
+}
+.rentParagraph {
+  /* height: 188px; */
+  width: 100%;
+}
+.accommodationIcon {
+  color: var(--secondary-color);
+}
+.locationIcon {
+  color: var(--secondary-color);
+  margin: 0px 11px;
+}
+
+.mainImgDiv {
+  margin: 0px 52px;
+}
+.mainTopRentContainer {
+  width: 45%;
+}
+.contactStyle {
+  display: flex;
+  flex-direction: column;
+  color: var(--primary-color);
+  flex-direction: column;
+  width: 260px;
+  height: 100%;
+  padding: 15px;
+
+  /* border-left: 1px solid var(--tertiary-color); */
+}
+.contactStyleArabic {
+  display: flex;
+  flex-direction: column;
+  color: var(--primary-color);
+  flex-direction: column;
+  padding: 0px 54px;
+  width: 260px;
+  height: 100%;
+  padding: 15px;
+}
+.contactTitle {
+  font-size: 24px;
+  font-weight: bold;
+}
+a .contactIcon {
+  padding: 0 10px !important;
+  color: var(--secondary-color);
+}
+.contactStyleMobile {
+  display: none;
+}
+
+.customNextArrow i {
+  position: absolute;
+  top: 122px;
+  font-size: 25px;
+  cursor: pointer;
+  right: 10px;
+  z-index: 22;
+}
+.customPrevArrow i {
+  position: absolute;
+  top: 122px;
+  font-size: 25px;
+  cursor: pointer;
+  left: 10px;
+  z-index: 22;
+}
+/* .firstSection {
+  margin-left: 24px;
+} */
+
+.infoSection {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.infoParagraph {
+  margin: 0px 41px;
+}
+.firstSection {
+  height: 246px;
+}
+
+@media (max-width: 480px) {
+  .customNextArrow i {
+    position: absolute;
+    right: 22px;
+    z-index: 22;
+  }
+  .customPrevArrow i {
+    position: absolute;
+    left: 22px;
+    z-index: 22;
+  }
+  .imageDiv {
+    width: 281px;
+    height: 289px;
+    margin: auto;
+  }
+  .imageSize {
+    height: 283px !important;
+    width: 100%;
+  }
+}
+@media (min-width: 991px) {
+  .backRent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 48px;
+  }
+  .backRent button {
+    background: var(--secondary-color);
+    border-radius: 15px;
+    color: var(--primary-button-font-color);
+    padding: 8px 23px;
+    margin-bottom: 12px;
+    border: none;
+    font-weight: 600;
+    font-size: 18px;
+
+  }
+  .backRent button:hover {
+    background: var(--primary-color);
+  }
+
+  .contactDiv {
+    display: none;
+  }
+  .firstContainer {
+    width: 100%;
+  }
+  .backArrowMobile {
+    display: none;
+  }
+}
+@media (max-width: 990px) {
+  .RentfirstSection {
+    position: relative;
+  }
+  .backRent{
+    display: none;
+  }
+  .backArrowMobile {
+    background-color: var(--tertiary-color);
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.05) !important;
+    /* border-radius: 50% !important; */
+    position: absolute;
+    top: 80px;
+    left: 10.5px;
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 54% !important;
+    z-index: 99;
+  }
+  .backArrowIconDivMobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 9px;
+    position: relative;
+  }
+  .backArrowIconDivMobile i {
+    font-weight: bold;
+    color: var(--primary-button-font-color);
+    font-size: 27px;
+  }
+
+  .RentTitle {
+    font-size: 20px;
+  }
+  .firstContainer {
+    justify-content: center;
+    flex-direction: row;
+    padding-top: 0px;
+    align-items: baseline;
+    position: relative;
+  }
+  .RentfirstSection {
+    flex-direction: column;
+  }
+  /* .rentPageSecondContainer {
+    display: flex;
+    justify-content: center;
+  } */
+  .imageSize {
+    height: 345px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .imageDiv {
+    /* margin-top: 49px !important; */
+    margin: 49px auto;
+  }
+  .rentParagraph {
+    width: 100%;
+  }
+  .rentCardsContainer {
+    height: 228.5px;
+  }
+  .mainTopRentContainer {
+    height: 100%;
+    width: 100% !important;
+    object-fit: cover;
+  }
+  .mainImgDiv {
+    margin: auto;
+    width: 100%;
+  }
+  .RentfirstSection {
+    padding-top: 0px;
+  }
+  .mainTopRentContainer {
+    width: 70%;
+  }
+  .addressRentContainer {
+    /* flex-direction: column;
+    align-items: baseline; */
+  }
+  .rentCardsContainer {
+    width: 88%;
+  }
+  .contactStyle {
+    padding: 0px 12px !important;
+    padding-top: 18px !important;
+    border: none;
+    display: none;
+  }
+  .mainTopRentContainer {
+    padding: 0px 15px;
+    padding-top: 16px;
+  }
+  .contactDiv {
+    /* display: flex; */
+  }
+  .rentCardMain {
+    display: none !important;
+  }
+  .rentCardMainContainer {
+    display: none !important;
+  }
+  .rentCardsContainerMainMobile {
+    display: block !important;
+  }
+  .rentCardsContainerMobile {
+    display: block !important;
+  }
+  .rentCardsContainerMobileDiv {
+    display: block;
+    padding-top: 24px;
+  }
+  .rentCardsContainerMobile {
+    width: 85%;
+    margin: auto !important;
+    height: 205.5px;
+    object-fit: cover;
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 50px 0px;
+  }
+  .contactStyleMobile {
+    display: flex;
+    /* justify-content: space-evenly; */
+    font-size: 15px;
+    color: var(--primary-color);
+    padding-top: 24px;
+  }
+  .contactParagraphMobil a {
+    margin: 0px 13px;
+  }
+  /* .rentParagraph{
+    height: 304px;
+    overflow: hidden;
+  } */
+  /* margin: 0px 11px; */
+  /* .rentCardsContainer{
+    display: none;
+  } */
+  /* .contactParagraphright{
+    margin: 0px 15px;
+  } */
+}
+@media (min-width: 1000px) {
+  .rentCardsContainer {
+    width: 20.3%;
+  }
+}
+@media (min-width: 769px) and (max-width: 1262px) {
+  .rentParagraph {
+    /* height: 121px; */
+  }
+}
+@media (min-width: 985px) and (max-width: 999px) {
+  .rentCardsContainer {
+    height: 186.5px !important;
+  }
+}
+@media (max-width: 999px) {
+  .rentParagraph {
+    /* height: 164px; */
+    /* overflow: hidden; */
+  }
+  .rentStyle {
+    font-size: 20px;
+  }
+  .contactStyleArabic {
+    display: none;
+  }
+  .rentPriceDiv {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    right: 9px;
+  }
+  .rentPriceDivAr {
+    position: absolute;
+    left: 9px;
+  }
+  /* .rentCardsContainer{
+      width: 85%;
+      margin: auto;
+    } */
+  .BottomRentCardContainer {
+    padding-top: 0px !important;
+  }
+}
+@media (min-width: 1300px) {
+  .imageSize {
+    height: 350px;
+    border-radius: 50%;
+    width: 350px;
+    padding: 19px;
+  }
+  .rentParagraph {
+    /* height: 235px; */
+  }
+}
+@media (max-width: 440px) {
+  .RentTitle {
+    font-size: 16px;
+  }
+  .BottomRentCardContainer {
+    padding-top: 55px;
+  }
+}
+@media (min-width: 900px) {
+  .rentCardsContainerMobileDiv {
+    display: none;
+    padding-top: 28px;
+  }
+  .rentCardsContainerMainMobile {
+    display: none;
+  }
+
+  .rentCardsContainerDiv {
+    display: block;
+  }
+  .rentCardMain {
+    display: flex !important;
+    /* justify-content: center !important; */
+    flex-wrap: wrap;
+    padding-top: 128px !important;
+  }
+}
+@media (min-width: 100px) and (max-width: 355px) {
+  .contactStyleMobile {
+    font-size: 13px;
+  }
+
+  .houseNumber {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .houseNumberParagraphLast {
+    margin-bottom: 10px;
+  }
+}

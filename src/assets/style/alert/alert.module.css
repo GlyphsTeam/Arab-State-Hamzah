@@ -1,0 +1,38 @@
+.warning{
+    position: fixed;
+    background: RGB(248, 215, 218);
+    text-align: center;
+      color: #84546C;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 90%;
+      margin: auto;
+      bottom: 70px;
+      border-radius: 15px;
+      left: 50%;
+    transform: translateX(-50%);
+    max-width: 400px;
+    z-index: 999999;
+  }
+
+.success{
+    position: fixed;
+    background: RGB(212, 237, 218);
+    text-align: center;
+      color: #2D693B;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 90%;
+      margin: auto;
+      bottom: 70px;
+      border-radius: 15px;
+      z-index: 999999;
+      max-width: 400px;
+      left: 50%;
+      transform: translateX(-50%);
+
+  }

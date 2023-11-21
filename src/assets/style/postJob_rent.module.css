@@ -1,0 +1,282 @@
+.formDiv {
+  display: flex;
+  justify-content: center;
+  width: 100% !important;
+  z-index: 9999;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100vw;
+  height: 100vh;
+}
+.formDivContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: unset;
+}
+
+.formDiv .inputForm {
+  height: 40px;
+  border-radius: 20px;
+}
+.formDiv textarea {
+  height: 100px !important;
+  border-radius: 20px;
+  min-height: 100px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 36%;
+   max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  border-radius: 4px;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  position: fixed;
+  align-items: flex-start;
+  padding-left: 3%;
+  height: 100%;
+  margin: 0px 0;
+  overflow: auto;
+  padding-top: 50px;
+  background: var(--box-color);
+}
+.form input::placeholder {
+  color: #888F9B;
+}
+.requiredClass {
+  font-size: 13px;
+  display: flex;
+  width: 98%;
+  justify-content: space-between;
+}
+.imageContainerDiv{
+  display: flex;
+    flex-wrap: wrap;
+}
+.imageParagraph i {
+  padding: 0px 13px 5px;
+  font-size: 26px;
+}
+.imageParagraph {
+  font-size: 15px;
+}
+.checkboxDiv{
+  width: 100%;
+    padding: 0px 0px 10px;
+    align-items: center;
+    display: flex;
+}
+.removeButton{
+  position: relative;
+  right: 25px;
+  border: none;
+  bottom: 28px;
+}
+.removeButton i{
+  background: var(--white);
+    border-radius: 50%;
+    padding: 1px;
+    height: 15px;
+    width: 15px;
+}
+.inputSize {
+  width: 89.4%;
+}
+label {
+  margin-bottom: 5px;
+  padding: 7px 0 3px;
+}
+.inputForm,
+select,
+textarea {
+  padding: 10px;
+  font-size: 15px;
+  background-color: var(--white);
+  border: none;
+  width: 90%;
+  border-radius: 20px;
+  border: 3px solid var(--primary-color);
+}
+.formBtn {
+  background-color: var(--tertiary-color);
+  color: var(--primary-color);
+  font-weight: bold;
+  padding: 7px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  width: 130px;
+}
+.formBtnContainer {
+  display: flex;
+
+  padding-top: 10px;
+  margin: auto;
+}
+.requiredClass {
+  width: 100%;
+  margin: 0px 0px 10px 0px;
+}
+.requiredClass span {
+  color: var(--danger-color);
+  padding: 8px;
+  font-size: 22px;
+}
+.mainDiv {
+  display: flex;
+  width: 90% !important;
+}
+.fieldWidth {
+  width: 100%;
+  font-size: 13px;
+}
+.subDiv {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0px 2px;
+}
+.subDiv select {
+  height: 40px;
+}
+.textAreaHeight {
+  height: 100px;
+}
+.closeBtnForm {
+  position: relative;
+  z-index: 4;
+  height: 30px;
+  
+  border: none;
+
+}
+.btnCloseDiv {
+  display: flex;
+  justify-content: flex-end;
+  width: 31%;
+  padding: 12px;
+}
+.dropzoneContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+.dropzone {
+  border: 2px dashed gray;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  cursor: pointer;
+}
+.imageParagraph {
+  margin: 10px 0;
+}
+.imageContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.image {
+
+  max-width: 163px;
+  height: 59px;
+  width: 64px !important;
+  object-fit: fill;
+  position: relative;
+  margin: 10px;
+}
+.typeField {
+  width: 100%;
+}
+.fieldHeight {
+  height: 39px;
+  padding: 0px 13px;
+}
+.selectMarginBtm {
+  margin: 0 0 15px 0;
+}
+@media screen and (max-width: 767px) {
+  .form {
+    width: 95%;
+    height: 100%;
+  }
+}
+.requiredClass {
+  margin: 0px 0px 15px 0px;
+}
+@media (max-width: 500px) {
+  .btnCloseDiv {
+    width: 91%;
+  }
+  .closeBtnForm {
+    height: 4%;
+  }
+  .requiredClass select {
+    font-size: 13px;
+  }
+  .requiredClass input {
+    font-size: 13px;
+  }
+  .requiredClass input::placeholder {
+    font-size: 13px;
+  }
+}
+@media (min-width: 500px) and (max-width: 550px) {
+  .btnCloseDiv {
+    width: 92%;
+  }
+  .closeBtnForm {
+    height: 2%;
+  }
+}
+@media (min-width: 550px) and (max-width: 680px) {
+  .btnCloseDiv {
+    width: 75%;
+  }
+  .closeBtnForm {
+    height: 2%;
+  }
+}
+@media (min-width: 680px) and (max-width: 800px) {
+  .btnCloseDiv {
+    width: 69%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1000px) {
+  .form {
+    width: 56%;
+  }
+}
+@media (min-width: 320px) and (max-width: 370px) {
+  .requiredClass {
+    margin: 0px 0px 15px 0px;
+  }
+}
+
+
+@media (min-width: 600px) and (max-width: 995px){
+.btnCloseDiv{
+  width: 50%;
+
+}
+.form{
+  width: 100%;
+
+}
+
+}
+
+@media (min-width: 600px) and (max-width: 850px){
+  .btnCloseDiv{
+    width: 60%;
+  
+  }
+
+  }

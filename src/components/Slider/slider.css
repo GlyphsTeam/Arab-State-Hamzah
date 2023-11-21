@@ -1,0 +1,11 @@
+.slick-track{
+    margin: 0 10px !important;
+}
+.cardStyleM{
+    margin: 0 10px !important;
+}
+@media (max-width:500px){
+    .cardStyleM{
+        margin: 25px !important;
+    }
+}

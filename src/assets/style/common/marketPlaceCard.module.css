@@ -1,0 +1,237 @@
+.mainCategoryDiv {
+  width: 100%;
+  /* background-image: url("../../Images//home/listBackground.png"); */
+  background-size: cover;
+  padding: 70px 0 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  margin: 0px auto;
+}
+.mainCircleDiv{
+  width: 280px !important;
+  margin: 15px auto;
+}
+.cardBody {
+  background: white;
+  /* border-radius: 20px; */
+  cursor: pointer;
+  /* border: 5px solid var(--primary-color); */
+  height: 280px;
+  margin: 10px auto;
+  position: relative;
+  width: 245px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  overflow: hidden;
+
+}
+.listImg {
+  width: 230px;
+  height: 206px;
+  position: absolute;
+  padding: 10px;
+  border-radius: 20px;
+  /* border-radius: 15px; */
+  object-fit: cover;
+  margin: 0px auto;
+
+}
+.cardListTitle {
+  /* color: white;
+  position: absolute;
+  bottom: 5px;
+  font-size: 21px;
+  padding: 10px;
+  margin: 0; */
+
+  color: #06163F;
+  font-size: 21px;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+  top: 196px;
+}
+/* .cardBody:hover .cardListTitle{
+    display: block;
+} */
+.cardBody:hover .listImg {
+  opacity: 0.5;
+}
+.seeAllBtn {
+  display: flex;
+  margin-left: auto;
+  margin-right: 30px;
+  margin-top: 20px;
+  color: white !important;
+  background-color: #d01a4d;
+  padding: 7px 20px;
+  border-radius: 15px;
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+}
+.seeAllBtn:hover {
+  color: white;
+}
+.categorySmallTitle {
+  color: #d01a4d;
+  /* margin: 0; */
+  padding: 40px 0 0;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.subCategorySmallTitle {
+  color: #153866;
+  font-size: 30px;
+  font-weight: 700;
+  padding: 0 3%;
+}
+.categoryTitle {
+  /* font-weight: 700; */
+  /* margin-top: 15px;
+  padding-top: 20px; */
+  /* font-size: 2rem; */
+  height: 60px;
+  text-align: center;
+  color: #153866;
+  margin: 0 0 4rem;
+}
+.categoryTitle:hover {
+  /* padding: 20px 0 0px; */
+  /* border-bottom: 2px solid; */
+  /* width: fit-content; */
+  text-align: center;
+  /* color: #0064a4; */
+}
+.navLink {
+  text-decoration: none;
+  display: flex !important;
+  justify-content: center;
+}
+
+.AllCategoryLink {
+  width: fit-content;
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+.AllCategoryContainer div button:nth-of-type(1) {
+  left: -20px !important;
+}
+.AllCategoryContainer div button:nth-of-type(2) {
+  right: -20px !important;
+}
+
+@media screen and (max-width: 768px) {
+  
+  .container {
+    width: 90% !important;
+  }
+  .seeAllBtn {
+    color: white !important;
+  }
+  .mainCategoryDiv {
+    padding: 40px 0 1rem;
+  }
+
+  .cardBody {
+    height: 149px;
+    width: 146px;
+  }
+
+  .cardListTitle {
+    font-size: 14px;
+    font-weight: bold;
+    color: #153866 !important;
+    position: relative;
+    top: 80px;
+  }
+  .categoryTitle {
+    padding: 0 0 13px;
+    width: fit-content;
+    margin: 8px auto;
+    font-size: 21px;
+    height: fit-content;
+  }
+  .categorySmallTitle {
+    font-size: 12px;
+  }
+
+  .subCategorySmallTitle {
+    font-size: 18px;
+    margin: 0;
+  }
+  .listImg{
+    width: 106px;
+    height: 100px;
+  }
+}
+.cardBody {
+  margin: 10px;
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+  .cardBody {
+    width: 205px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .mainCircleDiv{
+    width: 160px !important;
+    margin: 15px auto;
+  }
+
+  .cardBody {
+    height: 196px;
+    width: 148px;
+    margin: 0px;
+}
+.listImg{
+  width: 118px;
+  height: 116px;
+}
+
+.cardListTitle {
+  top: 123px;
+}
+}
+
+@media screen and (max-width: 480px) {
+  .mainCircleDiv{
+    width: 160px !important;
+    margin: 15px auto;
+  }
+
+  .cardBody {
+    height: 144px;
+    width: 134px;
+    margin: 0px !important;
+}
+.listImg{
+  width: 110px;
+  height: 75px;
+}
+
+.cardListTitle {
+  top: 68px;
+}
+}
+
+@media (max-width:500px){
+  .listImg{
+    width: 110px !important;
+    height: 110px !important;
+  }
+  .cardListTitle{
+    top: 96px;
+    font-size: 12px;
+  }
+}

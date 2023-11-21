@@ -1,0 +1,221 @@
+.loginBody{
+    /* height: 100% !important; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 30px;
+    /* height: fit-content; */
+    /* top: 15px; */
+    position: relative;
+    width: 100%;
+    /* background: transparent; */
+    /* background: rgba(0, 0, 0, 0.322); */
+    /* background-color: #C2DEF3; */
+    /* z-index: 99; */
+}
+.registerForm{
+     display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: 18px !important;
+}
+.registerForm input ,label{
+    font-size: 18px !important;
+}
+.profileImg{
+    height: 210px;
+    /* border-radius: 50%; */
+    margin: auto;
+    align-self: center;
+    margin-top: 0;
+    /* width: 100%; */
+}
+.loginImg{
+    height: 300px;
+    /* border-radius: 50%; */
+    margin: auto;
+    align-self: center;
+    margin-top: 40px;
+    /* width: 100%; */
+}
+.profileCard{
+    padding: 20px;
+    /* background-image: url('./images/loginBackground.png'); */
+    background-size: cover;
+    background-repeat:no-repeat;
+    min-width: 320px;
+    /* max-width: 450px; */
+    height: 100vh;
+    width: 90%;
+}
+.profileCardSubDiv{
+    margin: auto;
+}
+
+.formRow{
+    border-bottom: 2px solid var(--secondary-color);
+    padding: 8px 0;
+}
+.formControl{
+    border: none;
+    color: var(--primary-color);
+    font-size: 18px;
+    outline: none;
+    background: transparent;
+ }
+.formControl::placeholder {
+    color: var(--primary-color);
+    font: 19px/3 sans-serif;
+    font-size: 14px;
+}
+.icon{
+    font-size: 10px;
+    color: var(--secondary-color);
+}
+.icon {
+    font-size: 16px;
+    margin-top: 0.5rem;
+  }
+  .otpInput {
+    width: calc((100% / 6) - 0.5rem);
+    text-align: center;
+    margin-right: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #CED4DA;
+    font-size: 1.25rem;
+    /* padding: 0.375rem 0.75rem; */
+    background: white !important;
+  }
+.rememberDiv{
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+.rememberDiv .checkbox[type="checkbox"]:checked{
+    /* background-color: red !important; */
+    accent-color: var(--primary-color) !important;
+}
+.rememberDiv .checkbox[type="checkbox"]::after{
+    accent-color: var(--primary-color) !important;
+}
+.rememberLabel{
+    font-size: 14px !important;
+    color: var(--primary-color) !important;
+    margin: 0;
+    font-weight: 500;
+}
+.forgotLink{
+    color: var(--white);
+    font-size: 14px;
+    font-style: italic;
+}
+.forgotDiv{
+    text-align: end;
+}
+.loginBtn{
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    max-width: 300px !important;
+    margin: auto;
+    /* box-shadow: -5px 10px 30px #286F83 ,  -10px 20px 40px #286F83 ; */
+}
+.loginTitleChoice{
+    text-align: center;
+    color: var(--white);
+}
+.twitter{
+    color: #2BA7E4;
+}
+.facebook{
+    color: #405C9B;
+}
+.google{
+    color: #DC4D36;
+}
+.socialIcon{
+    font-size: 30px;
+}
+.socialIcon::before{
+    background: white;
+    display: block;
+    height: 22px;
+    line-height: 23px;
+    width: fit-content;
+}
+.regester{
+    text-align: center;
+    color: var(--primary-color) !important;
+    font-size: 15px;
+}
+.loginToAccount{
+    text-align: center;
+    color: var(--white);
+    font-size: 16px;
+}
+.closeModalDiv{
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    top: 10px;
+}
+.closeBtnModal{
+    position: relative;
+    left: 61%;
+}
+.icons_center a{
+    text-align: center;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    margin: auto;
+}
+.imgOrder{
+    order:2;
+}
+.emailLogo{
+    display: flex;
+    margin: auto;
+}
+.contactValidation{
+    color: var(--danger-color);
+    text-align: center;
+  }
+.contactValidationSuccess{
+    color: var(--success-color);
+    text-align: center;
+  }
+  .termsRegister{
+    color: #3278B4 !important;
+  }
+
+  .formOrder{
+    padding: 60px 0;
+  }
+
+  .otpDirection{
+    direction: ltr;
+  }
+
+@media only screen and (max-width: 991px) {
+    .profileImg{
+        height: 150px;
+        width: fit-content;
+    }
+    .loginImg{
+        height: 150px;
+    }
+    .imgOrder{
+        order:1 !important;
+    }
+    .formOrder{
+        order: 2;
+    }
+}
+/* @media (max-width: 480px) { */
+    /* .otpInput{
+    padding: -12.625rem 0.75rem !important;
+   
+} */
+/* } */

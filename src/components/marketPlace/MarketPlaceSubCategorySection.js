@@ -1,7 +1,7 @@
 
 import React, {useState} from 'react';
 import Card from '../common/cards/SquareMarketPlaceSubCategoryCard';
-import style from '../../assets/style/house/housingCard.module.scss';
+import style from '../../assets/style/house/housingCard.module.css';
 import filterStyle from '../../assets/style/common/filteredPage.module.css'
 import { useDispatch } from 'react-redux';
 import { setCategoryId } from '../../redux/CategoryRedux';

@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../../assets/style/showService/showService.module.scss"
+import style from "../../assets/style/showService/showService.module.css"
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const LeftSection = ({data}) => {

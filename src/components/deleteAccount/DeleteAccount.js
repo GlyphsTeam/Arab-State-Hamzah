@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import style from "../../assets/style/authentication/auth.module.scss";
+import style from "../../assets/style/authentication/auth.module.css";
 import { useNavigate } from "react-router-dom";
 import Alert from "../common/alert/Alert";
 import { useTranslation } from "react-i18next";

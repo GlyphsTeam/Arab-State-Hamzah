@@ -60,7 +60,10 @@
 }
 
 .blogParagraph {
-  height: 50px;
+  height: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: 400;
   text-align: start;
   color: var(--primary-color) !important;
   margin: 0;

@@ -1,0 +1,124 @@
+@import "../_App.module.scss";
+.registerPage {
+    /* // background-color: #C2DEF3; */
+    flex-wrap: wrap;
+    justify-content: center;
+    /* // min-height: 70vh; */
+}
+
+.rightAuth {
+    /* // background: #C2DEF3; */
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 7%;
+    /* //register component style */
+}
+.rightAuth .registerFormDiv {
+      width: 60%;
+      margin: auto;
+      padding: 45px 15px 5px;
+}
+.rightAuth .registerFormDiv form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+}
+.rightAuth .registerFormDiv form input{
+            width: 45%;
+            margin: 0px 0px 20px;
+          }
+.changePasswordDiv{
+            margin: 0 0 20px;
+        }
+.passwordInput input{
+                    margin: 0 0 10px;
+}
+.passwordInput{
+            display: flex;
+        position: relative;
+
+        }
+.loginBtnsDiv{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+      .deleteAccountBtn{
+        margin: 20px 5px;
+        height: 45px;
+        color: var(--white);
+      }
+
+      .ConfirmDeleteAccountBtn{
+        background: var(--primary-color);
+      }
+      .CancelDeleteAccountBtn{
+        background: #D1222E;
+    
+      }
+
+      .checkboxDiv{
+        display: flex;
+    align-items: center;
+    flex-direction: column;
+      }
+      .checkboxDiv  input{
+            width: 27px;
+            margin: 0 4px;
+            height: 27px !important;
+    }
+    
+
+
+  
+
+
+
+
+@media screen and (max-width: 1024px) {
+    .registerPage {
+        .rightAuth {
+            .registerFormDiv {
+                width: 85%;
+                padding: 20px 15px;
+                .subAuthTitle{
+                    width: 100%;
+                  }
+                .signInBtn{
+                    width: 75%;
+                    text-align: center;
+                    flex-direction: column;
+                }
+            }
+            .OTPFormDiv{
+                padding: 20px 0;
+            }
+        }
+    }
+
+ 
+}
+@media screen and (max-width: 768px) {
+    .registerPage {
+        .rightAuth {
+            border-radius: 32px 32px 0px 0px;
+            width: 100%;
+            .registerFormDiv {
+                width: 85%;
+            }
+        }
+    }
+}
+@media screen and (max-width: 480px) {
+    .registerPage {
+        .rightAuth {
+            .registerFormDiv {
+                width: 95%;
+            }
+        }
+    }
+}

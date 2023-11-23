@@ -3,7 +3,7 @@ import JobCard from "../../components/common/cards/JobCard";
 import ProductCard from "../../components/common/cards/SavedProduct";
 import StoreCard from "../../components/common/cards/StoreCard";
 import HousingCard from "../../components/common/cards/HousingCard";
-import style from "../../assets/style/userProfile/userProfile.module.scss";
+import style from "../../assets/style/userProfile/userProfile.module.css";
 import { useTranslation } from "react-i18next";
 
 function SavedSection({ savedData, type }) {

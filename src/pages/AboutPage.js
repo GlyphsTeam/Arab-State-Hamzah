@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../assets/style/about/about.module.scss";
+import style from "../assets/style/about/about.module.css";
 import useAxios from "../hooks/useAxiosGet";
 import AboutImage from "../components/aboutUs/AboutImage";
 import AboutParagraph from "../components/aboutUs/AboutParagraph";

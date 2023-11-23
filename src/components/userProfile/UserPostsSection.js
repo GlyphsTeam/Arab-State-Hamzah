@@ -2,7 +2,7 @@ import React from "react";
 import JobCard from "../../components/common/cards/JobCard";
 import HousingCard from "../../components/common/cards/HousingCard";
 import ProductCard from "../../components/common/cards/ProductCard";
-import style from "../../assets/style/userProfile/userProfile.module.scss";
+import style from "../../assets/style/userProfile/userProfile.module.css";
 import { useTranslation } from "react-i18next";
 
 function UserPostsSection({ savedData, type, baseUrl }) {

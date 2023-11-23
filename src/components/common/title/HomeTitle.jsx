@@ -1,7 +1,8 @@
 import React from 'react'
-import style from '../../../assets/style/common/title/homeTitle.module.scss'
+import style from '../../../assets/style/common/title/homeTitle.module.css'
 
 const HomeTitle = ({title}) => {
+  console.log("title>>>>>",title)
   return (
     <>
     <div className={style.mainDiv}>

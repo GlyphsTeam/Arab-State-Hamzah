@@ -4,7 +4,9 @@
   color: var(--primary-color);
   
 }
-
+.blogLetterParagraph{
+  font-weight: 400;
+}
 .tagP{
   margin: 0;
   text-align: center;

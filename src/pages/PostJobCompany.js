@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../assets/style/formStyle/jobFormPage.module.scss";
+import style from "../assets/style/formStyle/jobFormPage.module.css";
 import { useTranslation } from "react-i18next";
 import JobFormCompany from "../components/JobRentForm/jobForm/JobFormCompany";
 import HeroNav from "../components/common/HeroNav";

@@ -1,6 +1,6 @@
 import React from 'react';
 import AuthImage from '../components/common/auth/AuthImage';
-import style from '../assets/style/authentication/auth.module.scss';
+import style from '../assets/style/authentication/auth.module.css';
 import DeleteAccount from '../components/deleteAccount/DeleteAccount';
 
 function DeleteAccountPage({baseUrl , logo}) {

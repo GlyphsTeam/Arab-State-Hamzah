@@ -4,7 +4,22 @@
   color: var(--primary-color);
   
 }
-
+.eventTitle{
+  color: var(--primary-color);
+  font-weight: 400;
+}
+.paragraph{
+  color: var(--primary-color);
+  height: 200px;
+  font-weight: 400;
+}
+.lastCardParagraph {
+  color: var(--primary-color);
+  font-weight: 400;
+  overflow: hidden;
+  height: 70px !important;
+  text-overflow: ellipsis;
+}
 .tagP{
   margin: 0;
   text-align: center;
@@ -60,10 +75,14 @@
   padding: 0px 13px;
   margin: 0 0 25px;
 }
+.seeMoreButton button:hover{
+  color: #ffffff;
 
+}
 .seeMoreButton button {
   text-align: end;
   padding: 0px 13px;
+  margin-top: 100px;
   color: var(--secondary-color);
   font-weight: bold;
   border: none !important;
@@ -273,6 +292,8 @@ transition: all 0.4s ease;
 }
 .cloumnParagraph p {
   font-size: 15px;
+  color: var(--primary-color);
+  font-weight: 400;
 }
 .cloumnParagraph h3 {
   color: var(--primary-color);
@@ -527,6 +548,7 @@ transition: all 0.4s ease;
 }
 .eventTitle {
   height: 82px;
+
   overflow: hidden;
   padding: 10px 0;
 }

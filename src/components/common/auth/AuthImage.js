@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../../../assets/style/authentication/imageAuth.module.scss'
+import style from '../../../assets/style/authentication/imageAuth.module.css'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 function AuthImage({logo}) {

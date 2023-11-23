@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import style from "../../assets/style/postProduct/postProduct.module.scss";
+import style from "../../assets/style/postProduct/postProduct.module.css";
 import { useTranslation } from "react-i18next";
 
 function MarketPlacePostOption() {

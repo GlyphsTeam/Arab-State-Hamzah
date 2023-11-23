@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Job_RentSearch from "../components/job_rent/Job_RentSearch";
 import CardSection from "../components/job_rent/CardSection";
-import style from "../assets/style/job_rent/heroNav.module.scss";
+import style from "../assets/style/job_rent/heroNav.module.css";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import HeroNav from "../components/common/HeroNav";

@@ -1,13 +1,13 @@
 import React from "react";
 import ReactHtmlParser from "html-react-parser";
-import style from "../../assets/style/showService/showService.module.scss"
+import style from "../../assets/style/showService/showService.module.css"
 
 const RightSection = ({ data }) => {
-
+console.log("data>>>",data)
   return (
     <div>
       <p className={`px-5 ${style.rigthParagraph}`}>
-        {data?.web_description && ReactHtmlParser(`${data?.web_description}`)}
+        {data?.description}
       </p>
     </div>
   );

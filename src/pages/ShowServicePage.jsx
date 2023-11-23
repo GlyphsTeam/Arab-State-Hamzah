@@ -5,7 +5,7 @@ import Interested from "../components/showService/interested/Interested";
 import useAxios from "../hooks/useAxiosGet";
 import { Link, useLocation } from "react-router-dom";
 import HeroBanner from '../components/common/banner/HeroBanner'
-import style from "../assets/style/showService/showService.module.scss";
+import style from "../assets/style/showService/showService.module.css";
 import Tags from '../components/common/Tags';
 
 const ShowServicePage = () => { 

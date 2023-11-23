@@ -1,4 +1,4 @@
-import style from "../../../assets/style/common/housingCard.module.scss";
+import style from "../../../assets/style/common/housingCard.module.css";
 import React, { useEffect, useState } from "react";
 import Alert from "../alert/Alert";
 import { useTranslation } from "react-i18next";

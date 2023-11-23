@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../../assets/style/about/easySearch.module.scss";
+import style from "../../assets/style/about/easySearch.module.css";
 import Slider from "react-slick";
 import Title from "../common/Title";
 import { LazyLoadImage } from "react-lazy-load-image-component";

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import style from "../../assets/style/job_rent/heroNav.module.scss";
+import style from "../../assets/style/job_rent/heroNav.module.css";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ReactHtmlParser from "html-react-parser";

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import style from '../../assets/style/userProfile/userProfile.module.scss';
+import React, { useState, useEffect } from 'react'
+import style from '../../assets/style/userProfile/userProfile.module.css';
 import { useTranslation } from "react-i18next";
 // import editing from '../../assets/images/userProfile/editing.png'
 import editing from '../../assets/Images/editing.png'

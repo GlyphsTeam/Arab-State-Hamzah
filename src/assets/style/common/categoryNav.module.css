@@ -5,10 +5,11 @@
     padding: 25px 4%;
     margin-top: 0px;
     position: relative;
+    height: 80px;
 }
 .sunEndClass{
     background-color: #c81c50;
-    width: 250px;
+    width: 200px;
     position: relative;
     bottom: 35px;
     left: 75%;
@@ -17,11 +18,17 @@
 }
 .sunEndClassAR{
     background-color: #c81c50;
-    width: 250px;
+    width: 200px;
     position: relative;
     bottom: 35px;
     right: 75%;
     border-radius: 15px;
+}
+.sunEndClass div{
+    height: 60px;
+}
+.sunEndClassAr div{
+    height: 60px;
 }
 .sunEndClassAR ul li{
     color: #153866;
@@ -43,6 +50,7 @@
     top: 0;
     width: 100%;
     z-index: 999;
+    
     height: 100%;
     overflow: auto;
 }

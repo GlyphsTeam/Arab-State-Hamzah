@@ -1,0 +1,493 @@
+
+
+.tryAppMainContainer {
+  width: 100%;
+  margin: auto;
+  padding-top: 2px;
+}
+.BtnDiv{
+  display: flex;
+  align-items: center;
+}
+.googlePlayDiv p{
+  width: 130px;
+  text-align: center;
+  margin-top: 25px;
+  font-size: 15px;
+}
+.playStoreDiv p{
+  width: 130px;
+  text-align: center;
+  margin-top: 25px;
+  font-size: 15px;
+}
+  .tryAppContainer,  
+  .tryAppContainerAr {
+    width: 100%;
+    margin: auto;
+    padding-bottom: 105px;
+    margin-bottom: 25px;
+    background-position: bottom;
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 0px;
+  }
+.tryAppSubDiv,
+.tryAppSubDivAr {
+      margin: auto;
+      color: white;
+    }
+.tryAppInfo {
+        padding: 8% 14%;
+        padding: 4% 9%;
+        padding: 16px 20px;
+        justify-content: space-between;
+        padding-top: 30px;
+      }
+ .tryAppInfoTitle {
+        margin: 0px 100px;
+        padding-right: 90px;
+        padding-top: 30px;
+      }
+.tryAppInfoTitle h3 {
+        font-size: 50px;
+        margin: 0px;
+    }
+.tryAppParagraph {
+      font-size: 24px;
+      margin-right: 171px;
+      margin-left: 100px;
+      height: 84px;
+      overflow: hidden;
+    }
+.tryAppBtnDiv {
+      display: flex;
+      align-items: center;
+      padding-top: 53px;
+}
+ .tryAppBtnDiv a{
+        margin: 0px 8px 0px 8px;
+      }
+ .googlePlayContainer {
+          margin: 10px 0;
+          background: var(--box-color);
+          padding: 11px;
+          height: 75px;
+
+          display: flex;
+          align-items: center;
+          color: var(--tertiary-color);
+          border-radius: 14px;
+          cursor: pointer;
+ }
+.googlePlayContainer i{
+            font-size: 39px;
+        }
+.googlePlayContainer:hover {
+          color: var(--primary-color);
+}
+
+.googlePlayDiv{
+        padding: 0px 10px;
+}
+.googlePlayDiv p:first-child{
+          font-size: 13px;
+        }
+.googlePlayDiv p{
+          color: var(--tertiary-color);
+          font-weight: 400;
+          margin-bottom: 0px !important;
+      }
+.googlePlayBtnAr {
+        border-radius: 6px;
+        border: none;
+        margin: 0px 0px 0px 27px;
+}
+.googlePlayBtnAr  img {
+          height: 60px;
+          object-fit: cover;
+  }
+.playStoreContainer {
+        background: var(--box-color);
+        padding: 11px;
+        height: 75px;
+        display: flex;
+        align-items: center;
+        color: var(--tertiary-color);
+        border-radius: 14px;
+}
+
+.playStoreContainer i{
+          font-size: 39px;
+      }
+.playStoreContainer:hover {
+        color: var(--primary-color);
+}
+.playStoreDiv{
+        padding: 0px 10px;
+}
+.playStoreDiv p:first-child{
+          font-size: 13px;
+        }
+.playStoreDiv p{
+  font-weight: 400;
+  color: var(--tertiary-color);
+          margin-bottom: 0px !important;
+  }
+.subscribeDiv {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+  }
+.subscribeInput {
+      padding: 8px;
+      border-radius: 7px;
+      border: none;
+      background-color: var(--box-color);
+    }
+.subscribeBtnDiv {
+      padding-top: 5px;
+    }
+.subscribeButton {
+        background-color: #01828f;
+        padding: 8px;
+        border-radius: 7px;
+        border: none;
+        width: 100%;
+        color: white;
+      }
+.subscribed {
+        background-color: #09353f;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        color: white;
+}
+ .subscribed i {
+          font-size: 18px;
+        }
+ .subscribed  p {
+          margin: 0;
+          padding: 0px 10px;
+          font-size: 16px;
+  }
+
+  .subscribeDivAr .subscribeInput {
+      padding: 8px;
+      border-radius: 7px;
+      border: none;
+      background-color: var(--box-color);
+    }
+    .subscribeBtnDiv {
+      padding-top: 5px;
+    }
+   .subscribeButton {
+        background-color: #01828f;
+
+        padding: 8px;
+        border-radius: 7px;
+        border: none;
+        width: 100%;
+        color: white;
+      }
+      .subscribed {
+        background-color: #09353f;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        color: white;
+      }
+.subscribeDivAr i {
+          font-size: 18px;
+        }
+.subscribeDivAr p {
+          margin: 0;
+          padding: 0px 10px;
+          font-size: 16px;
+}
+.emailValidation {
+  color: red;
+}
+.subscribeParagraphAr {
+  text-align: right;
+}
+
+@media (max-width: 767px) {
+  .tryAppParagraph{
+    padding: 10px;
+    margin-right: 0px !important;
+    height: 197px !important;
+    overflow: hidden ;
+ 
+  }
+  .tryAppMainContainer {
+    width: 100%;
+    margin: auto;
+    border-radius: 0;
+    margin-top: 44px;
+  }
+
+  .tryAppMainContainer,
+    .tryAppContainer,
+    .tryAppContainerAr,
+      .tryAppSubDiv,
+      .tryAppSubDivAr,
+        .tryAppInfo {
+          flex-direction: column !important;
+        }
+          .subscribeDiv {
+            padding-top: 45px;
+          }
+  .tryAppSubDiv {
+    background-size: cover;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+  }
+    .tryAppBtnDiv {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  .tryAppBtnDiv img {
+        object-fit: contain;
+      }
+  .tryAppSubDivAr {
+    background-size: cover;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+  }
+    .tryAppInfo {
+      padding: 23px 15px;
+    }
+   .tryAppInfo  p {
+        font-size: 14px;
+    }
+    .tryAppBtnDiv {
+      justify-content: center;
+      display: flex;
+    }
+     .tryAppBtnDiv img {
+        object-fit: contain;
+      
+  }
+
+  .subscribeDiv {
+    width: 100%;
+    text-align: left;
+    padding-top: 45px;
+  }
+   .subscribeDiv p {
+      font-size: 14px !important;
+  }
+
+  .subscribeDivAr {
+    width: 50%;
+    text-align: right;
+    padding-top: 45px;
+  }
+   .subscribeDivAr p {
+      font-size: 16px !important;
+}
+
+.BtnDiv{
+  display: flex !important;
+  align-items: center;
+}
+}
+
+@media (min-width: 880px) {
+  .tryAppContainer {
+    height: 373px;
+    background-size: cover;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+  .tryAppContainerAr {
+    background-size: cover;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+  .subscribeDiv {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
+  .subscribeDivAr {
+    display: flex;
+    flex-direction: column;
+    width: 80% !important;
+    padding-top: 45px;
+  }
+  .tryAppInfoAr {
+    position: absolute;
+    left: 68px;
+    padding-top: 63px;
+    padding: 4% 9%;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 880px) {
+  .tryAppContainer {
+    background-position: bottom;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 880px) {
+  .tryAppSubDiv {
+    background-size: cover;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+  }
+  .tryAppSubDivAr {
+    background-size: cover;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position-x: inherit;
+  }
+
+  .tryAppParagraph{
+    height: 178px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 880px) {
+  .tryAppInfo {
+    padding: 9px 31px;
+  }
+  .tryAppInfoAr {
+    padding: 9px 31px;
+  }
+  .subscribeDiv {
+    width: 56%;
+  }
+  .subscribeDivAr {
+    width: 56%;
+  }
+}
+
+@media (max-width: 365px) {
+  .tryAppBtnDiv .googlePlayBtn {
+      margin: 0px 13px 0px 0px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .tryAppSubDiv .tryAppBtnDiv {
+      display: flex;
+      flex-direction: column !important;
+  }
+  .tryAppInfo {
+    padding: 33px 1px !important;
+  }
+    .tryAppInfoTitle {
+      margin: 0px 19px !important;
+    }
+     .tryAppInfoTitle h3 {
+        text-align: center;
+
+        font-size: 30px !important;
+      }
+  .googlePlayContainer{
+    height: 46px;
+    width: 141px;
+  }
+.googlePlayContainer i{
+      font-size: 26px !important;
+    
+  }
+  .googlePlayDiv {
+    width: max-content;
+  }
+   .googlePlayDiv p{
+      font-size: 10px !important;
+      font-weight: 400;
+  }
+
+  .playStoreContainer{
+    height: 46px;
+    width: 141px;
+  }
+   .playStoreContainer i{
+      font-size: 26px !important;
+   }
+  .playStoreDiv {
+    width: max-content;
+  }
+  .playStoreDiv p{
+      font-size: 10px !important;
+      font-weight: 400;
+}
+  }
+
+  @media (max-width: 330px) {
+    .tryAppMainContainer .tryAppContainer .tryAppBtnDiv .googlePlayBtn img,
+    .tryAppMainContainer .tryAppContainer .tryAppBtnDiv .appleContainer img,
+    .tryAppMainContainer .tryAppContainerAr .tryAppBtnDiv .googlePlayBtnAr img,
+    .tryAppMainContainer .tryAppContainerAr .tryAppBtnDiv .appleContainerAr img {
+      height: 38px !important;
+    }
+  }
+
+  @media (min-width: 330px) and (max-width: 480px) {
+    .tryAppMainContainer .tryAppContainer .tryAppBtnDiv .googlePlayBtn img,
+    .tryAppMainContainer .tryAppContainer .tryAppBtnDiv .appleContainer img,
+    .tryAppMainContainer .tryAppContainerAr .tryAppBtnDiv .googlePlayBtnAr img,
+    .tryAppMainContainer .tryAppContainerAr .tryAppBtnDiv .appleContainerAr img {
+      height: 40px !important;
+    }
+  }
+@media (min-width: 600px) and (max-width: 990px) {
+  .tryAppSubDiv,
+  .tryAppSubDivAr {
+    max-height: 305px;
+    width: 100%;
+  }
+  .subscribeDiv {
+    width: 40%;
+    margin: 0px 26px;
+  }
+}
+@media (max-width:500px){
+  .tryAppBtnDiv{
+    flex-direction: column;
+  }
+}
+@media (min-width: 767px) and (max-width: 1103px) {
+  .tryAppInfoTitle {
+    margin: 0px 7px !important;
+  }
+
+  .tryAppMainContainer .tryAppContainer .tryAppInfo,
+  .tryAppMainContainer .tryAppContainerAr .tryAppInfo {
+    padding: 51px 21px;
+  }
+  
+  .tryAppMainContainer .tryAppContainer .tryAppInfo .tryAppBtnDiv,
+  .tryAppMainContainer .tryAppContainerAr .tryAppInfo .tryAppBtnDiv {
+    display: flex !important;
+  }
+.googlePlayDiv{
+  width: max-content;
+}
+ .googlePlayDiv p{
+    font-size: 12px;
+  }
+
+.googlePlayContainer i{
+  font-size: 30px;
+}
+.playStoreDiv{
+  width: max-content;
+}
+  .playStoreDiv p{
+    font-size: 12px;
+}
+.playStoreContainer  i{
+  font-size: 30px;
+
+}
+}

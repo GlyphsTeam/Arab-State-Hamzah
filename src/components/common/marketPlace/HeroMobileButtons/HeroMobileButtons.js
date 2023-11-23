@@ -15,7 +15,8 @@ function HeroMobileButtons({setOpenMobileCategory , token}) {
     }
   
     const navigateFunction = () => {
-      if (token){
+      const tokenUser = localStorage.getItem("arab_user_token")
+      if (tokenUser){
         navigate("/market-place/new-product");
       }
       else{

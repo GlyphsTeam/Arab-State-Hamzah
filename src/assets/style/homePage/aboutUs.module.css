@@ -1,0 +1,186 @@
+@import "../_App.module.scss";
+
+.aboutUsContainer{
+    padding: 0px 0;
+    padding-top: 100px;
+}
+.leftAboutInfo{
+        color: var(--primary-color);
+}
+.aboutUsSubTitle{
+            color: var(--secondary-color);
+            font-size: 17px;
+            font-weight: bold;
+            padding: 30px 0 0;
+            margin-bottom: 12px;
+        }
+.aboutUsSubTitle h1{
+        margin: 0px;
+        color: var(--primary-color);
+        font-weight: bold;
+        }
+.aboutUsSubTitle p{
+            margin: 0;
+            padding-top: 17px;  
+            font-size: 18px;
+}
+.aboutUsImageContainer img{
+            height: 326px;
+            width: 433px ;
+            object-fit: cover;
+            border-radius: 80px 0 80px 0;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+.leftAboutInfo{
+      width: 41%
+    }
+    /* CSS */
+.button {
+    background: var(--tertiary-color);
+    border: 1px solid transparent;
+    border-radius: .75rem;
+    box-sizing: border-box;
+    color: var(--white) ;
+    cursor: pointer;
+    flex: 0 0 auto;
+    font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5rem;
+    padding: 9px 17px;
+    text-align: center;
+    text-decoration: none #6B7280 solid;
+    text-decoration-thickness: auto;
+    transition-duration: .2s;
+    transition-property: background-color,border-color,color,fill,stroke;
+    transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: auto;
+}
+.button:hover {
+    background-color:var(--white);
+    border: 3px solid var(--secondary-color) ;
+    color: var(--secondary-color);
+  }
+  
+  .button:focus {
+    box-shadow: none;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+
+.aboutUsBtnDiv{
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 12px;
+    }
+@media (max-width: 767px){
+    
+.aboutUsContainer{  
+    min-height: 473px;
+    display: flex;
+    padding-top: 72px;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+}
+.leftAboutInfo{
+       text-align: center;
+    }
+.leftAboutInfo{
+        width: 80%;
+    }
+.aboutUsSubTitle{
+            font-size: 12px;
+        }
+
+    .aboutUsImageContainer{
+        margin-top: 10px;
+    }
+     .aboutUsImageContainer img{
+            height: 232px;
+            width: 100% ;
+
+}
+}
+
+@media (max-width: 480px) {
+    .leftAboutInfo{
+        width: 85% !important;
+    }
+    .leftAboutInfo  h1{
+            font-size: 25px !important;
+        }
+.aboutUsImageContainer{
+    width: 92%;
+    margin: 10px auto;
+
+}
+}
+
+@media (min-width: 767px) {
+  .aboutUsContainer{
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+
+@media (min-width: 600px) and (max-width: 900px ) {
+    .aboutUsImageContainer{
+        width: 85%;
+        margin: 23px auto !important;
+    }
+
+    .leftAboutInfo h1{
+        font-size: 28px;
+}
+}
+
+@media (max-width:990px) {
+    
+    .aboutUsSubTitle{
+        padding: 27px 0 0 !important;
+        margin-bottom: 10px;
+    }
+}
+
+@media (min-width:767px) and (max-width: 990px) {
+    
+   .leftAboutInfo{
+    width: 100% !important;
+
+   }
+   .aboutUsContainer{
+    padding: 32px !important;
+
+   }
+
+   .aboutUsImageContainer img{
+        height: 320px !important;
+        width: 359px !important;
+   }
+   .leftAboutInfo p{
+        width: 92%;
+    }
+   .aboutUsBtnDiv{
+    margin: 0px 33px;
+   }
+}
+
+
+@media (min-width: 280px) and (max-width: 330px) {
+    .aboutUsImageContainer img{
+        width: 270px !important;
+      }
+  }
+
+
+  @media (max-width:480px){
+    .description{
+        font-size:14px !important;
+    }
+}

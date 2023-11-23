@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import style from "../../../assets/style/layout/footer.module.scss";
+import style from "../../../assets/style/layout/footer.module.css";
 import UseFetchPost from "../../../hooks/useFetch";
 import { useTranslation } from "react-i18next";
 // import useAxios from "../../hooks/useAxios";

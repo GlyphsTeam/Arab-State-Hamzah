@@ -1,0 +1,172 @@
+/* @import "../_App.module.scss"; */
+
+.footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 22px;
+  height: fit-content;
+}
+.subscribeParagraph p{
+  color: var(--white);
+  font-weight: 400;
+}
+.logoImage {
+  height: 98px;
+}
+
+.firstSection {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footerIcon {
+  padding-top: 15px;
+}
+.footerIcon a {
+    margin: 9px;
+  }
+   .footerIcon i {
+    color: var(--white);
+    font-size: 22px;
+  }
+
+
+.mainSubscribe input {
+    background: #d9d9d9;
+    border: 1px solid var(--black);
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    min-width: 291px;
+}
+
+.subscribeBtn {
+  padding-top: 12px;
+  width: 100%;
+}
+.subscribeBtn button {
+    background: var(--tertiary-color);
+    border-radius: 10px;
+    padding: 10px;
+    color: var(--primary-button-font-color) ;
+    width: 100%;
+    border: none !important;
+    font-weight: bold;
+}
+
+.linksDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 46px;
+}
+ .linksDiv a {
+    color: var(--white) !important;
+    margin: 12px;
+    font-size: 16px;
+  }
+.secondLinksDiv {
+  padding-top: 13px;
+}
+
+.firstLinksDiv {
+  padding-top: 13px;
+}
+
+.copyRightDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 52px;
+}
+.copyRightDiv p{
+  font-weight: 400;
+  color: var(--white);
+}
+
+.subscribed {
+  background-color: var(--tertiary-color) !important;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+  .subscribed i {
+    font-size: 18px;
+    color: var(--primary-color);
+    font-weight: bold;
+  }
+  p {
+    margin: 0;
+    padding: 0px 10px;
+    font-size: 16px;
+    color: var(--primary-color);
+    font-weight: bold;
+  }
+
+.warnEmail {
+  color: var(--danger-color);
+}
+
+@media (min-width: 250px) and (max-width: 1200px) {
+  .subscribeParagraph {
+    text-align: center;
+    padding-top: 10px;
+  }
+
+  .linksDiv a {
+      font-size: 14px;
+    }
+  
+  .copyRightDiv {
+    font-size: 14px;
+  }
+  .firstLinksDiv {
+    display: flex;
+    align-items: center;
+    width: max-content;
+  }
+  .secondLinksDiv {
+    display: flex;
+    align-items: center;
+  }
+  .copyRightParagraph {
+    text-align: center;
+  }
+}
+
+@media (min-width: 1200px) {
+  .linksDivMobile {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .linksDiv {
+    display: none !important;
+  }
+  .linksDivMobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 9px;
+  }
+  .linksDivMobile  a {
+      color: var(--white) !important;
+      margin: 12px;
+      font-size: 14px;
+    }
+}
+
+@media (min-width: 358px) and (max-width: 365px) {
+  .linksDivMobile a {
+      font-size: 13.5px;
+      
+    }
+}
+
+@media (max-width: 358px) {
+  .firstLinksDiv {
+    width: min-content !important;
+  }
+}

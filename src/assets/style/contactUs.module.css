@@ -89,9 +89,11 @@ input:-webkit-autofill:focus {
 
   /* width: 61%; */
   width: 88%;
+  height: 100%;
   color: var(--primary-color);
   font-size: 17px;
   /* text-align: left; */
+  font-weight: 400;
   padding-top: 30px;
   margin: center;
 }

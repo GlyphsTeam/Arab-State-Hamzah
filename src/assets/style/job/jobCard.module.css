@@ -1,0 +1,466 @@
+@import "../_App.module.scss";
+
+
+.card{
+  width:344px;
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.1); /* Box shadow from the bottom */
+  height:490px;
+  padding:20px;
+  border:1px solid rgba(0, 0, 0, 0.25);
+}
+.card  img{
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    margin:8px auto;
+    border:2px solid rgba(206, 140, 98, 1);
+  }
+  .boxandPublished{
+    display:flex !important;
+    justify-content:space-between;
+    align-items: center;
+  }
+   .boxandPublished p{
+      font-size:12px;
+      margin-top:5px;
+      color:rgb(21, 56, 102);
+      font-weight:600;
+  }
+  .iconsCard{
+    margin:-15px;
+  }
+  .iconsCard i{
+      color:rgb(200, 28, 80);
+      margin-left:10px;
+      cursor: pointer;
+  }
+  .textTitle{
+    padding:10px;
+    height: 75px;
+  }
+   .textTitle h3{
+      font-size:16px;
+      font-weight:600;
+      color:rgba(21, 56, 102, 1);
+    }
+  .textTitle  p{
+      color:rgba(200, 28, 80, 1);
+  }
+   .textTitle  i{
+        margin-right:8px;
+        cursor: pointer;
+  }
+
+  .parCard{
+    height:95px;
+  }
+   .parCard h3{
+      font-size:16px;
+      font-weight:600;
+      color:rgba(21, 56, 102, 1);
+    }
+   .parCard p{
+      overflow:hidden;
+      height:45px;
+      font-size:13px;
+      font-weight:600;
+      text-overflow:ellipsis;
+      color:rgba(21, 56, 102, 1);
+    }
+  .parCardPublished{
+    height:96px;
+  }
+   .parCardPublished h3{
+      font-size:16px;
+      font-weight:600;
+      color:rgba(21, 56, 102, 1);
+    }
+   .parCardPublished p{
+      overflow:hidden;
+      height:45px;
+      font-size:13px;
+      font-weight:600;
+      text-overflow:ellipsis;
+      color:rgba(21, 56, 102, 1);
+  }
+  .timeCard{
+    height: 11px;
+    display:flex;
+    justify-content:space-between;
+  }
+  .timeCard p{
+      font-size:13px;
+      font-weight:700;
+      color:rgba(200, 28, 80, 1);
+}
+.publishingClass{
+  margin-top:10px !important;
+  font-size:12px;
+}
+
+.boxsCard{
+  margin-left: -20px;
+  display:flex;
+}
+ .boxsCard .box1{
+    width:164px;
+    height:30px;
+    background-color:rgba(200, 28, 80, 1);
+  }
+ .boxsCard .box2{
+    width:19px;
+    height:30px;
+    margin-left:5px;
+    background-color:rgba(200, 28, 80, 0.8);
+  }
+ .boxsCard .box3{
+    width:19px;
+    height:30px;
+    margin-left:5px;
+    background-color:rgba(200, 28, 80, 0.6);
+  }
+ .boxsCard .box4{
+    width:19px;
+    margin-left:5px;
+    height:30px;
+    background-color:rgba(200, 28, 80, 0.4);
+}
+.cardTop{
+  position:relative;
+  display:flex;
+  justify-content:space-between;
+}
+.cardTop a{
+    margin:20px auto;
+  }
+.cardTop::before {
+  content: "";
+  transform: translateX(-50%) rotate(180.19deg);
+  position: absolute;
+  border-style: solid;
+  border-width: 112px 3px 105.23px 100px;
+  border-color: transparent transparent rgb(200, 28, 80) transparent;
+  width: 0;
+  top: -20.23px;
+  left: 29px;
+  
+}
+.deletePostJob{
+  position: relative;
+    color: white;
+    border: 0;
+    width: 50px;
+    font-size: 22px;
+    transform: translateX(-14px) rotate(-43deg);
+    height: 50px;
+}
+/* start */
+.mainJobCard {
+  max-height: 350px;
+  padding: 22px 2% 5px !important;
+  max-width: 500px !important;
+  min-width: 330px !important;
+}
+
+.mainJobCard .jobCardBody {
+  padding: 0;
+  border-radius: 14px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  max-height: 300px;
+  background: var(--primary-color);
+  transition: all 0.8s ease;
+}
+
+.mainJobCard .jobCardBody:hover .imgMainDiv {
+  background-color: transparent !important;
+}
+
+.mainJobCard .jobCardBody:hover .jobImage {
+  transition: all 0.8s ease;
+  filter: brightness(50%);
+  transform: scale(1.3);
+  z-index: 1;
+}
+
+.mainJobCard .jobCardBody:hover {
+  background-color: var(--white);
+  border: 2px solid var(--secondary-color);
+}
+
+.mainJobCard .jobCardBody:hover h3 {
+  color: var(--primary-color);
+}
+
+.mainJobCard .jobCardBody:hover .jobInfo .userJob {
+  color: var(--primary-color);
+}
+
+.mainJobCard .jobCardBody:hover .jobLocation {
+  color: var(--secondary-color);
+}
+
+.mainJobCard .jobCardBody:hover .jobDescription {
+  color: var(--primary-color);
+}
+
+.mainJobCard .jobCardBody:hover .jobUserName p {
+  color: var(--secondary-color);
+}
+
+.mainJobCard .jobCardBody:hover .jobType {
+  color: var(--secondary-color) !important;
+}
+
+.mainJobCard .jobCardBody:hover .jobCreate {
+  color: var(--secondary-color) !important;
+}
+
+.mainJobCard .jobCardBody:hover .favIconColor {
+  color: var(--secondary-color) !important;
+}
+
+.mainJobCard .jobCardBody .arImgMainDiv {
+  background: var(--white);
+  border-bottom-left-radius: 50% !important;
+}
+
+.mainJobCard .jobCardBody .imgMainDiv {
+  background: var(--white);
+  border-bottom-right-radius: 50%;
+}
+
+.mainJobCard .jobCardBody .imgMainDiv .jobImage {
+  max-width: 90px;
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+}
+
+.mainJobCard .jobCardBody .imgMainDiv .enJobImg {
+  border-radius: 50%;
+  width: 128px;
+  height: 93px;
+  position: relative;
+  bottom: 4px;
+  right: 18px;
+  border: 2px solid var(--primary-color);
+}
+
+.mainJobCard .jobCardBody .imgMainDiv .arJobImg {
+  border-radius: 50%;
+  width: 128px;
+  height: 93px;
+  position: relative;
+  bottom: 4px;
+  right: 18px;
+  border: 2px solid var(--primary-color);
+}
+
+.mainJobCard .jobCardBody .jobTitle {
+  font-size: 18px;
+  margin: 15px 0 5px;
+  overflow: hidden;
+  height: 24px;
+  color: var(--white);
+  font-weight: 600;
+}
+
+.mainJobCard .jobCardBody .jobTitle:hover {
+  color: var(--primary-color);
+}
+
+.mainJobCard .jobCardBody .jobLocation {
+  font-size: 15px;
+  overflow: hidden;
+  height: 23px;
+  color: var(--white);
+  margin: 0;
+}
+
+.mainJobCard .jobCardBody .actionDiv {
+  display: flex;
+  justify-content: end;
+  padding: 10px 25px 10px 20px;
+  height: 53px;
+  align-items: center;
+}
+
+.mainJobCard .jobCardBody .actionDiv i {
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.mainJobCard .jobCardBody .actionDiv .favIconColor {
+  color: var(--primary-button-font-color);
+}
+
+.mainJobCard .jobCardBody .jobInfo .userJob {
+  color: var(--white);
+}
+
+.mainJobCard .jobCardBody .jobInfo .jobUserName {
+  color: var(--primary-button-font-color);
+  font-size: 17px;
+  padding: 6px 10px 0;
+  margin: 0;
+  height: 40px;
+}
+
+.mainJobCard .jobCardBody .jobInfo .jobUserName p {
+  display: inline-block;
+}
+
+.mainJobCard .jobCardBody .jobDescription {
+  margin: 0;
+  padding: 5px 12px 20px;
+  text-align: start;
+  overflow: hidden;
+  height: 78px;
+  text-overflow: ellipsis;
+  color: var(--white);
+}
+
+.mainJobCard .jobCardBody .jobCardFooter {
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mainJobCard .jobCardBody .jobCardFooter .jobType {
+  color: var(--primary-button-font-color);
+  font-weight: 500;
+  margin: 0;
+}
+
+.mainJobCard .jobCardBody .jobCardFooter .jobCreate {
+  color: var(--primary-button-font-color);
+  font-weight: 400;
+  margin: 0;
+  font-size: 14px;
+}
+
+.mainJobCard .jobCardBody .jobCardFooter .approvalDiv {
+  display: flex;
+}
+
+.mainJobCard .jobCardBody .jobCardFooter .approvalDiv .waitingApproval {
+  color: #cf1e50;
+}
+
+.mainJobCard .jobCardBody .jobCardFooter .approvalDiv .published {
+  color: #0a4422;
+}
+
+.mainJobCard .jobCardBody .jobCardFooter .approvalDiv .deleteIcon {
+  color: #cf1e50;
+  padding: 0 12px;
+  cursor: pointer;
+}
+/* sadasdasd*/
+.filterResult {
+  color: #0a4422;
+  border: 2px solid #0a4422 !important;
+  width: fit-content !important;
+  text-align: center;
+  padding: 10px 18px !important;
+  margin: 15px 5px 10px !important;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+}
+ .filterResult i {
+    position: absolute;
+    font-size: 14px;
+    top: 3px;
+    cursor: pointer;
+}
+.latestPostTitle {
+  text-align:center;
+  margin-bottom:20px;
+  font-size: 30px;
+  color: var(--primary-color);
+  padding: 72px 60px 0px !important;
+  font-weight: bold;
+}
+
+.minWidth {
+  min-width: 50% !important;
+}
+/* start */
+@media screen and (max-width: 768px) {
+  .mainJobCard {
+    max-width: 325px !important;
+    min-width: 220px;
+    margin: auto;
+  }
+
+  .mainJobCard .jobCardBody .imgMainDiv .arJobImg {
+    width: 63px !important;
+    height: 63px !important;
+    padding: 0px !important;
+    border-radius: 50%;
+    bottom: 7px;
+    position: relative;
+    right: -3px !important;
+  }
+
+  .mainJobCard .jobCardBody .imgMainDiv .jobImage {
+    width: 63px !important;
+    height: 63px !important;
+    padding: 0px !important;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  .mainJobCard:hover .jobLocation {
+    color: var(--secondary-color) !important;
+  }
+}
+/*end*/
+@media (max-width: 700px) {
+  .mainJobCard {
+    max-width: 300px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1444px) {
+  .jobImage {
+    width: 81px !important;
+    height: 79px !important;
+    padding: 0px !important;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1200px) {
+  .jobImage {
+    width: 67px !important;
+    height: 68px !important;
+  }
+  .arJobImg {
+    position: relative;
+    right: -7px;
+  }
+}
+
+
+@media (max-width:1454px){
+  .enJobImg{
+    bottom:10px !important;
+    right:0px !important;
+  }
+  .arJobImg{
+    bottom:10px !important;
+    right:0px !important;
+  }
+}
+@media (min-width:500px) and (max-width:820px){
+  .enJobImg{
+    right: 13px !important;
+  }
+}
+.gridCards{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+}

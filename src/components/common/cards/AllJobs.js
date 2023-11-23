@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import style from "../../../assets/style/job/jobCard.module.scss";
+import style from "../../../assets/style/job/jobCard.module.css";
 import Alert from "../alert/Alert";
 import { Link } from 'react-router-dom';
 import Share from "../../../Utils/Share";

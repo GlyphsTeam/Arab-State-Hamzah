@@ -1,0 +1,209 @@
+
+.rentContainer {
+  display: flex;
+  cursor: pointer;
+  margin-bottom: 60px;
+  margin-top: 60px;
+  align-items: center;
+}
+
+.mainTitleShare {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+ .mainTitleShare h4 {
+    height: 49px;
+    overflow: hidden;
+    color: var(--secondary-color);
+  }
+
+
+.houseInfoPriceDiv {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+ .houseInfoPriceDiv p {
+    height: 50px;
+    overflow: hidden;
+    color: var(--primary-color);
+  }
+.mainCardContainer {
+  background-color: var(--sub-box-color);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+  width: 55%;
+  padding: 21px;
+  min-height: 207px;
+  overflow: hidden;
+}
+
+.rentCardImage {
+  margin: 0px 18px;
+  position: relative;
+}
+.rentCardImage  img {
+    border-radius: 10px;
+    width: 251px;
+    height: 213px;
+    object-fit: cover;
+  }
+.lookingText{
+  height: 40px;
+  position: absolute;
+  top: 2px;
+  background-color: var(--transparent-color);
+  color: var(--white);
+  padding: 5px;
+  width: fit-content;
+  margin: 7px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.houseInfo {
+  display: flex;
+  justify-content: space-between;
+}
+ .houseInfo p {
+    color: var(--secondary-color);
+  }
+
+  .houseInfo i {
+    color: var(--highlight-color);
+  }
+
+
+.favIconColor {
+  margin: 0px 10px;
+  font-size: 21px;
+  color: var(--secondary-color);
+}
+
+.housePrice {
+  font-weight: bold;
+  font-size: 23px;
+}
+
+.rentContainer:hover img {
+      filter: brightness(50%);
+      -webkit-filter: brightness(50%);
+
+}
+
+.rentContainer:hover .mainCardContainer {
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+
+.moreInfoDiv{
+  color: var(--primary-color ) !important;
+
+}
+.moreInfoDiv:hover{
+  border-bottom: 2px solid var(--primary-color); 
+}
+@media (min-width: 768px) {
+  .houseTitleMobile{
+    display: none;
+  }
+  .rentCardImageMobile{
+    display: none;
+  }
+  .housePriceMobile{
+    display: none;
+  }
+  
+}
+@media screen and (max-width: 768px) {
+  .houseTitle {
+    display: none;
+  }
+  .houseTitleMobile {
+    overflow: hidden;
+ 
+    /* width: 210px; */
+    height: 34px;
+    font-size: 18px;
+    color: var(--secondary-color);
+  }
+  .mainCardContainer {
+    width: 100%;
+    min-height: 332px;
+    padding: 0px;
+  }
+  .rentContainer {
+    position: relative;
+  }
+  .rentCardImageMobile {
+    margin: 0px;
+  }
+  .rentCardImageMobile  img {
+      min-width: 108px;
+      max-width: 144px;
+      height: 141px;
+      object-fit: cover;
+    }
+ 
+  .housePrice {
+    display: none;
+  }
+  .housePriceMobile {
+    text-align: center;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 19px;
+  }
+  .mainTitleShare {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+  }
+  .houseInfoPriceDiv {
+    flex-direction: column;
+    padding: 13px;
+    align-items: flex-start;
+  }
+  .rentCardImage {
+    display: none;
+  }
+  .houseInfo {
+    position: absolute;
+    bottom: 0px;
+    padding: 13px;
+  }
+   .houseInfo p {
+      font-size: 14px;
+      margin: 0px 10px;
+    }
+  .actionDiv {
+    padding: 13px;
+  }
+  .shareIconMobile {
+    height: 79px;
+  }
+  .moreInfoDiv {
+    display: none;
+  }
+  .favIconColor{
+    margin: 0px 6px;
+    font-size: 17px;
+  }
+  .lookingText{
+    width: min-content;
+    margin: 3px;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 800px) {
+  .rentCardImageMobile img{
+    min-width: 268px;
+    max-width: 157px;
+    height: 159px;
+  }
+}
+@media (max-width:500px){
+  .mainCardContainer{
+    padding:30px;
+  }
+}

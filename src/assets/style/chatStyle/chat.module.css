@@ -1,0 +1,163 @@
+.mainChatSection {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+}
+
+.mainChatBtnDiv {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+ .chatBtn {
+    border: 1px solid #153866;
+    background: RGB(94, 150, 197, 0.8);
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+.chatIcon {
+      font-size: 35px;
+      color: white;
+    }
+    .chatText {
+      margin: 0;
+      position: absolute;
+      color: white;
+      font-size: 10px;
+    }
+
+
+.boxChatMainDiv {
+  background: #6ea1cd;
+  height: 400px;
+  width: 300px;
+  border-radius: 15px;
+  padding: 10px 0px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+  .chatHead {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 9.5px 12.7px 0 rgba(0, 0, 0, 0.05);
+    padding: 5px 15px;
+  }
+    .admin {
+      width: fit-content;
+      color: white;
+      margin: 0;
+    }
+    .close {
+      font-size: 20px;
+      padding: 3px 6px;
+      cursor: pointer;
+    }
+  
+  .chatBody {
+    justify-content: space-between;
+    padding: 5px 15px;
+    background: #e1eff9;
+    margin: auto;
+    height: 300px;
+    overflow: auto;
+    bottom: 0;
+  }
+    .clientDiv {
+      width: 100%;
+      display: flex;
+      justify-content: start;
+      flex-wrap: wrap;
+    }
+      .clientName{
+        width: 100%;
+        display: flex;
+        justify-content: start;
+      }
+        .chatClientParagraph {
+            margin: 0;
+            font-size: 11px;
+            padding: 0px 6px;
+            font-weight: 600;
+            line-height: 24px;       
+        }
+      .clientMessage {
+        width: fit-content;
+        color: white;
+        background: #ADCFEA;
+        padding: 6px 15px;
+        border-radius: 35px;
+        border-bottom-left-radius: 10px;
+    }
+
+    .adminDiv {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: end;
+    }
+      .adminImage {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+      }
+        .chatAdminImage {
+          height: 21px;
+          width: 21px;
+          background: white;
+          border-radius: 50%;
+          margin: 0 0 7px 0;
+        }
+        .chatAdminParagraph {
+            margin: 0;
+            font-size: 11px;
+            padding: 0px 6px;
+            font-weight: 600;
+            line-height: 24px;       
+        }
+      .adminMessage {
+        width: fit-content;
+        color: #153866;
+        background: white;
+        padding: 6px 15px;
+        border-radius: 35px;
+        border-bottom-right-radius: 10px;
+
+    }
+  
+
+  .chatInput{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+    .uploadImageClient label i{
+                color: white;
+                font-size: 30px;
+                padding: 3px 10px;
+                cursor: pointer;
+            }
+  
+
+    .sendIconSvg{
+        height: 30px;
+        margin: 10px;
+        cursor: pointer;
+    }
+
+    .chatTextArea{
+        resize: none;
+        height: fit-content;
+        outline: none;
+        overflow-y: auto;
+        white-space: pre-wrap;
+        max-height: 200px;
+        overflow-wrap: break-word;
+        width: 65%;
+        left: 55px;
+        position: absolute;
+        font-size: 13px;
+        margin: 7px 0;
+        border-radius: 15px;
+    }

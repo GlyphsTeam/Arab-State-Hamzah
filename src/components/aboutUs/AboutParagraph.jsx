@@ -1,12 +1,12 @@
 import React from "react";
-import style from "../../assets/style/about/about.module.scss";
+import style from "../../assets/style/about/about.module.css";
 import { useTranslation } from "react-i18next";
 import ReactHtmlParser from "html-react-parser";
 import Title from "../common/Title";
 
 function AboutParagraph({ aboutData }) {
   const [t, i18n] = useTranslation();
-
+   console.log("aboutData?.about>>",aboutData?.about)
   return (
     <div className={`${style.aboutParagraph} col-lg-8`}>
       <div className={`row`}>

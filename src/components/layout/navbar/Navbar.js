@@ -5,7 +5,7 @@ import MenuDropDown from "./MenuDropDown";
 import Button from "../../common/Button";
 import NavSearch from "../navbar/NavSearch";
 import { useLocation } from "react-router-dom";
-import btnStyle from "../../../assets/style/common/button.module.scss";
+import btnStyle from "../../../assets/style/common/button.module.css";
 import { Route, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import useAxios from "../../../hooks/useAxiosGet";

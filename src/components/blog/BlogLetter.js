@@ -21,7 +21,7 @@ function BlogLetter({ Data }) {
       <div className={containerClass}>
         <div className={style.paragraph}>
           <h2>{blog?.title}</h2>
-          <p className={paragraph}>
+          <p className={style.paragraph}>
             {blog?.web_description &&
               ReactHtmlParser(`${blog?.web_description}`)}
           </p>

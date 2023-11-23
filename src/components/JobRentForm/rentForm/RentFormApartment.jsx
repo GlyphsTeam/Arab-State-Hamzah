@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import style from "../../../assets/style/formStyle/rentForm.module.scss";
+import style from "../../../assets/style/formStyle/rentForm.module.css";
 import Alert from "../../customAlert/Alert";
 import useAxios from "../../../hooks/useAxiosGet";
 import { useTranslation } from "react-i18next";
@@ -46,7 +46,7 @@ function ShowRentForm({ baseUrl, rentPageData }) {
   description && formData.append("description", description);
   gender && formData.append("gender", gender);
   email && formData.append("email", email);
-  phone && formData.append("phone", phone);
+  phone && formData.append("phone_number", phone);
   price && formData.append("price", price);
   bathrooms && formData.append("bathrooms", bathrooms);
   bedrooms && formData.append("bedrooms", bedrooms);

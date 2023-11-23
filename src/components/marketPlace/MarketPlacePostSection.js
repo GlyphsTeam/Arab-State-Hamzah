@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import style from "../../assets/style/postProduct/postProduct.module.scss";
+import style from "../../assets/style/postProduct/postProduct.module.css";
 import Alert from "../common/alert/Alert";
-import jobStyle from "../../assets/style/postProduct/postProduct.module.scss";
+import jobStyle from "../../assets/style/postProduct/postProduct.module.css";
 import useAxios from "../../hooks/useAxiosGet";
 import Dropzone from "react-dropzone";
 import productStyle from "../../assets/style/postProduct/rightPost.module.css";

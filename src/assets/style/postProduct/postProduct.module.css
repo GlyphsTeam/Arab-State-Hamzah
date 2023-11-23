@@ -1,0 +1,420 @@
+@import "../_App.module.scss";
+
+.ContactUsPage {
+  height: 100% !important;
+}
+.registerPage {
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 90vh;
+}
+ .registerPage .rightAuth {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+ }
+.registerPage .registerFormDiv {
+      width: 60%;
+      margin: auto;
+      padding: 45px 15px 5px;
+}
+ .registerPage  .subAuthTitle {
+        width: 70%;
+      }
+
+ .registerPage .contactTitle {
+        color: #0a4422;
+      }
+ .registerPage  form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+ }
+.registerPage  form    input {
+          width: 45%;
+          margin: 0px 0px 20px;
+          border-radius: 12px;
+          border: 2px solid var(--secondary-color) !important; 
+          outline: none;
+        }
+.registerPage form select {
+          margin-bottom: 20px !important;
+          border-radius: 12px !important;
+          border: 2px solid var(--secondary-color)!important; 
+          outline: none;
+        }
+.registerPage form textarea {
+          width: 100%;
+          min-height: 124px !important;
+          resize: none !important;
+          border: 2px solid var(--secondary-color)!important; 
+          outline: none;
+        }
+
+.registerPage  .middleFormInputs {
+          display: flex;
+          justify-content: space-between;
+        }
+.registerPage .changePasswordDiv {
+          margin: 0 0 20px;
+}
+.registerPage .changePasswordDiv .passwordInput input {
+              margin: 0 0 10px;
+        }
+ .registerPage .passwordInput {
+          display: flex;
+          position: relative;
+ }
+ .registerPage .passwordInput div .passIcon {
+              position: absolute;
+              line-height: 45px;
+            }
+.registerPage .passwordInput .passIconLanguageEn {
+              right: 10px;
+            }
+.registerPage .passwordInput .passIconLanguageAr {
+              left: 10px;
+            }
+ .registerPage input {
+          background: #ffffff;
+          border-radius: 12px;
+          height: 45px;
+          padding: 5px 10px;
+        }
+.registerPage  .checkBox {
+          width: none !important;
+          height: 0px !important;
+          margin: 0px 0px 20px;
+        }
+
+.registerPage .validationWarn {
+          color: red;
+          width: 100%;
+          margin: 0;
+        }
+
+.registerPage .contactTextArea {
+          width: 100% !important;
+          min-height: 100px;
+          border-radius: 12px;
+          padding: 5px 10px !important;
+          }
+
+ .registerPage  .loginBtnsDiv {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+ }
+  .registerPage .forgetPassBtn {
+          border: none;
+          background-color: transparent;
+      }
+ .registerPage  .signUpBtn {
+        margin: 20px 0;
+        height: 45px;
+        border-radius: 12px;
+        color: var(--white);
+      }
+
+.registerPage .deleteAccountBtn {
+        margin: 20px 5px;
+        height: 45px;
+        border-radius: 12px;
+        color: var(--white);
+      }
+
+
+.registerPage .CancelDeleteAccountBtn {
+        background: #cf1e50;
+      }
+
+.registerPage .contactBtn {
+        display: flex;
+        margin: 20px auto;
+        justify-content: center;
+        align-items: center;
+      }
+
+.registerPage .checkboxDiv {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+}
+.registerPage .checkboxDiv  input {
+          width: 27px;
+          margin: 0 4px;
+          height: 27px !important;
+        }
+
+  .registerPage  div {
+          display: flex;
+          padding: 10px 0;
+  }
+.registerPage   input {
+            width: 27px;
+            margin: 0 4px;
+          }
+
+.registerPage  label {
+            padding: 0 4px;
+      }
+
+.registerPage   .checkboxDivPost {
+        display: flex;
+        align-items: center;
+}
+.registerPage   .checkboxDivPost  input {
+          width: 27px;
+          margin: 0 4px;
+          height: 16px !important;
+        }
+
+.registerPage  div {
+          display: flex;
+          padding: 10px 0;
+}
+ .registerPage  input {
+            width: 27px;
+            margin: 0 4px;
+          }
+
+.registerPage  label {
+            padding: 0 4px;
+          
+      }
+
+.signInBtn {
+        border: 1px solid #0a4422;
+        border-radius: 12px;
+        width: 70%;
+        margin: 40px auto;
+        display: flex;
+        padding: 5px 10px;
+        justify-content: center;
+        color: black;
+        cursor: pointer;
+      }
+.btnAuthAction {
+          color: #0a4422;
+          padding: 0 5px;
+        }
+      
+
+.OTPFormDiv {
+      padding: 40px 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+ .otpHeader {
+        text-align: center;
+        padding: 0px 10px 50px;
+      }
+.OTPFormDiv  form .otpFields {
+          width: 60%;
+          display: flex;
+          justify-content: center;
+          margin: auto;
+}
+.OTPFormDiv input {
+            width: 40px;
+            text-align: center;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid;
+            margin: 0 5px;
+    
+        }
+.validationWarn {
+          color: red;
+          width: 100%;
+          margin: 15px 0 0;
+          text-align: center;
+
+      }
+
+.countDownDiv {
+        padding: 30px 10px;
+}
+ .countDownDiv p {
+          text-align: center;
+        }
+.resendCodeDiv {
+          display: flex;
+          margin: auto;
+          justify-content: center;
+        }
+.countDownDiv p {
+            margin: 0 5px;
+            }
+.resendBtn {
+            border: none;
+            background: transparent;
+            }
+      
+.VerifyBtn {
+        margin: 10px auto;
+        width: 40%;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        padding: 10px;
+        border-radius: 15px;
+        border: none;
+        
+        color: var(--white);
+      }
+    
+
+
+.optionMainButton {
+  display: flex;
+  background: #ffffff;
+  border-radius: 12px;
+  height: 45px;
+  padding: 5px 10px;
+  margin: 0px 0px 20px;
+  border: 2px solid var(--secondary-color) !important; 
+  width: 100% !important;
+  justify-content: space-between;
+  align-items: center;
+}
+ .optionMainButton p {
+    margin: 0px;
+  }
+  .plusButton {
+    color: var(--secondary-color);
+    font-size: 27px;
+    font-weight: bold;
+}
+.inputDivOption {
+  width: 100% !important;
+  position: relative;
+}
+ .inputDivOption input {
+    width: 100% !important;
+    margin: 10px;
+  }
+  .optionSaveDeleteButton {
+    position: absolute;
+    position: absolute;
+    top: 11px;
+    right: 7px;
+  }
+    .checkClass {
+      border: none;
+    }
+     .optionSaveDeleteButton i {
+        color: var(--success-color);
+      }
+  
+    .deleteClass {
+      color: #c81c50;
+      border: none;
+
+    }
+.optionSaveDeleteButton button {
+      margin: 0px 10px;
+    }
+.optionParagraphDiv {
+  right: 28px;
+  width: 100%;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background: #ffffff;
+  border-radius: 12px;
+  height: 45px;
+  padding: 5px 10px;
+  margin: 0px 0px 20px;
+  border: 2px solid var(--secondary-color) !important;
+  width: 100% !important;
+}
+  .deleteClass {
+    border: none;
+  }
+   .deleteClass i {
+      color: #c81c50;
+    }
+.btn {
+  background: var(--tertiary-color);
+  border-radius: 12px;
+  color: var(--primary-button-font-color) ;
+  height: 45px;
+  width: 30%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  transition: 0.3s;
+  margin: 20px 0px;
+  border: none;
+}
+.btn:hover{
+  background:#153866;
+}
+.required {
+  color: red;
+  width: 100%;
+}
+.typeField {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+}
+.typeField  input{
+  width: 5% !important;
+  height: 18px !important;
+}
+.postProductTitle {
+  color: var(--primary-color);
+  text-align: center;
+  font-size: 37px;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 1024px) {
+  .registerPage .rightAuth .registerFormDiv {
+    width: 85%;
+    padding: 20px 15px;
+  }
+
+  .registerPage .rightAuth .registerFormDiv .subAuthTitle {
+    width: 100%;
+  }
+
+  .registerPage .rightAuth .registerFormDiv .signInBtn {
+    width: 75%;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .registerPage .rightAuth .OTPFormDiv {
+    padding: 20px 0;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .registerPage .rightAuth {
+    border-radius: 32px 32px 0px 0px;
+    width: 100%;
+  }
+
+  .registerPage .rightAuth .registerFormDiv {
+    width: 85%;
+  }
+
+  .postProductTitle {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .registerPage .rightAuth .registerFormDiv {
+    width: 95%;
+  }
+}
+@media (min-width: 1000px) {
+  .postProductTitle {
+    margin-bottom: 105px;
+  }
+}

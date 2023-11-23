@@ -1,0 +1,45 @@
+
+.imageAuth{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+.imageAuth  img{
+        height: 580px;
+}
+
+.imageAuthDelete{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+.imageAuthDelete img{
+height: 359px;;
+padding: 36px;
+}
+
+@media screen and (max-width: 1024px) {
+    .imageAuth img{
+            height: 220px;
+        }
+    .imageAuthDelete img{
+            height: 220px;
+        }
+}
+@media screen and (max-width: 768px) {
+    .imageAuth img{
+            height: 180px;
+        }
+    .imageAuthDelete img{
+            height: 210px;
+}
+}
+@media screen and (max-width: 480px) {
+    .leftAuth img{
+            height: 150px;
+        }
+    .imageAuthDelete img{
+            height: 207px;
+        }
+}
+

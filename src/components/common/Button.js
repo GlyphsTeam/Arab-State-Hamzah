@@ -1,5 +1,5 @@
 import React from 'react'
-import style from '../../assets/style/common/button.module.scss';
+import style from '../../assets/style/common/button.module.css';
 import { useTranslation } from 'react-i18next';
 function Button({btnInfo ,  handleCloseModal}) {
   const { t, i18n } = useTranslation();

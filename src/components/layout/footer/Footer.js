@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../../../assets/style/layout/footer.module.scss";
+import style from "../../../assets/style/layout/footer.module.css";
 import useAxios from "../../../hooks/useAxiosGet";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -13,6 +13,7 @@ function Footer({logoImage}) {
   
   const [footer] = useAxios('general-setting');
   const footerData = footer?.data?.footer;
+  console.log("footerData>>>",footerData)
   const hideFooter =
     location.pathname === "/Login" ||
     location.pathname === "/Register" ||

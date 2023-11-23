@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { useTranslation } from "react-i18next";
-import style from "../../../assets/style/common/bannerWInfo.module.scss";
+import style from "../../../assets/style/common/bannerWInfo.module.css";
 import { Link } from 'react-router-dom';
 import ReactHtmlParser from "html-react-parser";
 import { LazyLoadImage } from 'react-lazy-load-image-component'

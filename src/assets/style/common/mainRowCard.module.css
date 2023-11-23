@@ -8,7 +8,10 @@
   width: 93%;
   overflow: hidden;
 }
-
+.textDiv p{
+  color: var(--secondary2-color) !important;
+  font-weight: 400;
+}
 .columnCardsContainerDiv {
   display: flex;
   margin: 0px 0px 69px;

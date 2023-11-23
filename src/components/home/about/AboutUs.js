@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../../../assets/style/homePage/aboutUs.module.scss";
+import style from "../../../assets/style/homePage/aboutUs.module.css";
 // import Button from "../common/Button";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";

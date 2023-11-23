@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import style from "../../../assets/style/common/lookingFor.module.scss";
+import style from "../../../assets/style/common/lookingFor.module.css";
 import ReactHtmlParser from "html-react-parser";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";

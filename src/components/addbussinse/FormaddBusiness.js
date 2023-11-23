@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import style from "../../assets/style/formStyle/addbuinsesFrom.module.scss";
+import style from "../../assets/style/formStyle/addbuinsesFrom.module.css";
 import Alert from "../customAlert/Alert";
 import useAxios from "../../hooks/useAxiosGet";
 import { useTranslation } from "react-i18next";
@@ -346,7 +346,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
 
             }, 2000)
         }
-        if (inputFields.length < 2) {
+        if (inputFields.length < 1) {
             setMessageAlert("please fill The Services input at least one")
             setTypeAlert("warning");
             setShowAlert(true);
@@ -399,7 +399,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
             && phoneNumber !== ""
             && email !== ""
             && businsesLine !== ""
-            && inputFields.length > 2
+            && inputFields.length > 0
             && images.length >= 2
             && images2.length >= 2
             && uploadedImage !== null

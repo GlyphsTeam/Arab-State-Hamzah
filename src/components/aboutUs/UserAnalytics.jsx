@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import style from "../../assets/style/about/userAnalytics.module.scss";
+import style from "../../assets/style/about/userAnalytics.module.css";
 import Slider from "react-slick";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";

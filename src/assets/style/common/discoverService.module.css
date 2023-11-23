@@ -1,0 +1,73 @@
+
+.discoverServiceContainer {
+  position: relative;
+}
+.discoverServiceImageContainer {
+  padding: 15px;
+  height: 430px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 38px;
+  filter: brightness(50%);
+  color: white;
+}
+
+.discoverServiceText {
+  position: absolute;
+  top: 43px;
+  color: var(--white);
+  padding: 22px 96px;
+}
+ .discoverServiceText P {
+    text-wrap: balance;
+    padding-top: 38px;
+    font-weight: 400;
+    height: 230px;
+    overflow: hidden;
+    max-width: 818px;
+    font-size: 22px;
+    color: var(--primary-color);
+}
+.discoverServiceButton {
+  padding: 10px;
+  border: none;
+  font-weight: bold;
+  margin-top: 22px;
+  background-color: var(--tertiary-color);
+  color: white;
+  border: 3px solid var(--tertiary-color);
+  transition: all 1.04s ease;
+  width: 37%;
+  font-size: 18px;
+  text-align: center;
+}
+
+
+.discoverServiceButtonAr {
+  padding: 10px;
+  border: none;
+  font-weight: bold;
+  margin-top: 22px;
+  background-color: var(--tertiary-color);
+  color: white;
+  border: 3px solid var(--tertiary-color);
+  transition: all 1.04s ease;
+  width: 37%;
+  font-size: 18px;
+  text-align: center;
+}
+
+
+@media (max-width: 480px) {
+  .discoverServiceText {
+    font-size: 15px;
+  }
+
+  .discoverServiceText {
+    padding: 22px 21px;
+  }
+  .discoverServiceButton {
+    width: 64%;
+    margin: 0px;
+  }
+}

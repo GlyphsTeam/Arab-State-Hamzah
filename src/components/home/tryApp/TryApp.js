@@ -1,6 +1,6 @@
 import React, {  useEffect } from "react";
 // import style from "../../assets/style/HomePage/tryApp.module.scss";
-import style from "../../../assets/style/homePage/tryApp.module.scss";
+import style from "../../../assets/style/homePage/tryApp.module.css";
 import { useTranslation } from "react-i18next";
 import {  useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -58,8 +58,8 @@ useEffect(() => {
                 <div className={style.googlePlayContainer}>
                   <i className="fab fa-google-play"></i>
                   <div className={style.googlePlayDiv}>
-                    <p>Available on the</p>
-                    <p>Google Play</p>
+                    {/* <p>Available on the</p> */}
+                    <p> Available on the Google Play</p>
                   </div>
                 </div>
               </a>
@@ -72,8 +72,8 @@ useEffect(() => {
                 <div className={style.playStoreContainer}>
                 <i className="fab fa-apple"></i>
                   <div className={style.playStoreDiv}>
-                    <p>Download on the</p>
-                    <p>App Store</p>
+                    {/* <p>Download on the</p> */}
+                    <p> Download on the App Store</p>
                   </div>
                 </div>
               </a>

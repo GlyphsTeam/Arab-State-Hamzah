@@ -25,6 +25,8 @@
 .showBlogParagraph{
     width: 100%;
     text-align: justify;
+    height: 100%;
+    font-weight: 400;
 
 }
 .youtubIcon{
@@ -44,9 +46,11 @@
 
 }
 .showBlogDate{
+    font-weight: 400;
     color: #ADA7A7
 }
 .showBlogParagraphTitle{
+    font-weight: 400;
     color: var(--primary-color);
 }
 .mainSectionBlog{

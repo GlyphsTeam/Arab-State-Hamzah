@@ -2,7 +2,7 @@ import React from 'react';
 import Menu from '../components/common/UserProfileMenu';
 import UserPostsSection from '../components/userProfile/UserPostsSection';
 import useAxios from "../hooks/useAxiosGet";
-import style from '../assets/style/userProfile/userProfile.module.scss'
+import style from '../assets/style/userProfile/userProfile.module.css'
 
 function SavedJobPage({baseUrl}) {
 

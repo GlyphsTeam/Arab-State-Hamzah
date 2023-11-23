@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import style from '../../assets/style/userProfile/userProfile.module.scss'
+import style from '../../assets/style/userProfile/userProfile.module.css'
 import '../../assets/style/userProfile/userProfile.css'
 import Accordion from 'react-bootstrap/Accordion';
 import { Link , useNavigate} from 'react-router-dom';

@@ -1,0 +1,22 @@
+
+:root {
+    /* main color in arab georgia website  */
+    --primary-color: #1E212D;
+    --secondary-color : #CE8C62;
+    --tertiary-color: #590612;
+    --box-color : white;
+    --sub-box-color :  rgba(247, 254, 255, 0.1);
+    --highlight-color: #565252;
+    --primary-button-font-color: white;
+    --black : black;
+    --white: white;
+    --danger-color: red;
+    --success-color : green;
+    --white-blue: #286084;
+    --light-beige : rgba(253, 202, 104, 0.2);
+    --nav-color: white;
+    --transparent-color : rgba(190,0,64 ,0.50);
+    --accordion-btn-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cstyle%3Esvg%7Bfill:%23ffffff%7D%3C/style%3E%3Cpath d='M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z'/%3E%3C/svg%3E");
+    --grey : #D9D9D9 ;
+    
+    }

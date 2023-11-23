@@ -1,6 +1,6 @@
 import React from "react";
 import LeftAuth from "../components/common/auth/AuthImage";
-import style from "../assets/style/postProduct/postProduct.module.scss";
+import style from "../assets/style/postProduct/postProduct.module.css";
 import MarketPlacePostSection from "../components/marketPlace/MarketPlacePostSection";
 import Banner from "../components/common/banner/Banner";
 import { useTranslation } from "react-i18next";

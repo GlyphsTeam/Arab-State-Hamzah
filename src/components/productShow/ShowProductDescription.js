@@ -12,7 +12,7 @@ function ShowProductDescription({showProductData}) {
             {t("Description")}
         </h2>
         <p>
-        {showProductData?.web_description && ReactHtmlParser(`${showProductData?.web_description}`)}
+        {showProductData?.web_description ? ReactHtmlParser(`${showProductData?.web_description}`):showProductData?.description}
           </p>
     </div>
   )

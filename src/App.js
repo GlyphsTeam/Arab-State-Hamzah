@@ -70,7 +70,39 @@ function App() {
   const logoImage = Data?.data?.navbar?.logo;
   const logoBlueImage = Data?.data?.logo;
   const spinnerLogo = Data?.data?.icon_loading;
-
+  const city = process.env.REACT_APP_City;
+  if (city === "GA") {
+    import('./assets/style/App.module.css').then(() => {
+    }).catch((error) => console.log(error))
+  }
+  if(city==="NY"){
+    import('./assets/style/statesPalettes/arabNewYork/App.module.css').then(()=>{
+    }).catch((err)=>console.log(err))
+  }
+  if(city==="IL"){
+    import('./assets/style/statesPalettes/arabChicago/App.module.css').then(()=>{
+    }).catch((error)=>console.log(error))
+  }
+  if(city==="NJ"){
+    import('./assets/style/statesPalettes/arabNewJersey/App.module.css').then(()=>{
+    }).catch((err)=>console.log(err))
+  }
+  if(city==="DE"){
+    import('./assets/style/statesPalettes/arabdetroit/App.module.css').then(()=>{
+    }).catch((err)=>console.log(err));
+  }
+  if(city==="TX"){
+    import('./assets/style/statesPalettes/arabHouston/App.module.css').then(()=>{
+    }).catch(((err)=>console.log(err)))
+  }
+  if(city==="FL"){
+    import('./assets/style/statesPalettes/arabOrlando/App.module.css').then(()=>{
+    }).catch((err)=>console.log(err));
+  }
+  if(city==="CA"){
+    import('./assets/style/statesPalettes/LosAngeles/App.module.css').then(()=>{
+    }).catch((err)=>console.log(err));
+  }
   const [baseURL, setBaseURL] = useState();
   useEffect(() => {
     OneSignal.init({
@@ -175,10 +207,10 @@ function App() {
               <Route path={`/my-job`} element={<MyJobPage baseUrl={baseURL} />} />
               <Route path={`/my-housing`} element={<MyHousingPage baseUrl={baseURL} />} />
               <Route path={`/my-business`} element={<MyBusiness />} baseURL={baseURL} />
-              <Route path={`/saved-blogs`} element={<MySavedBlogs/>}/>
+              <Route path={`/saved-blogs`} element={<MySavedBlogs />} />
               <Route path={`/delete-account`} element={<DeleteAccountPage baseUrl={authAPI} logo={logoBlueImage} />} />
               <Route path={`/changePassword`} element={<ChangePassword baseUrl={authAPI} logo={logoImage} />} />
-              <Route path={'/add-bussinse'} element={<Business baseURL={baseURL}/>} />
+              <Route path={'/add-bussinse'} element={<Business baseURL={baseURL} />} />
             </Route>
 
             <Route path={``} element={<Home baseURL={baseURL} />} />
@@ -214,10 +246,10 @@ function App() {
             <Route exact path={`/Our-Service`} element={<OurService />} />
             <Route exact path={`/post-job`} element={<PostJobPage baseUrl={baseURL} />} />
             <Route exact path={`/post-rent`} element={<PostRentPage baseUrl={baseURL} />} />
-            <Route exact path={`/rentForm`} element={<RentFormAc  baseUrl={baseURL}/> } />
+            <Route exact path={`/rentForm`} element={<RentFormAc baseUrl={baseURL} />} />
             <Route exact path={`/form/:slug`} element={<JotForm />} />
             <Route exact path="/*" element={<Page404 />} />
-             <Route exact path={`/jobforcompany`} element={<PostJobCompany baseUrl={baseURL}/>}/>
+            <Route exact path={`/jobforcompany`} element={<PostJobCompany baseUrl={baseURL} />} />
           </Routes>
 
         </main>

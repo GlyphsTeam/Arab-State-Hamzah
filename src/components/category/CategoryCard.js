@@ -10,7 +10,7 @@ function SubCategoryCard({ data }) {
     <>
     <div className={`${style.cardDiv} col-lg-3 col-md-6 col-sm-4`} >
       <Link
-        to={`/SubCategory/${data.name}/?Page=${
+        to={`/SubCategory/${data.name}/${data?.id}/?Page=${
           data.type === "business" ? "shops" : "service"
         }`}
         state={(urlId = { id: data?.id })}

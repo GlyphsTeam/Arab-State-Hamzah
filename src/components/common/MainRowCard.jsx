@@ -10,6 +10,7 @@ function MainRowCard({ data}) {
   const handleChangePage = () => {
     window.scrollTo(0, 0);
   };
+  console.log('data>se',data)
   return (
     <>
       {/* <h2 className={style.popularHeader}>{t("Our Services")}</h2>

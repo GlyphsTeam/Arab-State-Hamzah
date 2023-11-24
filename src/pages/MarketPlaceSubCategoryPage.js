@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import filterStyle from "../assets/style/common/filteredPage.module.css";
 import useAxios from "../hooks/useAxiosGet";
 import SubCategorySection from "../components/marketPlace/MarketPlaceSubCategorySection";
-import AdvBanner from "../components/common/banner/Banner";
+// import AdvBanner from "../components/common/banner/Banner";
 import Header from "../components/marketPlace/MarketHeader";
 import CategoryNav from "../components/common/marketPlace/marketNav/CategoryNav";
 import HeroMobileButtons from "../components/common/marketPlace/HeroMobileButtons/HeroMobileButtons";
@@ -54,7 +54,7 @@ function CategoryPage() {
   return (
     <>
       <div className={filterStyle.bannerMarketPlace}>
-      <AdvBanner bannerUrl="sliders/page?page=App\Models\MarketMainCategoryPage"/>
+      {/* <AdvBanner bannerUrl="sliders/page?page=App\Models\MarketMainCategoryPage"/> */}
       <Header data = {categoryData2?.slider} />
         <HeroMobileButtons setOpenMobileCategory={setOpenMobileCategory} />
       </div>

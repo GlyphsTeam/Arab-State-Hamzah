@@ -45,7 +45,6 @@ function OurWebsite({ourWebsiteData}) {
                       {/* <p className={style.lastCardParagraph}>
                         {item.description}
                       </p> */}
-                    </div>
                     <Link
                       key={item.id}
                       to={`/show-blog/${item.id}`}
@@ -57,6 +56,8 @@ function OurWebsite({ourWebsiteData}) {
                         </small>
                       </div>
                     </Link>
+                    </div>
+
                   </a>
                 </div>
               ))}

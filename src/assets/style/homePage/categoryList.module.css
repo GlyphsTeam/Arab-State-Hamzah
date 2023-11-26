@@ -14,6 +14,9 @@ width: 100%;
 height: 600px;
 padding: 0;
 }
+.AllCategoryContainer{
+  margin: -10px;
+}
 
 .AllCategoryContainer .slick-slider .slick-list{
   width: 95% !important;
@@ -110,6 +113,7 @@ padding: 0;
   color: var(--secondary-color);
   font-size: 30px;
   font-weight: 700;
+  margin-bottom: 0 !important;
   padding: 0 3%;
 }
 
@@ -141,8 +145,8 @@ padding: 0;
 .AllCategoryLink {
   width: fit-content;
   display: block;
-  margin: auto;
   text-align: center;
+  margin: auto;
 }
 .AllCategoryContainer div button:nth-of-type(1) {
   left: -20px !important;

@@ -23,6 +23,13 @@
     font-size: 40px;
   font-weight: bold;
   }
+  .userAnalyticsCard p{
+    font-size: 40px !important;
+    margin-bottom: 0 !important;
+  }
+  .userAnalyticsCard h5{
+    font-size: 30px;
+  }
  .userAnalyticsTextMobile i {
     height: 91px;
     font-size: 62px;

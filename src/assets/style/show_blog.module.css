@@ -5,15 +5,19 @@
     height: 60%;
     width: 90%;
     object-fit: contain;
-    padding-top: 30px;
-    padding-top: 50px;
     border-bottom-left-radius: 170px;
+}
+.blogTitileConinater{
+    height: 100px !important;
 }
 .iconsShareAndSave{
     display: flex;
+    height: 50px;
 }
 .favoriteIconCursor{
     cursor: pointer;
+    color: var(--primary-color);
+
   }
   .shareIconMargin{
     margin: 0px 5px 0px 5px
@@ -24,6 +28,8 @@
   }
 .showBlogParagraph{
     width: 100%;
+    font-size: 20px;
+    color: var(--primary-color);
     text-align: justify;
     height: 100%;
     font-weight: 400;
@@ -52,6 +58,9 @@
 .showBlogParagraphTitle{
     font-weight: 400;
     color: var(--primary-color);
+    height: 100%;
+    margin-top: 20px !important;
+    font-size: 20px;
 }
 .mainSectionBlog{
     /* background-color: #C2DEF3; */
@@ -64,6 +73,22 @@
     font-weight: bold;
     font-size: 20px;
     padding-top: 30px;
+    height: fit-content;
+}
+.showBlogParagraphTitle p{
+    max-height: calc(1.2em * 3); 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 400 !important;
+    font-size: 20px !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 5; 
+    -webkit-box-orient: vertical;
+}
+.showBlogParagraphDiv p{
+    color: var(--primary-color);
+    font-weight: 400;
+    
 }
 .showBlogParagraphDiv{
     overflow: hidden;

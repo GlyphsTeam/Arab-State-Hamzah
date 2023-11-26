@@ -4,6 +4,17 @@
   color: var(--primary-color);
   
 }
+.cardText{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.cardText h5{
+  font-size: 25px !important;
+}
+.readMoreTextOutline{
+  font-size: 20px;
+}
 .blogLetterParagraph{
   font-weight: 400;
 }
@@ -103,12 +114,14 @@ color: var(--primary-color);
   text-align: justify;
   /* color: #09353F; */
   height: 170px !important;
+  color: var(--primary-color);
   overflow: hidden;
 }
 
 .blogLetterExpanded {
   font-size: 18px;
   text-align: justify;
+  color: var(--primary-color);
   /* color: #09353F; */
 }
 .imageBlogDiv img {
@@ -866,6 +879,7 @@ transition: all 0.4s ease;
     /* min-height: 756px !important; */
   }
   .blogLetterParagraph {
+    color: var(--primary-color) !important;
     font-size: 18px !important;
   }
   .blogLetterExpanded {

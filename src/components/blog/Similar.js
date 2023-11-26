@@ -26,7 +26,7 @@ function Similar({showBlogData, id , urlId}) {
                     className={`col-4 ${style.interestedCardContainer} ${blogStyle.interestedCardContainerBlog}`}
                   >
                      <Link
-                   to={`/show-blog/${item?.slug}`}  state={(urlId = { id: item?.id })}
+                   to={`/show-blog/${item?.slug}/${item?.id}`}  state={(urlId = { id: item?.id })}
                    onClick={handleChangePage}
                 >
                     <LazyLoadImage src={item.image} alt='imageU'/>

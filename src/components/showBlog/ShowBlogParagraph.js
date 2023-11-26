@@ -9,7 +9,7 @@ function ShowBlogParagraph({ Data, showBlogData }) {
     <>
       { showBlogParagraph?.map((item, index) => (
           <div key={index} >
-           <p className={style.showBlogMainTitle}>{item?.title} </p>
+          {item?.title&&<p className={style.showBlogMainTitle}>{item?.title} </p>}
             {
                item?.image &&
             <div >
@@ -18,7 +18,7 @@ function ShowBlogParagraph({ Data, showBlogData }) {
             </div>
   }
             <div className={style.showBlogParagraphDiv}>
-              <p className={` ${style.showBlogParagraphTitle} pt-3 `} key={item?.id}>{item?.web_description && ReactHtmlParser(`${item?.web_description}`)} </p>
+             {item?.web_description&&<p className={` ${style.showBlogParagraphTitle}`} key={item?.id}>{item?.web_description && ReactHtmlParser(`${item?.web_description}`)} </p>}
               <br/>
             </div>
         </div>

@@ -12,14 +12,14 @@
 .googlePlayDiv p{
   width: 130px;
   text-align: center;
-  margin-top: 25px;
-  font-size: 15px;
+  margin-top: 30px;
+  font-size: 17px !important;
 }
 .playStoreDiv p{
   width: 130px;
   text-align: center;
-  margin-top: 25px;
-  font-size: 15px;
+  margin-top: 30px;
+  font-size: 17px !important;
 }
   .tryAppContainer,  
   .tryAppContainerAr {
@@ -39,6 +39,9 @@
       margin: auto;
       color: white;
     }
+.tryAppParagraph p{
+  font-size: 25px;
+}
 .tryAppInfo {
         padding: 8% 14%;
         padding: 4% 9%;
@@ -454,6 +457,29 @@
 @media (max-width:500px){
   .tryAppBtnDiv{
     flex-direction: column;
+  }
+  .googlePlayDiv p{
+    position: relative;
+    top: 20px;
+    left: -25px;
+    font-size: 10px !important;
+  }
+  .playStoreDiv p{
+    position: relative;
+    top: 20px;
+    left: -25px;
+    font-size: 10px !important;
+  }
+  .tryAppParagraph{
+    text-align: center;
+    margin: 19px;
+  }
+  .tryAppInfoTitle{
+    width: 100%;
+  }
+  .tryAppInfoTitle h3{
+    margin-left: 30px;
+    width: 100%;
   }
 }
 @media (min-width: 767px) and (max-width: 1103px) {

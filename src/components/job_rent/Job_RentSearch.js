@@ -32,9 +32,9 @@ function SearchForm({searchType, handleOpenRentModal, handleOpenModalForm, token
     }
     const showPostModal = () => {
      if(searchType == 'Rent'){
-      navigate('/post-rent')
+      navigate('/rent')
      }else{
-      navigate('/post-job')
+      navigate('/job')
      }
     }
     return(

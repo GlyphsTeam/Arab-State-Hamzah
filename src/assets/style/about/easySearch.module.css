@@ -29,6 +29,9 @@
   margin: 0px 42px;
   color: var(--primary-color);
 }
+.easySearchCard p{
+  text-align: center;
+}
 
 .easySearchCard img {
   height: 80px;

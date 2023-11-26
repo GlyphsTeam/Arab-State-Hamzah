@@ -36,7 +36,7 @@ function CategoryList({ data }) {
                   alt="img-Catge"
                 />
               </div>
-              <div className={`col-lg-9 mt-5`}>
+              <div className={`col-lg-9`}>
                 <p className={style.subCategorySmallTitle}>{data?.title?.shops}</p>
 
                 <AllCategoryList

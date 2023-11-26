@@ -54,7 +54,7 @@ function PopularSection({ data  , urlId}) {
               </div>
               <div className={style.cloumnParagraph}>
                 <h3>{item.title} </h3>
-                <p style={{marginTop:'50px'}}>
+                <p >
                   {item?.web_description && ReactHtmlParser(`${item?.web_description}`)}
                   </p>
                 <div className={style.columnCardReadMore}>

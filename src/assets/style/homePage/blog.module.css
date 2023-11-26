@@ -77,6 +77,7 @@
 .readMoreText {
   color: var(--secondary-color);
   padding: 5px 15px;
+  margin-top: 10px;
 }
 
 .cardBody:hover {
@@ -249,6 +250,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    height: 50px !important;
     width: 204px !important;
   }
 

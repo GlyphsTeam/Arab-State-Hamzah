@@ -29,6 +29,8 @@ function ShowBlog() {
   const [Data] = useAxios(showBlogUrl);
 
   let showBlogData = Data?.data?.blog;
+  console.log("showBlogData>>>", Data?.data)
+
   let sliderData = Data?.data;
   const saveBlogHandler = async (id) => {
     const token = localStorage.getItem('arab_user_token')
@@ -68,7 +70,7 @@ function ShowBlog() {
       <div className={`container`}>
         <div className={`row`}>
           <div className="col-lg-8 col-md-12 col-sm-12 pt-5">
-            <div>
+            <div className={style.blogTitileConinater}>
               <h4 className={style.showBlogTitle}>{showBlogData?.title}</h4>
               <p className={style.showBlogDate}>{showBlogData?.created_at} </p>
             </div>
@@ -87,7 +89,7 @@ function ShowBlog() {
               </div>
               {showShareModal && <Share url={pathName} setShowShareModal={setShowShareModal} />}
 
-              <p className={` ${style.showBlogParagraph} pt-3`}>
+              <p className={` ${style.showBlogParagraph}`}>
                 {showBlogData?.web_description && ReactHtmlParser(`${showBlogData?.web_description}`)}
               </p>
 

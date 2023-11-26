@@ -29,7 +29,6 @@ function TopRentCard({ rentData, setShow, token, setCount }) {
   const handleClick = () => {
     setShowShareModal(true);
   };
-   console.log("rentData>>>",rentData)
   return (
     <>
       <div className={style.mainTopRentContainer}>
@@ -38,6 +37,42 @@ function TopRentCard({ rentData, setShow, token, setCount }) {
           <i className={`fas fa-home ${style.accommodationIcon}`}></i>{" "}
           {rentData?.looking_for_text}{" "}
         </p>
+        <div className={style.firstSection}>
+          <div>
+          <div className={style.infoSection}>
+                <i className={`fas fa-phone-alt ${style.locationIcon}`}></i>
+            <h4 className={style.titleInfo}>{t("Phone Number")}</h4>
+            </div>
+         
+            <p className={`${style.infoParagraph} ${i18n.language==='en'?style.phoneClass:style.phoneClassAr}`}>
+              <a href={`tel:${rentData?.phone_number}`}>
+                {rentData?.phone_number}
+              </a>
+            </p>
+          </div>
+          <div>
+            <div className={style.infoSection}>
+              <i
+                className={`fas fa-envelope-open-text ${style.locationIcon}`}
+              ></i>
+
+              <h4 className={style.titleInfo}>{t("Email")}</h4>
+            </div>
+
+            <p className={`${style.infoParagraph} ${i18n.language==='en'?style.phoneClass:style.phoneClassAr}`}>
+              <a href={`mailto:${rentData?.email}`}>{rentData?.email}</a>
+            </p>
+          </div>
+
+          <div>
+            <div className={style.infoSection}>
+              <i className={`fas fa-map-marker-alt ${style.locationIcon}`}></i>
+              <h4 className={style.titleInfo}>{t("Location")}</h4>
+            </div>
+
+            <p className={`${style.infoParagraph} ${i18n.language==='en'?style.phoneClass:style.phoneClassAr}`}>{rentData?.place}</p>
+          </div>
+        </div>
         {/* <p className={style.addressStyle}>
           <i className={`fas fa-map-marker-alt ${style.locationIcon}`}></i>{" "}
           {rentData?.place}{" "}
@@ -155,42 +190,7 @@ function TopRentCard({ rentData, setShow, token, setCount }) {
           <i className={`fas fa-phone-alt ${style.}`}></i>
           {rentData?.phone_number}
         </p> */}
-        <div className={style.firstSection}>
-          <div>
-          <div className={style.infoSection}>
-                <i className={`fas fa-phone-alt ${style.locationIcon}`}></i>
-            <h4 className={style.titleInfo}>{t("Phone Number")}</h4>
-            </div>
-         
-            <p className={style.infoParagraph}>
-              <a href={`tel:${rentData?.phone_number}`}>
-                {rentData?.phone_number}
-              </a>
-            </p>
-          </div>
-          <div>
-            <div className={style.infoSection}>
-              <i
-                className={`fas fa-envelope-open-text ${style.locationIcon}`}
-              ></i>
-
-              <h4 className={style.titleInfo}>{t("Email")}</h4>
-            </div>
-
-            <p className={style.infoParagraph}>
-              <a href={`mailto:${rentData?.email}`}>{rentData?.email}</a>
-            </p>
-          </div>
-
-          <div>
-            <div className={style.infoSection}>
-              <i className={`fas fa-map-marker-alt ${style.locationIcon}`}></i>
-              <h4 className={style.titleInfo}>{t("Location")}</h4>
-            </div>
-
-            <p className={style.infoParagraph}>{rentData?.place}</p>
-          </div>
-        </div>
+   
 
       </div>
       {showShareModal && (

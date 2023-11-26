@@ -4,14 +4,22 @@
     width: 95%;
     padding-top: 40px;
 }
-
 .rigthParagraph{
   font-size: 22px;
   color: var(--primary-color);
   font-weight: 400;
   height: 100%;
   line-height: 1.8;
-  padding-top: 15%;
+  padding-top: 95px;
+
+}
+.rigthParagraph p{
+  
+  font-size: 22px;
+  color: var(--primary-color);
+  font-weight: 400;
+  height: 100%;
+  line-height: 1.8;
   padding-left: 10%;
   padding-bottom: 0%;
 }

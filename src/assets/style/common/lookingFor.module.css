@@ -46,13 +46,17 @@
 }
 
 .desc {
-  font-size: 20px;
+  font-size: 20px !important;
   margin: 12px 0;
   font-weight: 400;
   padding-top: 15px;
   color: var(--primary-color);
   height: 295px;
   overflow: hidden;
+}
+.desc span{
+  color: var(--primary-color);
+  font-size: 20px !important;
 }
 
 .divBtns {

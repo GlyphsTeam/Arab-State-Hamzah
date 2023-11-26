@@ -5,9 +5,13 @@
   position: absolute;
   left: 50%;
 }
+.popupDiv p{
+  height: fit-content;
+}
 .copiedParagraph{
   margin: 0px !important;
     font-size: 14px !important;
+    height: fit-content;
 }
 .button {
   outline: none;

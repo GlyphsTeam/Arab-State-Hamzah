@@ -3,7 +3,29 @@
   height: 350px;
   /* border-radius: 50%; */
   width: 100%;
+  border-top-left-radius: 150px;
+
   padding: 19px;
+}
+.rentPriceDiv{
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.rentPriceDivAr{
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.mainTopRentContainer p{
+  color: var(--primary-color);
+  height: fit-content;
+}
+.firstSection{
+  display: flex;
+  margin-bottom: 30px;
+  justify-content: space-between;
+  align-items: center;
 }
 .imageDiv {
   border-radius: 180px 180px 0px 180px;
@@ -21,7 +43,9 @@
   font-size: 40px;
 }
 .titleInfo {
-  font-size: 25px;
+  font-size: 17px;
+  color: var(--secondary-color);
+  font-weight: bold;
 }
 .shareSaveSection {
   display: flex;
@@ -101,8 +125,9 @@
 }
 .rentStyle {
   font-weight: bold;
-  font-size: 25px;
-  color: var(--secondary-color);
+  font-size: 20px;
+  margin-top: 10px;
+  color: var(--secondary-color) !important;
 }
 .rentParagraph {
   /* height: 188px; */
@@ -184,8 +209,13 @@ a .contactIcon {
 .infoParagraph {
   margin: 0px 41px;
 }
-.firstSection {
-  height: 246px;
+.phoneClass{
+  position: relative;
+  left: -30px;
+}
+.phoneClassAr{
+  position: relative;
+  right: -30px;
 }
 
 @media (max-width: 480px) {
@@ -423,6 +453,9 @@ a .contactIcon {
   .rentPriceDivAr {
     position: absolute;
     left: 9px;
+    display: flex !important;
+    width: 100%;
+    justify-content: space-around;
   }
   /* .rentCardsContainer{
       width: 85%;
@@ -434,8 +467,9 @@ a .contactIcon {
 }
 @media (min-width: 1300px) {
   .imageSize {
-    height: 350px;
-    border-radius: 50%;
+    height: 400px;
+    border-top-left-radius: 150px;
+
     width: 350px;
     padding: 19px;
   }
@@ -481,5 +515,14 @@ a .contactIcon {
   }
   .houseNumberParagraphLast {
     margin-bottom: 10px;
+  }
+}
+
+@media (max-width:500px){
+  .firstSection{
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
   }
 }

@@ -19,7 +19,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
     const [showAlert, setShowAlert] = useState(false);
 
     const [company, setCompany] = useState("");
-    const [businessType, setBusinessType] = useState("");
+    const [businessType, setBusinessType] = useState("2");
     const [streetAddress, setStreetAddress] = useState("");
     const [city, setCity] = useState("");
     const [state, setState] = useState("");
@@ -79,7 +79,6 @@ function ForRentForm({ baseUrl, rentPageData }) {
         time_to: "09:00 PM"
     },
     ]);
-    console.log('workTimes', work_times)
     const updateWorkTimeFrom = (updatedDay, newTimeFrom) => {
         setwork_times(prevWorkTimes => {
             return prevWorkTimes.map(day => {
@@ -220,8 +219,6 @@ function ForRentForm({ baseUrl, rentPageData }) {
 
     const mirgeCate = [...businessCategories, ...serviceCategories];
 
-
-
     const [Data] = useAxios(urlStates);
     const statesAndcityes = Data?.data;
 
@@ -233,6 +230,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
         let subCity = cityName?.city?.map((city) => {
             return city?.name;
         })
+        setCity(subCity[0]);
         setCitys(subCity);
     }
     const handleImageDrop = (acceptedFiles) => {
@@ -247,7 +245,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
     const handleImageDrop2 = (acceptedFiles) => {
         setImages2((prevImages) => [...prevImages, ...acceptedFiles]);
     };
-
+   
     const handleRemoveImage2 = (index) => {
         const updatedImages = [...images2];
         updatedImages.splice(index, 1);
@@ -274,14 +272,8 @@ function ForRentForm({ baseUrl, rentPageData }) {
 
             }, 2000)
         }
-        if (businessType === "") {
-            setMessageAlert("please fill The Business Type")
-            setTypeAlert("warning");
-            setShowAlert(true);
-            setTimeout(() => {
-                setShowAlert(false);
-
-            }, 2000)
+        if (businessType.length === "") {
+             setBusinessType("2")
         }
         if (streetAddress === "") {
             setMessageAlert("please fill The Street Address")
@@ -391,7 +383,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
 
             }, 2000)
         }
-        if (company !== "" && businessType !== ""
+        if (company !== ""
             && streetAddress !== ""
             && city !== ""
             && state !== ""
@@ -406,7 +398,8 @@ function ForRentForm({ baseUrl, rentPageData }) {
             && uploadedImage2 !== null){
             let formData = new FormData();
         let baseURL = `https://glyphsmarketingbusiness.com/api/GA/en/${state}/business/create`;
-        const token = localStorage.getItem('arab_user_token')
+        const token = localStorage.getItem('arab_user_token');
+       
         formData.append('name', company);
         formData.append('main_id', businessType);
         formData.append('state', state);
@@ -440,9 +433,6 @@ function ForRentForm({ baseUrl, rentPageData }) {
             formData.append(`work_times[${index}][time_from]`, work.time_from);
             formData.append(`work_times[${index}][time_to]`, work.time_to);
         });
-
-
-
         try {
             await fetch(`${baseURL}`, {
                 headers: {

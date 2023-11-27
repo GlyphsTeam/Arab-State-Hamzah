@@ -38,6 +38,8 @@
 
   .accordionTitle {
     margin: 0;
+    height: fit-content;
+    margin-bottom: 70px;
     padding: 2px 32px;
     font-size: 20px;
     color: var(--secondary-color);

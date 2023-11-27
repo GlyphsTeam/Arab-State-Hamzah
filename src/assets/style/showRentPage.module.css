@@ -520,9 +520,13 @@ a .contactIcon {
 
 @media (max-width:500px){
   .firstSection{
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    text-align: center;
+   display: grid !important;
+   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  .infoSection h4{
+   font-size: 13px;
+  }
+  .infoParagraph a{
+    font-size: 12px;
   }
 }

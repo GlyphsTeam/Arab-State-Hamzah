@@ -1,5 +1,7 @@
 .showProductDescriptionContainer p {
   margin: 0px !important;
+  color: var(--primary-color);
+  height: fit-content;
 }
 
 /* .mainShowProductColor{

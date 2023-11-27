@@ -1,7 +1,12 @@
 /* .subProductInformationContainer h1{
     font-size: 28px;
 } */
-
+.subProductInformationContainer h2{
+    color: var(--secondary-color);
+}
+.subProductInformationContainer p{
+    height: fit-content;
+}
 
 .subProductDiv{
 

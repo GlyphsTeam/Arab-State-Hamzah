@@ -3,7 +3,7 @@ import style from "../../assets/style/marketProfile.module.css";
 import { useTranslation } from "react-i18next";
 
 function SocialMedia({ data }) {
-  const [t, i18n] = useTranslation();
+  const [t] = useTranslation();
 
   return (
     <>

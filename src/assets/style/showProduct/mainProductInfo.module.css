@@ -19,6 +19,10 @@
     font-weight: bold;
     color: var(--secondary-color);
 }
+.locationDateContainer p{
+    color: var(--primary-color);
+    height: fit-content;
+}
 
 .locationDateContainer{
     display: flex;

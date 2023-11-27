@@ -85,21 +85,22 @@ function MainProductInfo({ showProductData }) {
             {showProductData?.email} */}
           </p>
         )}
-      </div>
-      <div className={style.generalTipsDiv}>
-        <h3>{t("General Tips")}</h3>
-        <ul>
-          <li>Only meet in public places</li>
-          <li>Never pay or transfer money in advance</li>
-          <li>Inspect the product before you buy it</li>
-        </ul>
-      </div>
-      <div className={style.locationDateContainer}>
+          <div className={style.locationDateContainer}>
         <p className={style.locationStyle}>
           <i className="fas fa-map-marker-alt" aria-hidden="true"></i>
           {showProductData?.place}
         </p>
       </div>
+      </div>
+      <div className={style.generalTipsDiv}>
+        <h3>{t("General Tips")}</h3>
+        <ul>
+          <li>{t("Only meet in public places")}</li>
+          <li>{t("Never pay or transfer money in advance")}</li>
+          <li>{t("Inspect the product before you buy it")}</li>
+        </ul>
+      </div>
+    
       {showAlert && (
         <Alert
           type="warning"

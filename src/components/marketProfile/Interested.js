@@ -17,13 +17,13 @@ function Interested({ data }) {
               {t("You may be interested in")}{" "}
             </h2>
             <div className={`${style.lastSection}`}>
-              {data?.similar?.map((item, index) => (
+              {data?.similar?.slice(0,3).map((item, index) => (
                 <div
                   key={index}
                   className={`col-3 ${style.interestedCardContainer}`}
                 >
                   <Link
-                    to={`/MarketProfile/${item?.slug}`}
+                    to={`/MarketProfile/${item?.slug}/${item?.id}`}
                     state={(urlId = { id: item?.id })}
                   >
                     <LazyLoadImage src={item.image} alt="imageInter"/>

@@ -14,7 +14,7 @@ function SubCategorySlider({activeIndex , handleClick , id}) {
 
   let url = `main-categories/${id}/sub-categories`;
   let [Data] = useAxios(url);
-  let [icon] = useAxios(`stores/all-cat/${idI}`);
+  let [icon] = useAxios(`stores/all-cat/${id}`);
   let subCategoryList = Data.data; 
 
   let sliderList = subCategoryList?.map((item) => (

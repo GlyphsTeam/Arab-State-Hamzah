@@ -18,6 +18,7 @@
 }
 .favoriteIconCursor{
     cursor: pointer;
+    color: var(--primary-color);
   }
   .shareIconMargin{
     margin: 0px 5px 0px 5px
@@ -28,6 +29,7 @@
   }
 .showBlogParagraph{
     width: 100%;
+    color: var(--primary-color);
     text-align: justify;
 }
 .eventCardContainer{

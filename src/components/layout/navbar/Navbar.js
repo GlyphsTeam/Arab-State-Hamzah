@@ -6,23 +6,18 @@ import Button from "../../common/Button";
 import NavSearch from "../navbar/NavSearch";
 import { useLocation } from "react-router-dom";
 import btnStyle from "../../../assets/style/common/button.module.css";
-import { Route, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import useAxios from "../../../hooks/useAxiosGet";
 import NestedDropDown from "./NestedDropDown";
 import AccordionMobile from "./AccordionMobile";
-// import LanguageGet from '../../../Utils/language/LanguageGet'
-import NavbarChangeLanguage from "../../../Utils/language/NavbarChangeLanguage";
-import GetLang from "../../../Utils/language/GetLang";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 function NavBar({ logoImage }) {
   const [showNavbar, setShowNavbar] = useState(false);
-  const languageIcon = <i className="fas fa-globe"></i>;
   const [navbar, setNavbar] = useState(false);
   const [dropDown, setDropDown] = useState(false);
   const [statesDropDown, setStatesDropDown] = useState(false);
-  const [lan, setLan] = useState("en");
   const { t, i18n } = useTranslation();
   const location = useLocation();
   const pathName = location.pathname.toLocaleLowerCase();
@@ -32,7 +27,6 @@ function NavBar({ logoImage }) {
   const [Data] = useAxios(nestedUrl);
   const [general] = useAxios("general-setting");
   const statesData = general?.data?.navbar?.states;
-  const citiesData = general?.data?.navbar?.cities;
   const serviceLinks = general?.data?.services;
 
 
@@ -82,15 +76,12 @@ function NavBar({ logoImage }) {
 
   const urlChangeLang = (lang, type) => {
     const { pathname } = location;
-    // const params = pathname.split('/');
     const params = window.location.pathname.split("/");
     const langUrl = params[1];
-    const newUrlLang = params[2];
     localStorage.setItem("lang", lang);
     i18n.changeLanguage(lang);
     langDir(lang);
-    // window.location.reload();
-    // window.location.replace(`${window.location.pathname}`);
+
     const newPath = pathname.replace(`/${langUrl}`, "");
 
     window.location.replace(`/${i18n.language}${newPath}`);
@@ -158,7 +149,6 @@ function NavBar({ logoImage }) {
     }
   };
 
-  const cityName = localStorage.getItem("city");
 
   return (
     <>
@@ -186,13 +176,7 @@ function NavBar({ logoImage }) {
                   {t("Home")}{" "}
                 </li>
               </Link>
-              {/* <Link to="/Category">
-                <li
-                className={pathName === "/category" ? style.activePath : ""}
-                >
-                Categories{" "}
-                </li>
-              </Link> */}
+       
               <Link to={`/about`}>
                 <li className={pathName === "/about" ? style.activePath : ""}>
                   {t("about us")}

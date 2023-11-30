@@ -16,8 +16,7 @@ function ShowUserGuide() {
   const [t, i18n] = useTranslation();
 
   const location = useLocation();
-  const id =
-    location.pathname.split("/")[location.pathname.split("/").length - 1];
+  const id = location.pathname.split("/")[location.pathname.split("/").length - 1];
   let showUserGuideUrl = `user_guides/show/web/${id}`;
   const [Data] = useAxios(showUserGuideUrl);
   let showUserGuide = Data?.data?.main;

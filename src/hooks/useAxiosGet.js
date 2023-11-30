@@ -33,7 +33,7 @@ function useAxios(url) {
       catch (error) {
         console.log(error);
       }
-    }, [url, i18n.language]);
+    }, [url]);
   
     return [Data , setData];
 }

@@ -44,6 +44,7 @@
 .cardDiv {
   padding: 20px 15px;
   min-width: 230px;
+  cursor: pointer;
 }
 
 .subCategoryCardLink {

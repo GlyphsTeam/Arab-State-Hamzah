@@ -1,0 +1,7 @@
+.titleTerm{
+    color: var(--primary-color);
+}
+.parTerm{
+    color: var(--black) !important;
+    height: fit-content;
+}

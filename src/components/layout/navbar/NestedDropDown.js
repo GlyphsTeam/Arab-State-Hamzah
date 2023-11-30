@@ -21,7 +21,7 @@ function NestedDropDown({data, serviceLinks}) {
     <ul>
     {serviceLinks?.service_provider?.id && (
         <li className={`${style.nestedDropDownLi}`} onMouseEnter={() => handleMouseEnter('service')} onMouseLeave={handleMouseLeave}> 
-            <Link className={style.linkColor} to="/show-service" state={({ id: serviceLinks?.service_provider?.id })}>
+            <Link className={style.linkColor} to={`/show-service/${serviceLinks?.service_provider?.id}`}state={({ id: serviceLinks?.service_provider?.id })}>
                 {t("Service Providers")}
                 <i className={`fas fa-chevron-${t("nestedArrowDir")} ${style.nestedDropDownArrow} ${i18n.language === 'en'? style.nestedDropDownArrowDirEn : style.nestedDropDownArrowDirAr}`}></i>
               </Link>
@@ -29,7 +29,7 @@ function NestedDropDown({data, serviceLinks}) {
       )}
       {serviceLinks?.shops?.id && (
         <li className={style.nestedDropDownLi} onMouseEnter={() => handleMouseEnter('business')} onMouseLeave={handleMouseLeave}> 
-            <Link className={style.linkColor} to="/show-service" state={({ id: serviceLinks?.shops?.id })}>
+            <Link className={style.linkColor} to={`/show-service/${serviceLinks?.shops?.id }`} state={({ id: serviceLinks?.shops?.id })}>
                 {t("Shops")}
                 <i className={`fas fa-chevron-${t("nestedArrowDir")} ${style.nestedDropDownArrow} ${i18n.language === 'en'? style.nestedDropDownArrowDirEn : style.nestedDropDownArrowDirAr} `}></i>
               </Link>
@@ -39,7 +39,7 @@ function NestedDropDown({data, serviceLinks}) {
       {serviceLinks?.market_place?.id && (
 
         <li className={style.nestedDropDownLi}> 
-            <Link className={style.linkColor} to="/show-service" state={({ id: serviceLinks?.market_place?.id })}>
+            <Link className={style.linkColor} to={`/show-service/${serviceLinks?.market_place?.id}`} state={({ id: serviceLinks?.market_place?.id })}>
                 {t("Marketplace")}
               </Link>
         </li>

@@ -1,4 +1,3 @@
-import React from 'react'
 import style from '../../assets/style/showProduct/showProduct.module.css';
 import { useTranslation } from 'react-i18next';
 import ReactHtmlParser from 'html-react-parser';

@@ -17,8 +17,7 @@ function ProductCardMarket({ data, isMyPost, baseUrl, type }) {
   let favoriteIcon = isFav ? 'fas fa-bookmark' : 'far fa-bookmark';
 
   let urlId;
-  console.log("dataProduct<<<", data)
-  console.log("baseUrl",baseUrl)
+
   let url='/Show-Product';
 
   useEffect(() => {

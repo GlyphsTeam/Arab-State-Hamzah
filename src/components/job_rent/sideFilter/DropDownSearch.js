@@ -1,4 +1,3 @@
-import React from "react";
 import Select from "react-select";
 import style from "../../../assets/style/job_rent/jobRentFilter.module.css";
 import { useTranslation } from "react-i18next";
@@ -22,7 +21,6 @@ function DropDownSearch({
     label: item.name,
     name: name,
   }));
-  console.log("options>>>",options)
   return (
     <>
       <p className={style.productFilterTitle}>{title}</p>

@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import Share from "../../../Utils/Share";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import useFetch from "../../../hooks/useFetch";
-import {useLocation} from 'react-router-dom';
 const HouseCard = ({ houseData, isMyPost, baseUrl, urlId }) => {
   const [t, i18n] = useTranslation();
   const [send, setSend] = useState(false);
@@ -16,11 +15,9 @@ const HouseCard = ({ houseData, isMyPost, baseUrl, urlId }) => {
   const [isFav, setIsFav] = useState(houseData?.saved);
   const token = localStorage.getItem("arab_user_token");
   const [showShareModal, setShowShareModal] = useState(false);
-  const urlpath = useLocation();
-  const pathName = `/${i18n?.language}` + urlpath.pathname;
+
   let formData = new FormData();
   formData.append("id", houseData.id);
-  console.log("houseData>>",houseData)
   const [Res] = useFetch('favorite/rent', formData, send);
 
 

@@ -1,20 +1,17 @@
-import React from 'react';
 import Accordion from './Accordion';
 import style from '../../../assets/style/common/filteredPage.module.css'
 import useAxios from '../../../hooks/useAxiosGet';
 import {useNavigate} from "react-router-dom";
 import { useTranslation } from "react-i18next";
 function Filter({ filterType, filterTitle,categoryState, setCategoryState }) {
-  const [t, i18n] = useTranslation();
+  const [t] = useTranslation();
 
 
 
   const navigate = useNavigate()
 
-  // let url = `filter/${filterType}`;
   let url = `main-market/categories`;
   const [Data] = useAxios(url);
-  // console.log(url);
 
   const filerActionCategory = (mainTitle, main_Id, subTitle, sub_Id) => {
 

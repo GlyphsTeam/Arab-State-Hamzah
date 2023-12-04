@@ -1,4 +1,3 @@
-import React from "react";
 import CategoryHeader from "../components/common/banner/Banner";
 import Category from '../components/category/Category';
 import DealsCard from '../components/subCategory/DealsCard';

@@ -17,8 +17,7 @@ function MarketPlaceProductSection({ categoryData, categoryState, setCategorySta
   const dispatch = useDispatch();
   const navigate = useNavigate();
  
-  const [isShop, setIsShop] = useState(true);
-  const [isMap, setIsMap] = useState(false);
+
 
   const [showAlert, setShowAlert] = useState(false);
   const [count, setCount] = useState();

@@ -12,7 +12,6 @@ function Favorite_Contact({ data, setShow, setCount }) {
   const location = useLocation();
   const id = location.pathname.split('/')[location.pathname.split('/').length - 1];
   const pathName = location.pathname;
-  console.log("data>>fav", data)
 
   useEffect(() => {
     if (data?.saved) {

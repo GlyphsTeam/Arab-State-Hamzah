@@ -1,4 +1,3 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import style from "../assets/style/searchResult/searchResultPage.module.css";
 import SearchResultCard from "../components/searchResult/SearchResultsCard";

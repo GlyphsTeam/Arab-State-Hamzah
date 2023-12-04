@@ -1,4 +1,3 @@
-import React from "react";
 import HeroNav from "../components/common/HeroNav";
 import LookingFor from "../components/common/lookingFor/LookingFor";
 import useAxios from "../hooks/useAxiosGet";

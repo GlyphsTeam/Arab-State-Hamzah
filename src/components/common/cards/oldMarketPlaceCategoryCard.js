@@ -1,4 +1,3 @@
-import React from 'react';
 import style from '../../../assets/style/marketPlace/categoryCard.module.scss'
 import { useDispatch } from 'react-redux';
 import { setCategoryId } from '../../../redux/CategoryRedux';

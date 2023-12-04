@@ -4,6 +4,7 @@ import Share from "../../Utils/Share";
 import { useTranslation } from "react-i18next";
 import Alert from "../common/alert/Alert";
 import { useLocation } from 'react-router-dom'
+import useFetch from "../../hooks/useFetch";
 function MainProductInfo({ showProductData }) {
   const [showShareModal, setShowShareModal] = useState(false);
   const token = localStorage.getItem("arab_user_token");
@@ -19,6 +20,7 @@ function MainProductInfo({ showProductData }) {
   }, [showProductData?.saved]);
   let formData = new FormData();
   formData.append("id", showProductData?.id);
+  const [Res] = useFetch('favorite/market', formData, send);
 
 
   let favoriteIcon = isFav ? "fas fa-bookmark" : "far fa-bookmark";

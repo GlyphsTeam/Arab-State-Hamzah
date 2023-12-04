@@ -15,7 +15,6 @@ function CreateAccount({ userGuide , urlId, media }) {
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = createAccountData?.slice(firstPostIndex, lastPostIndex);
   const [activeIndex, setActiveIndex] = useState(0);
-  console.log("createAccountData>",userGuide)
   const statisticsId = useRef(null);
 
   const previousPage = () => {

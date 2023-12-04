@@ -1,9 +1,8 @@
-import React from "react";
 import style from "../../assets/style/Blog.module.css";
 import { useTranslation } from "react-i18next";
 
 function Tags({ data}) {
-  const [t, i18n] = useTranslation();
+  const [t] = useTranslation();
 
 
   return (

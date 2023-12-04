@@ -3,7 +3,7 @@ import style from '../../../assets/style/alert/alert.module.css';
 
 function Alert({ type, message, setCount, count, showAlert, setShowAlert }) {
 
-  { type === 'warning' ? type = style.warning : type = style.success }
+ type === 'warning' ? type = style.warning : type = style.success
 
   useEffect(() => {
     if (count === 0) {

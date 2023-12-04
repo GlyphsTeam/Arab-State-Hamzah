@@ -11,7 +11,6 @@ function ProductFilter({filterChange, filters}) {
     const categoryTitle = localStorage.getItem('mainCategoryTitle') ? localStorage.getItem('mainCategoryTitle') : '';
     let url = `filter-market/all?main_id=${categoryId}&sub_id=${subCategoryId}`;
     const [Data] = useAxios(url); 
-    console.log("Data>>>",Data?.data)
   return (
     <>
      <div className={style.mainFilterDiv}>

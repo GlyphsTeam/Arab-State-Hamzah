@@ -178,7 +178,6 @@ function MarketPlacePostSection() {
             method: "POST",
             body: formData,
         }).then((result) => {
-            console.log("resultBussines",result);
         })
     } catch (error) {
         console.log("errorBusiness>>",error);

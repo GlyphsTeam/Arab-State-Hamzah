@@ -1,4 +1,3 @@
-import React from 'react'
 import Slider from "react-slick";
 import style from "../../../assets/style/homePage/testimonial.module.scss";
 import Card from "./TestimonialCard"

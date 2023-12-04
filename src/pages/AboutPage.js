@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../assets/style/about/about.module.css";
 import useAxios from "../hooks/useAxiosGet";
 import AboutImage from "../components/aboutUs/AboutImage";
@@ -14,7 +13,6 @@ function AboutPage() {
   const [Data] = useAxios(url);
   const aboutData = Data?.data;
 
-  console.log("aboutData?.slider",aboutData?.slider)
   return (
     <>
       <Helmet>

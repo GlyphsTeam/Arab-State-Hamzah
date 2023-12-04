@@ -1,4 +1,3 @@
-import React from 'react';
 
 import filterStyle from '../../assets/style/common/filteredPage.module.css'
 import SquareMarketPlace from '../common/cards/SquareMarketPlaceCategoryCard';

@@ -1,10 +1,9 @@
-import React from "react";
 import style from "../../../assets/style/homePage/aboutHome.module.css";
 import AboutCard from "./AboutCard";
 import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
 function AboutHome({aboutData}){
-  const [t, i18n] = useTranslation();
+  const [t] = useTranslation();
       let cards = aboutData?.map((item, index) =>
         <AboutCard key={index} order={index} description = {item.description} image = {item.image} title = {item.title} id = {item.id}/>
       )

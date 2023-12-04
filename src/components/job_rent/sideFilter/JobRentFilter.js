@@ -17,7 +17,6 @@ useEffect(() => {
 }, [type]);
     
     const [Data] = useAxios(url);
-console.log("DataFilter>>>",Data)
   return (
     <>
      <div className={style.mainFilterDiv}>

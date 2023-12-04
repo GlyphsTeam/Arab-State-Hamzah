@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../../assets/style/common/discoverService.module.css";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";

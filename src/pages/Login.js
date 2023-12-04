@@ -1,4 +1,3 @@
-import React from 'react';
 import LoginPage from '../components/login_register/Login';
 
 function Login({baseURL, logo}) {

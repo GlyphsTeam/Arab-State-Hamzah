@@ -1,4 +1,3 @@
-import React from 'react'
 import style from '../../assets/style/marketProfile.module.css';
 import { useTranslation } from "react-i18next";
 import blogStyle from "../../assets/style/show_blog.module.css";

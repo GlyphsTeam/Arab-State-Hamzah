@@ -1,4 +1,3 @@
-import React from "react";
 import JobFormIndividual from "../components/JobRentForm/jobForm/JobFormIndividual";
 import style from "../assets/style/formStyle/jobFormPage.module.css";
 import { useTranslation } from "react-i18next";

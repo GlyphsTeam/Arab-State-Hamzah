@@ -22,7 +22,6 @@ function MarketProfile() {
   let url = `business/show/${id}`;
   let [Data] = useAxios(url);
   const data = Data.data;
-  console.log("DataBusiness<<<",data)
   return (
     <>
 

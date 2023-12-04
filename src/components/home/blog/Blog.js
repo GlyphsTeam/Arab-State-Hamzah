@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../../../assets/style/homePage/blog.module.css";
 import BlogCard from "./BlogCard";
 import { Link } from "react-router-dom";

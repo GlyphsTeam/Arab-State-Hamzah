@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
-import React from "react";
 // import '../../Firebase.js'
 import style from "../../assets/style/marketProfile.module.css";
 

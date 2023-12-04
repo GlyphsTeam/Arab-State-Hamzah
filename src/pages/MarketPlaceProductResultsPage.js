@@ -68,37 +68,23 @@ function CategoryPage() {
   useEffect(() => {
     customApi = `filter-market?main_id=${categoryState.mainId}&sub_id=${categoryState.subId}&page=${page}&limit_by=${limit}&model_id=${filters.model_id}&sort_by=${filters.sort_by}&condition=${filters.condition}&looking=${filters.looking}&place=${filters.place}&year_from=${filters.year_from}&year_to=${filters.yearto}&color=${filters.color}`;
   }, [filters]);
-  console.log("customApi>>>", customApi)
-  console.log("customApi>>>", filters)
+
   const [Data] = useAxios(customApi);
   const categoryData = Data?.data;
   const total = Data?.total;
   const [activeItem, setActiveItem] = useState(null);
 
-console.log("categoryData>>>",categoryData)
   const [yearData] = useAxios(`year`);
   const [colorData] = useAxios(`color`);
   const [cityData] = useAxios(`cities`);
   const [modelData] = useAxios(
     `product-model?sub_id=${subCategoryId}`
   );
-  console.log("modelData>>>>>", modelData);
 
 
   const scrollPagination = () => { };
-  // const filterChange = (event, type) => {
-  //   console.log("type>>>", type, "event>>", event);
-  //   setFilters(prevFilters => {
-  //     if (type === 2) {
-  //       const { name, value } = event.target;
-  //       return { ...prevFilters, [name]: value };
-  //     } else {
-  //       return { ...prevFilters, [event.name]: event.value };
-  //     }
-  //   });
-  // };
+
   const filterChange = (event, type) => {
-    console.log("type>>>", type, "event>>", event)
     if (type === 2) {
       const { name, value } = event.target;
       setFilters({ ...filters, [name]: value });

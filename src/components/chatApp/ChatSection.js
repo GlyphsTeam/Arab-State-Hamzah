@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState } from 'react';
 import style from '../../assets/style/chatStyle/chat.module.scss';
 import ChatButton from './ChatButton';

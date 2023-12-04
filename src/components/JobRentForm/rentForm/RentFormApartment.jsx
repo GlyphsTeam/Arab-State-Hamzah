@@ -10,7 +10,6 @@ import HeroNav from "../../common/HeroNav";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function ShowRentForm({ baseUrl, rentPageData }) {
-  console.log("baseUrl>>>RentForm",baseUrl)
   const navigate = useNavigate();
 
   const [t, i18n] = useTranslation();
@@ -149,7 +148,6 @@ function ShowRentForm({ baseUrl, rentPageData }) {
   const cityUrl = `rents/web/create_page`;
   const [Data] = useAxios(cityUrl);
   const dataR = Data?.data;
-  console.log("dataR>>", dataR)
 
   return (
     <>

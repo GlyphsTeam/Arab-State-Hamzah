@@ -12,7 +12,6 @@ function CategoryNavDropDown({
 }) {
   const [isDropdownOpen, setDropdownOpen] = useState();
   const [isMobile, setIsMobile] = useState(false);
-  console.log("subData>>>>",subData)
   const handleMouseEnter = (id) => {
     if (isDropdownOpen === id) {
       handleMouseLeave();

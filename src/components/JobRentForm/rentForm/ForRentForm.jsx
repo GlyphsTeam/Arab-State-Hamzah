@@ -9,7 +9,6 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function ForRentForm({ baseUrl, rentPageData }) {
   const navigate = useNavigate();
-  console.log("forRentForm",baseUrl)
 
 
   const [t, i18n] = useTranslation();

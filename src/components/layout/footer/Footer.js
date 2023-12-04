@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../../../assets/style/layout/footer.module.css";
 import useAxios from "../../../hooks/useAxiosGet";
 import { Link, useLocation } from "react-router-dom";
@@ -13,7 +12,6 @@ function Footer({logoImage}) {
   
   const [footer] = useAxios('general-setting');
   const footerData = footer?.data?.footer;
-  console.log("footerData>>>",footerData)
   const hideFooter =
     location.pathname === "/Login" ||
     location.pathname === "/Register" ||

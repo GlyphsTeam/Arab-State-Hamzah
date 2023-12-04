@@ -1,7 +1,6 @@
 
 
 
-import React from 'react';
 import { useTranslation } from "react-i18next";
 import style from "../../../assets/style/common/bannerWInfo.module.css";
 import { Link } from 'react-router-dom';

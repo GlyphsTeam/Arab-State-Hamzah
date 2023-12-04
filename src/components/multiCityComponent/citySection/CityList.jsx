@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../../../assets/style/homePage/city.module.css";
 import AllCityList from "./AllCityList";
 import { useTranslation } from "react-i18next";
@@ -6,8 +5,6 @@ function CategoryList({ data }) {
   const [t] = useTranslation();
 
 
-
-  // console.log(data);
   return (
     <>
       <div className={style.mainCategoryDiv}>

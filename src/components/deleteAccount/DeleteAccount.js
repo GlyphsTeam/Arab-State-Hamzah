@@ -8,7 +8,7 @@ import { setUsername } from "../../redux/slices/login.js";
 
 function ChangePassword({ baseUrl }) {
   const dispatch = useDispatch();
-  const [t, i18n] = useTranslation();
+  const [t] = useTranslation();
 
   const [count, setCount] = useState(4);
   const [showAlert, setShowAlert] = useState(false);

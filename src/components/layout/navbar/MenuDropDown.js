@@ -4,7 +4,6 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
 // import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import style from "../../../assets/style/layout/navbar.module.scss";
 

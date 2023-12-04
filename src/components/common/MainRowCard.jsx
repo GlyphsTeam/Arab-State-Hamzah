@@ -1,7 +1,6 @@
 import style from "../../assets/style/common/mainRowCard.module.css";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { React, } from "react";
 import ReactHtmlParser from 'html-react-parser';
 
 function MainRowCard({ data}) {
@@ -9,7 +8,6 @@ function MainRowCard({ data}) {
   const handleChangePage = () => {
     window.scrollTo(0, 0);
   };
-  console.log('data>se',data)
   return (
     <>
       {/* <h2 className={style.popularHeader}>{t("Our Services")}</h2>

@@ -32,11 +32,7 @@ function FAQs({ userGuide  , urlId}) {
     window.scrollTo(0, 0);
   };
 
-  // useEffect(() => {
-  //   if (window.innerWidth < 480) {
-  //   placesToVisitId.current.scrollIntoView();
-  //   }
-  //  }, [currentPage]);
+
 
    const scrollPagination = () => {
     if (window.innerWidth < 480) {

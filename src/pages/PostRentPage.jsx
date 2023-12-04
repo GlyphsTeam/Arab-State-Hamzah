@@ -1,4 +1,3 @@
-import React from "react";
 import HeroNav from "../components/common/HeroNav";
 import useAxios from "../hooks/useAxiosGet";
 import ForRentForm from "../components/JobRentForm/rentForm/ForRentForm";

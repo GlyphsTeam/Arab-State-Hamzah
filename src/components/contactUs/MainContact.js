@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../../assets/style/contactUs.module.css";
 import LeftContact from "./LeftContact";
 import RightContact from "./RightContact";

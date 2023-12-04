@@ -1,4 +1,3 @@
-import React from "react";
 import JobCard from "../../components/common/cards/JobCard";
 import HousingCard from "../../components/common/cards/HousingCard";
 import ProductCard from "../../components/common/cards/ProductCard";

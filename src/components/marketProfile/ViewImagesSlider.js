@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../../assets/style/marketProfile.module.css";
 import Slider from "react-slick";
 import { LazyLoadImage } from 'react-lazy-load-image-component'

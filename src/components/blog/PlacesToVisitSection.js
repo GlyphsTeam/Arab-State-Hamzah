@@ -21,7 +21,6 @@ function PlacesToVisitSection({urlId , data}) {
   const handleChangePage = () => {
     window.scrollTo(0, 0);
   };
-  console.log("currentPosts>>",latest_post)
 
 
   return (

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import style from "../../assets/style/chatStyle/chat.module.scss";
-import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 function ChatBox({ setChatButton }) {
   const scrollRef = useRef(null);

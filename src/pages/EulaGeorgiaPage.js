@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../assets/style/eula.module.css";
 function EulaGeorgiaPage() {
   return (

@@ -18,18 +18,15 @@ function ShowBlog() {
   const location = useLocation();
   const [isSaved, setSaved] = useState(false);
   const id = location.pathname.split('/')[location.pathname.split('/').length - 1]
-  // console.log(id);
   const [showShareModal, setShowShareModal] = useState(false);
 
   let showBlogUrl = `blogs/web/show/${id}`;
-  // let showBlogUrl = `show-blog/${id}`;
   const urlpath = useLocation();
   const pathName = `/${i18n?.language}`+urlpath.pathname;
   let urlId;
   const [Data] = useAxios(showBlogUrl);
 
   let showBlogData = Data?.data?.blog;
-  console.log("showBlogData>>>", Data?.data)
 
   let sliderData = Data?.data;
   const saveBlogHandler = async (id) => {

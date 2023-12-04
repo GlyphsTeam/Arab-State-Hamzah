@@ -1,4 +1,3 @@
-import React from "react";
 import UserGuideHeader from "../components/UserGuideComponent/UserGuideHeader";
 import UserGuideLetter from "../components/UserGuideComponent/UserGuideLetter";
 import CreateAccount from "../components/UserGuideComponent/CreateAccount";

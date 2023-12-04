@@ -1,4 +1,3 @@
-import React from "react";
 import style from "./hero.module.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 

@@ -1,4 +1,3 @@
-import React from "react";
 import ShowProductDescription from "../components/productShow/ShowProductDescription";
 import SubProductInformation from "../components/productShow/SubProductInformation";
 import style from "../assets/style/showProduct/showProduct.module.css";
@@ -16,7 +15,6 @@ function ProductShowPage() {
   const [Data] = useAxios(url);
   const showProductData = Data?.data?.item;
   const ProductData = Data?.data;
-  console.log("ProductData",ProductData)
   return (
     <div className={style.mainShowProductColor}>
 

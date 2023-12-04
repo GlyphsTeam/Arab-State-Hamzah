@@ -1,4 +1,3 @@
-import React from "react";
 import Banner from "../components/common/banner/Banner";
 import SubCategoryBody from '../components/subCategory/SubCategoryBody';
 import DealsCard from '../components/subCategory/DealsCard';

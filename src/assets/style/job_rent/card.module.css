@@ -15,8 +15,9 @@
 .cardContainer{
   /* height: 100%; */
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   row-gap: 40px;
+  column-gap: 40px;
 }
 
 .rentTypeTitle{

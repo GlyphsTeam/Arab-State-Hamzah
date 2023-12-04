@@ -7,7 +7,7 @@ import ReactHtmlParser from "html-react-parser";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 function AboutUs({ data }) {
-  const [t, i18n] = useTranslation();
+  const [t] = useTranslation();
   return (
     <div className={style.aboutUsContainer}>
       {/* {aboutData?.slice(0,1).map((item, index) => ( */}

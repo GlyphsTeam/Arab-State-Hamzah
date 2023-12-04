@@ -1,4 +1,3 @@
-import React from "react";
 import TryApp from "../components/home/tryApp/TryApp";
 import CategoryList from "../components/home/category/CategoryList";
 import Blog from "../components/home/blog/Blog";

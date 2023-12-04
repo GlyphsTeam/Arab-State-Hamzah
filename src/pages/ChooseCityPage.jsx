@@ -1,4 +1,3 @@
-import React from 'react'
 
 function ChooseCityPage() {
     const cityClick = (id) => {

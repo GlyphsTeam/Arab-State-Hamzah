@@ -1,4 +1,3 @@
-import React from "react";
 import Hero from "../../components/home/hero/Hero";
 import About from "../../components/home/about/AboutUs";
 import TryApp from "../../components/home/tryApp/TryApp";

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import filterStyle from "../assets/style/common/filteredPage.module.css";
 import useAxios from "../hooks/useAxiosGet";
 import SubCategorySection from "../components/marketPlace/MarketPlaceSubCategorySection";
-import AdvBanner from "../components/common/banner/Banner";
 import Header from "../components/marketPlace/MarketHeader";
 import CategoryNav from "../components/common/marketPlace/marketNav/CategoryNav";
 import HeroMobileButtons from "../components/common/marketPlace/HeroMobileButtons/HeroMobileButtons";
@@ -47,8 +46,7 @@ function CategoryPage() {
   const url = `main-market/show/${categoryState.mainId}`;
   const [Data2] = useAxios(url);
   const categoryData2 = Data2?.data;
-  console.log("categoryData2>>>",categoryData2)
-  console.log("categoryState.mainId>>>",categoryState.mainId)
+
   const scrollPagination = () => {};
 
   const [openMobileCategory, setOpenMobileCategory] = useState(false);

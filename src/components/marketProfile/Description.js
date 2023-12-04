@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../../assets/style/marketProfile.module.css";
 import Favorite_Contact from "./Favorite_Contact";
 import Alert from "../customAlert/Alert";

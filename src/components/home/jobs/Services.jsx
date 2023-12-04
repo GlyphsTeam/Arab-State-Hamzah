@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../../../assets/style/homePage/job.module.css";
 import Card from "../../common/Card";
 import Slider from "react-slick";

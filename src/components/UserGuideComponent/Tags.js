@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../../assets/style/UserGuide.module.css";
 import { useNavigate } from 'react-router-dom';
 

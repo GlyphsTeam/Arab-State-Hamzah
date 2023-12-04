@@ -1,4 +1,3 @@
-import React from "react";
 import Map from "./Map";
 import WorkHours from "./WorkHours";
 import style from '../../assets/style/marketProfile.module.css';

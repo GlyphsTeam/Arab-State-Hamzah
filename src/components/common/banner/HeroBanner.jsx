@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../../../assets/style/common/banner.module.css";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";

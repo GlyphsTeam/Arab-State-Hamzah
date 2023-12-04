@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../../../assets/style/showService/interested.module.css";
 import InterestedCard from "./InterestedCard";
 import { useTranslation } from "react-i18next";

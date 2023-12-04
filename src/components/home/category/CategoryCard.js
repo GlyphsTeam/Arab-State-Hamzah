@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../../../assets/style/homePage/categoryList.module.css";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 

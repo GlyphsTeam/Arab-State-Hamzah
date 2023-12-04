@@ -1,4 +1,3 @@
-import React from "react";
 import ServiceHeader from "../components/ourService/ServiceHeader";
 import ServiceCard from "../components/ourService/ServiceCard";
 import OurWebsite from "../components/ourService/OurWebsite";

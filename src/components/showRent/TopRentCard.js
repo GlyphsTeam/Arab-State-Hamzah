@@ -1,20 +1,24 @@
 import React, { useState } from "react";
 import style from "../../assets/style/showRentPage.module.css";
-import { Link, useParams, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Share from "../../Utils/Share";
-
+import useFetch from "../../hooks/useFetch";
 function TopRentCard({ rentData, setShow, token, setCount }) {
   const [saveId, setSaveId] = useState();
-  const [activeSave, setActiveSave] = useState(rentData?.save_job);
+  const [activeSave, setActiveSave] = useState(rentData?.saved);
   const [t, i18n] = useTranslation();
   const [showShareModal, setShowShareModal] = useState(false);
-  const { id } = useParams();
   const formData = new FormData();
   const urlpath = useLocation();
   const pathName = `/${i18n?.language}` + urlpath.pathname;
-  formData.append("id", saveId);
-  let saveIcon = activeSave ? "fas" : "far";
+  const [send, setSend] = useState(false);
+  const id = urlpath.pathname.split('/')[urlpath.pathname.split('/').length-1]
+  formData.append("id", id);
+
+  const [Res] = useFetch('favorite/rent', formData, send);
+
+  let favoriteIcon = activeSave ? "fas fa-bookmark" : "far fa-bookmark";
   function handleSaveJob() {
     
       token ? saveRent() : setShow(true);
@@ -171,7 +175,7 @@ function TopRentCard({ rentData, setShow, token, setCount }) {
           onClick={() => setShowShareModal(true)}
         ></i>
        {!rentData?.is_user_post&&<i
-          className={`${saveIcon} fa-bookmark ${style.rentIcon}`}
+          className={`${favoriteIcon} ${style.rentIcon}`}
           onClick={handleSaveJob}
         ></i>
        }

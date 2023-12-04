@@ -1,4 +1,3 @@
-import React from 'react';
 import Menu from '../components/common/UserProfileMenu';
 import UserPostsSection from '../components/userProfile/UserPostsSection';
 import useAxios from "../hooks/useAxiosGet";

@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect } from "react";
 import Slider from "react-slick";
 import style from "../../../assets/style/homePage/city.module.css";

@@ -1,4 +1,3 @@
-import React from "react";
 import style from "./components/login.module.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";

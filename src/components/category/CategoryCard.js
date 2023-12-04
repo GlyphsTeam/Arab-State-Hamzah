@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../../assets/style/category/category.module.css";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from 'react-lazy-load-image-component'

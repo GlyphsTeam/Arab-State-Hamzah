@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../../assets/style/job_rent/card.module.css";
 import JobSection from "./JobSection";
 import RentSection from "./RentSection";

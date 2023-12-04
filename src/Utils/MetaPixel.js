@@ -1,11 +1,7 @@
-import React, { useEffect } from "react";
-import { FacebookPixel } from "react-facebook-pixel";
 import { Helmet } from "react-helmet";
 
 const MetaPixel = () => {
-//   useEffect(() => {
-//     FacebookPixel.init("986312475719126"); // Replace YOUR_PIXEL_ID with your actual Pixel ID
-//   }, []);
+
   return (
     <>
       <Helmet>

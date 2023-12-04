@@ -19,7 +19,6 @@ const HouseCard = ({ houseData, isMyPost, baseUrl, urlId }) => {
 
   let formData = new FormData();
   formData.append("id", houseData.id);
-  console.log("houseData>>",houseData)
   const [Res] = useFetch('favorite/rent', formData, send);
 
 

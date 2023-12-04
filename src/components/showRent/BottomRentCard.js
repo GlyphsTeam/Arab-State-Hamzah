@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../../assets/style/showRentPage.module.css";
 import Slider from "react-slick";
 import { useTranslation } from "react-i18next";

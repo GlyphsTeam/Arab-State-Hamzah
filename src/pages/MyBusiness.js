@@ -1,4 +1,3 @@
-import React from 'react';
 import Menu from '../components/common/UserProfileMenu';
 import style from '../assets/style/userProfile/userProfile.module.css'
 import CardBussiness from '../components/subCategory/SubCategoryCard';
@@ -6,7 +5,6 @@ import useAxios from '../hooks/useAxiosGet';
 function MyBusiness({ baseUrl }) {
   const url = 'business';
   const [Data] = useAxios(url);
-  console.log("DataBussiness>>", Data?.data)
   const bussinseData = Data?.data?.businesses;
 
   return (

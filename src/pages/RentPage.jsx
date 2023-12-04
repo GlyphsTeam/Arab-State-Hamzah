@@ -45,7 +45,6 @@ function Job({ baseURL }) {
     document.body.style.overflow = "hidden";
     setRentOpen(true);
   };
-console.log("url>>>>>Rent",url)
   const filterChange = (event, type) => {
     if (type === 2) {
       const { name, value } = event.target;

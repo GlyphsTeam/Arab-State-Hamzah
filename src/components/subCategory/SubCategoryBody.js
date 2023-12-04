@@ -12,7 +12,6 @@ function SubCategoryBody() {
 
   const location = useLocation();
   const id = location.pathname.split('/')[location.pathname.split('/').length - 2]
-  console.log("id???",id)
 
   let [showMap, setShowMap] = useState(false);
   let [mobileMap, setMobileMap] = useState(false);

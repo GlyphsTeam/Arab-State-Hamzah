@@ -1,4 +1,3 @@
-import React from 'react';
 import style from '../../assets/style/spinner.module.css'
 import { BeatLoader } from 'react-spinners';
 import { LazyLoadImage } from 'react-lazy-load-image-component'

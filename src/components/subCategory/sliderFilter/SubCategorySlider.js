@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../../../assets/style/subCategorySlider.module.css";
 import useAxios from "../../../hooks/useAxiosGet";
 import ScrollContainer from "react-indiana-drag-scroll";

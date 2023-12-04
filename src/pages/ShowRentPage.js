@@ -8,7 +8,6 @@ import useAxios from "../hooks/useAxiosGet";
 import { useTranslation } from "react-i18next";
 import Alert from "../components/customAlert/Alert";
 import HeroBanner from "../components/common/banner/HeroBanner";
-
 const ShowRentPage = () => {
   const [rentData, setRentData] = useState();
   const [count, setCount] = useState();
@@ -23,7 +22,8 @@ const ShowRentPage = () => {
     setRentData(Data?.data);
   });
   const [show, setShow] = useState(false);
-  console.log("rentData",rentData)
+
+
   return (
     <>
 

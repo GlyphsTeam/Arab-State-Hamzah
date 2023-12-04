@@ -1,4 +1,3 @@
-import React from "react";
 import Col from 'react-bootstrap/Col';
 import { useState } from "react";
 import style from '../../assets/style/job_rent/search.module.css';

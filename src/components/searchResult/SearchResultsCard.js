@@ -20,7 +20,6 @@ export default function SearchResultsCard({ cardsData, url_search, type }) {
   cardsData?.market?.length === 0;
 
 
-  console.log(cardsData?.rents);
 
   return (
     <div

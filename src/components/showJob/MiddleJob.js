@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import style from "../../assets/style/ShowJobPage.module.css";
-import { useParams,useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Share from "../../Utils/Share";
 import ReactHtmlParser from "html-react-parser";
@@ -13,7 +13,6 @@ function MiddleJob({ jobData, setShow, token, setCount }) {
   const [showShareModal, setShowShareModal] = useState(false);
   const urlpath = useLocation();
   const pathName = `/${i18n?.language}` + urlpath.pathname;
-  const { id } = useParams();
   formData.append("id", saveId);
 
   let saveIcon = activeSave ? "fas" : "far";

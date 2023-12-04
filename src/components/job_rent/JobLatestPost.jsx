@@ -1,4 +1,3 @@
-import React from "react";
 import JobCard from "../common/cards/JobCard";
 import style from "../../assets/style/job/jobCard.module.css";
 const JobLatestPost = ({data, title}) => {

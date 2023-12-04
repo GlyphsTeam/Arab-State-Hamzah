@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../../../assets/style/layout/footer.module.scss";
 import useAxios from "../../../hooks/useAxiosGet";
 import { Link, useLocation } from "react-router-dom";

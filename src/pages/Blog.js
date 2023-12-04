@@ -1,4 +1,3 @@
-import React from "react";
 import BlogHeader from "../components/blog/BlogHeader";
 import BlogLetter from "../components/blog/BlogLetter";
 import BlogCards from "../components/blog/StatisticsSection";

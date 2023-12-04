@@ -1,4 +1,3 @@
-import React from 'react';
 import Menu from '../components/common/UserProfileMenu';
 import UserPostsSection from '../components/userProfile/UserPostsSection';
 import useAxios from "../hooks/useAxiosGet";
@@ -9,7 +8,6 @@ function MyJobPage({baseUrl}) {
   const url = `user/my-post`;
   const [Data] = useAxios(url);
   const myData = Data?.data;
-  console.log("my Data ", myData)
   return (
     <div className={`row w-100 m-0 ${style.userPage}`}>
 

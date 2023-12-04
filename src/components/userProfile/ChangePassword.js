@@ -11,7 +11,6 @@ const ChangePassword = ({baseUrl}) => {
   const [count, setCount] = useState();
 
   const [show, setShow] = useState(false);
-  const [warning, setWarning] = useState(false);
   const [success, setSuccess] = useState(false);
   const [passwordsMatch, setPasswordsMatch] = useState(true);
   const [t, i18n] = useTranslation();

@@ -37,18 +37,9 @@ const ShowServicePage = () => {
         <div className="row">
           <div className={style.providerDiv}>
             {<p>{ }</p>}
-
-            {/* <Link to={data?.service?.link}>
-          <button className={style.linkBtn}>{data?.service?.title}</button>
-        </Link>  */}
-
           </div>
         </div>
       </div>
-
-      {/* <Interested data = {data?.other_services}/> */}
-
-      {/* <Tags data = {data?.tags}/> */}
     </>
   );
 };

@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../../../assets/style/common/blog/rowCard.module.scss";
 import ReactHtmlParser from "html-react-parser";
 import { LazyLoadImage } from "react-lazy-load-image-component";

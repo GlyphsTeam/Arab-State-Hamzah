@@ -129,8 +129,7 @@ function CategoryNav({ categoryState, setCategoryState, setOpenMobileCategory, o
       window.removeEventListener('resize', handlerResize);
     }
   }, []);
-  console.log('Data?.data?.main?', Data?.data?.main)
-  console.log("isSunEndClassVisible", isSunEndClassVisible)
+  
   return (
     <>
       {isMobile ?

@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../../../assets/style/common/banner.module.css";
 import Slider from "react-slick";
 import useAxios from "../../../hooks/useAxiosGet";
@@ -12,7 +11,6 @@ function Banner({ bannerUrl }) {
   const { id } = useParams();
   const [t] = useTranslation();
   const [Data] = useAxios(`${bannerUrl}`);
-  console.log("banner>>.",Data?.data)
   const getPageName = () => {
     switch (path) {
       case "/Category/0":

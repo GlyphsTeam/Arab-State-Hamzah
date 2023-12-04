@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../../../assets/style/common/blog/columnCard.module.scss";
 import { Link } from "react-router-dom";
 import ReactHtmlParser from "html-react-parser";

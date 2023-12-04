@@ -1,4 +1,3 @@
-import React from "react";
 import style from "../../assets/style/UserGuide.module.css";
 import { useTranslation } from "react-i18next";
 import { LazyLoadImage } from 'react-lazy-load-image-component'

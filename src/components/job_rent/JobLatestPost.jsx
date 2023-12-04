@@ -4,7 +4,7 @@ const JobLatestPost = ({data, title}) => {
     let urlId;
   return (
     <div className="container ">
-    <div className="row ">
+    <div className="row">
       <h3 className={style.latestPostTitle}>{title}</h3>
       <div className={style.gridCards}>
       {data?.map((item, index) => (

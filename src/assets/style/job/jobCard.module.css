@@ -1,10 +1,9 @@
-@import "../_App.module.scss";
 
 
 
   .card {
     max-width: 100%; /* Set a maximum width */
-    width: 100%; /* Ensure the width is 100% of the parent container */
+    width: 300px; /* Ensure the width is 100% of the parent container */
     box-sizing: border-box; /* Include padding and border in the width calculation */
     box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.1);
     height: 490px;
@@ -463,8 +462,11 @@
   }
 }
 .gridCards{
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-
+  /* display: flex !important;
+  justify-content: space-evenly !important;
+  flex-wrap: nowrap; */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  width: 100%;
+  gap: 50px;
 }

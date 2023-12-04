@@ -32,8 +32,6 @@ function FAQs({ userGuide  , urlId}) {
     window.scrollTo(0, 0);
   };
 
-
-
    const scrollPagination = () => {
     if (window.innerWidth < 480) {
       placesToVisitId.current.scrollIntoView();

@@ -3,7 +3,7 @@
 
   .card {
     max-width: 100%; /* Set a maximum width */
-    width: 300px; /* Ensure the width is 100% of the parent container */
+    width: 350px; /* Ensure the width is 100% of the parent container */
     box-sizing: border-box; /* Include padding and border in the width calculation */
     box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.1);
     height: 490px;
@@ -72,6 +72,8 @@
     }
   .parCardPublished{
     height:96px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
    .parCardPublished h3{
       font-size:16px;
@@ -94,6 +96,7 @@
   .timeCard p{
       font-size:13px;
       font-weight:700;
+      margin-top: 14px;
       color:rgba(200, 28, 80, 1);
 }
 .publishingClass{
@@ -462,11 +465,17 @@
   }
 }
 .gridCards{
-  /* display: flex !important;
+  display: flex !important;
   justify-content: space-evenly !important;
-  flex-wrap: nowrap; */
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  flex-wrap: nowrap;
+
+  /* display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   width: 100%;
-  gap: 50px;
+  gap: 70px; */
+}
+@media (max-width:1124px){
+  .gridCards{
+    flex-wrap: wrap ;
+  }
 }

@@ -29,7 +29,7 @@
 .showBlogParagraph{
     width: 100%;
     font-size: 20px;
-    color: var(--primary-color);
+    color: var(--primary-color) !important;
     text-align: justify;
     height: 100%;
     font-weight: 400;

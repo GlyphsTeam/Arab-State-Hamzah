@@ -4,23 +4,23 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Share from "../../Utils/Share";
 import ReactHtmlParser from "html-react-parser";
-
-function MiddleJob({ jobData, setShow, token, setCount }) {
+import useFetch from "../../hooks/useFetch";
+function MiddleJob({ jobData, setShow, token, setCount, id }) {
   const [saveId, setSaveId] = useState();
-  const [activeSave, setActiveSave] = useState(jobData?.save_job);
+  const [activeSave, setActiveSave] = useState(jobData?.saved);
   const [t, i18n] = useTranslation();
+  const [send, setSend] = useState(false);
   const formData = new FormData();
   const [showShareModal, setShowShareModal] = useState(false);
   const urlpath = useLocation();
   const pathName = `/${i18n?.language}` + urlpath.pathname;
-  formData.append("id", saveId);
-
+  formData.append("id", id);
+  const [Res] = useFetch('favorite/job', formData, send);
   let saveIcon = activeSave ? "fas" : "far";
   function handleSaveJob() {
-    
       token ? saveJob() : setShow(true);
       setCount(4);
-    
+      setSend(true)
   }
   const saveJob = (e) => {
     activeSave ? setActiveSave(false) : setActiveSave(true);

@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Share from "../../Utils/Share";
 import useFetch from "../../hooks/useFetch";
-function TopRentCard({ rentData, setShow, token, setCount }) {
+function TopRentCard({ rentData, setShow, token, setCount, id }) {
   const [saveId, setSaveId] = useState();
   const [activeSave, setActiveSave] = useState(rentData?.saved);
   const [t, i18n] = useTranslation();
@@ -13,26 +13,31 @@ function TopRentCard({ rentData, setShow, token, setCount }) {
   const urlpath = useLocation();
   const pathName = `/${i18n?.language}` + urlpath.pathname;
   const [send, setSend] = useState(false);
-  const id = urlpath.pathname.split('/')[urlpath.pathname.split('/').length-1]
   formData.append("id", id);
 
-  const [Res] = useFetch('favorite/rent', formData, send);
 
   let favoriteIcon = activeSave ? "fas fa-bookmark" : "far fa-bookmark";
-  function handleSaveJob() {
-    
+  async function handleSaveJob() {
       token ? saveRent() : setShow(true);
+      const tokenUser = localStorage.getItem("arab_user_token")
       setCount(4);
-    
+      setSend(true)
+      await fetch(`https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${process.env.REACT_APP_City_ID}/favorite/rent`,{
+        headers: {
+          Authorization: `Bearer ${tokenUser}`,
+          Accept: "application/json",
+        },
+        method:"POST",
+        body: formData,
+      }).then((result)=>console.log(result)).catch((err)=>console.log(err))
   }
   const saveRent = (e) => {
     activeSave ? setActiveSave(false) : setActiveSave(true);
     setSaveId(rentData.id);
+    setSend(true)
   };
 
-  const handleClick = () => {
-    setShowShareModal(true);
-  };
+
   return (
     <>
       <div className={style.mainTopRentContainer}>

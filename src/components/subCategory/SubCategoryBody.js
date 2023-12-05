@@ -23,7 +23,7 @@ function SubCategoryBody() {
       window.scrollTo(0, 290);
     }
   };
-
+  console.log("setActiveIndex", activeIndex)
   let url =
     activeIndex === 0
       ? `stores?main_id=${id}`

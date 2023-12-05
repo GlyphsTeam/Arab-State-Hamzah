@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 import Alert from "../components/customAlert/Alert";
 import HeroBanner from "../components/common/banner/HeroBanner";
 
-function ShowJobPage() {
+function   ShowJobPage() {
   const [jobData, setJobData] = useState();
   const [count, setCount] = useState();
   const [t] = useTranslation();
@@ -51,6 +51,7 @@ function ShowJobPage() {
                 setShow={setShow}
                 token={token}
                 setCount={setCount}
+                id={id}
 
               />
 

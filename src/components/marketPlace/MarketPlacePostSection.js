@@ -167,7 +167,7 @@ function MarketPlacePostSection() {
       }
     } else {
       const token = localStorage.getItem("arab_user_token");
-      let baseURL = `https://glyphsmarketingbusiness.com/api/GA/en/0/market/create`;
+      let baseURL = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${process.env.REACT_APP_City_ID}/market/create`;
 
       try {
       await fetch(`${baseURL}`, {
@@ -178,31 +178,31 @@ function MarketPlacePostSection() {
             method: "POST",
             body: formData,
         }).then((result) => {
+          console.log("result>>>",result)
+          setSend(true);
+          setTimeout(() => {
+            setCount(4);
+            setShowAlert(true);
+            setMarketFormData({
+              title: "",
+              price: "",
+              email: "",
+              phone_number: "",
+              main_category: "",
+              sub_category: "",
+              year: "",
+              color: "false",
+              condition: "",
+              anonymous: "",
+              description: "",
+              place: "",
+            });
+            setSend(false);
+          }, 100);
         })
     } catch (error) {
         console.log("errorBusiness>>",error);
     }
-      
-      setSend(true);
-      setTimeout(() => {
-        setCount(4);
-        setShowAlert(true);
-        setMarketFormData({
-          title: "",
-          price: "",
-          email: "",
-          phone_number: "",
-          main_category: "",
-          sub_category: "",
-          year: "",
-          color: "false",
-          condition: "",
-          anonymous: "",
-          description: "",
-          place: "",
-        });
-        setSend(false);
-      }, 100);
     }
   };
   const anonymousClick = () => {

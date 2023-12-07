@@ -149,7 +149,7 @@
         }
 
   .registerPage  div {
-          display: flex;
+          /* display: flex; */
           padding: 10px 0;
   }
 .registerPage   input {
@@ -172,7 +172,7 @@
         }
 
 .registerPage  div {
-          display: flex;
+          /* display: flex; */
           padding: 10px 0;
 }
  .registerPage  input {

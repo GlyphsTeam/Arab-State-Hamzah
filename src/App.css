@@ -14,8 +14,8 @@ body{
 }
 .mainSection{
   min-height: 60vh;
-
 }
+
 
 .slick-track{
   margin: 20px !important;
@@ -147,5 +147,10 @@ a{
   }
   .slick-next{
     right: 50px;
+  }
+}
+@media (max-width:500px){
+  .mainSection{
+    min-height: 200vh !important;
   }
 }

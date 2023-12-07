@@ -8,6 +8,9 @@
   color: var(--primary-color);
   font-weight: 400;
 }
+.TagContainerDiv p{
+  color: var(--primary-color);
+}
 .paragraph{
   color: var(--primary-color);
   height: 200px;

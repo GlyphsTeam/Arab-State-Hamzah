@@ -17,6 +17,9 @@
   overflow: auto;
   font-size: 20px;
 }
+.interestedTitle{
+  color: var(--primary-color);
+}
 .MarketingContainer {
   display: flex;
   position: relative;

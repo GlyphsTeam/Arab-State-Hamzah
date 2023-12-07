@@ -15,7 +15,7 @@ function Similar({showBlogData, id , urlId}) {
           {showBlogData?.similar && (
             <>
               <h2 className={`mt-5 pb-3 ${style.interestedTitle}`}>
-                {t("You may be interested in")}{" "}
+                {t("You may be interested in")}
               </h2>
               <div className={`${style.lastSection}`}>
                 {showBlogData?.similar?.map((item) => (

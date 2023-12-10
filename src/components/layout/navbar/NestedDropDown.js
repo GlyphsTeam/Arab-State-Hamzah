@@ -74,7 +74,7 @@ function NestedDropDown({data, serviceLinks}) {
                       <li className={style.nestedDropDownLi} onClick={() => {handleMouseLeave();}}>
                         {" "}
                         <Link
-                          to={`/SubCategory/${list.name}/${list?.id}/?Page=${
+                          to={`/SubCategory/${list.name?.replaceAll(' ', '')}/${list?.id}/?Page=${
                             list.type === "business" ? "shops" : "service"
                           }`}
                           state={(urlId = { id: list?.id })}

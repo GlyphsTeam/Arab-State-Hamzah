@@ -5,6 +5,7 @@ function WorkHours({ data }) {
   const handleClick = (lat, lng) => {
     const url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
     window.open(url, "_blank");
+
   };
   return (
     <div className={`${style.workHoursSection} container col-12`}>
@@ -27,7 +28,7 @@ function WorkHours({ data }) {
             </p>
           )}
           <p className={`col-5 justify-content-${t('timeDir')} ${style.timeDirection}`}>
-            {item.start_time} <br/> {item.end_time}
+            {item.start_time} <br /> {item.end_time}
           </p>
           {item.status ? (
             <p className={`col-3 ${style.openWorkingHours}`}>{t('Open')}</p>
@@ -41,18 +42,7 @@ function WorkHours({ data }) {
           <strong>Address:</strong>
           {data?.locations_address}
         </p> */}
-        {data?.locations_lat && data?.locations_lng && (
-          <div className={style.buttonDivDirection}>
-            <button
-              className={style.locationDirectionBtn}
-              onClick={() =>
-                handleClick(data?.locations_lat, data?.locations_lng)
-              }
-            >
-              {t("Get Directions")}
-            </button>
-          </div>
-        )}
+
       </div>
     </div>
   );

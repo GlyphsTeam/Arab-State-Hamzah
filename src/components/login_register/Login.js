@@ -22,6 +22,7 @@ function Login({ baseURL, logo }) {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [loginSuccess, setLoginSuccess] = useState(false);
+  const [crossDoma, setCross]= useState("");
   userEmail && formData.append("email", userEmail);
   userPassword && formData.append("password", userPassword);
 
@@ -55,6 +56,7 @@ function Login({ baseURL, logo }) {
         localStorage.setItem("arab_user_token", data.data.token);
         localStorage.setItem("arab_user_name", data.data.user.name);
         localStorage.setItem("arab_user_email", data.data.user.email);
+      
         setLoginSuccess(true);
         dispatch(setUsername(data.data.user.name));
         navigate("/");
@@ -73,18 +75,18 @@ function Login({ baseURL, logo }) {
             <div className={`row w-100 m-auto ${style.profileCardSubDiv}`}>
               <div
                 className={`col-md-12 col-sm-12 col-lg-6 d-flex ${style.imgOrder}`}
-                >
+              >
                 <LazyLoadImage
                   src={logo}
                   alt="react logo"
                   className={style.loginImg}
-                  />
+                />
               </div>
               <div
                 className={`col-md-12 col-sm-12 col-lg-6 ${style.formOrder}`}
-                >
+              >
                 <form className={style.form}>
-                <h1>Login</h1>
+                  <h1>Login</h1>
                   <div className={`row mt-4 ${style.formRow}`}>
                     <label htmlFor="email" className={`col-2 `}>
                       <i className={`fas fa-envelope ${style.icon}`}></i>

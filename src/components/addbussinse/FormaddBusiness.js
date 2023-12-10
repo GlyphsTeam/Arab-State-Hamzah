@@ -442,6 +442,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
                 method: "POST",
                 body: formData,
             }).then((result) => {
+                console.log("resulty>>>>>>>>",result)
                 setMessageAlert("Your Post Has been Published successfully");
                 setTypeAlert("success");
                 setShowAlert(true);

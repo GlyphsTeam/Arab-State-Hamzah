@@ -8,6 +8,7 @@ import productStyle from "../../assets/style/postProduct/rightPost.module.css";
 import { useTranslation } from "react-i18next";
 import MarketPlacePostOption from "./MarketPlacePostOption";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+import imageConversion from 'image-conversion';
 
 function MarketPlacePostSection() {
   const [t, i18n] = useTranslation();
@@ -38,7 +39,7 @@ function MarketPlacePostSection() {
   const [showTitleWarn, setShowTitleWarn] = useState(false);
   const [showLocationWarn, setShowLocationWarn] = useState(false);
   const [showTypeWarn, setShowTypeWarn] = useState(false);
-  
+
   const [requireWarn, setRequireWarn] = useState(false);
   const [showEmailRegexWarn, setShowEmailRegexWarn] = useState(false);
   const [showImageWarn, setShowImageWarn] = useState(false);
@@ -57,7 +58,7 @@ function MarketPlacePostSection() {
 
   marketFormData.description &&
     formData.append("description", marketFormData?.description.replace(/\n/g, "<br>"));
-    
+
   marketFormData.email && formData.append("email", marketFormData?.email);
   marketFormData.phone_number &&
     formData.append("phone_number", marketFormData?.phone_number);
@@ -102,7 +103,7 @@ function MarketPlacePostSection() {
   );
   const [modelData] = useAxios(
     `product-model?sub_id=${selectedSubCategoryID}`
-    
+
   );
   const color = Data?.data;
   const city = cityData?.data;
@@ -170,15 +171,15 @@ function MarketPlacePostSection() {
       let baseURL = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${process.env.REACT_APP_City_ID}/market/create`;
 
       try {
-      await fetch(`${baseURL}`, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-                Accept: "application/json",
-            },
-            method: "POST",
-            body: formData,
+        await fetch(`${baseURL}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            Accept: "application/json",
+          },
+          method: "POST",
+          body: formData,
         }).then((result) => {
-          console.log("result>>>",result)
+          console.log("result>>>", result)
           setSend(true);
           setTimeout(() => {
             setCount(4);
@@ -200,9 +201,9 @@ function MarketPlacePostSection() {
             setSend(false);
           }, 100);
         })
-    } catch (error) {
-        console.log("errorBusiness>>",error);
-    }
+      } catch (error) {
+        console.log("errorBusiness>>", error);
+      }
     }
   };
   const anonymousClick = () => {
@@ -247,12 +248,57 @@ function MarketPlacePostSection() {
     }
   };
 
-  const handleImageDrop = (acceptedFiles) => {
+  const handleImageDrop = async (acceptedFiles) => {
+    const editedImages = [];
+  
+    for (const file of acceptedFiles) {
+      const editedImage = await convertToWebP(file);
+      editedImages.push(editedImage);
+    }
+  
     setMarketFormData({
       ...marketFormData,
-      images: [...marketFormData?.images, ...acceptedFiles],
+      images: [...marketFormData?.images, ...editedImages],
     });
   };
+  
+  const convertToWebP = (file) => {
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+  
+      reader.onload = (e) => {
+        const img = new Image();
+        img.src = e.target.result;
+  
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          canvas.width = img.width;
+          canvas.height = img.height;
+  
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+  
+          // Convert the image to WebP
+          canvas.toBlob(
+            (blob) => {
+              const webpFile = new File([blob], file.name.replace(/\.[^/.]+$/, '.webp'), {
+                type: 'image/webp',
+                lastModified: Date.now(),
+              });
+  
+              resolve(webpFile);
+            },
+            'image/webp',
+            0.8 // Quality parameter (adjust as needed)
+          );
+        };
+      };
+  
+      reader.readAsDataURL(file);
+    });
+  };
+  
+  
   const handleRemoveImage = (index) => {
     const updatedImages = [...marketFormData.images];
     updatedImages.splice(index, 1);
@@ -524,7 +570,7 @@ function MarketPlacePostSection() {
           onChange={handleChange}
           value={marketFormData.description}
         ></textarea>
-         {descriptionWarning && (
+        {descriptionWarning && (
           <p className={jobStyle.required}>{t("Description is required")}</p>
         )}
       </form>

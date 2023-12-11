@@ -1,9 +1,9 @@
 
 :root {
     /* main color in arab georgia website  */
-    --primary-color: #56a5ae;
+    --primary-color: #0b2026;
     --secondary-color : #f8b74d;
-    --secondary2-color : #0b2026;
+    --secondary2-color : #56a5ae;
     --tertiary-color: #0b2026;
     --box-color : white;
     --sub-box-color :  rgba(247, 254, 255, 0.1);

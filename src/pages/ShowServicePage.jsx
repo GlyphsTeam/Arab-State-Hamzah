@@ -4,7 +4,7 @@ import useAxios from "../hooks/useAxiosGet";
 import { Link, useLocation } from "react-router-dom";
 import HeroBanner from '../components/common/banner/HeroBanner'
 import style from "../assets/style/showService/showService.module.css";
-
+import { Helmet } from 'react-helmet'
 const ShowServicePage = () => {
 
   const location = useLocation();
@@ -12,9 +12,13 @@ const ShowServicePage = () => {
   let url = `our_services/show/${id}`
   const [Data] = useAxios(url);
   const data = Data?.data;
-
+console.log("Data>>>Sh",data?.service?.title)
   return (
     <>
+    <Helmet>
+      <title>{data?.service?.title}</title>
+      <meta name="description" content={data?.service?.description}/>
+    </Helmet>
       <HeroBanner data={data?.slider} />
 
       <div className="container mb-2 mt-5">

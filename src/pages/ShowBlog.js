@@ -13,6 +13,7 @@ import BlogHeader from "../components/blog/BlogHeader";
 import EventCards from "../components/blog/EventCards";
 import Share from "../Utils/Share";
 import axios from "axios";
+import { Helmet } from 'react-helmet';
 function ShowBlog() {
   const [t, i18n] = useTranslation();
   const location = useLocation();
@@ -57,11 +58,14 @@ function ShowBlog() {
     }
   }, [showBlogData?.saved])
   let favoriteIcon = isSaved ? 'fas fa-bookmark' : 'far fa-bookmark';
-
+console.log()
   return (
     <div className={style.showBlogContainer}>
+      <Helmet>
+        <title>{showBlogData?.title}</title>
+        <meta name="description" content={ReactHtmlParser(`${showBlogData?.web_description}`)}/>
+      </Helmet>
       <BlogHeader data={sliderData?.slider} />
-
       <Banner />
 
       <div className={`container`}>

@@ -12,12 +12,12 @@ import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { Link } from "react-router-dom";
 import AlertBussiness from "../common/alert/Alert";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-
+import { Helmet } from 'react-helmet'
 function ForRentForm({ baseUrl, rentPageData }) {
 
     const [t, i18n] = useTranslation();
     const [showAlert, setShowAlert] = useState(false);
-
+    const titleBussines = "Business Form"
     const [company, setCompany] = useState("");
     const [businessType, setBusinessType] = useState("2");
     const [streetAddress, setStreetAddress] = useState("");
@@ -245,7 +245,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
     const handleImageDrop2 = (acceptedFiles) => {
         setImages2((prevImages) => [...prevImages, ...acceptedFiles]);
     };
-   
+
     const handleRemoveImage2 = (index) => {
         const updatedImages = [...images2];
         updatedImages.splice(index, 1);
@@ -273,7 +273,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
             }, 2000)
         }
         if (businessType.length === "") {
-             setBusinessType("2")
+            setBusinessType("2")
         }
         if (streetAddress === "") {
             setMessageAlert("please fill The Street Address")
@@ -395,129 +395,133 @@ function ForRentForm({ baseUrl, rentPageData }) {
             && images.length >= 2
             && images2.length >= 2
             && uploadedImage !== null
-            && uploadedImage2 !== null){
+            && uploadedImage2 !== null) {
             let formData = new FormData();
-        let baseURL = `https://glyphsmarketingbusiness.com/api/GA/en/${state}/business/create`;
-        const token = localStorage.getItem('arab_user_token');
-       
-        formData.append('name', company);
-        formData.append('main_id', businessType);
-        formData.append('state', state);
-        formData.append("city", city);
-        formData.append('zip_code', code);
-        formData.append('address', streetAddress);
-        formData.append('phone_number', phoneNumber);
-        formData.append('email', email);
-        formData.append('description', businsesLine);
-        formData.append('website_url', website);
-        formData.append('facebook', facebook);
-        formData.append('twitter', twitter);
-        formData.append('instagram', instagram);
-        formData.append('youtube', youtube);
-        formData.append('tiktok', tikTok);
-        formData.append('pinterest', pinterest);
-        formData.append('cover', uploadedImage)
-        formData.append('logo', uploadedImage2);
-        
-        images?.forEach((image) => {
-            formData.append("photos[]", image);
-        });
-        images2?.forEach((image) => {
-            formData.append("gallerys[]", image)
-        })
-        inputFields?.forEach((offer, index) => {
-            formData.append(`offers[${index}]`, offer.text)
-        })
-        work_times.forEach((work, index) => {
-            formData.append(`work_times[${index}][day_type]`, work.day_type);
-            formData.append(`work_times[${index}][time_from]`, work.time_from);
-            formData.append(`work_times[${index}][time_to]`, work.time_to);
-        });
-        try {
-            await fetch(`${baseURL}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    Accept: "application/json",
-                },
-                method: "POST",
-                body: formData,
-            }).then((result) => {
-                console.log("resulty>>>>>>>>",result)
-                setMessageAlert("Your Post Has been Published successfully");
-                setTypeAlert("success");
-                setShowAlert(true);
-                setCompany("");
-                setBusinessType("");
-                setStreetAddress("");
-                setCity("");
-                setState("");
-                setCode("");
-                setPhoneNumber("");
-                setWebsite("");
-                setEmail("");
-                setPinterest("");
-                setbusinsesLine("");
-                setFaceBook("");
-                setInstagram("");
-                setTwitter("");
-                setYoutube("");
-                setTikTok("");
-                setInputFields([{ id: 0, text: '' }]);
-                setImages([]);
-                setImages2([]);
-                setUploadedImage(null);
-                setUploadedImage2(null);
-                setwork_times([{
-                    day_type: "Mon",
-                    time_from: "09:00 AM",
-                    time_to: "09:00 PM"
-                },
-                {
-                    day_type: "Tue",
-                    time_from: "09:00 AM",
-                    time_to: "09:00 PM"
-                },
-                {
-                    day_type: "Wed",
-                    time_from: "09:00 AM",
-                    time_to: "09:00 PM"
-                },
-                {
-                    day_type: "Thu",
-                    time_from: "09:00 AM",
-                    time_to: "09:00 PM"
-                },
-                {
-                    day_type: "Fri",
-                    time_from: "09:00 AM",
-                    time_to: "09:00 PM"
-                },
-                {
-                    day_type: "Sat",
-                    time_from: "09:00 AM",
-                    time_to: "09:00 PM"
-                },
-                {
-                    day_type: "Sun",
-                    time_from: "09:00 AM",
-                    time_to: "09:00 PM"
-                },
-                ])
+            let baseURL = `https://glyphsmarketingbusiness.com/api/GA/en/${state}/business/create`;
+            const token = localStorage.getItem('arab_user_token');
 
-                setTimeout(() => {
-                    setShowAlert(false);
-                }, 3000)
+            formData.append('name', company);
+            formData.append('main_id', businessType);
+            formData.append('state', state);
+            formData.append("city", city);
+            formData.append('zip_code', code);
+            formData.append('address', streetAddress);
+            formData.append('phone_number', phoneNumber);
+            formData.append('email', email);
+            formData.append('description', businsesLine);
+            formData.append('website_url', website);
+            formData.append('facebook', facebook);
+            formData.append('twitter', twitter);
+            formData.append('instagram', instagram);
+            formData.append('youtube', youtube);
+            formData.append('tiktok', tikTok);
+            formData.append('pinterest', pinterest);
+            formData.append('cover', uploadedImage)
+            formData.append('logo', uploadedImage2);
+
+            images?.forEach((image) => {
+                formData.append("photos[]", image);
+            });
+            images2?.forEach((image) => {
+                formData.append("gallerys[]", image)
             })
-        } catch (error) {
-            console.log("errorBusiness>>", error);
+            inputFields?.forEach((offer, index) => {
+                formData.append(`offers[${index}]`, offer.text)
+            })
+            work_times.forEach((work, index) => {
+                formData.append(`work_times[${index}][day_type]`, work.day_type);
+                formData.append(`work_times[${index}][time_from]`, work.time_from);
+                formData.append(`work_times[${index}][time_to]`, work.time_to);
+            });
+            try {
+                await fetch(`${baseURL}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        Accept: "application/json",
+                    },
+                    method: "POST",
+                    body: formData,
+                }).then((result) => {
+                    console.log("resulty>>>>>>>>", result)
+                    setMessageAlert("Your Post Has been Published successfully");
+                    setTypeAlert("success");
+                    setShowAlert(true);
+                    setCompany("");
+                    setBusinessType("");
+                    setStreetAddress("");
+                    setCity("");
+                    setState("");
+                    setCode("");
+                    setPhoneNumber("");
+                    setWebsite("");
+                    setEmail("");
+                    setPinterest("");
+                    setbusinsesLine("");
+                    setFaceBook("");
+                    setInstagram("");
+                    setTwitter("");
+                    setYoutube("");
+                    setTikTok("");
+                    setInputFields([{ id: 0, text: '' }]);
+                    setImages([]);
+                    setImages2([]);
+                    setUploadedImage(null);
+                    setUploadedImage2(null);
+                    setwork_times([{
+                        day_type: "Mon",
+                        time_from: "09:00 AM",
+                        time_to: "09:00 PM"
+                    },
+                    {
+                        day_type: "Tue",
+                        time_from: "09:00 AM",
+                        time_to: "09:00 PM"
+                    },
+                    {
+                        day_type: "Wed",
+                        time_from: "09:00 AM",
+                        time_to: "09:00 PM"
+                    },
+                    {
+                        day_type: "Thu",
+                        time_from: "09:00 AM",
+                        time_to: "09:00 PM"
+                    },
+                    {
+                        day_type: "Fri",
+                        time_from: "09:00 AM",
+                        time_to: "09:00 PM"
+                    },
+                    {
+                        day_type: "Sat",
+                        time_from: "09:00 AM",
+                        time_to: "09:00 PM"
+                    },
+                    {
+                        day_type: "Sun",
+                        time_from: "09:00 AM",
+                        time_to: "09:00 PM"
+                    },
+                    ])
+
+                    setTimeout(() => {
+                        setShowAlert(false);
+                    }, 3000)
+                })
+            } catch (error) {
+                console.log("errorBusiness>>", error);
+            }
         }
-    }
     }
 
     return (
         <>
+           <Helmet>
+            <title>{titleBussines}</title>
+            <meta name="description" content={titleBussines}/>
+           </Helmet>
             <h1 className={style.titleBussines} >Your Business Form</h1>
-
+            
             <form className={style.formDiv} >
                 <div className={style.formFlex}>
                     <div>
@@ -582,7 +586,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
                                         <input {...getInputProps()} required />
                                         <div className={style.postHousingUploadImage}>
                                             <LazyLoadImage
-                                                src={!uploadedImage ? require("../../assets/Images/uploadBlack.png") :URL.createObjectURL(uploadedImage)}
+                                                src={!uploadedImage ? require("../../assets/Images/uploadBlack.png") : URL.createObjectURL(uploadedImage)}
                                                 alt="uploadImageform"
                                                 style={{ marginTop: "-36px", marginRight: '10px' }}
                                             />
@@ -603,7 +607,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
                                         <input {...getInputProps()} required />
                                         <div className={style.postHousingUploadImage}>
                                             <LazyLoadImage
-                                                src={!uploadedImage2 ? require("../../assets/Images/uploadBlack.png") :URL.createObjectURL(uploadedImage2)}
+                                                src={!uploadedImage2 ? require("../../assets/Images/uploadBlack.png") : URL.createObjectURL(uploadedImage2)}
                                                 alt="uploadImageform"
                                                 style={{ marginTop: '-40px' }}
                                             />

@@ -23,7 +23,7 @@ function Home({ baseURL }) {
     <>
       <Helmet>
         <title>{homeData?.hero[0]?.title}</title>
-        <meta name='description' content={homeData?.hero[0].description} />
+        <meta name='description' content={homeData?.hero[0]?.description} />
       </Helmet>
       <BannerWInfo data={homeData?.hero} />
 

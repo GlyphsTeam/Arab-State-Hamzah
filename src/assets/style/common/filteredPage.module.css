@@ -96,6 +96,7 @@
 
 .categoryTitleFilter {
   margin: 0;
+  color: var(--black) ;
 }
 
 .PaginationBackground {

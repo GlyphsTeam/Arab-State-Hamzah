@@ -73,7 +73,6 @@ function CategoryPage() {
   const categoryData = Data?.data;
   const total = Data?.total;
   const [activeItem, setActiveItem] = useState(null);
-
   const [yearData] = useAxios(`year`);
   const [colorData] = useAxios(`color`);
   const [cityData] = useAxios(`cities`);

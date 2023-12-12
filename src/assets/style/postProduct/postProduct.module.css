@@ -3,6 +3,9 @@
 .ContactUsPage {
   height: 100% !important;
 }
+.plusButton {
+height: fit-content !important;
+}
 .registerPage {
   flex-wrap: wrap;
   justify-content: center;

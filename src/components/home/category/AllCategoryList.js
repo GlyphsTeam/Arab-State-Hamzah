@@ -35,7 +35,7 @@ import Title from "../../common/Title";
           (item.type === redirectType &&
           <Link
             key={item.id}
-            to={`/SubCategory/${item.name}/${item?.id}/?Page=${type}`}
+            to={`/SubCategory/${item?.name?.replaceAll(' ', '-')}/${item?.id}/?Page=${type}`}
             state={(urlId = { id: item?.id })}
             className={style.navLink}
           >

@@ -4,14 +4,14 @@ import ReactHtmlParser from 'html-react-parser';
 
 function ShowProductDescription({showProductData}) {
   const [t] = useTranslation();
-
+console.log("showProductData>>>",showProductData)
   return (
     <div className={`${style.showProductDescriptionContainer}  pt-5`}>
         <h2>
             {t("Description")}
         </h2>
         <p>
-        {showProductData?.web_description ? ReactHtmlParser(`${showProductData?.web_description}`):showProductData?.description}
+        {showProductData?.description ? ReactHtmlParser(`${showProductData?.description}`):showProductData?.description}
           </p>
     </div>
   )

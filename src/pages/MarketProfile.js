@@ -18,13 +18,19 @@ function MarketProfile() {
   const [showPhotoModal, setShowPhotoModal] = useState(false);
   const [showGalleryModal, setShowGalleryModal] = useState(false);
   const location = useLocation();
+  const token = localStorage.getItem('arab_user_token');
   const id = location.pathname.split('/')[location.pathname.split('/').length - 1];
-  let url = `business/show/${id}`;
+  let url;
+  if(token){
+   url = `business/show/${id}`;
+  }
+  else{
+    url = `show-store/${id}`;
+  }
   let [Data] = useAxios(url);
   const data = Data.data;
   return (
     <>
-
       <div className={style.serviceComponent}>
         <StoreHero data={data} />
         <div className={`${style.marketingContainerSection} container col-12`}>

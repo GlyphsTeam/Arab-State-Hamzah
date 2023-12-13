@@ -7,7 +7,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 import useFetch from "../../../hooks/useFetch";
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
-
+import ReactHtmlParser from 'html-react-parser'
 function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
   const [t,i18n] = useTranslation();
 
@@ -71,7 +71,7 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
             </div>
             <div className={pathName === "/saved-job" || pathName === '/jobs' ? style.parCardPublished : style.parCard}>
               <h3>{jobData.looking_for_text}</h3>
-              <p>{jobData.description}</p>
+              <p>{ReactHtmlParser(jobData.description)}</p>
             </div>
             <div className={style.timeCard}>
               <p>{jobData.type}</p>

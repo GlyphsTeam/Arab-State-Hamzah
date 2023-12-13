@@ -4,6 +4,8 @@ import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Share from "../../Utils/Share";
 import useFetch from "../../hooks/useFetch";
+import ReactHtmlParser from 'html-react-parser';
+
 function TopRentCard({ rentData, setShow, token, setCount, id }) {
   const [saveId, setSaveId] = useState();
   const [activeSave, setActiveSave] = useState(rentData?.saved);
@@ -72,13 +74,11 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
               <a href={`mailto:${rentData?.email}`}>{rentData?.email}</a>
             </p>
           </div>
-
           <div>
             <div className={style.infoSection}>
               <i className={`fas fa-map-marker-alt ${style.locationIcon}`}></i>
               <h4 className={style.titleInfo}>{t("Location")}</h4>
             </div>
-
             <p className={`${style.infoParagraph} ${i18n.language==='en'?style.phoneClass:style.phoneClassAr}`}>{rentData?.place}</p>
           </div>
         </div>
@@ -87,7 +87,7 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
           {rentData?.place}{" "}
         </p> */}
 
-        <p className={style.rentParagraph}>{rentData?.description}</p>
+        <p className={style.rentParagraph}>{ReactHtmlParser(rentData?.description)}</p>
         {rentData?.is_bathroom_shared && (
           <p className={style.houseNumberParagraph}>
             {/* <i className="fas fa-bed"></i> Is bathroom shared: {rentData?.is_bathroom_shared ? 'Yes' : 'No' }{" "} */}

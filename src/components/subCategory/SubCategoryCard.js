@@ -10,18 +10,11 @@ function SubCategoryCard({ data }) {
   const [showAlert, setShowAlert] = useState(false);
   const [t] = useTranslation();
   const navigate = useNavigate();
-  const token = localStorage.getItem('arab_user_token');
-  const showAlertFunction = () => {
-    setShowAlert(true);
-    setCount(4);
-  }
+
   const navigateFunction = (navUrl) => {
-    if (token){
+  
       navigate(navUrl);
-    }
-    else{
-      showAlertFunction();
-    }
+
   }
   return (
     <>

@@ -126,13 +126,13 @@
   }
  
   .largeSideImage {
-    width: 100% !important;
+    /* width: 100% !important; */
   }
   .largeSideImage img{
     
   }
   .sideImages {
-    width: 100% !important;
+    /* width: 100% !important; */
   }
   .txtDivLeft {
     top: 120px;
@@ -200,5 +200,14 @@
   .parH2{
     font-size:10px !important;
     text-overflow:ellipsis;
+  }
+  .imageTxtContainer img{
+    margin: 0 !important;
+    padding: 0 ;
+    width: 100% !important;
+    padding-right: 9px !important;
+  }
+  .firstImage{
+    padding-left: 9px !important;
   }
 }

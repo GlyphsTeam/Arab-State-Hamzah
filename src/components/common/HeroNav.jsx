@@ -32,7 +32,7 @@ function HeroNav({ index, setIndex  , subData , mainData}) {
             </div>
           </Link>
 
-          <div className={`col-lg-4  col-md-5 col-sm-6  ${i18n.language === "en"? style.sideImages : style.sideImagesArabic }`}>
+          <div className={`col-lg-4 col-md-5 col-sm-6  ${i18n.language === "en"? style.sideImages : style.sideImagesArabic }`}>
             {
              subData?.map((item, index) => (
             <Link  state={({ type: item?.looking })} to={item?.url} className={style.imageTxtContainer} key={index}>

@@ -21,6 +21,7 @@
     border-radius: 25px;
     height: 75%;
     object-fit: cover;
+
 }
 
 .cardTitle{
@@ -42,9 +43,8 @@
     .cardLink{
         padding: 5px;
         height: 160px;
-        border-radius: 30px;
-
-    }
+    
+}
 
     .categoryImage{
         padding: 5px;

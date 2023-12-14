@@ -4,6 +4,9 @@
 .socialMediaSection h2{
   color: var(--primary-color);
 }
+.workHoursRight p{
+  height: fit-content;
+}
 .locationDirectionBtnNew{
   background-color: var(--secondary-color);
   height: fit-content;
@@ -47,13 +50,13 @@
 }
 .MarketingContainer .MarketingImg {
   object-fit: cover;
-  /* border-radius: 30px; */
-  width: 100%;
-  box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px,
-    rgb(0 0 0 / 30%) 0px 1px 3px -1px;
-    height: 490px;
-  /* filter: brightness(75%); */
+  /*border-radius: 30px;
+  */width: 100%;
+  box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px,    rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+  height: 490px;
+  filter: brightness(0.4) !important;
   border-bottom-left-radius: 140px;
+  -webkit-filter: brightness(0.4) !important;
 }
 .MarketingImgContainer {
   width: 100%;
@@ -68,6 +71,9 @@
 }
 .FavoriteContactContainer i{
   color: var(--secondary-color);
+}
+.FavoriteContactContainer p{
+  height: fit-content;
 }
 .MarketingContainer .GlyphsImg {
   position: relative;
@@ -345,10 +351,7 @@ iframe {
 }
 .lastSection {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  overflow: hidden;
-
 }
 
 .lastSection img {
@@ -752,7 +755,7 @@ margin: auto;
   }
   .cardSection img {
     height: 151px;
-    margin: 13px 0px;
+    margin: 10px -21px;
     object-fit: cover;
     width: 100%;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
@@ -952,6 +955,27 @@ margin: auto;
   padding-bottom: 0px;
 }
 
+}
+@media (max-width:500px){
+  .favoriteIconCursor{
+    height: fit-content !important;
+  }
+  .descriptionSection p{
+    font-size: 15px;
+  }
+  .descriptionSection h4{
+    font-size: 18px;
+  }
+  .offerSection{
+    flex-direction: column;
+  }
+  .offerCards{
+    width: 100%;
+  }
+  .socialMediaSection i{
+    font-size: 25px !important;
+  }
+  
 }
 
 

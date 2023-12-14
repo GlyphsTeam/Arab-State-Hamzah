@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Crisp } from "crisp-sdk-web";
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes   } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/layout/navbar/Navbar";
 import Footer from "./components/layout/footer/Footer";
@@ -48,7 +48,6 @@ import ShowJobPage from "./pages/ShowJobPage";
 import JotForm from "./pages/JotFormPage";
 import PrivateRoutes from "./Utils/PrivateRoutes";
 import useAxios from "./hooks/useAxiosGet";
-import ShowServicePage from "./pages/ShowServicePage";
 import GetLang from './Utils/language/GetLang';
 import JobPage from "./pages/LookingForJobPage";
 import RentPage from "./pages/LookingForRentPage";
@@ -75,33 +74,33 @@ function App() {
     import('./assets/style/App.module.css').then(() => {
     }).catch((error) => console.log(error))
   }
-  if(city==="NY"){
-    import('./assets/style/statesPalettes/arabNewYork/App.module.css').then(()=>{
-    }).catch((err)=>console.log(err))
+  if (city === "NY") {
+    import('./assets/style/statesPalettes/arabNewYork/App.module.css').then(() => {
+    }).catch((err) => console.log(err))
   }
-  if(city==="IL"){
-    import('./assets/style/statesPalettes/arabChicago/App.module.css').then(()=>{
-    }).catch((error)=>console.log(error))
+  if (city === "IL") {
+    import('./assets/style/statesPalettes/arabChicago/App.module.css').then(() => {
+    }).catch((error) => console.log(error))
   }
-  if(city==="NJ"){
-    import('./assets/style/statesPalettes/arabNewJersey/App.module.css').then(()=>{
-    }).catch((err)=>console.log(err))
+  if (city === "NJ") {
+    import('./assets/style/statesPalettes/arabNewJersey/App.module.css').then(() => {
+    }).catch((err) => console.log(err))
   }
-  if(city==="DE"){
-    import('./assets/style/statesPalettes/arabdetroit/App.module.css').then(()=>{
-    }).catch((err)=>console.log(err));
+  if (city === "DE") {
+    import('./assets/style/statesPalettes/arabdetroit/App.module.css').then(() => {
+    }).catch((err) => console.log(err));
   }
-  if(city==="TX"){
-    import('./assets/style/statesPalettes/arabHouston/App.module.css').then(()=>{
-    }).catch(((err)=>console.log(err)))
+  if (city === "TX") {
+    import('./assets/style/statesPalettes/arabHouston/App.module.css').then(() => {
+    }).catch(((err) => console.log(err)))
   }
-  if(city==="FL"){
-    import('./assets/style/statesPalettes/arabOrlando/App.module.css').then(()=>{
-    }).catch((err)=>console.log(err));
+  if (city === "FL") {
+    import('./assets/style/statesPalettes/arabOrlando/App.module.css').then(() => {
+    }).catch((err) => console.log(err));
   }
-  if(city==="CA"){
-    import('./assets/style/statesPalettes/LosAngeles/App.module.css').then(()=>{
-    }).catch((err)=>console.log(err));
+  if (city === "CA") {
+    import('./assets/style/statesPalettes/LosAngeles/App.module.css').then(() => {
+    }).catch((err) => console.log(err));
   }
   const [baseURL, setBaseURL] = useState();
   useEffect(() => {
@@ -242,7 +241,7 @@ function App() {
             <Route exact path={`/eula`} element={<EulaGeorgiaPage />} />
             <Route exact path={`/User-Guide`} element={<UserGuide url={blogs_api} />} />
             <Route exact path={`/Show-User-Guide/:id/:slug?`} element={<ShowUserGuide />} />
-            <Route exact path={`/Show-Service/:id?/:slug?`} element={<ShowServicePage />} />
+            {/* <Route exact path={`/Show-Service/:id?/:slug?`} element={<ShowServicePage />} /> */}
             <Route exact path={`/Our-Service`} element={<OurService />} />
             <Route exact path={`/post-job`} element={<PostJobPage baseUrl={baseURL} />} />
             <Route exact path={`/post-rent`} element={<PostRentPage baseUrl={baseURL} />} />

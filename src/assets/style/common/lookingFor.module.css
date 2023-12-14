@@ -115,7 +115,8 @@
     font-size: 30px;
   }
   .divBtns {
-    right: 53px !important;
+   bottom: -40px;
+   right: 90px !important;
   }
 
   .img {
@@ -135,7 +136,13 @@
   }
 
 }
-
+@media (max-width: 768px) {
+  .desc {
+    font-size: 15px !important; 
+    height: auto; 
+    overflow: visible; 
+  }
+}
 @media (max-width:500px){
   .mainDiv{
     display:flex !important;
@@ -145,5 +152,39 @@
   .img{
     display:none;
   }
+  .divBtns .postLink{
+    font-size: 14px;
+    height: 30px;
+    width: 150px;
+  }
+  .infoDiv{
+    height: 450px !important;
+  }
   
+}
+@media (max-width:370px){
+  .infoDiv{
+    height: 500px !important;
+  }
+}
+@media (max-width:1024px){
+  .desc {
+    font-size: 20px !important;
+    margin: 12px 0;
+    font-weight: 400;
+    padding-top: 15px;
+    color: var(--primary-color);
+    overflow: hidden;
+    max-height: 295px !important; 
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+  
+  }
+}
+@media screen and (max-width: 768px) {
+  .desc{ 
+  max-height: 250px !important; 
+  text-overflow: clip !important; 
+  white-space: normal; 
+}
 }

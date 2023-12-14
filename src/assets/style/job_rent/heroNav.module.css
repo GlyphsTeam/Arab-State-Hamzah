@@ -6,6 +6,10 @@
   max-width: 100% !important;
   padding-top: 50px;
 }
+.navContainer img{
+  filter: brightness(0.4);
+  -webkit-filter: brightness(0.4);
+}
 .parH2{
   color: var(--white);
   font-weight: 400;
@@ -120,11 +124,15 @@
     height: 330px;
     object-fit: cover;
   }
+ 
   .largeSideImage {
-    width: 50% !important;
+    width: 100% !important;
+  }
+  .largeSideImage img{
+    
   }
   .sideImages {
-    width: 50% !important;
+    width: 100% !important;
   }
   .txtDivLeft {
     top: 120px;
@@ -187,10 +195,10 @@
   
 @media (max-width:500px){
   .titleH2{
-    font-size:12px !important;
+    font-size:16px !important;
   }
   .parH2{
-    font-size:8px !important;
+    font-size:10px !important;
     text-overflow:ellipsis;
   }
 }

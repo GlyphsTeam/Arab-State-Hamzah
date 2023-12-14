@@ -16,11 +16,19 @@
   /* background: #C2DEF3; */
 }
 .middleJobParagraph {
-  width: 85%;
+  width: 100%;
   text-align: justify;
   color: var(--primary-color);
   font-size: 18px;
-
+}
+.middleJobParagraph p{
+  color: var(--primary-color);
+  height: 100%;
+  width: 100%;
+}
+.middleJobParagraph span{
+  color: var(--primary-color);
+  height: fit-content;
 }
 .lastMainJob {
   padding-top: 50px;
@@ -211,7 +219,6 @@
     border-radius: 139px !important;
   }
   .subMainJob {
-    flex-direction: column;
     width: 100%;
     align-items: center;
     position: relative !important;
@@ -597,5 +604,11 @@
   }
   .contactStyle a {
     color: var(--primary-color) !important;
+  }
+}
+
+@media (max-width:500px){
+  .jobTxtContainer p{
+    height: fit-content;
   }
 }

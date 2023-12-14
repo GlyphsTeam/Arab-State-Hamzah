@@ -84,6 +84,7 @@
       overflow:hidden;
       height:45px;
       font-size:13px;
+      white-space: nowrap;
       font-weight:600;
       text-overflow:ellipsis;
       color:rgba(21, 56, 102, 1);

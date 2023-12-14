@@ -41,7 +41,7 @@ useEffect(() => {
         >
           <div className={style.tryAppInfo}>
             <div className={style.tryAppInfoTitle}>
-              <h3>{data?.title}</h3>
+              <h3 className={i18n.language==="ar"?style.titleArTry:""}>{data?.title}</h3>
             </div>
             <div className={style.tryAppBtnDiv}>
               <p className={style.tryAppParagraph}>{data?.web_description && ReactHtmlParser(data?.web_description)}</p>
@@ -59,7 +59,7 @@ useEffect(() => {
                   <i className="fab fa-google-play"></i>
                   <div className={style.googlePlayDiv}>
                     {/* <p>Available on the</p> */}
-                    <p> Available on the Google Play</p>
+                    <p className={i18n.language==="ar"?style.googleTryAr:""}> Available on the Google Play</p>
                   </div>
                 </div>
               </a>
@@ -73,7 +73,7 @@ useEffect(() => {
                 <i className="fab fa-apple"></i>
                   <div className={style.playStoreDiv}>
                     {/* <p>Download on the</p> */}
-                    <p> Download on the App Store</p>
+                    <p className={i18n.language==="ar"?style.playStoreAr:""}> Download on the App Store</p>
                   </div>
                 </div>
               </a>

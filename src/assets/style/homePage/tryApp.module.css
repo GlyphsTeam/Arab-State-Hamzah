@@ -8,6 +8,7 @@
 .BtnDiv{
   display: flex;
   align-items: center;
+  
 }
 .googlePlayDiv p{
   width: 130px;
@@ -226,7 +227,7 @@
   .tryAppParagraph{
     padding: 10px;
     margin-right: 0px !important;
-    height: 197px !important;
+    height: 60px !important;
     overflow: hidden ;
  
   }
@@ -469,6 +470,18 @@
     left: -23px;
     font-size: 8px !important;
   }
+  .googleTryAr{
+    position: relative;
+    top: 24px;
+    right: -23px;
+    font-size: 8px !important;
+  }
+  .playStoreAr{
+    position: relative;
+    top: 24px;
+    right: -23px;
+    font-size: 8px !important;
+  }
   .playStoreDiv p{
     position: relative;
     top: 24px;
@@ -521,4 +534,33 @@
   font-size: 30px;
 
 }
+}
+@media (max-width:1025px){
+  .tryAppParagraph p{
+    font-size: 18px !important;
+  }
+  .tryAppParagraph{
+    width: 500px !important;
+    display: none;
+  }
+  .tryAppParagraph p{
+    height: fit-content;
+  }
+  .BtnDiv{
+    margin: 20px auto;
+  }
+  .tryAppInfoTitle h3{
+    margin-left: 66px;
+    text-align: center;
+    font-size: 28px;
+  }
+  
+}
+@media (max-width:500px){
+  .tryAppInfoTitle h3{
+    margin-left: 25px !important;
+  }
+  .titleArTry{
+    margin-right: -60px !important;
+  }
 }

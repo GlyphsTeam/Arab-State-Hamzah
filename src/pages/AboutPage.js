@@ -7,12 +7,19 @@ import EasySearch from "../components/aboutUs/EasySearch";
 import UserAnalytics from "../components/aboutUs/UserAnalytics";
 import HeroBanner from "../components/common/banner/HeroBanner";
 import { Helmet } from "react-helmet";
-
+// import { useEffect } from "react";
 function AboutPage() {
   const url = `about`;
   const [Data] = useAxios(url);
   const aboutData = Data?.data;
+  // useEffect(() => {
+  //   document.body.classList.add('route-transition');
 
+  //   setTimeout(() => {
+  //     document.body.classList.remove('route-transition');
+  //   }, 1500); 
+
+  // }, [])
   return (
     <>
       <Helmet>

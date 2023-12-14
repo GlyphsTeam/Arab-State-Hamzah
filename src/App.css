@@ -36,9 +36,15 @@ body{
   border-radius: 25px;
   color: var(--dark-blue) !important;
 }
-
+.accordion-public-class .accordion-button p{
+  height: fit-content;
+}
+.accordion-public-class .accordion-button {
+height: 23px;
+}
 .accordion-public-class .accordion-button::after{
-  background-image: var(--accordion-btn-icon) 
+  background-image: var(--accordion-btn-icon);
+  margin: 10px;
   
 } 
 
@@ -53,8 +59,38 @@ body{
   padding: 5px !important;
   margin-top: 6px;
 }
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  
+  50%{
+    opacity: 0.5;
+  }
+  100%{
+    opacity: 1;
+  }
+}
 
+.route-transition {
+  animation: fadeIn 5s ease-in-out;
+  -webkit-animation: fadeIn 5s ease-in-out;
+}
+.route-transition-slide-in {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
 
+.route-transition-slide-in:not(.route-transition-slide-in-exit) {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.route-transition-slide-in-exit {
+  opacity: 0;
+  transform: scale(1.5);
+}
 .postSelectForm .css-b62m3t-container .css-13cymwt-control ::placeholder{
     color: var(--primary-color);
 }

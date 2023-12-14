@@ -503,9 +503,16 @@ display: none !important;
       width: 164px;
     }
   }
+  .navSearchDiv{
+    font-size: 25px !important;
+  }
 
   .showNavigationBarMobile {
     width: 70%;
+  }
+  .LogoImage{
+    height:50px !important;
+    margin-left:10px;
   }
 }
 @media (max-width: 360px) {

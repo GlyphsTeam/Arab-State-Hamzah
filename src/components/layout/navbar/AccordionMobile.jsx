@@ -13,15 +13,15 @@ function AccordionComponent({handleCloseModal, data, serviceLinks}) {
       <Accordion.Item className={`${style.accordionItemMobile} accordion-public-class` } eventKey={''}>
         <Accordion.Header className={style.mainTitle} ><p >{t("Our Services")}</p></Accordion.Header>
         <Accordion.Body className={style.accordionBodyMobile}>
-               <Link className={`${style.linkColor} ${style.linkBlock}`} onClick={handleCloseModal} to={`/show-service/${serviceLinks?.service_provider?.id}`} state={({ id: serviceLinks?.service_provider?.id })}>
+               <Link className={`${style.linkColor} ${style.linkBlock}`} onClick={handleCloseModal} to={`/Category/services`} state={({ id: serviceLinks?.service_provider?.id })}>
                 {t("Service Provider")}
               </Link>
 
-               <Link className={`${style.linkColor} ${style.linkBlock}`} onClick={handleCloseModal}  to={`/show-service/${serviceLinks?.shops?.id}`} state={({ id: serviceLinks?.shops?.id })}>
+               <Link className={`${style.linkColor} ${style.linkBlock}`} onClick={handleCloseModal}  to={`/Category/shops`} state={({ id: serviceLinks?.shops?.id })}>
                {t("Shops")}
               </Link>
 
-               <Link className={`${style.linkColor} ${style.linkBlock}`} onClick={handleCloseModal} to={`/show-service/${serviceLinks?.market_place?.id}`} state={({ id: serviceLinks?.market_place?.id })}>
+               <Link className={`${style.linkColor} ${style.linkBlock}`} onClick={handleCloseModal} to={`/market-place`} state={({ id: serviceLinks?.market_place?.id })}>
                {t("Market Place")}
               </Link>
 

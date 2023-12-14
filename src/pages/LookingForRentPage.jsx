@@ -6,7 +6,6 @@ const LookingForRentPage = () => {
   const url = `rents/web/looking_for`;
   const [Data] = useAxios(url);
   const lookingForData = Data?.data;
-  console.log("lookingFor>>>>", lookingForData)
   return (
     <div>
       <Helmet>

@@ -88,7 +88,7 @@ function Favorite_Contact({ data, setShow, setCount }) {
           </a>
         </p>
       )}
-      {showShareModal && <Share url={pathName} setShowShareModal={setShowShareModal} />}
+      {showShareModal && <Share url={`/en${pathName}`} setShowShareModal={setShowShareModal} />}
     </div>
   );
 }

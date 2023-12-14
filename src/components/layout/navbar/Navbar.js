@@ -22,6 +22,7 @@ function NavBar({ logoImage }) {
   const location = useLocation();
   const pathName = location.pathname.toLocaleLowerCase();
   const navigate = useNavigate();
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   let nestedUrl = "listings";
   const [Data] = useAxios(nestedUrl);
@@ -73,7 +74,13 @@ function NavBar({ logoImage }) {
   useEffect(() => {
     setDropDown(false);
   }, [pathName]);
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
 
+    window.addEventListener('resize', handleResize);
+  }, [])
   const urlChangeLang = (lang, type) => {
     const { pathname } = location;
     const params = window.location.pathname.split("/");
@@ -88,6 +95,8 @@ function NavBar({ logoImage }) {
 
   };
   var nav = "one";
+  const isSmallScreen = windowWidth === 500;
+
   if (
     pathName === "/job" ||
     pathName === "/jobs" ||
@@ -118,17 +127,16 @@ function NavBar({ logoImage }) {
     pathName === "/saved-accomodation" ||
     pathName === "/saved-job" ||
     pathName === "/saved-product" ||
-    pathName === "/search-result/{keyword}"||
+    pathName === "/search-result/{keyword}" ||
     pathName === "/my-business" ||
     pathName === "/saved-blogs" ||
     pathName === "/rentform" ||
-    pathName.includes("show-product")||
-    pathName === "/add-bussinse" || 
+    pathName.includes("show-product") ||
+    pathName === "/add-bussinse" ||
     pathName === "/forget-password" ||
     pathName.includes("/show-user-guide") ||
-    pathName.includes("/marketprofile") ||
-    pathName === "/jobforcompany"
-
+    pathName === "/jobforcompany" ||
+    isSmallScreen & pathName.includes('/Marketprofile')
   ) {
     nav = "two";
   }
@@ -176,7 +184,7 @@ function NavBar({ logoImage }) {
                   {t("Home")}{" "}
                 </li>
               </Link>
-       
+
               <Link to={`/about`}>
                 <li className={pathName === "/about" ? style.activePath : ""}>
                   {t("about us")}
@@ -256,7 +264,7 @@ function NavBar({ logoImage }) {
               </button>
 
               {statesDropDown && (
-                <div className={`row ${i18n.language==='en'?style.statesDropDownDiv:style.statesDropDownDivAR}`}>
+                <div className={`row ${i18n.language === 'en' ? style.statesDropDownDiv : style.statesDropDownDivAR}`}>
                   {statesData?.map((item, index) => (
                     <a
                       key={index}
@@ -413,6 +421,9 @@ function NavBar({ logoImage }) {
                       <Link to="/Blog" onClick={handleCloseModal}>
                         <li> {t("Blog")} </li>
                       </Link>
+                      <Link to="/add-bussinse" onClick={handleCloseModal}>
+                        <li> {t("Add Business")} </li>
+                      </Link>
                     </ul>
                   </nav>
                   <div className={style.rightSubContainerMobile}>
@@ -521,14 +532,14 @@ function NavBar({ logoImage }) {
                 >
                   {" "}
                   <div className={`${style.imageContainerSpan}`}>
-                  <LazyLoadImage
-                    className={`mt-3`}
-                    src={item.image}
-                    height={50}
-                    width={50}
-                    alt="img-countery"
-                  />{" "}
-                  <span style={{ fontSize: "11px", fontWeight: "bold", marginTop: '10px' }} >{item.title}</span >
+                    <LazyLoadImage
+                      className={`mt-3`}
+                      src={item.image}
+                      height={50}
+                      width={50}
+                      alt="img-countery"
+                    />{" "}
+                    <span style={{ fontSize: "11px", fontWeight: "bold", marginTop: '10px' }} >{item.title}</span >
                   </div>
                 </a>
               ))}

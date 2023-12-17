@@ -84,7 +84,6 @@ console.log()
                     className={`fas fa-share-square ${style.shareIconMargin}`}
 
                   ></i>
-                  {t("Share Shop")}
                 </p>
                <a href={showBlogData?.link_youtube} target="_blank" rel="noreferrer"><i className={`fab fa-youtube ${style.youtubIcon}`}></i></a>
               </div>

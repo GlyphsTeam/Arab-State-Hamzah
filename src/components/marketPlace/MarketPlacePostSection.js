@@ -8,7 +8,6 @@ import productStyle from "../../assets/style/postProduct/rightPost.module.css";
 import { useTranslation } from "react-i18next";
 import MarketPlacePostOption from "./MarketPlacePostOption";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import imageConversion from 'image-conversion';
 
 function MarketPlacePostSection() {
   const [t, i18n] = useTranslation();
@@ -38,6 +37,12 @@ function MarketPlacePostSection() {
 
   const [showTitleWarn, setShowTitleWarn] = useState(false);
   const [showLocationWarn, setShowLocationWarn] = useState(false);
+  const [showPriceWarn, setShowPriceWarn] = useState(false);
+  const [showYearWarn, setYearWarn] = useState(false);
+  const [showColorWarn, setColorWarn] = useState(false);
+  const [showConditionWarn, setCondwationWarn] = useState(false);
+  const [showPlaceWarn, setPlaceWarn] = useState(false);
+  const [showEmailWarn, setEmailWarn] = useState(false);
   const [showTypeWarn, setShowTypeWarn] = useState(false);
 
   const [requireWarn, setRequireWarn] = useState(false);
@@ -166,6 +171,25 @@ function MarketPlacePostSection() {
       if (marketFormData.description === "") {
         setDescriptionWarning(true);
       }
+      if (marketFormData.price === "") {
+        setShowPriceWarn(true);
+      }
+      if (marketFormData.year === "") {
+        setYearWarn(true);
+      }
+      if (marketFormData.color === "") {
+        setColorWarn(true);
+      }
+      if (marketFormData.condition === "") {
+        setCondwationWarn(true);
+      }
+      if (marketFormData.place === "") {
+        setPlaceWarn(true);
+      }
+      if (marketFormData.email === "") {
+        setEmailWarn(true);
+      }
+
     } else {
       const token = localStorage.getItem("arab_user_token");
       let baseURL = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${process.env.REACT_APP_City_ID}/market/create`;
@@ -250,34 +274,34 @@ function MarketPlacePostSection() {
 
   const handleImageDrop = async (acceptedFiles) => {
     const editedImages = [];
-  
+
     for (const file of acceptedFiles) {
       const editedImage = await convertToWebP(file);
       editedImages.push(editedImage);
     }
-  
+
     setMarketFormData({
       ...marketFormData,
       images: [...marketFormData?.images, ...editedImages],
     });
   };
-  
+
   const convertToWebP = (file) => {
     return new Promise((resolve) => {
       const reader = new FileReader();
-  
+
       reader.onload = (e) => {
         const img = new Image();
         img.src = e.target.result;
-  
+
         img.onload = () => {
           const canvas = document.createElement('canvas');
           canvas.width = img.width;
           canvas.height = img.height;
-  
+
           const ctx = canvas.getContext('2d');
           ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-  
+
           // Convert the image to WebP
           canvas.toBlob(
             (blob) => {
@@ -285,7 +309,7 @@ function MarketPlacePostSection() {
                 type: 'image/webp',
                 lastModified: Date.now(),
               });
-  
+
               resolve(webpFile);
             },
             'image/webp',
@@ -293,12 +317,12 @@ function MarketPlacePostSection() {
           );
         };
       };
-  
+
       reader.readAsDataURL(file);
     });
   };
-  
-  
+
+
   const handleRemoveImage = (index) => {
     const updatedImages = [...marketFormData.images];
     updatedImages.splice(index, 1);
@@ -459,7 +483,9 @@ function MarketPlacePostSection() {
           value={marketFormData.price}
           onChange={handleChange}
         />
-
+        {showPriceWarn && (
+          <p className={jobStyle.required}>Price is required</p>
+        )}
         <select
           name="year"
           id="year"
@@ -476,6 +502,9 @@ function MarketPlacePostSection() {
             );
           })}
         </select>
+        {showYearWarn && (
+          <p className={jobStyle.required}>Year is required</p>
+        )}
         {/* {showLocationWarn && (
           <p className={jobStyle.required}>year is required</p>
         )} */}
@@ -496,6 +525,9 @@ function MarketPlacePostSection() {
             );
           })}
         </select>
+        {showColorWarn && (
+          <p className={jobStyle.required}>Color is required</p>
+        )}
         {showLocationWarn && (
           <p className={jobStyle.required}>Location is required</p>
         )}
@@ -511,7 +543,9 @@ function MarketPlacePostSection() {
           <option value="new">New</option>
           <option value="used">Used</option>
         </select>
-
+        {showConditionWarn && (
+          <p className={jobStyle.required}>Condition is required</p>
+        )}
         {/* <div className={`d-flex w-100`}> */}
         {city && (
           <select
@@ -531,6 +565,9 @@ function MarketPlacePostSection() {
             })}
           </select>
         )}
+        {showPlaceWarn && (
+          <p className={jobStyle.required}>Place is required</p>
+        )}
         <input
           type="email"
           id="email"
@@ -540,7 +577,9 @@ function MarketPlacePostSection() {
           placeholder={t("Email")}
           className={`w-100`}
         />
-
+      {showEmailWarn && (
+          <p className={jobStyle.required}>Email is required</p>
+        )}
         <input
           type="tel"
           id="phone_number"

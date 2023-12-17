@@ -99,7 +99,7 @@ textarea {
   border: none;
   width: 90%;
   border-radius: 20px;
-  border: 3px solid var(--primary-color);
+  border: 1px solid var(--primary-color) !important;
 }
 .formBtn {
   background-color: var(--tertiary-color);

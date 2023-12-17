@@ -15,6 +15,7 @@ function ProductShowPage() {
   const [Data] = useAxios(url);
   const showProductData = Data?.data?.item;
   const ProductData = Data?.data;
+  console.log("ProductData??",ProductData)
   return (
     <div className={style.mainShowProductColor}>
 

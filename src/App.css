@@ -187,6 +187,6 @@ a{
 }
 @media (max-width:500px){
   .mainSection{
-    min-height: 200vh !important;
+    min-height: 100% !important;
   }
 }

@@ -13,9 +13,13 @@ import { Link } from "react-router-dom";
 import AlertBussiness from "../common/alert/Alert";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Helmet } from 'react-helmet'
-function ForRentForm({ baseUrl, rentPageData }) {
+import SpinnerStatic from '../common/Spinner';
+import { useNavigate } from "react-router-dom";
+
+function ForRentForm() {
 
     const [t, i18n] = useTranslation();
+    const navigation = useNavigate();
     const [showAlert, setShowAlert] = useState(false);
     const titleBussines = "Business Form"
     const [company, setCompany] = useState("");
@@ -43,6 +47,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
     const [uploadedImage, setUploadedImage] = useState(null);
     const [uploadedImage2, setUploadedImage2] = useState(null);
     const [cities, setCitys] = useState([]);
+    const [isLoadingBusines, setLoadingBussines] = useState(false);
     const [work_times, setwork_times] = useState([{
         day_type: "Mon",
         time_from: "09:00 AM",
@@ -433,6 +438,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
                 formData.append(`work_times[${index}][time_from]`, work.time_from);
                 formData.append(`work_times[${index}][time_to]`, work.time_to);
             });
+            setLoadingBussines(true);
             try {
                 await fetch(`${baseURL}`, {
                     headers: {
@@ -503,12 +509,20 @@ function ForRentForm({ baseUrl, rentPageData }) {
                         time_to: "09:00 PM"
                     },
                     ])
-
+                    setLoadingBussines(false);
+                    navigation("/my-business")
                     setTimeout(() => {
                         setShowAlert(false);
                     }, 3000)
                 })
             } catch (error) {
+                setLoadingBussines(false);
+                setMessageAlert("There is a problem with the server; please try again later.")
+                setTypeAlert("warning");
+                setShowAlert(true);
+                setTimeout(() => {
+                    setShowAlert(false);
+                }, 3000)
                 console.log("errorBusiness>>", error);
             }
         }
@@ -516,12 +530,13 @@ function ForRentForm({ baseUrl, rentPageData }) {
 
     return (
         <>
-           <Helmet>
-            <title>{titleBussines}</title>
-            <meta name="description" content={titleBussines}/>
-           </Helmet>
+            {isLoadingBusines && <SpinnerStatic />}
+            <Helmet>
+                <title>{titleBussines}</title>
+                <meta name="description" content={titleBussines} />
+            </Helmet>
             <h1 className={style.titleBussines} >Your Business Form</h1>
-            
+
             <form className={style.formDiv} >
                 <div className={style.formFlex}>
                     <div>

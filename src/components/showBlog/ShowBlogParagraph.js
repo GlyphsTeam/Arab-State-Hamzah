@@ -16,8 +16,8 @@ function ShowBlogParagraph({ Data, showBlogData }) {
               <LazyLoadImage key={item.id} className={style.showBlogImage} src={item?.image} alt="blog"/>
             </div>
   }
-            <div className={style.showBlogParagraphDiv}>
-             {item?.web_description&&<p className={` ${style.showBlogParagraphTitle}`} key={item?.id}>{item?.web_description && ReactHtmlParser(`${item?.web_description}`)} </p>}
+            <div className={`${style.showBlogParagraphDiv}` } >
+             {item?.web_description&&<>{item?.web_description && ReactHtmlParser(`${item?.web_description}`)} </>}
               <br/>
             </div>
         </div>

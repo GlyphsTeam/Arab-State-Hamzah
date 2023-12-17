@@ -333,8 +333,10 @@
 .textAreayInput{
     width:747px;
     height:271px;
-    border:2px soild rgba(190, 0, 64, 1) !important;
+    border:2px soild;
+    border-color: var(--primary-color) !important;
 }
+
 .jpgStyle{
   font-size:18px;
   font-weight:700;
@@ -372,6 +374,11 @@
   }
   .jpgStyle{
     margin-left:80px;
+  }
+  .textAreayInput{
+    border-color: var(--primary-color) !important;
+    border: 2px solid var(--primary-color) !important;
+    height: 150px !important;
   }
 }
 @media (max-width:820px){

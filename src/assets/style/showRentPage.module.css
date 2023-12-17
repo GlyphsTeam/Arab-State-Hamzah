@@ -529,4 +529,7 @@ a .contactIcon {
   .infoParagraph a{
     font-size: 12px;
   }
+  .contactStyleMobile{
+    display: none !important;
+  }
 }

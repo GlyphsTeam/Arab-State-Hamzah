@@ -196,9 +196,7 @@
 
 }
 
-.cardStatisticsImg:hover{
-  /* border: 2px solid var(--primary-color); */
-}
+
 .cardStatisticsImg img {
   width: 100%;
   height: 242px;
@@ -978,7 +976,6 @@ transition: all 0.4s ease;
   }
   .cloumnParagraph p {
     overflow: hidden;
-    white-space: nowrap;
     width: 115px;
     height: 34px;
   }
@@ -1393,5 +1390,21 @@ transition: all 0.4s ease;
   .single-card-per-pagination .blogCardContainer {
     width: 100% !important; /* Set the width to 100% to display one card per row */
     max-width: 300px !important; /* Set a maximum width for the card container */
+  }
+}
+
+@media (max-width:500px){
+  .columnCardsContainerDiv{
+    min-height: 200px;
+  }
+  .cloumnParagraph p{
+    margin-top: 0px !important;
+    font-size: 10px !important; 
+    height: 100% !important;
+    text-overflow: ellipsis !important;
+  }
+  .TagContainerDiv,
+  .TagHeader{
+    display: none;
   }
 }

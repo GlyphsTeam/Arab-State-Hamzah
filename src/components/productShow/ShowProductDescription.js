@@ -4,7 +4,6 @@ import ReactHtmlParser from 'html-react-parser';
 
 function ShowProductDescription({showProductData}) {
   const [t] = useTranslation();
-console.log("showProductData>>>",showProductData)
   return (
     <div className={`${style.showProductDescriptionContainer}  pt-5`}>
         <h2>

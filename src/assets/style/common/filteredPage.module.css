@@ -28,14 +28,18 @@
 }
 .sublistCatge{
   display: flex;
-  justify-content: center;
+  justify-content: start !important;
   margin-top: 30px;
+  width: 100%;
 }
 .sublistCatge li{
   list-style-type: none;
   margin-left: 15px;
   cursor: pointer;
   color: #153866;
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
   font-weight: 500;
   padding: 5px;
   border-radius: 8px;
@@ -96,7 +100,8 @@
 
 .categoryTitleFilter {
   margin: 0;
-  color: var(--black) ;
+  height: fit-content;
+  color: var(--primary-color) ;
 }
 
 .PaginationBackground {
@@ -212,4 +217,19 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+}
+@media (max-width:500px){
+  .sublistCatge li{
+    font-size: 10px;
+    height: fit-content;
+     
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 20%;
+    text-align: center ;
+    -webkit-border-radius: 20%;
+    -moz-border-radius: 20%;
+    -ms-border-radius: 20%;
+    -o-border-radius: 20%;
+}
 }

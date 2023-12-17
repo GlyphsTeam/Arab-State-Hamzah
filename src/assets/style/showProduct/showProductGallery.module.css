@@ -1,7 +1,7 @@
 .mainGalleryDiv{
-    border: 1px solid var(--tertiary-color);
-    padding: 10px;
-    border-radius: 12px;
+    /*border: 1px solid var(--tertiary-color);
+    */padding: 10px;
+
 }
 .subGalleryDiv{
     display: flex;
@@ -12,7 +12,6 @@
     margin: 11px;
     width: 96px;
     object-fit: cover;
-    border-radius: 12px;
 }
 .mainGalleryDiv{
     text-align: center;
@@ -21,8 +20,7 @@
     height: 353px;
     margin: auto;
     width: 467px !important;
-    border-radius: 12px;
-    border-radius: 30px;
+
 border: 1px solid var(--tertiary-color);
 box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
 

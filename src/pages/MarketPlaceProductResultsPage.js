@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import filterStyle from "../assets/style/common/filteredPage.module.css";
 import useAxios from "../hooks/useAxiosGet";
 import ProductsSection from "../components/marketPlace/MarketPlaceProductSection";
@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import CategoryNav from "../components/common/marketPlace/marketNav/CategoryNav";
 import ProductFilter from "../components/common/marketPlace/marketProductFilter/ProductFilter";
 import HeroMobileButtons from "../components/common/marketPlace/HeroMobileButtons/HeroMobileButtons";
+import ScrollContainer from "react-indiana-drag-scroll";
 
 function CategoryPage() {
   const [t] = useTranslation();
@@ -112,11 +113,17 @@ function CategoryPage() {
         token={token}
 
       />
-      <div className={filterStyle.sublistCatge}>
-        {modelData.data?.map((cat) => {
-          return <li className={cat?.id === activeItem ? filterStyle.activeLi : ''} key={cat?.id} onClick={() => handleItemClick(cat.id)}>{cat?.name}</li>
-        })}
-      </div>
+     
+
+      <ScrollContainer className="scroll-container"  
+        >
+
+        <div className={filterStyle.sublistCatge}>
+          {modelData.data?.map((cat) => {
+            return <li className={cat?.id === activeItem ? filterStyle.activeLi : ''} key={cat?.id} onClick={() => handleItemClick(cat.id)}>{cat?.name}</li>
+          })}
+        </div>
+      </ScrollContainer>
 
       <div className={`row ${filterStyle.pageContainer}`}>
         <div className={`col-sm-1 col-md-3 col-lg-3 ${filterStyle.filterHide}`}>

@@ -32,7 +32,6 @@
 .dateStyle{
     color: var(--secondary-color);
     ;
-
 }
 /* .mainProductInfoDivContainer{
     border-left: 2px solid #DC6027;
@@ -42,7 +41,7 @@
 }
 .generalTipsDiv{
     padding-top: 13px;
-    height: 244px;
+    height: fit-content;
     overflow: hidden;
 }
 .generalTipsDiv h3{

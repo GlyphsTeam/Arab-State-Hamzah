@@ -48,7 +48,7 @@ function RentSection({
 
   
   const total = rentsData?.rents?.total;
-
+console.log("tptp>>>>>>>>",rentsData)
   const [isMobile, setIsMobile] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
 

@@ -22,6 +22,12 @@
   .shareIconMargin{
     margin: 0px 5px 0px 5px
   }
+  .shareIconMargin,
+  .favIconColor,
+  .youtubIcon{
+    font-size: 20px !important;
+  }
+
   .shareIconMargin{
     cursor: pointer;
     color: var(--secondary-color);
@@ -94,14 +100,18 @@
 }
 .showBlogParagraphDiv p{
     color: var(--primary-color);
+    font-size: 20px !important;
     font-weight: 400;
     
 }
 .showBlogParagraphDiv{
     overflow: hidden;
-
-
-
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.showBlogParagraphDiv span{
+    font-size: 20px;
 }
 /* width: 100% */
 @media (max-width: 768px) {
@@ -110,13 +120,12 @@
         max-width: 400px;
     }
     .showBlogImage{
-        height: 100%;
+    height: 100%;
     width: 100%;
-    border-radius: 26px;
     object-fit: contain;
     padding-top: 0px;
     border-bottom-left-radius: 140px;
-    }
+}
 
 }
 @media (max-width:880px) {
@@ -127,9 +136,22 @@
 
 @media (max-width: 480px) {
     .interestedCardContainerBlog{
-
     width: 100% !important;
-
+    }
+    .showBlogParagraph{
+        font-size: 14px !important;
+    }
+    .showBlogParagraphTitle{
+        font-size: 14px !important;
+    }
+    .showBlogParagraph p{
+        font-size: 14px !important;
+    }
+    .showBlogParagraphDiv span{
+        font-size: 14px;
+    }
+    .showBlogParagraphDiv{
+        font-size: 14px;
     }
 
 }

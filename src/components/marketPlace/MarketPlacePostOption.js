@@ -7,15 +7,17 @@ function MarketPlacePostOption() {
   const [isInputVisible, setInputVisible] = useState(false);
   const [points, setPoints] = useState("");
   const [t, i18n] = useTranslation();
+  const [inputFields, setInputFields] = useState([{ id: 0, text: '' }]);
+  const [nextId, setNextId] = useState(1);
 
 
   let formData = new FormData();
   const [housingFormData, setHousingFormData] = useState({
     points: [],
   });
-  housingFormData.points &&
-    housingFormData.points.forEach((point, index) => {
-      formData.append(`points[${index}]`, point);
+  inputFields &&
+  inputFields.forEach((point, index) => {
+      formData.append(`points[${index}]`, point.text);
     });
 
 
@@ -46,14 +48,29 @@ function MarketPlacePostOption() {
     updatedPoints.splice(index, 1);
     setHousingFormData({ ...housingFormData, points: updatedPoints });
   };
-
+  const handleInputChange = (id, event) => {
+    const updatedFields = inputFields.map((field) =>
+      field.id === id ? { ...field, text: event.target.value } : field
+    );
+    setInputFields(updatedFields);
+  };
+  const handleAddFields = () => {
+    setInputFields([...inputFields, { id: nextId, text: '' }]);
+    setNextId(nextId + 1);
+  };
+  const handleDeleteField = (id) => {
+    const updatedFields = inputFields.filter((field) => field.id !== id);
+    setInputFields(updatedFields);
+  };
   return (
     <>
-      <div className={style.optionMainButton} onClick={handleToggleInput}>
+      {/* <div className={style.optionMainButton} onClick={handleToggleInput}>
+        <span>        Add Options
+        </span>
         <p>{t("Option")}</p>
         <p className={style.plusButton}>+</p>
-      </div>
-      {isInputVisible && (
+      </div> */}
+      {/* {isInputVisible && (
         <div className={style.inputDivOption}>
           <input
             type="text"
@@ -61,6 +78,7 @@ function MarketPlacePostOption() {
             onChange={(e) => setPoints(e.target.value)}
             id="option"
             name="option"
+            placeholder="Option"
           />
           <div className={style.optionSaveDeleteButton}>
             <button className={style.checkClass} onClick={handleSaveMessage}>
@@ -71,7 +89,7 @@ function MarketPlacePostOption() {
             </button>
           </div>
         </div>
-      )}
+      )} */}
       {housingFormData?.points?.map((message, index) => (
         <div className={style.optionParagraphDiv} key={index}>
           <p className={style.optionParagraph} >
@@ -86,6 +104,23 @@ function MarketPlacePostOption() {
           </button>
         </div>
       ))}
+
+      {
+        inputFields.map((inputField, index) => (
+          <div key={inputField.id} className={style.inputContanierFileds}>
+            <input
+              className={style.servericeInput}
+              placeholder={`Option ${index}`}
+              type="text"
+              value={inputField.text}
+              onChange={(event) => handleInputChange(inputField.id, event)}
+            />
+            <p onClick={() => handleDeleteField(inputField.id)} className={i18n.language === 'en' ? style.deleteInput : style.deleteInputAr}>{t("Delete")}</p>
+          </div>
+        ))
+      }
+      <p onClick={handleAddFields} className={style.newInput}>{t("Add New Input")}</p>
+
     </>
   );
 }

@@ -3,8 +3,52 @@
 .ContactUsPage {
   height: 100% !important;
 }
+.optionMainButton span {
+  padding: 10px;
+}
 .plusButton {
 height: fit-content !important;
+margin-bottom: 6px !important;
+margin-right: 3px !important;
+}
+.inputContanierFileds{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.deleteInput,
+.deleteInputAr,
+
+.newInput{
+  background-color: var(--secondary-color);
+  color: var(--white) !important;
+  height: fit-content;
+  padding: 12px;
+  font-weight: 600;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.newInput{
+  position: relative;
+  top: -8px;
+  right: 115px;
+  @media  (max-width:500px) {
+  right: 104px !important;
+  }
+}
+.imageContainer{
+  border-color: var(--primary-color) !important;
+}
+form input,
+form select{
+  border-color: var(--primary-color) !important;
+}
+.postProductTitle{
+  height: fit-content;
 }
 .registerPage {
   flex-wrap: wrap;
@@ -39,20 +83,20 @@ height: fit-content !important;
           width: 45%;
           margin: 0px 0px 20px;
           border-radius: 12px;
-          border: 2px solid var(--secondary-color) !important; 
+          border: 2px solid var(--primary-color) !important; 
           outline: none;
         }
 .registerPage form select {
           margin-bottom: 20px !important;
           border-radius: 12px !important;
-          border: 2px solid var(--secondary-color)!important; 
+          border: 2px solid var(--primary-color)!important; 
           outline: none;
         }
 .registerPage form textarea {
           width: 100%;
           min-height: 124px !important;
           resize: none !important;
-          border: 2px solid var(--secondary-color)!important; 
+          border: 2px solid var(--primary-color)!important; 
           outline: none;
         }
 
@@ -278,7 +322,7 @@ height: fit-content !important;
   height: 45px;
   padding: 5px 10px;
   margin: 0px 0px 20px;
-  border: 2px solid var(--secondary-color) !important; 
+  border: 2px solid var(--primary-color) !important; 
   width: 100% !important;
   justify-content: space-between;
   align-items: center;
@@ -287,7 +331,7 @@ height: fit-content !important;
     margin: 0px;
   }
   .plusButton {
-    color: var(--secondary-color);
+    color: var(--primary-color);
     font-size: 27px;
     font-weight: bold;
 }
@@ -359,6 +403,7 @@ height: fit-content !important;
 .required {
   color: red;
   width: 100%;
+  height: fit-content;
 }
 .typeField {
   width: 100%;
@@ -372,6 +417,7 @@ height: fit-content !important;
 .postProductTitle {
   color: var(--primary-color);
   text-align: center;
+
   font-size: 37px;
   font-weight: 700;
 }

@@ -40,6 +40,7 @@ padding: 36px;
         }
     .imageAuthDelete img{
             height: 207px;
+            display: none;
         }
 }
 

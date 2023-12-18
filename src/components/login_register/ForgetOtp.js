@@ -10,7 +10,6 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 const ForgetOtp = ({baseURL, setShowForgetPass, setShowForgetOtp, setShowEnterNewPass, logo }) => {
     const [t, i18n] = useTranslation();
-    // const [showModalRegester, setShowModalRegester] = useState(false);
     const [otpValues, setOtpValues] = useState(['', '', '', '', '', '']);
      const code = otpValues.join(''); 
     const inputRefs = useRef([]);
@@ -23,8 +22,7 @@ const ForgetOtp = ({baseURL, setShowForgetPass, setShowForgetOtp, setShowEnterNe
     otpValues && formData.append('code',code)
 
     const handleOpenForgetPassword = () => {
-        // document.body.style.overflow = 'hidden';
-        // setShowModalRegester(true);
+   
         setShowForgetOtp(false);
         setShowForgetPass(true);
     };

@@ -75,10 +75,10 @@ function ProductCard({ data, isMyPost, baseUrl, type }) {
 
   return (
     <>
-      <div id={data.id} className='flexClass' style={{ display: 'flex' }}>
-        <Link to={`${url}/${data.slug}/${data?.id}`} state={(urlId = { id: data?.id })} className={style.wrapper} >
+      <div id={data.id} className={style.flexClass} >
+        <Link to={`${url}/${data.slug}/${data?.id}`}  className={style.wrapper} >
           <div className={style.productImg}>
-            <LazyLoadImage className={i18n.language === 'en' ? style.enImgBorder : style.arImgBorder} src={data.image} alt='productImage' />
+            <LazyLoadImage className={i18n.language ==='en'? style.enImgBorder : style.arImgBorder} src={data.image} alt='productImage' />
           </div>
         </Link>
 
@@ -90,23 +90,23 @@ function ProductCard({ data, isMyPost, baseUrl, type }) {
             </div>
             <h2>{data.main_category_name} {" > "} {data.category_name}</h2>
             <p>{data.description}</p>
-            <i className={`fas fa-trash-alt ${style.deleteIcon}`} onClick={() => handlerDeleteBlog(data.id)}
-            ></i>
           </div>
 
           <div className={`${i18n.language === 'en' ? style.enProductPriceBtn : style.arProductPriceBtn} ${style.productPriceBtn}`}>
             <p className={style.productPrice}><span>{data.price}</span>{type === 'blog' ? '' : '$'}</p>
             <p className={style.productDate}>{data.created_at}</p>
+            {type==="blog"?<></>:<i className={`fas fa-trash-alt ${style.deleteIcon}`} onClick={() => handlerDeleteBlog(data.id)}
+            ></i>}
           </div>
         </div>
 
-        {isMyPost && (
+       {isMyPost && (
           <div className={`row ${i18n.language === 'en' ? style.deleteProductEn : style.deleteProductAr}`}>
             <div className={style.approvalDiv}>
               {data.status ? (
-                <p className={style.waitingApproval}>{t('Waiting for approval')}</p>
+                type==="blog"?<></>:<p className={i18n.language==="en"?style.published:style.publishedAr}>{t('Published')}</p>
               ) : (
-                <p className={style.published} onClick={() => handlerDeleteBlog(data.id)} >{type === 'blog' ? '' : t('Published')}</p>
+                type==="blog"?<></>:<p className={i18n.language==="en"?style.waitingApproval:style.waitingApprovalAr} onClick={() => handlerDeleteBlog(data.id)} >{type === 'blog' ? '' : t('Waiting for approval')}</p>
               )}
               <p>
                 {" "}

@@ -64,8 +64,10 @@ function UserProfileMenu({activeList}) {
         <Accordion.Header className={style.accordionHeader}><p className={`${style.accordionTitle} ${activeList === '2'? style.activeP : '' }`}>{t('My posts')}</p></Accordion.Header>
         <Accordion.Body>
            <ul className={style.menuList}>
+           <li><Link to='/my-business'>{t('my business')}</Link></li>
             <li><Link to='/my-housing'>{t('Rent')}</Link></li>
             <li><Link to='/my-job'>{t('Jobs')}</Link></li>
+            <li><Link to='/my-product'>{t('Market Place')}</Link></li>
             {/* <li><Link to='/my-product'>{t('Product')}</Link></li> */}
            </ul>
         </Accordion.Body>

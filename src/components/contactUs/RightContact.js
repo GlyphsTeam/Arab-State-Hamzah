@@ -4,7 +4,7 @@ import axios from "axios";
 import { useTranslation } from "react-i18next";
 import Alert from "../customAlert/Alert";
 function RightContact({baseURL}) {
-  const [t, i18n] = useTranslation();
+  const [t] = useTranslation();
   const [show, setShow] = useState(false);
   const [showEmailWarn, setShowEmailWarn] = useState(false);
   const [showMessageWarn, setShowMessageWarn] = useState(false);

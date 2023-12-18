@@ -16,10 +16,10 @@ function Interested({ data }) {
               {t("You may be interested in")}{" "}
             </h2>
             <div className={`${style.lastSection}`}>
-              {data?.similar?.slice(0,3).map((item, index) => (
+              {data?.similar?.slice(0,2).map((item, index) => (
                 <div
                   key={index}
-                  className={`col-3 ${style.interestedCardContainer}`}
+                  className={`col-12 col-sm-6 ${style.interestedCardContainer}`}
                 >
                   <Link
                     to={`/MarketProfile/${item?.slug}/${item?.id}`}

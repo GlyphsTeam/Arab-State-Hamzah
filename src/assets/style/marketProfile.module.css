@@ -356,8 +356,7 @@ iframe {
 
 .lastSection img {
  
-  height: 300px;
-
+  height: 100%;
   width: 95%;
   aspect-ratio: 3/2;
   object-fit: cover;
@@ -604,22 +603,12 @@ margin: auto;
     overflow: hidden;
 
   }
-  /* .lastSection {
-    pointer-events: none !important;
-  } */
-  .lastSection img{
-    /* filter: brightness(60%); */
-    
-  }
-  
+
   .interested{
     display: block;
     color: var(--white) !important;
   }
 
-  /* .lastSection img {
-    pointer-events: none !important;
-  } */
 
 }
 
@@ -633,7 +622,6 @@ margin: auto;
     display: inline-block !important;
     width: fit-content;
   }
-
   .MarketingContainer {
     padding-bottom: 0px;
   }

@@ -188,3 +188,11 @@
   white-space: normal; 
 }
 }
+@media (max-width:500px){
+  .desc{
+    font-size: 14px !important;
+  }
+  .desc span{
+    font-size: 14px !important;
+  }
+}

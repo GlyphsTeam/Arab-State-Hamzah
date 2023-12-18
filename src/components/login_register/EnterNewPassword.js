@@ -31,15 +31,12 @@ const hendelRegester = async(e) =>{
     .then(response => response.json())
     .then(data => {
      if(data.status_number === "S400"){
-        // alert("Please enter a valid email")
         setShowLengthWarn(true);
 
     } else{
-//    alert('Password changed successfully now you can login')
    setShowPasswordSuccess(true);
 
    navigate('/Login')
-//    window.location.reload();
     }
 })}
 

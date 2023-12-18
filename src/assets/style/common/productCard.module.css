@@ -24,15 +24,15 @@ display: flex !important;
 
 }
 .favIconColor{
-color: rgb(200, 28, 80) !important;
+color: var(--secondary-color) !important;
 cursor: pointer;
 
 }
 .productImg img {
-  height: 240px;
+  height: 100%;
   margin: 0;
   width: 100%;
-  min-width: 130px;
+  min-width: 150px;
   padding: 18px;
   object-fit: cover;
   border-radius: 40px;
@@ -89,8 +89,40 @@ cursor: pointer;
   margin: 0px 0 0 15% !important;
   bottom: 77px;
   position: relative;
+  top: 50px;
   transform: translateX(-50%);
-  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+.waitingApproval,
+.waitingApprovalAr{
+width: 100%;
+color: var(--white) !important;
+display: none;
+padding: 15px !important;
+text-align: center;
+border-radius: 10px;
+position: relative;
+top: 50px;
+height: fit-content;
+background-color: var(--secondary-color);
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+-ms-border-radius: 10px;
+-o-border-radius: 10px;
+}
+.productPrice,
+.productDate{
+  height: fit-content;
+}
+.waitingApprovalAr{
+  margin-top: 100px !important;
+  
+}
+.productText p{
+  color: var(--primary-color);
 }
 .deleteProductAr{
   width: fit-content;
@@ -98,7 +130,6 @@ cursor: pointer;
   bottom: 77px;
   position: relative;
   transform: translateX(-50%);
-  right: 50%;
 }
 .approvalDiv {
   display: flex;
@@ -113,11 +144,25 @@ cursor: pointer;
 }
 
 .waitingApproval {
-  color: #c81c50;
+  color: var(--primary-color);
+  height: fit-content;
+  width: 200px;
+  font-weight: bold;
 }
 
 .published {
-  color: #0a4422;
+  width: 200px;
+  color: var(--white) !important;
+  padding: 15px !important;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 50px !important;
+  height: fit-content;
+  background-color: var(--secondary-color);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 @media screen and (max-width: 767px) {
   .wrapper {
@@ -135,7 +180,7 @@ cursor: pointer;
   }
 
   .productImg img {
-    height: 150px;
+    height: 100%;
     border-radius: 14px 0px 0px 0px;
   }
 
@@ -180,3 +225,23 @@ cursor: pointer;
   align-items: center;
 }
 
+.flexClass{
+  display: flex;
+}
+@media (max-width:500px){
+  .enProductPriceBtn {
+    position: relative;
+    right: -72%;
+    bottom: 78%;
+  }
+  .productPriceBtn{
+    flex-direction: column;
+  }
+  .flexClass{
+    flex-direction: column !important;
+  }
+  .productText{
+    margin-top: -50px;
+    margin-left: 10px;
+  }
+}

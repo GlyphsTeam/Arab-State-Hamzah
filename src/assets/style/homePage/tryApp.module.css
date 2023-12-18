@@ -563,4 +563,10 @@
   .titleArTry{
     margin-right: -60px !important;
   }
+  .googlePlayDiv p,
+  .playStoreDiv p{
+    margin-left: 30px !important;
+    width: 60px !important;
+    margin-top: 17px !important;
+  }
 }

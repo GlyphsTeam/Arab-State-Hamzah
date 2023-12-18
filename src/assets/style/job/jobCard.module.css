@@ -26,8 +26,9 @@
    .boxandPublished p{
       font-size:12px;
       margin-top:5px;
-      color:rgb(21, 56, 102);
+      color:var(--secondary-color);
       font-weight:600;
+    
   }
   .iconsCard{
     margin:-15px;
@@ -71,10 +72,11 @@
       color:rgba(21, 56, 102, 1);
     }
   .parCardPublished{
-    height:96px;
+    height:100%;
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  
    .parCardPublished h3{
       font-size:16px;
       font-weight:600;
@@ -82,7 +84,7 @@
     }
    .parCardPublished p{
       overflow:hidden;
-      height:45px;
+      height:53px;
       font-size:13px;
       white-space: nowrap;
       font-weight:600;
@@ -152,14 +154,23 @@
   left: 29px;
   
 }
-.deletePostJob{
-  position: relative;
+.deletePostJob,
+.deletePostJobAr{
+    position: relative;
     color: white;
     border: 0;
     width: 50px;
     font-size: 22px;
     transform: translateX(-14px) rotate(-43deg);
     height: 50px;
+    -webkit-transform: translateX(-14px) rotate(-43deg);
+    -moz-transform: translateX(-14px) rotate(-43deg);
+    -ms-transform: translateX(-14px) rotate(-43deg);
+    -o-transform: translateX(-14px) rotate(-43deg);
+}
+.deletePostJobAr{
+  top: -12px;
+  right: 245px;
 }
 /* start */
 .mainJobCard {

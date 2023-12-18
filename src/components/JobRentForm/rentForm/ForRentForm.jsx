@@ -6,10 +6,14 @@ import Dropzone from "react-dropzone";
 import contactStyle from "../../../assets/style/contactUs.module.css";
 import { useNavigate, Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import SpinnerStatic from '../../common/Spinner';
 
 function ForRentForm({ baseUrl, rentPageData }) {
   const navigate = useNavigate();
+  const [messageAlert, setMessageAlert] = useState("");
+  const [isLoadingRent, setLoadingRent] = useState(false);
 
+  const [typeAlert, setTypeAlert] = useState("");
 
   const [t, i18n] = useTranslation();
   const [title, setTitle] = useState("");
@@ -71,11 +75,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
     setImages(updatedImages);
   };
 
-  // const options = rentPageData?.cities?.map((item) => ({
-  //   value: item?.city,
-  //   label: item?.city,
-  //   name: "place",
-  // }));
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -89,38 +89,61 @@ function ForRentForm({ baseUrl, rentPageData }) {
       title === "" ||
       type === "" ||
       place === "" ||
-      (phone === "" && email === "")
+      (phone === "" && email === "")||
+      description === "" ||
+      images.length === 0||
+      gender===""
     ) {
-      if (title === "") {
-        setShowTitleWarn(true);
-      }
+     
       if (type === "") {
-        setShowTypeWarn(true);
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("type is required")
       }
-      if (place === "") {
-        setShowPlaceWarn(true);
-      }
+
       if (description === "") {
-        setDescriptionWarning(true);
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("description is required")
       }
 
-      // if (images === []) 
-      // {
-      //   setShowImageWarn(true);
-      // } 
-
-
-      if (images === "") {
-        setShowImageWarn(true);
-      }
-
-      if (phone === "" && email === "") {
+      if (phone === "") {
         setWarning(true);
         setShow(true);
         setCount(4);
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("phone is required")
+      }
+      if (email === "") {
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("email is required")
+      }
+      if(gender===""){
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("gender is required")
+      }
+      if (place === "") {
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("place is required")
+      }
+      if (title === "") {
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("Title is required")
+      }
+      if (images.length === 0) {
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("images is required")
       }
     } else {
       try {
+        setLoadingRent(true);
+
         fetch(`${baseUrl}/rents/create`, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -128,17 +151,20 @@ function ForRentForm({ baseUrl, rentPageData }) {
           },
           method: "POST",
           body: formData,
-        }).then(console.log("rents>>", Res));
+        }).then(()=>{
+          setLoadingRent(false);
+          navigate("/my-housing")
+
+        });
       } catch (error) {
         console.log(error);
+        setLoadingRent(false);
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("There is a problem with the server; please try again later.")
       }
       setShow(true);
-      setSuccess(true);
-      setCount(4);
-      setTimeout(() => {
-        navigate("/my-housing")
-      }, 3000);
-    }
+      setCount(4);    }
   };
   const anonymousClick = () => {
     if (anonymous === "" || anonymous !== "true") {
@@ -157,6 +183,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
 
   return (
     <>
+    {isLoadingRent&&<SpinnerStatic/>}
       <div className={style.titleDiv}>
         <h1>{t("Looking For Rent")}</h1>
         <p>{t("How would you like to post a Rent")}</p>
@@ -218,11 +245,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
-          {showTitleWarn && (
-            <p className={contactStyle.contactValidation}>
-              {t("Title is required")}
-            </p>
-          )}
+ 
 
           <>
             <div className={`${style.inputDiv}`}>
@@ -242,11 +265,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
                 })}
               </select>
             </div>
-            {showPlaceWarn && (
-              <p className={contactStyle.contactValidation}>
-                {t("City is required")}
-              </p>
-            )}
+  
           </>
 
           <div className={`${style.inputDiv}`}>
@@ -282,7 +301,6 @@ function ForRentForm({ baseUrl, rentPageData }) {
           </div>
           <p className={contactStyle.contactValidation}>
             {t("Please indicate the gender of the occupants: Male, Female, or Any (open to both or a Family)")}.
-
           </p>
 
 
@@ -405,11 +423,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
               className={style.inputForm}
             />
           </div>
-          {descriptionWarning && (
-            <p className={contactStyle.contactValidation}>
-              {t("Description is required")}
-            </p>
-          )}
+   
           <div className={style.checkboxDiv}>
             <input
               id="anonymous"
@@ -422,27 +436,16 @@ function ForRentForm({ baseUrl, rentPageData }) {
               {t("Anonymous post")}
             </label>
           </div>
-          {success ? (
+          {success &&
             <Alert
-              type="success"
-              message={t("Your post submitted successfully and it's under review")}
+              type={typeAlert}
+              message={messageAlert}
               show={show}
               setShow={setShow}
               time="4000"
               count={count}
               setCount={setCount}
-            />
-          ) : (
-            <Alert
-              type="warning"
-              message={t("Please fill phone number or email address")}
-              show={show}
-              setShow={setShow}
-              time="4000"
-              count={count}
-              setCount={setCount}
-            />
-          )}
+            />}
         </form>
         <div className={i18n.language === "en" ? style.helpDiv : style.helpDivAr}>
           <h3 className={style.h3Help}>{t("Do You Need Any Help! Contact Us")}</h3>

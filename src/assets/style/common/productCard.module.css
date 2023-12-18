@@ -53,6 +53,13 @@ cursor: pointer;
   width: 100%;
   max-width: 65%;
 }
+.productInfoBlog{
+  max-width: 100%;
+  padding: 23px;
+  width: 100%;
+
+
+}
 
 .productText h1 {
   font-size: 25px;
@@ -231,7 +238,12 @@ background-color: var(--secondary-color);
 @media (max-width:500px){
   .enProductPriceBtn {
     position: relative;
-    right: -72%;
+    right: -82%;
+    bottom: 78%;
+  }
+  .arProductPriceBtn{
+    position: relative;
+    left: -82%;
     bottom: 78%;
   }
   .productPriceBtn{

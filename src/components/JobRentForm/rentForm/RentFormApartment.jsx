@@ -4,16 +4,19 @@ import Alert from "../../customAlert/Alert";
 import useAxios from "../../../hooks/useAxiosGet";
 import { useTranslation } from "react-i18next";
 import Dropzone from "react-dropzone";
-import contactStyle from "../../../assets/style/contactUs.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import HeroNav from "../../common/HeroNav";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import SpinnerStatic from '../../common/Spinner';
 
-function ShowRentForm({ baseUrl, rentPageData }) {
+function ShowRentForm({ baseUrl }) {
   const navigate = useNavigate();
-
   const [t, i18n] = useTranslation();
   const [title, setTitle] = useState("");
+  const [messageAlert, setMessageAlert] = useState("");
+  const [isLoadingRent, setLoadingRent] = useState(false);
+
+  const [typeAlert, setTypeAlert] = useState("");
   const [area, setArea] = useState("");
   const [gender, setGender] = useState("");
   const [email, setEmail] = useState("");
@@ -34,12 +37,8 @@ function ShowRentForm({ baseUrl, rentPageData }) {
   const [warning, setWarning] = useState(false);
   const [success, setSuccess] = useState(false);
   const [Res, setRes] = useState([]);
-  const [showTitleWarn, setShowTitleWarn] = useState(false);
-  const [showPlaceWarn, setShowPlaceWarn] = useState(false);
-  const [showTypeWarn, setShowTypeWarn] = useState(false);
+
   const [count, setCount] = useState();
-  const [showImageWarn, setShowImageWarn] = useState(false);
-  const [descriptionWarning, setDescriptionWarning] = useState(false);
   const formData = new FormData();
   title && formData.append("title", title);
   description && formData.append("description", description);
@@ -72,46 +71,64 @@ function ShowRentForm({ baseUrl, rentPageData }) {
     setImages(updatedImages);
   };
 
-  // const options = rentPageData?.cities?.map((item) => ({
-  //   value: item?.city,
-  //   label: item?.city,
-  //   name: "place",
-  // }));
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setShowTitleWarn(false);
-    setShowPlaceWarn(false);
-    setShowTypeWarn(false);
-    setShowImageWarn(false);
-    setDescriptionWarning(false);
+
 
     if (
       title === "" ||
       type === "" ||
       place === "" ||
-      (phone === "" && email === "")
+      (phone === "" && email === "") ||
+      description === "" ||
+      images.length === 0
     ) {
-      if (title === "") {
-        setShowTitleWarn(true);
-      }
+
       if (type === "") {
-        setShowTypeWarn(true);
-      }
-      if (place === "") {
-        setShowPlaceWarn(true);
-      }
-      if (description === "") {
-        setDescriptionWarning(true);
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("type is required")
       }
 
-      if (phone === "" && email === "") {
+      if (description === "") {
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("description is required")
+      }
+
+      if (phone === "") {
         setWarning(true);
         setShow(true);
         setCount(4);
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("phone is required")
       }
+      if (email === "") {
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("email is required")
+      }
+      if (place === "") {
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("place is required")
+      }
+      if (title === "") {
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("Title is required")
+      }
+      if (images.length === 0) {
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("images is required")
+      }
+
     } else {
       try {
+        setLoadingRent(true);
         fetch(`${baseUrl}/rents/create`, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -119,16 +136,20 @@ function ShowRentForm({ baseUrl, rentPageData }) {
           },
           method: "POST",
           body: formData,
-        }).then(console.log(Res));
+        }).then(()=>{
+          setLoadingRent(false);
+          navigate("/my-housing")
+        });
       } catch (error) {
         console.log(error);
+        setLoadingRent(false)
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("There is a problem with the server; please try again later.")
       }
       setShow(true);
       setSuccess(true);
       setCount(4);
-      setTimeout(() => {
-        navigate("/my-housing");
-      }, 3000);
     }
   };
   const anonymousClick = () => {
@@ -151,6 +172,7 @@ function ShowRentForm({ baseUrl, rentPageData }) {
 
   return (
     <>
+      {isLoadingRent && <SpinnerStatic />}
       <HeroNav
         mainData={dataR?.slider}
         subData={dataR?.slider?.model}
@@ -197,11 +219,6 @@ function ShowRentForm({ baseUrl, rentPageData }) {
                   ))}
                 </div>
               </div>
-              {showImageWarn && (
-                <p className={contactStyle.contactValidation}>
-                  {t("Image is required")}
-                </p>
-              )}
             </>
           )}
 
@@ -216,11 +233,7 @@ function ShowRentForm({ baseUrl, rentPageData }) {
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
-          {showTitleWarn && (
-            <p className={contactStyle.contactValidation}>
-              {t("Title is required")}
-            </p>
-          )}
+
 
           <>
             <div className={`${style.inputDiv}`}>
@@ -240,11 +253,7 @@ function ShowRentForm({ baseUrl, rentPageData }) {
                 })}
               </select>
             </div>
-            {showPlaceWarn && (
-              <p className={contactStyle.contactValidation}>
-                {t("City is required")}
-              </p>
-            )}
+
           </>
 
           <div className={`${style.inputDiv}`}>
@@ -397,11 +406,6 @@ function ShowRentForm({ baseUrl, rentPageData }) {
               className={style.inputForm}
             />
           </div>
-          {descriptionWarning && (
-            <p className={contactStyle.contactValidation}>
-              {t("Description is required")}
-            </p>
-          )}
           <div className={style.checkboxDiv}>
             <input
               id="anonymous"
@@ -414,27 +418,17 @@ function ShowRentForm({ baseUrl, rentPageData }) {
               {t("Anonymous post")}
             </label>
           </div>
-          {success ? (
+          {/* "Your post submitted successfully and it's under review" */}
+          {success &&
             <Alert
-              type="success"
-              message={t("Your post submitted successfully and it's under review")}
+              type={typeAlert}
+              message={messageAlert}
               show={show}
               setShow={setShow}
               time="4000"
               count={count}
               setCount={setCount}
-            />
-          ) : (
-            <Alert
-              type="warning"
-              message={t("Please fill phone number or email address")}
-              show={show}
-              setShow={setShow}
-              time="4000"
-              count={count}
-              setCount={setCount}
-            />
-          )}
+            />}
         </form>
         <div className={i18n.language === "en" ? style.helpDiv : style.helpDivAr}>
           <h3 className={style.h3Help}>{t("Do You Need Any Help! Contact Us")}</h3>

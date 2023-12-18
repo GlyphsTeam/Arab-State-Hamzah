@@ -72,7 +72,7 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
     <>
       <div className={style.card} id={jobData.id}>
         <div className={style.cardTop}>
-          {pathName === "/my-job" ? <button onClick={()=>deletePostJob(jobData?.id)} className={style.deletePostJob}>delete</button> : ''}
+          {pathName === "/my-job" ? <button onClick={()=>deletePostJob(jobData?.id)} className={i18n.language==="en"?style.deletePostJob:style.deletePostJobAr}>delete</button> : ''}
           <Link to={`/show-job/${jobData.slug}/${jobData?.id}`} state={(urlId = { id: jobData?.id })}>
             <LazyLoadImage src={jobData.company_image ? jobData.company_image : jobData.user_image} alt='scs' />
           </Link>
@@ -93,9 +93,6 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
             </div>
             <div className={style.timeCard}>
               <p>{jobData.type}</p>
-              {pathName === "/saved-job" || pathName === "/jobs" ? <></> : <div>
-                {jobData.status ? <p className='publishingClass'>Published</p> : <p className='publishingClass'>Waiting for approval</p>}
-              </div>}
             </div>
             <div className={style.boxandPublished}>
               <div className={style.boxsCard}>
@@ -104,7 +101,10 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
                 <div className={style.box3}></div>
                 <div className={style.box4}></div>
               </div>
-              <p>{jobData.created_at}</p>
+              {pathName === "/saved-job" || pathName === "/jobs" ? <></> : <div>
+                {jobData.status ? <p className='publishingClass'>Published</p> : <p className='publishingClass'>Waiting for approval</p>}
+              </div>}
+              {pathName === "/saved-job" || pathName === "/jobs" ?<p>{jobData.created_at}</p>:<></>}
 
             </div>
 

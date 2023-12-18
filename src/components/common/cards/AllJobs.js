@@ -25,7 +25,7 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
   formData.append('id', jobData.id);
   const [Res] = useFetch('favorite/job', formData, send);
   let favoriteIcon = isFav ? 'fas fa-bookmark' : 'far fa-bookmark';
-
+  console.log("jobData>>>",jobData)
   const handleClick = () => {
     setShowShareModal(true);
   };
@@ -71,7 +71,7 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
             </div>
             <div className={pathName === "/saved-job" || pathName === '/jobs' ? style.parCardPublished : style.parCard}>
               <h3>{jobData.looking_for_text}</h3>
-              <p>{ReactHtmlParser(jobData.description)}</p>
+              <p>{ReactHtmlParser(jobData.web_description)}</p>
             </div>
             <div className={style.timeCard}>
               <p>{jobData.type}</p>

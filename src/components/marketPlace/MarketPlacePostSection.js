@@ -8,9 +8,13 @@ import productStyle from "../../assets/style/postProduct/rightPost.module.css";
 import { useTranslation } from "react-i18next";
 import MarketPlacePostOption from "./MarketPlacePostOption";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+import SpinnerStatic from '../common/Spinner';
+import { useNavigate } from "react-router-dom";
 
 function MarketPlacePostSection() {
   const [t, i18n] = useTranslation();
+  const navigation = useNavigate();
+  const [isLoadingMarket, setLoadingMarket] = useState(false);
 
   const [marketFormData, setMarketFormData] = useState({
     title: "",
@@ -44,7 +48,8 @@ function MarketPlacePostSection() {
   const [showPlaceWarn, setPlaceWarn] = useState(false);
   const [showEmailWarn, setEmailWarn] = useState(false);
   const [showTypeWarn, setShowTypeWarn] = useState(false);
-
+  const [typeAlert, setTypeAlert] = useState("");
+  const [messageAlert, setMessageAlert] = useState("");
   const [requireWarn, setRequireWarn] = useState(false);
   const [showEmailRegexWarn, setShowEmailRegexWarn] = useState(false);
   const [showImageWarn, setShowImageWarn] = useState(false);
@@ -193,7 +198,7 @@ function MarketPlacePostSection() {
     } else {
       const token = localStorage.getItem("arab_user_token");
       let baseURL = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${process.env.REACT_APP_City_ID}/market/create`;
-
+      setLoadingMarket(true);
       try {
         await fetch(`${baseURL}`, {
           headers: {
@@ -208,6 +213,8 @@ function MarketPlacePostSection() {
           setTimeout(() => {
             setCount(4);
             setShowAlert(true);
+            setTypeAlert("success")
+            setMessageAlert("Your Post Has been Published successfully")
             setMarketFormData({
               title: "",
               price: "",
@@ -221,11 +228,18 @@ function MarketPlacePostSection() {
               anonymous: "",
               description: "",
               place: "",
+              images:[]
             });
             setSend(false);
+            setLoadingMarket(false);
+            navigation('/my-product')
           }, 100);
         })
       } catch (error) {
+        setLoadingMarket(false);
+        setShowAlert(true);
+        setMessageAlert("There is a problem with the server; please try again later.")
+        setTypeAlert("warning");
         console.log("errorBusiness>>", error);
       }
     }
@@ -334,6 +348,7 @@ function MarketPlacePostSection() {
 
   return (
     <div className={`${style.registerFormDiv}`}>
+      {isLoadingMarket && <SpinnerStatic />}
       <form>
         <div className={`w-100 ${productStyle.uploadImageDiv}`}>
           <Dropzone onDrop={handleImageDrop}>
@@ -577,7 +592,7 @@ function MarketPlacePostSection() {
           placeholder={t("Email")}
           className={`w-100`}
         />
-      {showEmailWarn && (
+        {showEmailWarn && (
           <p className={jobStyle.required}>Email is required</p>
         )}
         <input
@@ -632,8 +647,8 @@ function MarketPlacePostSection() {
       </div>
       {showAlert && (
         <Alert
-          type="success"
-          message={t("Your Post Has been Published successfully")}
+          type={typeAlert}
+          message={messageAlert}
           showAlert={showAlert}
           setShowAlert={setShowAlert}
           count={count}

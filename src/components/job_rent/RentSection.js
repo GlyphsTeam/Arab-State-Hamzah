@@ -3,9 +3,9 @@ import style from "../../assets/style/job_rent/card.module.css";
 import Pagination from "../blog/Pagination";
 import HousingCard from "../../components/common/cards/AllRent";
 import JobRentFilter from "./sideFilter/JobRentFilter";
-
+import PopUp from "../PopUp/Popup";
 function RentSection({
-  rents_api, 
+  rents_api,
   setPage,
   page,
   filterChange,
@@ -20,6 +20,8 @@ function RentSection({
   setShow,
   setFormSave,
   setCount,
+  setShowPopModal,
+  showPopUp
 }) {
 
   // const [page, setPage] = useState(1);
@@ -46,29 +48,28 @@ function RentSection({
     //   }
   };
 
-  
+
   const total = rentsData?.rents?.total;
-console.log("tptp>>>>>>>>",rentsData)
   const [isMobile, setIsMobile] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
 
   useEffect(() => {
     if (window.innerWidth < 992) {
       setIsMobile(true);
-      }
+    }
   }, [window.innerWidth]);
   return (
     <div className="container ">
       <div className="row px-4">
         <div className="col-lg-3">
-          {isMobile?
-          <>
-              <i onClick={()=> setShowFilter(!showFilter)} className={`fas fa-filter ${style.filterBtn}`}></i>
+          {isMobile ?
+            <>
+              <i onClick={() => setShowFilter(!showFilter)} className={`fas fa-filter ${style.filterBtn}`}></i>
               {showFilter && (
                 <JobRentFilter filterChange={filterChange} filters={filters} type='rent' />
               )}
-              </>
-          :
+            </>
+            :
             <JobRentFilter filterChange={filterChange} filters={filters} type='rent' />
           }
         </div>
@@ -90,6 +91,7 @@ console.log("tptp>>>>>>>>",rentsData)
           />
         </div>
       </div>
+      {showPopUp && <PopUp setShowPopModal={setShowPopModal} title="Rent" titleOne="Looking For Accommodation" titleTwo="Accomodation for Rent" navOne="/rentForm" navTwo="/post-rent" />}
     </div>
   );
 }

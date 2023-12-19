@@ -11,7 +11,8 @@ function Job({ baseURL }) {
   const location = useLocation();
   const pageType = location?.state?.type;
   const token = localStorage.getItem("arab_user_token");
- 
+  const [showPopUp, setShowPopModal] = useState(false);
+
   const [filters, setFilters] = useState({
     sort_by: "",
     type: "",
@@ -70,6 +71,9 @@ function Job({ baseURL }) {
           searchType='job'
           setJobFormOpen={setJobFormOpen}
           handleOpenModalForm={handleOpenModalForm}
+          setShowPopModal={setShowPopModal}
+          showPopUp={showPopUp}
+
         />
 
         <CardSection
@@ -88,6 +92,8 @@ function Job({ baseURL }) {
           page = {page}
           filterChange = {filterChange}
           filters={filters}
+          setShowPopModal={setShowPopModal}
+          showPopUp={showPopUp}
         />
       </div>
     </>

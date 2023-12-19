@@ -40,6 +40,7 @@ function Job({ baseURL }) {
   const [rentPopUp, setRentPopUp] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [rentForm, setRentOpen] = useState(false);
+  const [showPopUp, setShowPopModal] = useState(false);
 
   const handleOpenRentModal = () => {
     document.body.style.overflow = "hidden";
@@ -71,10 +72,13 @@ function Job({ baseURL }) {
           searchType='Rent'
           setRentOpen={setRentOpen}
           handleOpenRentModal={handleOpenRentModal}
+          setShowPopModal={setShowPopModal}
         />
 
         <CardSection 
           baseURL={baseURL}
+          setShowPopModal={setShowPopModal}
+          showPopUp={showPopUp}
           token={token}
           index='Rent'
           showModal={showModal}

@@ -141,9 +141,9 @@
     font-weight: bold;
     width: 265px;
   }
-  button:hover{
+  /* button:hover{
     background:#c81c50;
-  }
+  } */
 .inputCommpany{
     max-width:646px;
     height:56px;

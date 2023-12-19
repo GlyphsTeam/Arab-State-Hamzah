@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import useFetch from '../../../hooks/useFetch';
+import ReactHtmlParser from 'html-react-parser'
 function ProductCardMarket({ data, isMyPost, baseUrl, type }) {
   const [t, i18n] = useTranslation();
   const token = localStorage.getItem("arab_user_token");
@@ -42,7 +43,7 @@ function ProductCardMarket({ data, isMyPost, baseUrl, type }) {
   }
   return (
     <>
-      <div id={data.id} className='flexClass' style={{display:'flex'}}>
+      <div id={data.id} className={style.flexClass}>
         <Link to={`${url}/${data.slug}/${data?.id}`} state={(urlId = { id: data?.id })} className={style.wrapper} >
           <div className={style.productImg}>
             <LazyLoadImage className={i18n.language === 'en' ? style.enImgBorder : style.arImgBorder} src={data.image} alt='productImage' />
@@ -55,14 +56,19 @@ function ProductCardMarket({ data, isMyPost, baseUrl, type }) {
                 <h1>{data.title}</h1>
                 {!data?.is_user_post ? <i className={`${favoriteIcon} ${style.favIconColor}`} onClick={(()=>addToFavorite(data?.id))} ></i> : <></>}
               </div>
+              <div className={style.proudctMarketPlace}>
+              <div>
               <h2>{data.main_category_name} {" > "} {data.category_name}</h2>
-              <p>{data.description}</p>
-            </div>
-    
-            <div className={`${i18n.language === 'en' ? style.enProductPriceBtn : style.arProductPriceBtn} ${style.productPriceBtn}`}>
+              <p>{ReactHtmlParser(data?.description)}</p>
+              </div>
+              <div className={`${i18n.language === 'en' ? style.enProductPriceBtn : style.arProductPriceBtn} ${style.productPriceBtn}`}>
               <p className={style.productPrice}><span>{data.price}</span>{type === 'blog' ? '' : '$'}</p>
               <p className={style.productDate}>{data.created_at}</p>
             </div>
+            </div>
+            </div>
+    
+         
           </div>
 
         {isMyPost && (

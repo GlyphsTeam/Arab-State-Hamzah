@@ -31,7 +31,6 @@ function NavBar({ logoImage }) {
   const serviceLinks = general?.data?.services;
 
 
-
   const initialState = {
     username: localStorage.getItem("arab_user_name")
       ? localStorage.getItem("arab_user_name")
@@ -136,10 +135,11 @@ function NavBar({ logoImage }) {
     pathName === "/forget-password" ||
     pathName.includes("/show-user-guide") ||
     pathName === "/jobforcompany" ||
-    isSmallScreen & pathName.includes('/Marketprofile')
+    isSmallScreen & pathName.includes('/Marketprofile') 
   ) {
     nav = "two";
   }
+  console.log("rentpathName>>",pathName==='/rent' ,"nav>>",nav)
 
   const langDir = (newLang) => {
     if (newLang === "ar") {

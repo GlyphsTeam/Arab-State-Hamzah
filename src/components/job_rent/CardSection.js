@@ -28,7 +28,9 @@ function CardSection({
   page,
   filterChange,
   filters,
-  rentsData
+  rentsData,
+  setShowPopModal,
+  showPopUp
 }) {
   const [t, i18n] = useTranslation();
   const jobData = {id: 0, name: '', company:'' , created_at:'', description:'', email:'', phone:'', place:'', salary:'', type:'', title:'', user_image:'' };
@@ -83,6 +85,8 @@ function CardSection({
             page = {page}
             filterChange = {filterChange}
             filters = {filters}
+            setShowPopModal={setShowPopModal}
+            showPopUp={showPopUp}
              />
             :
            < JobSection
@@ -101,6 +105,8 @@ function CardSection({
             page = {page}
             filterChange = {filterChange}
             filters = {filters}
+            setShowPopModal={setShowPopModal}
+            showPopUp={showPopUp}
             />
               }
           {showModal && (

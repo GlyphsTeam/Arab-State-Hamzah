@@ -4,7 +4,7 @@ import style from '../../assets/style/job_rent/search.module.css';
 import { useTranslation } from "react-i18next";
 import { useNavigate } from 'react-router-dom';
 import Alert from '../customAlert/Alert';
-function SearchForm({searchType, handleOpenRentModal, handleOpenModalForm, token}){
+function SearchForm({searchType,setShowPopModal, handleOpenRentModal, handleOpenModalForm, token}){
     const [t] = useTranslation();
     const [searchQuery, setSearchQuery] = useState("");
     const navigate = useNavigate();
@@ -30,11 +30,7 @@ function SearchForm({searchType, handleOpenRentModal, handleOpenModalForm, token
       setCount(4);
     }
     const showPostModal = () => {
-     if(searchType == 'Rent'){
-      navigate('/rent')
-     }else{
-      navigate('/job')
-     }
+      setShowPopModal(true)
     }
     return(
         <>

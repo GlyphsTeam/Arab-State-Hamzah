@@ -238,13 +238,13 @@ background-color: var(--secondary-color);
 @media (max-width:500px){
   .enProductPriceBtn {
     position: relative;
-    right: -82%;
-    bottom: 78%;
+    right: -40%;
+    bottom: 47%;
   }
   .arProductPriceBtn{
     position: relative;
-    left: -82%;
-    bottom: 78%;
+    left: -40%;
+    bottom: 47%;
   }
   .productPriceBtn{
     flex-direction: column;
@@ -255,5 +255,21 @@ background-color: var(--secondary-color);
   .productText{
     margin-top: -50px;
     margin-left: 10px;
+  }
+  .proudctMarketPlace{
+    display: flex;
+  }
+  .productInfo{
+    max-width: 95%;
+  }
+  .myProductPost{
+    position: relative;
+    right: -40%;
+    bottom: 77%;
+  }
+  .myProductPostAr{
+    position: relative;
+    left: -40%;
+    bottom: 77%;
   }
 }

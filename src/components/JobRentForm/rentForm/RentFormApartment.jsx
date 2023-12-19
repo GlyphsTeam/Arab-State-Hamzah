@@ -80,9 +80,14 @@ function ShowRentForm({ baseUrl }) {
       title === "" ||
       type === "" ||
       place === "" ||
-      (phone === "" && email === "") ||
+      phone === "" ||
       description === "" ||
-      images.length === 0
+      images.length === 0 ||
+      email === ""||
+      gender===""||
+      bathrooms===""||
+      bedrooms===""||
+      area===""
     ) {
 
       if (type === "") {
@@ -95,6 +100,9 @@ function ShowRentForm({ baseUrl }) {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("description is required")
+        setShow(true)
+        setCount(4)
+
       }
 
       if (phone === "") {
@@ -109,6 +117,31 @@ function ShowRentForm({ baseUrl }) {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("email is required")
+      }
+      if(area===""){
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("area is required")
+      }
+      if(price===""){
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("price is required")
+      }
+      if(bedrooms===""){
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("bedrooms is required")
+      }
+      if(bathrooms===""){
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("bathrooms is required")
+      }
+      if(gender===""){
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("gender is required")
       }
       if (place === "") {
         setSuccess(true);

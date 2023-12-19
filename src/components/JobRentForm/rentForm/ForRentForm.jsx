@@ -78,21 +78,20 @@ function ForRentForm({ baseUrl, rentPageData }) {
 
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    setShowTitleWarn(false);
-    setShowPlaceWarn(false);
-    setShowTypeWarn(false);
-    setShowImageWarn(false);
-    setDescriptionWarning(false);
 
+    event.preventDefault();
     if (
       title === "" ||
       type === "" ||
       place === "" ||
-      (phone === "" && email === "")||
+      phone === ""||
       description === "" ||
       images.length === 0||
-      gender===""
+      gender===""||
+      email === ""||
+      bathrooms===""||
+      bedrooms===""||
+      area===""
     ) {
      
       if (type === "") {
@@ -104,6 +103,8 @@ function ForRentForm({ baseUrl, rentPageData }) {
       if (description === "") {
         setSuccess(true);
         setTypeAlert("warning")
+        setShow(true)
+        setCount(4)
         setMessageAlert("description is required")
       }
 
@@ -119,6 +120,26 @@ function ForRentForm({ baseUrl, rentPageData }) {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("email is required")
+      }
+      if(area===""){
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("area is required")
+      }
+      if(price===""){
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("price is required")
+      }
+      if(bedrooms===""){
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("bedrooms is required")
+      }
+      if(bathrooms===""){
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("bathrooms is required")
       }
       if(gender===""){
         setSuccess(true);

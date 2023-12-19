@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Card from '../common/cards/ProductCardMarket';
+import Card from '../common/cards/ProductCard';
 import style from '../../assets/style/house/housingCard.module.css';
 import { useDispatch } from 'react-redux';
 import { setCategoryId } from '../../redux/CategoryRedux';

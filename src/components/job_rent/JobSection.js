@@ -5,7 +5,7 @@ import JobCard from "../../components/common/cards/AllJobs";
 import JobLatestPost from "./JobLatestPost";
 import AdvBanner from "../common/AdvBanner";
 import JobRentFilter from "./sideFilter/JobRentFilter";
-
+import PopUp from "../PopUp/Popup";
 function JobSection({
   jobsData,
   jobs_api,
@@ -13,6 +13,8 @@ function JobSection({
   page,
   filterChange,
   filters,
+  setShowPopModal,
+  showPopUp,
   token,
   setShowModal,
   setJobPopUp,
@@ -40,7 +42,7 @@ function JobSection({
     }
   };
 
-  
+
 
   const scrollPagination = () => {
     // if (window.innerWidth < 480) {
@@ -50,36 +52,36 @@ function JobSection({
 
 
 
-  
+
   const [isMobile, setIsMobile] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
 
   useEffect(() => {
     if (window.innerWidth < 992) {
       setIsMobile(true);
-      }
+    }
   }, [window.innerWidth]);
   return (
     <>
       <div className="container mb-5">
         <div className="row">
           <div className="col-lg-3 p-0">
-          {isMobile?
-          <>
-              <i onClick={()=> setShowFilter(!showFilter)} className={`fas fa-filter ${style.filterBtn}`}></i>
-              {showFilter && (
-                <JobRentFilter filterChange={filterChange} filters={filters} type='job' />
-              )}
+            {isMobile ?
+              <>
+                <i onClick={() => setShowFilter(!showFilter)} className={`fas fa-filter ${style.filterBtn}`}></i>
+                {showFilter && (
+                  <JobRentFilter filterChange={filterChange} filters={filters} type='job' />
+                )}
               </>
-          :
-            <JobRentFilter filterChange={filterChange} filters={filters} type='job' />
-          }
+              :
+              <JobRentFilter filterChange={filterChange} filters={filters} type='job' />
+            }
           </div>
 
           <div className={`col-lg-9`}>
             <div className={style.cardContainer}>
               {jobsData?.jobs?.model?.map((item, index) => (
-              <JobCard key={index} jobData={item} urlId={urlId} page="job" />
+                <JobCard key={index} jobData={item} urlId={urlId} page="job" />
               ))}
             </div>
 
@@ -104,6 +106,8 @@ function JobSection({
         title={jobsData?.Latest_post?.title}
         data={jobsData?.Latest_post?.model}
       />
+      {showPopUp && <PopUp navOne={'/post-job'} navTwo={'/jobforcompany'} titleOne="Job Seekers" titleTwo="Job Opportunities" title="Job" setShowPopModal={setShowPopModal}
+        showPopUp={showPopUp} />}
     </>
   );
 }

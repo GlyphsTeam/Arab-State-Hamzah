@@ -4,6 +4,8 @@ import Pagination from "../blog/Pagination";
 import HousingCard from "../../components/common/cards/AllRent";
 import JobRentFilter from "./sideFilter/JobRentFilter";
 import PopUp from "../PopUp/Popup";
+import { useTranslation } from "react-i18next";
+
 function RentSection({
   rents_api,
   setPage,
@@ -21,10 +23,11 @@ function RentSection({
   setFormSave,
   setCount,
   setShowPopModal,
-  showPopUp
+  showPopUp,
+  setFilters
 }) {
 
-  // const [page, setPage] = useState(1);
+  const [t] = useTranslation();
   const [activeIndex, setActiveIndex] = useState(0);
   let urlId;
 
@@ -66,11 +69,11 @@ function RentSection({
             <>
               <i onClick={() => setShowFilter(!showFilter)} className={`fas fa-filter ${style.filterBtn}`}></i>
               {showFilter && (
-                <JobRentFilter filterChange={filterChange} filters={filters} type='rent' />
+                <JobRentFilter setFilters={setFilters} filterChange={filterChange} filters={filters} type='rent' />
               )}
             </>
             :
-            <JobRentFilter filterChange={filterChange} filters={filters} type='rent' />
+            <JobRentFilter setFilters={setFilters}  filterChange={filterChange} filters={filters} type='rent' />
           }
         </div>
         <div className="col-lg-9">
@@ -91,7 +94,7 @@ function RentSection({
           />
         </div>
       </div>
-      {showPopUp && <PopUp setShowPopModal={setShowPopModal} title="Rent" titleOne="Looking For Accommodation" titleTwo="Accomodation for Rent" navOne="/rentForm" navTwo="/post-rent" />}
+      {showPopUp && <PopUp setShowPopModal={setShowPopModal} title="Rent" titleOne={t("Looking For Accommodation")} titleTwo={t("Accomodation for Rent")} navOne="/rentForm" navTwo="/post-rent" />}
     </div>
   );
 }

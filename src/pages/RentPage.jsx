@@ -73,6 +73,9 @@ function Job({ baseURL }) {
           setRentOpen={setRentOpen}
           handleOpenRentModal={handleOpenRentModal}
           setShowPopModal={setShowPopModal}
+          setFilters={setFilters}
+          filters={filters}
+
         />
 
         <CardSection 
@@ -92,6 +95,7 @@ function Job({ baseURL }) {
           page = {page}
           filterChange = {filterChange}
           filters={filters}
+          setFilters={setFilters}
         />
       </div>
     </>

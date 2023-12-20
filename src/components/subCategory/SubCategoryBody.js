@@ -33,7 +33,6 @@ function SubCategoryBody() {
 
   let [Data] = useAxios(url);
   let categoryCards = Data?.data;
-  console.log("categoryCards>>>>>>>>>>>>>",categoryCards)
   useEffect(() => {
     if (window.innerWidth < 992) {
       setMobileMap(true);
@@ -52,7 +51,7 @@ function SubCategoryBody() {
       setActiveIndex(activeIndex - 1);
     }
   };
-  const itemsPerPage = 5;
+  const itemsPerPage = 9;
   const [currentPage, setCurrentPage] = useState(1);
 
   const startIndex = (currentPage - 1) * itemsPerPage;

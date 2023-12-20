@@ -6,6 +6,8 @@ import JobLatestPost from "./JobLatestPost";
 import AdvBanner from "../common/AdvBanner";
 import JobRentFilter from "./sideFilter/JobRentFilter";
 import PopUp from "../PopUp/Popup";
+import { useTranslation } from "react-i18next";
+
 function JobSection({
   jobsData,
   jobs_api,
@@ -24,10 +26,12 @@ function JobSection({
   setShow,
   setFormSave,
   setCount,
+  setFilters
 }) {
   const total = jobsData?.jobs?.total;
   const [activeIndex, setActiveIndex] = useState(0);
   let urlId;
+  const [t] = useTranslation();
 
   const nextPage = () => {
     if (total / 6 > activeIndex + 1) {
@@ -70,11 +74,11 @@ function JobSection({
               <>
                 <i onClick={() => setShowFilter(!showFilter)} className={`fas fa-filter ${style.filterBtn}`}></i>
                 {showFilter && (
-                  <JobRentFilter filterChange={filterChange} filters={filters} type='job' />
+                  <JobRentFilter setFilters={setFilters}  filterChange={filterChange} filters={filters} type='job' />
                 )}
               </>
               :
-              <JobRentFilter filterChange={filterChange} filters={filters} type='job' />
+              <JobRentFilter setFilters={setFilters}  filterChange={filterChange} filters={filters} type='job' />
             }
           </div>
 
@@ -106,7 +110,7 @@ function JobSection({
         title={jobsData?.Latest_post?.title}
         data={jobsData?.Latest_post?.model}
       />
-      {showPopUp && <PopUp navOne={'/post-job'} navTwo={'/jobforcompany'} titleOne="Job Seekers" titleTwo="Job Opportunities" title="Job" setShowPopModal={setShowPopModal}
+      {showPopUp && <PopUp navOne={'/post-job'} navTwo={'/jobforcompany'} titleOne={t("Job Seekers")} titleTwo={t("Job Opportunities")} title="Job" setShowPopModal={setShowPopModal}
         showPopUp={showPopUp} />}
     </>
   );

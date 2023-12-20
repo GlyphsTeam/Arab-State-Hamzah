@@ -1,40 +1,65 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import style from '../../../assets/style/job_rent/jobRentFilter.module.css'
 import useAxios from '../../../hooks/useAxiosGet';
 import DropDownSearch from './DropDownSearch';
+import ButtonOne from '../../Button/ButtonOne';
+import { useTranslation } from "react-i18next";
+function JobRentFilter({ filterChange, filters, type, setFilters }) {
+  const [t] = useTranslation();
 
-function JobRentFilter({filterChange, filters, type}) {
- 
-    
-const [url, setUrl] = useState('');
 
-useEffect(() => {
-  if (type === 'rent') {
-    setUrl('rents/web/filter');
-  } else {
-    setUrl(`jobs/web/filter`);
+  const [url, setUrl] = useState('');
+
+  useEffect(() => {
+    if (type === 'rent') {
+      setUrl('rents/web/filter');
+    } else {
+      setUrl(`jobs/web/filter`);
+    }
+  }, [type]);
+
+  const [Data] = useAxios(url);
+  const resetFilter = () => {
+    if (type === "rent") {
+      setFilters({
+        sort_by: "",
+        type: "",
+        order_by: "",
+        price_from: "",
+        price_to: "",
+        place: "",
+      })
+    }
+    else {
+      setFilters({
+        sort_by: "",
+        type: "",
+        experience: "",
+        salary_from: "",
+        salary_to: "",
+        place: "",
+      })
+    }
   }
-}, [type]);
-    
-    const [Data] = useAxios(url);
+  console.log("Data?.data>>>>>>>", Data?.data)
   return (
     <>
-     <div className={style.mainFilterDiv}>
-
+      <div className={style.mainFilterDiv}>
         <h2 className={style.filterTitle}>Filter</h2>
-            
-            {
-            Data?.data?.map((item, index) => (
-                <div key={index} className={style.productDiv}>
+        <ButtonOne resetFilter={resetFilter}>{t("Reset Filter")}</ButtonOne>
 
-                    <DropDownSearch index={index} title={item.title} id = {item.id} subData= {item.subtitle} filterChange = {filterChange} name = {item.name} nameTo = {item.name_to} fields_num = {item.fields_num} filter_type = {item.type} filters = {filters} />
+        {
+          Data?.data?.map((item, index) => (
+            <div key={index} className={style.productDiv}>
 
-                </div>
-                ))
-            }
+              <DropDownSearch index={index} title={item.title} id={item.id} subData={item.subtitle} filterChange={filterChange} name={item.name} nameTo={item.name_to} fields_num={item.fields_num} filter_type={item.type} filters={filters} />
+
+            </div>
+          ))
+        }
 
 
-        </div>
+      </div>
     </>
   )
 }

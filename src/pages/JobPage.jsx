@@ -94,6 +94,7 @@ function Job({ baseURL }) {
           filters={filters}
           setShowPopModal={setShowPopModal}
           showPopUp={showPopUp}
+          setFilters={setFilters}
         />
       </div>
     </>

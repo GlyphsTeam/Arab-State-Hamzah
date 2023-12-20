@@ -101,68 +101,68 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
         setSuccess(true)
         setShow(true);
         setTypeAlert("warning")
-        setMessageAlert("description is required")
+        setMessageAlert("Description is required")
       }
       if (jobFormData.short_desc === "") {
         setSuccess(true)
         setShow(true);
         setTypeAlert("warning")
-        setMessageAlert("short_desc is required")
+        setMessageAlert("Short_desc is required")
       }
       if (jobFormData.email === "") {
         setSuccess(true)
         setShow(true);
         setTypeAlert("warning")
-        setMessageAlert("email is required")
+        setMessageAlert("Email is required")
       }
 
       if (jobFormData.phone === "") {
         setSuccess(true)
         setShow(true);
         setTypeAlert("warning")
-        setMessageAlert("phone is required")
+        setMessageAlert("Phone is required")
       }
       if (jobFormData.salary_type === "") {
         setSuccess(true)
         setShow(true);
         setTypeAlert("warning")
-        setMessageAlert("salary_type is required")
+        setMessageAlert("Salary_type is required")
       }
       if (jobFormData.salary === "") {
         setSuccess(true)
         setShow(true);
         setTypeAlert("warning")
-        setMessageAlert("salary is required")
+        setMessageAlert("Salary is required")
       }
       if (jobFormData.type === "") {
         setSuccess(true)
         setShow(true);
         setTypeAlert("warning")
-        setMessageAlert("type is required")
+        setMessageAlert("Type is required")
       }
       if (jobFormData.place === "") {
         setSuccess(true)
         setShow(true);
         setTypeAlert("warning")
-        setMessageAlert("place is required")
+        setMessageAlert("City is required")
       }
       if(jobFormData.logo===""){
         setSuccess(true)
         setShow(true);
         setTypeAlert("warning")
-        setMessageAlert("logo is required")
+        setMessageAlert("Logo is required")
       }
       if (jobFormData.company_name === "") {
         setSuccess(true)
         setShow(true);
         setTypeAlert("warning")
-        setMessageAlert("company_name is required")
+        setMessageAlert("Company_name is required")
       }
       if (jobFormData.experience_level === "") {
         setSuccess(true)
         setShow(true);
         setTypeAlert("warning")
-        setMessageAlert("experience_level is required")
+        setMessageAlert("Experience_level is required")
       }
       if (jobFormData.title === "") {
         setSuccess(true)

@@ -49,7 +49,27 @@ function NavBar({ logoImage }) {
     if (window.scrollY >= 1) {
       setNavbar(true);
     } else {
-      setNavbar(false);
+      if (
+        pathName === "/profile" ||
+        pathName === "/saved-blogs" ||
+        pathName === "/saved-store" ||
+        pathName === "/saved-accomodation" ||
+        pathName === "/saved-product" ||
+        pathName === "/saved-job" || 
+        pathName === "/my-business" ||
+        pathName === "/my-housing" ||
+        pathName === "/my-job" ||
+        pathName === "/my-product" ||
+        pathName === "/changepassword" ||
+        pathName === "/delete-account" ||
+        pathName === "/add-bussinse" ||
+        pathName.includes("show-product") 
+        ) {
+        setNavbar(true)
+      }
+      else {
+        setNavbar(false);
+      }
     }
   };
 
@@ -66,9 +86,11 @@ function NavBar({ logoImage }) {
   };
 
   window.addEventListener("scroll", changeBackground);
+
   const hideNavbar =
     location.pathname.toLocaleLowerCase() === "/privacy-policy" ||
     location.pathname.toLocaleLowerCase() === "/terms-conditions";
+
 
   useEffect(() => {
     setDropDown(false);
@@ -97,17 +119,10 @@ function NavBar({ logoImage }) {
   const isSmallScreen = windowWidth === 500;
 
   if (
-    pathName === "/job" ||
-    pathName === "/jobs" ||
-    pathName === "/profile" ||
     pathName === "/my-housing" ||
     pathName === "/my-job" ||
-    pathName === "/rent" ||
-    pathName === "/rents" ||
     pathName === "/login" ||
     pathName === "/register" ||
-    pathName === "/post-job" ||
-    pathName === "/post-rent" ||
     pathName === "/edit-profile" ||
     pathName === "/change-password" ||
     pathName === "/forgot-password" ||
@@ -129,17 +144,33 @@ function NavBar({ logoImage }) {
     pathName === "/search-result/{keyword}" ||
     pathName === "/my-business" ||
     pathName === "/saved-blogs" ||
-    pathName === "/rentform" ||
-    pathName.includes("show-product") ||
     pathName === "/add-bussinse" ||
     pathName === "/forget-password" ||
     pathName.includes("/show-user-guide") ||
-    pathName === "/jobforcompany" ||
-    isSmallScreen & pathName.includes('/Marketprofile') 
+    isSmallScreen & pathName.includes('/Marketprofile')
   ) {
     nav = "two";
   }
-  console.log("rentpathName>>",pathName==='/rent' ,"nav>>",nav)
+  useEffect(() => {
+    if (
+      pathName === "/profile" ||
+      pathName === "/saved-blogs" ||
+      pathName === "/saved-store" ||
+      pathName === "/saved-accomodation" ||
+      pathName === "/saved-product" ||
+      pathName === "/saved-job" ||
+      pathName === "/my-business" ||
+      pathName === "/my-housing" ||
+      pathName === "/my-job" ||
+      pathName === "/my-product" || 
+      pathName === "/changepassword" ||
+      pathName === "/delete-account" ||
+      pathName === "/add-bussinse" ||
+      pathName.includes("show-product") 
+    ) {
+      setNavbar(true)
+    }
+  }, [pathName])
 
   const langDir = (newLang) => {
     if (newLang === "ar") {

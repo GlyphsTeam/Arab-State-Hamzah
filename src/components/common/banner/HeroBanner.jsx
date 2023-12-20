@@ -74,7 +74,7 @@ function Banner({ data }) {
                 </video>
               )}
               <div className={style.bannerText}>
-                <h1>{item?.title}</h1>
+                <h1>{t(item?.title)}</h1>
                 <p>{item?.description}</p>
                 {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> */}
               </div>

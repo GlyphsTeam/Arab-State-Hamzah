@@ -86,7 +86,7 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
                 <div className={style.box3}></div>
                 <div className={style.box4}></div>
               </div>
-              <p>{jobData.created_at}</p>
+              <p>{jobData.created_at?.replace("ago", "")}</p>
 
             </div>
 

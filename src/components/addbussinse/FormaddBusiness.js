@@ -535,7 +535,7 @@ function ForRentForm() {
                 <title>{titleBussines}</title>
                 <meta name="description" content={titleBussines} />
             </Helmet>
-            <h1 className={style.titleBussines} >Your Business Form</h1>
+            <h1 className={style.titleBussines} >{t("Your Business Form")}</h1>
 
             <form className={style.formDiv} >
                 <div className={style.formFlex}>
@@ -871,7 +871,7 @@ function ForRentForm() {
                                                 alt="uploadImageform"
                                                 style={{ marginTop: '-10px' }}
                                             />
-                                            <p>Add Photos</p>
+                                            <p>{t("Add Photos")}</p>
                                         </div>
                                     </div>
                                 )}
@@ -912,7 +912,7 @@ function ForRentForm() {
                                                 style={{ marginTop: '-10px' }}
 
                                             />
-                                            <p>Add Photos</p>
+                                            <p>{t("Add Photos")}</p>
 
                                         </div>
                                     </div>

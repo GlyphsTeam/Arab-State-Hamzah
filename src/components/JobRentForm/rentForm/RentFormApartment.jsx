@@ -99,7 +99,7 @@ function ShowRentForm({ baseUrl }) {
       if (description === "") {
         setSuccess(true);
         setTypeAlert("warning")
-        setMessageAlert("description is required")
+        setMessageAlert("Description is required")
         setShow(true)
         setCount(4)
 
@@ -111,42 +111,42 @@ function ShowRentForm({ baseUrl }) {
         setCount(4);
         setSuccess(true);
         setTypeAlert("warning")
-        setMessageAlert("phone is required")
+        setMessageAlert("Phone is required")
       }
       if (email === "") {
         setSuccess(true);
         setTypeAlert("warning")
-        setMessageAlert("email is required")
+        setMessageAlert("Email is required")
       }
       if(area===""){
         setSuccess(true);
         setTypeAlert("warning")
-        setMessageAlert("area is required")
+        setMessageAlert("Area is required")
       }
       if(price===""){
         setSuccess(true);
         setTypeAlert("warning")
-        setMessageAlert("price is required")
+        setMessageAlert("Price is required")
       }
       if(bedrooms===""){
         setSuccess(true);
         setTypeAlert("warning")
-        setMessageAlert("bedrooms is required")
+        setMessageAlert("Bedrooms is required")
       }
       if(bathrooms===""){
         setSuccess(true);
         setTypeAlert("warning")
-        setMessageAlert("bathrooms is required")
+        setMessageAlert("Bathrooms is required")
       }
       if(gender===""){
         setSuccess(true);
         setTypeAlert("warning")
-        setMessageAlert("gender is required")
+        setMessageAlert("Gender is required")
       }
       if (place === "") {
         setSuccess(true);
         setTypeAlert("warning")
-        setMessageAlert("place is required")
+        setMessageAlert("Location is required")
       }
       if (title === "") {
         setSuccess(true);
@@ -156,7 +156,7 @@ function ShowRentForm({ baseUrl }) {
       if (images.length === 0) {
         setSuccess(true);
         setTypeAlert("warning")
-        setMessageAlert("images is required")
+        setMessageAlert("Image is required")
       }
 
     } else {

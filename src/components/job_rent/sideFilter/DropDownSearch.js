@@ -15,7 +15,6 @@ function DropDownSearch({
   const [t] = useTranslation();
 
 
-
   const options = subData.map((item) => ({
     value: item.value,
     label: item.name,
@@ -29,7 +28,6 @@ function DropDownSearch({
           {filter_type === "1" ? (
             <Select
               options={options}
-              //   value={selectedOption}
               onChange={filterChange}
               isSearchable={true}
               placeholder={t("Select...")}

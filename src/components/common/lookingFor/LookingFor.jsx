@@ -18,10 +18,10 @@ function LookingFor({ data, pageType }) {
     setCount(4);
   }
   const showPostModal = (url) => {
-    
+
     navigate(url)
-    
-   
+
+
   }
   return (
     <>
@@ -29,49 +29,48 @@ function LookingFor({ data, pageType }) {
         {data?.sections?.map((item, index) => (
           <div key={index} className={`row ${i18n.language === "en" ? style.mainDiv : style.mainDivAr}`}>
             <div className={`col-8 ${style.infoDiv}`}>
-              <h2 className={style.lookingForTitle}>{item?.title}</h2>
+              <h2 className={i18n.language === "en" ? style.lookingForTitle : style.lookingForTitleAr}>{item?.title}</h2>
 
-              <p className={`${style.desc}`}>
-                {item?.web_description && ReactHtmlParser(`${item.web_description}`)}
-              </p>
+              {item?.web_description && ReactHtmlParser(`${item.web_description}`)}
+
 
               <div className={style.divBtns}>
                 {item.type === "jobs" ? (
                   <>
                     <button className={style.postLink} onClick={() => localStorage.getItem('arab_user_token') ? showPostModal(item.create_url) : showAlert()}>
-                      + Add Post
+                      {t("+ Add Post")}
                     </button>
                     <Link state={({ type: item?.looking })} className={style.postLink} to={item.url}>
-                      Posted Jobs
+                     {t("Posted Jobs")}
                     </Link>
                   </>
                 ) : item.type === "employees" ? (
                   <>
                     <button className={style.postLink} onClick={() => localStorage.getItem('arab_user_token') ? showPostModal('/jobforcompany') : showAlert()}>
-                      + Add Post
+                    {t("+ Add Post")}
                     </button>
                     <Link state={({ type: item?.looking })} className={style.postLink} to={item.url}>
-                      Posted Employees
+                      {t("Posted Employees")}
 
                     </Link>
                   </>
                 ) : item.type === "rent" ? (
                   <>
                     <button className={style.postLink} onClick={() => localStorage.getItem('arab_user_token') ? showPostModal("/rentForm") : showAlert()}>
-                      + Add Post
+                    {t("+ Add Post")}
                     </button>
                     <Link state={({ type: item?.looking })} className={style.postLink} to={item.url}>
-                      Posted Appartment
+                     {t("Posted Appartment")}
 
                     </Link>
                   </>
                 ) : (
                   <>
                     <button className={style.postLink} onClick={() => localStorage.getItem('arab_user_token') ? showPostModal('/post-rent') : showAlert()}>
-                      + Add Post
+                    {t("+ Add Post")}
                     </button>
                     <Link state={({ type: item?.looking })} className={style.postLink} to={item.url}>
-                      Posted Accomodation
+                      {t("Posted Accomodation")}
                     </Link>
                   </>
                 )}

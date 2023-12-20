@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 function CardSection({
   token,
   index,
+  setFilters,
   // rentData,
   showModal,
   setShowModal,
@@ -32,7 +33,7 @@ function CardSection({
   setShowPopModal,
   showPopUp
 }) {
-  const [t, i18n] = useTranslation();
+  const [t] = useTranslation();
   const jobData = {id: 0, name: '', company:'' , created_at:'', description:'', email:'', phone:'', place:'', salary:'', type:'', title:'', user_image:'' };
   const [popRentInfo, setPopRentInfo] = useState();
   const [popJobInfo, setPopJobInfo] = useState(jobData);
@@ -87,6 +88,7 @@ function CardSection({
             filters = {filters}
             setShowPopModal={setShowPopModal}
             showPopUp={showPopUp}
+            setFilters={setFilters}
              />
             :
            < JobSection
@@ -107,6 +109,7 @@ function CardSection({
             filters = {filters}
             setShowPopModal={setShowPopModal}
             showPopUp={showPopUp}
+            setFilters={setFilters}
             />
               }
           {showModal && (

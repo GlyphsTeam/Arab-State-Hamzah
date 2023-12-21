@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "../../assets/style/formStyle/addbuinsesFrom.module.css";
 import Alert from "../customAlert/Alert";
 import useAxios from "../../hooks/useAxiosGet";
@@ -15,7 +15,9 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Helmet } from 'react-helmet'
 import SpinnerStatic from '../common/Spinner';
 import { useNavigate } from "react-router-dom";
-
+import axios from 'axios';
+import LoadingSpiner from "../Button/LoadingSpiner";
+import LoadindSpinnerTwo from "../Button/LoadindSpinnerTwo";
 function ForRentForm() {
 
     const [t, i18n] = useTranslation();
@@ -47,7 +49,11 @@ function ForRentForm() {
     const [uploadedImage, setUploadedImage] = useState(null);
     const [uploadedImage2, setUploadedImage2] = useState(null);
     const [cities, setCitys] = useState([]);
+    const [subCategorys, setSubCategorys] = useState([]);
     const [isLoadingBusines, setLoadingBussines] = useState(false);
+    const [branchIds, setBranchIds] = useState([]);
+    const [selectedOptions, setSelectedOptions] = useState([]);
+    const [LoadingSub, setLoadingSub] = useState(false);
     const [work_times, setwork_times] = useState([{
         day_type: "Mon",
         time_from: "09:00 AM",
@@ -195,13 +201,34 @@ function ForRentForm() {
 
     };
     const handleImageDropOne = (acceptedFiles) => {
-        const image = acceptedFiles[0]
-        setUploadedImage(image);
+        const isImage = acceptedFiles.every(file => file.type.startsWith('image/'));
+        if (isImage) {
+            const image = acceptedFiles[0]
+            setUploadedImage(image);
+        } else {
+            setMessageAlert("Please upload only images.")
+            setTypeAlert("warning");
+            setShowAlert(true);
+            setTimeout(() => {
+                setShowAlert(false);
+            }, 3000)
+        }
     };
 
     const handleImageDropTwo = (acceptedFiles) => {
-        const image = acceptedFiles[0];
-        setUploadedImage2(image)
+        const isImage = acceptedFiles.every(file => file.type.startsWith('image/'));
+        if (isImage) {
+            const image = acceptedFiles[0];
+            setUploadedImage2(image)
+        }
+        else {
+            setMessageAlert("Please upload only images.")
+            setTypeAlert("warning");
+            setShowAlert(true);
+            setTimeout(() => {
+                setShowAlert(false);
+            }, 3000)
+        }
     }
 
 
@@ -213,19 +240,43 @@ function ForRentForm() {
     const [count, setCount] = useState();
     const [showImageWarn, setShowImageWarn] = useState(false);
     const [descriptionWarning, setDescriptionWarning] = useState(false);
-
+    // let subId = businessType;
+    // let subCategoryUrl = `main-categories/${businessType}/sub-categories`;
 
     let urlStates = 'state_page/business';
     let urlCategories = 'main-categories'
+
+
     const [mainCat] = useAxios(urlCategories);
     const mainCategories = mainCat?.data;
     const businessCategories = mainCategories?.business || [];
     const serviceCategories = mainCategories?.service || [];
-
     const mirgeCate = [...businessCategories, ...serviceCategories];
-
     const [Data] = useAxios(urlStates);
     const statesAndcityes = Data?.data;
+    useEffect(() => {
+        const getSubCategory = async () => {
+            try {
+                const token = localStorage.getItem('arab_user_token');
+                let subCategoryUrl = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${process.env.REACT_APP_City_ID}/main-categories/${businessType}/sub-categories`;
+                setLoadingSub(true)
+                await axios.get(subCategoryUrl, {
+                    headers: { "Authorization": `Bearer ${token}` }
+                }).then((res) => {
+                    console.log("resss", res.data.data)
+                    setSubCategorys(res?.data?.data)
+                    setSelectedOptions([])
+                    setLoadingSub(false)
+
+                })
+            }
+            catch (err) {
+                setLoadingSub(false)
+                console.log(err)
+            }
+        }
+        getSubCategory()
+    }, [businessType])
 
     const handleChangeCity = (e) => {
         setState(e.target.value);
@@ -238,8 +289,33 @@ function ForRentForm() {
         setCity(subCity[0]);
         setCitys(subCity);
     }
+    const handlerSetBusiness = (e) => {
+        setBusinessType(e.target.value);
+    }
     const handleImageDrop = (acceptedFiles) => {
-        setImages((prevImages) => [...prevImages, ...acceptedFiles]);
+        if (images.length + acceptedFiles?.length > 6) {
+            setMessageAlert("You can upload only 6 images.")
+            setTypeAlert("warning");
+            setShowAlert(true);
+            setTimeout(() => {
+                setShowAlert(false);
+            }, 3000)
+        }
+        else {
+            const isImage = acceptedFiles.every(file => file.type.startsWith('image/'));
+            if (isImage) {
+                setImages((prevImages) => [...prevImages, ...acceptedFiles]);
+            }
+            else {
+                setMessageAlert("Please upload only images.")
+                setTypeAlert("warning");
+                setShowAlert(true);
+                setTimeout(() => {
+                    setShowAlert(false);
+                }, 3000)
+            }
+        }
+
     };
 
     const handleRemoveImage = (index) => {
@@ -248,7 +324,28 @@ function ForRentForm() {
         setImages(updatedImages);
     };
     const handleImageDrop2 = (acceptedFiles) => {
-        setImages2((prevImages) => [...prevImages, ...acceptedFiles]);
+        if (images2.length + acceptedFiles?.length > 10) {
+            setMessageAlert("You can upload only 10 images.")
+            setTypeAlert("warning");
+            setShowAlert(true);
+            setTimeout(() => {
+                setShowAlert(false);
+            }, 3000)
+        }
+        else {
+            const isImage = acceptedFiles.every(file => file.type.startsWith('image/'));
+            if (isImage) {
+                setImages2((prevImages) => [...prevImages, ...acceptedFiles]);
+            }
+            else {
+                setMessageAlert("Please upload only images.")
+                setTypeAlert("warning");
+                setShowAlert(true);
+                setTimeout(() => {
+                    setShowAlert(false);
+                }, 3000)
+            }
+        }
     };
 
     const handleRemoveImage2 = (index) => {
@@ -423,7 +520,7 @@ function ForRentForm() {
             formData.append('pinterest', pinterest);
             formData.append('cover', uploadedImage)
             formData.append('logo', uploadedImage2);
-
+            formData.append("branch_id[]", branchIds);
             images?.forEach((image) => {
                 formData.append("photos[]", image);
             });
@@ -527,16 +624,30 @@ function ForRentForm() {
             }
         }
     }
+    // console.log("subCategoryBussiness>>>>>>>>", Data3?.data)
+    const handlerSetBusinessTest = (e) => {
+        const selectedValues = Array.from(e.target.selectedOptions, (option) => option.value);
 
+        const resultIds = subCategorys
+            .filter(item => selectedValues.includes(item.id.toString()))
+            .map(item => ({ id: item.id, name: item.name }));
+        setSelectedOptions([...selectedOptions, ...resultIds]);
+        setBranchIds([...branchIds, ...selectedValues]);
+    };
+    const handleRemoveFromBranchIds = (value) => {
+        setBranchIds((prevBranchIds) => prevBranchIds.filter((id) => id !== String(value)));
+
+        setSelectedOptions((prevSelectedOptions) => prevSelectedOptions.filter((sub) => sub?.id !== value));
+    };
+    console.log("subCategorys<<<<<", branchIds)
     return (
         <>
-            {isLoadingBusines && <SpinnerStatic />}
+           {isLoadingBusines&&<SpinnerStatic text="Please do not close the page. Business form submission may take a few minutes. Thank you for your patience!"/>}
             <Helmet>
                 <title>{titleBussines}</title>
                 <meta name="description" content={titleBussines} />
             </Helmet>
             <h1 className={style.titleBussines} >{t("Your Business Form")}</h1>
-
             <form className={style.formDiv} >
                 <div className={style.formFlex}>
                     <div>
@@ -575,7 +686,7 @@ function ForRentForm() {
                                     required
                                     id="businessType"
                                     value={businessType}
-                                    onChange={(e) => setBusinessType(e.target.value)}
+                                    onChange={(e) => handlerSetBusiness(e)}
                                 >
                                     {mirgeCate && mirgeCate?.map((item) => {
                                         return (
@@ -586,19 +697,41 @@ function ForRentForm() {
                                     })}
                                 </select>
                             </div>
-                            {showPlaceWarn && (
-                                <p className={contactStyle.contactValidation}>
-                                    {t("City is required")}
-                                </p>
-                            )}
+                            {LoadingSub && <LoadingSpiner />}
                         </>
+                        <div className={`${style.inputDiv}`} style={{ marginTop: '30px' }}>
+                            <select
+                                name="SubbusinessType"
+                                required
+                                id="SubbusinessType"
+                                onChange={(e) => handlerSetBusinessTest(e)}
+                                multiple
+                            >
+                                {subCategorys.length !== 0 && subCategorys?.map((item) => {
+                                    const isSelected = branchIds.includes(item.id);
+
+                                    return (
+                                        <option key={item?.id} value={item?.id} selected={isSelected} >
+                                            {item?.name}
+                                        </option>
+                                    );
+                                })}
+                            </select>
+                            {selectedOptions.length !== 0 && selectedOptions?.map((sub) => {
+                                return <div className={style.optionsContainer} key={sub?.id}>
+                                    <li>{sub?.name}</li>
+                                    <i className="fas fa-times" onClick={() => handleRemoveFromBranchIds(sub?.id)} ></i>
+                                </div>
+                            })}
+                        </div>
+                        { }
 
                         <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }} className={`${style.labelStyle}`}>{t("Your Business Cover")}</label>
                         <div className={` ${style.uploadImageDiv} ${style.uploadBorder}`}>
                             <Dropzone onDrop={handleImageDropOne}>
                                 {({ getRootProps, getInputProps }) => (
                                     <div {...getRootProps()}>
-                                        <input {...getInputProps()} required />
+                                        <input {...getInputProps()} required accept="image/*" />
                                         <div className={style.postHousingUploadImage}>
                                             <LazyLoadImage
                                                 src={!uploadedImage ? require("../../assets/Images/uploadBlack.png") : URL.createObjectURL(uploadedImage)}
@@ -619,7 +752,7 @@ function ForRentForm() {
                             <Dropzone onDrop={handleImageDropTwo}>
                                 {({ getRootProps, getInputProps }) => (
                                     <div {...getRootProps()}>
-                                        <input {...getInputProps()} required />
+                                        <input {...getInputProps()} required accept="image/*" />
                                         <div className={style.postHousingUploadImage}>
                                             <LazyLoadImage
                                                 src={!uploadedImage2 ? require("../../assets/Images/uploadBlack.png") : URL.createObjectURL(uploadedImage2)}
@@ -864,7 +997,7 @@ function ForRentForm() {
                             <Dropzone onDrop={handleImageDrop}>
                                 {({ getRootProps, getInputProps }) => (
                                     <div {...getRootProps()}>
-                                        <input {...getInputProps()} required />
+                                        <input {...getInputProps()} required accept="image/*" />
                                         <div className={style.mainPh}>
                                             <LazyLoadImage
                                                 src={require("../../assets/Images/uploadBlack.png")}
@@ -904,7 +1037,7 @@ function ForRentForm() {
                             <Dropzone onDrop={handleImageDrop2}>
                                 {({ getRootProps, getInputProps }) => (
                                     <div {...getRootProps()}>
-                                        <input {...getInputProps()} />
+                                        <input {...getInputProps()} accept="image/*" />
                                         <div className={style.mainPh}>
                                             <LazyLoadImage
                                                 src={require("../../assets/Images/uploadBlack.png")}

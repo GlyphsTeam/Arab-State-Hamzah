@@ -1,4 +1,5 @@
-.spinner{
+.spinner,
+.spinnerCloum{
     background: white;
     display: flex;
     justify-content: center;
@@ -12,4 +13,7 @@
     top: 0;
     left: 0;
     z-index: 9999999999;
+}
+.spinnerCloum{
+    flex-direction: column !important;
 }

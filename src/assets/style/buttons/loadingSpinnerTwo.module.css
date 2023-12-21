@@ -15,7 +15,7 @@
     margin-bottom: 20px;
   }
   
-  p {
+  .spinerPar {
     font-size: 16px;
     color: var(--primary-color);
     width: 80%;

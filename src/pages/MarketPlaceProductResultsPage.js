@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import filterStyle from "../assets/style/common/filteredPage.module.css";
 import useAxios from "../hooks/useAxiosGet";
 import ProductsSection from "../components/marketPlace/MarketPlaceProductSection";
@@ -127,7 +127,7 @@ function CategoryPage() {
 
       <div className={`row ${filterStyle.pageContainer}`}>
         <div className={`col-sm-1 col-md-3 col-lg-3 ${filterStyle.filterHide}`}>
-          <ProductFilter filterChange={filterChange} filters={filters} />
+          <ProductFilter setMobileFilter={setMobileFilter} mobileFilter={mobileFilter} filterChange={filterChange} filters={filters} />
         </div>
 
         <div className={`col-sm-12 col-md-9 col-lg-9 ${filterStyle.pageRow}`}>
@@ -143,10 +143,10 @@ function CategoryPage() {
           </div>
 
           <div className={`col-sm-12 mt-3 ${filterStyle.filterShow}`}>
-            {mobileFilter && (
+            {mobileFilter && 
 
-              <ProductFilter filterChange={filterChange} filters={filters} />
-            )}
+              <ProductFilter setMobileFilter={setMobileFilter} mobileFilter={mobileFilter} filterChange={filterChange} filters={filters} />
+      }
           </div>
           <div hidden className={filterStyle.filterDiv}>
             <div className={filterStyle.filterSelect}>

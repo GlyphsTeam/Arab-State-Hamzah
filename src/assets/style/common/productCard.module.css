@@ -21,7 +21,6 @@
 }
 .flexClass{
 display: flex !important;
-
 }
 .favIconColor{
 color: var(--secondary-color) !important;
@@ -251,6 +250,9 @@ background-color: var(--secondary-color);
   }
   .flexClass{
     flex-direction: column !important;
+    height: fit-content !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
   .productText{
     margin-top: -50px;

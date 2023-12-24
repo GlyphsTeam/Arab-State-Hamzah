@@ -85,7 +85,10 @@
     }
     .contactDiv{
         display: flex;
-        align-items: baseline;
+        flex-direction: column;
+    }
+    .contactDiv p{
+        height: fit-content;
     }
     .contactMobile{
         display: flex;

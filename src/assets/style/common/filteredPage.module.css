@@ -42,12 +42,7 @@
   white-space: nowrap;
   font-weight: 500;
   padding: 5px;
-  border-radius: 8px;
   border: 2px solid #c81c50;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
 }
 
 .mainFilterDiv {
@@ -222,14 +217,8 @@
   .sublistCatge li{
     font-size: 10px;
     height: fit-content;
-     
     padding-left: 15px;
     padding-right: 15px;
-    border-radius: 20%;
     text-align: center ;
-    -webkit-border-radius: 20%;
-    -moz-border-radius: 20%;
-    -ms-border-radius: 20%;
-    -o-border-radius: 20%;
 }
 }

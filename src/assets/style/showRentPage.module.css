@@ -3,8 +3,7 @@
   height: 350px;
   /* border-radius: 50%; */
   width: 100%;
-  border-top-left-radius: 150px;
-
+  border-top-left-radius: 115px;
   padding: 19px;
 }
 .rentPriceDiv{
@@ -61,6 +60,7 @@
 }
 .houseNumber {
   display: flex;
+  margin-bottom: 20px;
 }
 .rentIcon {
   padding: 0 5px;
@@ -109,7 +109,14 @@
   /* margin: 0px 30px 0px 0px; */
   /* color: rgb(103, 102, 102); */
 }
+.priceClass{
+  color: var(--secondary-color) !important;
+  width:100px;
+  font-weight: 700;
+  display: none;
+}
 .houseNumberParagraphLast {
+ 
   margin:  0px 39px 0px 0px;
   color: var(--highlight-color);
 }
@@ -230,12 +237,15 @@ a .contactIcon {
     z-index: 22;
   }
   .imageDiv {
-    width: 281px;
-    height: 289px;
+    width: 350px;
+    position: relative;
+    height: 350px;
     margin: auto;
   }
   .imageSize {
-    height: 283px !important;
+    position: absolute;
+    right: 30px;
+    height: 350px !important;
     width: 100%;
   }
 }
@@ -467,10 +477,10 @@ a .contactIcon {
 }
 @media (min-width: 1300px) {
   .imageSize {
-    height: 400px;
-    border-top-left-radius: 150px;
+    height: 422px;
+    border-top-left-radius: 115px;
 
-    width: 350px;
+    width: 422px;
     padding: 19px;
   }
   .rentParagraph {
@@ -532,4 +542,10 @@ a .contactIcon {
   .contactStyleMobile{
     display: none !important;
   }
+.RentfirstSection {
+  padding: 48px;
+}
+.priceClass{
+  display: block;
+}
 }

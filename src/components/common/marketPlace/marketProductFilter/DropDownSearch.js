@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
+// import React, {useState} from 'react';
 import Select from 'react-select';
 import style from '../../../../assets/style/marketPlace/productFilter.module.css'
 import { useTranslation } from "react-i18next";
 
 function DropDownSearch({title, name, nameTo, subData, filterChange, fields_num, filter_type, filters}) {
-  const [t, i18n] = useTranslation();
+  const [t] = useTranslation();
 
-    const [selectedOption, setSelectedOption] = useState(null);
+    // const [selectedOption, setSelectedOption] = useState(null);
 
     // const options = [
     //     { value: 'option1', label: 'Option 1' },
@@ -21,7 +21,7 @@ function DropDownSearch({title, name, nameTo, subData, filterChange, fields_num,
       }
 
       ));
-
+console.log("title<<<",title)
       
   return (
     <>

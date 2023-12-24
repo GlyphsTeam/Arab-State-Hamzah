@@ -14,14 +14,14 @@ function BlogLetter({ Data }) {
     ? style.blogLetterContainerExpanded
     : style.blogLetterContainer; // CSS class for the container
   const paragraph = expanded
-    ? style.blogLetterExpanded
-    : style.blogLetterParagraph;
+    ? style.blogLetterParagraph
+    : style.blogLetterExpanded;
   return (
     <>
       <div className={containerClass}>
         <div className={style.paragraph}>
           <h2>{blog?.title}</h2>
-          <p className={style.paragraph}>
+          <p className={paragraph}>
             {blog?.web_description &&
               ReactHtmlParser(`${blog?.web_description}`)}
           </p>

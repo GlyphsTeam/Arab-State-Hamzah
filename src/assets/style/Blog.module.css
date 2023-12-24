@@ -81,10 +81,7 @@
   padding: 0px 13px;
   margin: 0 0 25px;
 }
-.seeMoreButton button:hover{
-  color: #ffffff;
 
-}
 .seeMoreButton button {
   text-align: end;
   padding: 0px 13px;
@@ -110,14 +107,20 @@
   font-size: 18px;
   text-align: justify;
   /* color: #09353F; */
-  height: 161px !important;
+  color: var(--primary-color);
+  height: 185px !important;
+  text-overflow: ellipsis;
   overflow: hidden;
+  /* white-space: nowrap; */
 }
 
 .blogLetterExpanded {
   font-size: 18px;
   text-align: justify;
   color: var(--primary-color);
+  height: 140px;
+  overflow: hidden;
+
   /* color: #09353F; */
 }
 .imageBlogDiv img {
@@ -1405,6 +1408,18 @@ transition: all 0.4s ease;
   }
   .TagContainerDiv,
   .TagHeader{
+    display: none;
+  }
+  .blogLetterExpanded{
+    overflow: auto !important;
+    height: 100%;
+  }
+  .blogLetterExpanded span,
+  .blogLetterParagraph span{
+    font-size: 14px;
+    overflow: auto;
+  }
+  .seeMoreButton button{
     display: none;
   }
 }

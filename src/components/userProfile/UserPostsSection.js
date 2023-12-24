@@ -6,11 +6,13 @@ import { useTranslation } from "react-i18next";
 
 function UserPostsSection({ savedData, type, baseUrl }) {
   const [t] = useTranslation();
-  
+
   return (
     <>
       {type === "house" && (
         <div className={`row `}>
+          <p className={style.parProfile}>My posts &gt; houses</p>
+
           {savedData?.rents?.length > 0 ? (
             savedData?.rents?.map((item, index) => (
               <HousingCard
@@ -30,28 +32,33 @@ function UserPostsSection({ savedData, type, baseUrl }) {
       )}
       {type === "job" && (
         <div className={`row mb-3 ${style.savedJobRow}`}>
+          <p className={style.parProfile}>My posts &gt; jobs</p>
+
           <div className={style.cardContainerJob}>
-          {savedData?.jobs.length > 0 ? (
-            savedData?.jobs.map((item, index) => (
-              <JobCard
-                key={index}
-                jobData={item}
-                isMyPost={true}
-                type='job'
-                baseUrl={baseUrl}
-              />
-            ))
-          ) : (
-            <>
-              <p className={style.emptyUserMessage}>{t("emptyUserMessage")}</p>
-            </>
-          )}
+
+            {savedData?.jobs.length > 0 ? (
+              savedData?.jobs.map((item, index) => (
+                <JobCard
+                  key={index}
+                  jobData={item}
+                  isMyPost={true}
+                  type='job'
+                  baseUrl={baseUrl}
+                />
+              ))
+            ) : (
+              <>
+                <p className={style.emptyUserMessage}>{t("emptyUserMessage")}</p>
+              </>
+            )}
           </div>
         </div>
       )}
 
       {type === "product" && (
         <div className={`row mt-5 mb-3 ${style.savedJobRow}`}>
+          <p className={style.parProfile}>My posts &gt; products</p>
+
           {savedData?.market?.length > 0 ? (
             savedData?.market?.map((item, index) => (
               <ProductCard
@@ -69,8 +76,9 @@ function UserPostsSection({ savedData, type, baseUrl }) {
           )}
         </div>
       )}
-       {type === "blog" && (
+      {type === "blog" && (
         <div className={`row mt-5 mb-3 ${style.savedJobRow}`}>
+          <p className={style.parProfile}>Saved &gt; blogs</p>
           {savedData?.blogs?.length > 0 ? (
             savedData?.blogs?.map((item, index) => (
               <ProductCard

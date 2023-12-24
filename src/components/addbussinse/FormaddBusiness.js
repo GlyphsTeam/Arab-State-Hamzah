@@ -17,7 +17,6 @@ import SpinnerStatic from '../common/Spinner';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import LoadingSpiner from "../Button/LoadingSpiner";
-import LoadindSpinnerTwo from "../Button/LoadindSpinnerTwo";
 function ForRentForm() {
 
     const [t, i18n] = useTranslation();
@@ -54,6 +53,7 @@ function ForRentForm() {
     const [branchIds, setBranchIds] = useState([]);
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [LoadingSub, setLoadingSub] = useState(false);
+    const [hiddenBussines, setHiddenBussines] = useState(false)
     const [work_times, setwork_times] = useState([{
         day_type: "Mon",
         time_from: "09:00 AM",
@@ -265,6 +265,12 @@ function ForRentForm() {
                 }).then((res) => {
                     console.log("resss", res.data.data)
                     setSubCategorys(res?.data?.data)
+                    if (res?.data?.data?.length === 0) {
+                        setHiddenBussines(true)
+                    }
+                    else {
+                        setHiddenBussines(false)
+                    }
                     setSelectedOptions([])
                     setLoadingSub(false)
 
@@ -624,25 +630,26 @@ function ForRentForm() {
             }
         }
     }
-    // console.log("subCategoryBussiness>>>>>>>>", Data3?.data)
     const handlerSetBusinessTest = (e) => {
         const selectedValues = Array.from(e.target.selectedOptions, (option) => option.value);
-
         const resultIds = subCategorys
             .filter(item => selectedValues.includes(item.id.toString()))
             .map(item => ({ id: item.id, name: item.name }));
-        setSelectedOptions([...selectedOptions, ...resultIds]);
-        setBranchIds([...branchIds, ...selectedValues]);
+        resultIds.forEach((item) => {
+            if (!branchIds.includes(String(item.id))) {
+                setSelectedOptions([...selectedOptions, item]);
+                setBranchIds([...branchIds, ...selectedValues]);
+            }
+        })
     };
     const handleRemoveFromBranchIds = (value) => {
         setBranchIds((prevBranchIds) => prevBranchIds.filter((id) => id !== String(value)));
 
         setSelectedOptions((prevSelectedOptions) => prevSelectedOptions.filter((sub) => sub?.id !== value));
     };
-    console.log("subCategorys<<<<<", branchIds)
     return (
         <>
-           {isLoadingBusines&&<SpinnerStatic text="Please do not close the page. Business form submission may take a few minutes. Thank you for your patience!"/>}
+            {isLoadingBusines && <SpinnerStatic text="Please do not close the page. Business form submission may take a few minutes. Thank you for your patience!" />}
             <Helmet>
                 <title>{titleBussines}</title>
                 <meta name="description" content={titleBussines} />
@@ -699,13 +706,13 @@ function ForRentForm() {
                             </div>
                             {LoadingSub && <LoadingSpiner />}
                         </>
-                        <div className={`${style.inputDiv}`} style={{ marginTop: '30px' }}>
+                        {!hiddenBussines && <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Business Subcategories(Select one or more)")}</label>}
+                        {!hiddenBussines && <div className={`${style.inputDiv}`}>
                             <select
                                 name="SubbusinessType"
                                 required
                                 id="SubbusinessType"
                                 onChange={(e) => handlerSetBusinessTest(e)}
-                                multiple
                             >
                                 {subCategorys.length !== 0 && subCategorys?.map((item) => {
                                     const isSelected = branchIds.includes(item.id);
@@ -723,7 +730,7 @@ function ForRentForm() {
                                     <i className="fas fa-times" onClick={() => handleRemoveFromBranchIds(sub?.id)} ></i>
                                 </div>
                             })}
-                        </div>
+                        </div>}
                         { }
 
                         <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }} className={`${style.labelStyle}`}>{t("Your Business Cover")}</label>
@@ -909,7 +916,7 @@ function ForRentForm() {
                         <div key={inputField.id} className={style.inputContanierFileds}>
                             <input
                                 className={style.servericeInput}
-                                placeholder={`Service ${index}`}
+                                placeholder={`Service ${1 + index}`}
                                 type="text"
                                 value={inputField.text}
                                 onChange={(event) => handleInputChange(inputField.id, event)}

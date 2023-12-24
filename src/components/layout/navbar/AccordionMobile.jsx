@@ -22,7 +22,7 @@ function AccordionComponent({handleCloseModal, data, serviceLinks}) {
               </Link>
 
                <Link className={`${style.linkColor} ${style.linkBlock}`} onClick={handleCloseModal} to={`/market-place`} state={({ id: serviceLinks?.market_place?.id })}>
-               {t("Market Place")}
+               {t("Marketplace")}
               </Link>
 
                <Link className={`${style.linkColor} ${style.linkBlock}`} onClick={handleCloseModal} to="/rent" state={({ id: serviceLinks?.rent?.id })}>

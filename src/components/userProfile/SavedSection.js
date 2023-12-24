@@ -11,6 +11,7 @@ function SavedSection({ savedData, type }) {
     <>
       {type === "store" && (
         <div className={`row`}>
+          <p className={style.parProfile}>Saved &gt; products</p>
           {savedData?.length > 0 ? (
             savedData?.map((item, index) => (
               <StoreCard
@@ -28,6 +29,7 @@ function SavedSection({ savedData, type }) {
       )}
       {type === "house" && (
         <div className={`row `}>
+          <p className={style.parProfile}>Saved &gt; accomodation</p>
           {savedData?.length > 0 ? (
             savedData?.map((item, index) => (
               <HousingCard key={index} houseData={item} />
@@ -42,22 +44,25 @@ function SavedSection({ savedData, type }) {
 
       {type === "job" && (
         <div className={`row mb-3 ${style.savedJobRow}`}>
+          <p className={style.parProfile}>Saved &gt; jobs</p>
           <div className={style.cardContainerJob}>
-          {savedData?.length > 0 ? (
-            savedData?.map((item, index) => (
-              <JobCard key={index} jobData={item} />
-            ))
-          ) : (
-            <>
-              <p className={style.emptyUserMessage}>{t("emptyUserMessage")}</p>
-            </>
-          )}
+
+            {savedData?.length > 0 ? (
+              savedData?.map((item, index) => (
+                <JobCard key={index} jobData={item} />
+              ))
+            ) : (
+              <>
+                <p className={style.emptyUserMessage}>{t("emptyUserMessage")}</p>
+              </>
+            )}
           </div>
         </div>
       )}
 
       {type === "product" && (
         <div className={`row mb-3 ${style.savedJobRow}`}>
+          <p className={style.parProfile}>Saved &gt; products</p>
           {savedData?.length > 0 ? (
             savedData?.map((item, index) => (
               <ProductCard key={index} data={item} />

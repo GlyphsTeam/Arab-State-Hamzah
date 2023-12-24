@@ -82,21 +82,7 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
             <p className={`${style.infoParagraph} ${i18n.language==='en'?style.phoneClass:style.phoneClassAr}`}>{rentData?.place}</p>
           </div>
         </div>
-        {/* <p className={style.addressStyle}>
-          <i className={`fas fa-map-marker-alt ${style.locationIcon}`}></i>{" "}
-          {rentData?.place}{" "}
-        </p> */}
-
-        <p className={style.rentParagraph}>{ReactHtmlParser(rentData?.description)}</p>
-        {rentData?.is_bathroom_shared && (
-          <p className={style.houseNumberParagraph}>
-            {/* <i className="fas fa-bed"></i> Is bathroom shared: {rentData?.is_bathroom_shared ? 'Yes' : 'No' }{" "} */}
-
-            {/* <img src={require('../../assets/Images/shared.png')}/> */}
-            {rentData?.is_bathroom_shared ? t("Bathroom shared") : ""}
-          </p>
-        )}
-
+        
         <div className="d-flex justify-content-between align-items-center">
           <div className={style.houseNumber}>
             {rentData?.bedrooms && (
@@ -144,6 +130,15 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
                 <i className="fas fa-venus-mars"></i> {rentData?.gender}
               </p>
             )}
+                <p
+                className={
+                  i18n.language === "en"
+                    ? style.priceClass
+                    : style.houseNumberParagraphLastRight
+                }
+              >
+              {t("Price")} : {'$'+rentData?.price}
+              </p>
           </div>
 
           {/* <div className={style.addressRentContainer}>
@@ -158,6 +153,21 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
             </div>
           </div> */}
         </div>
+        {/* <p className={style.addressStyle}>
+          <i className={`fas fa-map-marker-alt ${style.locationIcon}`}></i>{" "}
+          {rentData?.place}{" "}
+        </p> */}
+
+        <p className={style.rentParagraph}>{ReactHtmlParser(rentData?.description)}</p>
+        {rentData?.is_bathroom_shared && (
+          <p className={style.houseNumberParagraph}>
+            {/* <i className="fas fa-bed"></i> Is bathroom shared: {rentData?.is_bathroom_shared ? 'Yes' : 'No' }{" "} */}
+
+            {/* <img src={require('../../assets/Images/shared.png')}/> */}
+            {rentData?.is_bathroom_shared ? t("Bathroom shared") : ""}
+          </p>
+        )}
+
         <div className={style.backRent}>
           <Link to="/rents">
             <button>{t("Back To Rent")}</button>

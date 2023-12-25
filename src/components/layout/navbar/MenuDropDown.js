@@ -37,7 +37,7 @@ export default function MenuDropDown({
           <div variant="contained" {...bindTrigger(popupState)}>
             {dropDownInfo}
           </div>
-          {/* <Menu {...bindMenu(popupState)}>
+          <Menu {...bindMenu(popupState)}>
             {menuElements?.map((item, index) => (
               <div key={index}>
                 {item.type === "click" ? (
@@ -108,7 +108,7 @@ export default function MenuDropDown({
                 )}
               </div>
             ))}
-          </Menu> */}
+          </Menu>
         </>
       )}
     </PopupState>

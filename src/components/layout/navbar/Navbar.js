@@ -366,6 +366,14 @@ function NavBar({ logoImage }) {
                   handleCloseModal={handleCloseModal}
                   menuElements={[
                     {
+                      path: "/Profile",
+                      title: (
+                        <div >
+                          <i className="fas fa-sign-out-alt"> {t("Profile")} </i>{" "}
+                        </div>
+                      ),
+                    },
+                    {
                       path: "/",
                       title: (
                         <div onClick={logout}>

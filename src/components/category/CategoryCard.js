@@ -4,7 +4,6 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 function SubCategoryCard({ data }) {
   let urlId;
- console.log("CatData>>",data)
   return (
     <>
     <div className={`${style.cardDiv} col-lg-3 col-md-6 col-sm-4`} >

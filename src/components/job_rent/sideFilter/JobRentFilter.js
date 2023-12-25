@@ -41,7 +41,6 @@ function JobRentFilter({ filterChange, filters, type, setFilters }) {
       })
     }
   }
-  console.log("Data?.data>>>>>>>", Data?.data)
   return (
     <>
       <div className={style.mainFilterDiv}>

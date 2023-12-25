@@ -5,14 +5,15 @@ const initialState = {
   subCategoryId: localStorage.getItem('subCategoryId') ? localStorage.getItem('subCategoryId') : '',
   categoryTitle: localStorage.getItem('mainCategoryTitle') ? localStorage.getItem('mainCategoryTitle') : '',
   subCategoryTitle: localStorage.getItem('subCategoryTitle') ? localStorage.getItem('subCategoryTitle') : '',
+  isLoading: true
 };
 
 const category = createSlice({
   name: 'id',
-  
+
   initialState,
   reducers: {
-    
+
     setCategoryId: (state, action) => {
       state.categoryId = action.payload;
     },
@@ -25,10 +26,15 @@ const category = createSlice({
     setSubCategoryTitle: (state, action) => {
       state.subCategoryTitle = action.payload;
     },
+    setLoading: (state, action) => {
+      state.isLoading = action.payload
+
+    },
   },
 });
 
-export const { setCategoryId, setSubCategoryId, setCategoryTitle, setSubCategoryTitle } = category.actions;
+export const {setLoading, setCategoryId, setSubCategoryId, setCategoryTitle, setSubCategoryTitle } = category.actions;
+export const stateCategory = (state=>state.category);
 
 const store = configureStore({
   reducer: {

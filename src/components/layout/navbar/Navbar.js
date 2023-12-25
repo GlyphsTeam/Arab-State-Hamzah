@@ -55,7 +55,7 @@ function NavBar({ logoImage }) {
         pathName === "/saved-store" ||
         pathName === "/saved-accomodation" ||
         pathName === "/saved-product" ||
-        pathName === "/saved-job" || 
+        pathName === "/saved-job" ||
         pathName === "/my-business" ||
         pathName === "/my-housing" ||
         pathName === "/my-job" ||
@@ -63,8 +63,9 @@ function NavBar({ logoImage }) {
         pathName === "/changepassword" ||
         pathName === "/delete-account" ||
         pathName === "/add-bussinse" ||
-        pathName.includes("show-product") 
-        ) {
+        pathName.includes("show-product") ||
+        pathName.includes('/show-user-guide')
+      ) {
         setNavbar(true)
       }
       else {
@@ -146,7 +147,6 @@ function NavBar({ logoImage }) {
     pathName === "/saved-blogs" ||
     pathName === "/add-bussinse" ||
     pathName === "/forget-password" ||
-    pathName.includes("/show-user-guide") ||
     isSmallScreen & pathName.includes('/Marketprofile')
   ) {
     nav = "two";
@@ -162,11 +162,12 @@ function NavBar({ logoImage }) {
       pathName === "/my-business" ||
       pathName === "/my-housing" ||
       pathName === "/my-job" ||
-      pathName === "/my-product" || 
+      pathName === "/my-product" ||
       pathName === "/changepassword" ||
       pathName === "/delete-account" ||
       pathName === "/add-bussinse" ||
-      pathName.includes("show-product") 
+      pathName.includes("show-product") ||
+      pathName.includes("/show-user-guide")
     ) {
       setNavbar(true)
     }
@@ -365,15 +366,6 @@ function NavBar({ logoImage }) {
                   handleCloseModal={handleCloseModal}
                   menuElements={[
                     {
-                      path: "/Profile",
-
-                      title: (
-                        <div>
-                          <i className="fas fa-user-circle">{t("Profile")}</i>{" "}
-                        </div>
-                      ),
-                    },
-                    {
                       path: "/",
                       title: (
                         <div onClick={logout}>
@@ -455,6 +447,13 @@ function NavBar({ logoImage }) {
                       <Link to="/add-bussinse" onClick={handleCloseModal}>
                         <li> {t("Add Business")} </li>
                       </Link>
+                      <Link to="/Profile" onClick={handleCloseModal} className={style.profileNav}>
+                        <i
+                          className={`far fa-user  ${style.userIcon}`}
+                        ></i>
+                        <li>{initialState.username.split(" ")[0]}
+                        </li>
+                      </Link>
                     </ul>
                   </nav>
                   <div className={style.rightSubContainerMobile}>
@@ -464,10 +463,8 @@ function NavBar({ logoImage }) {
                           <Button
                             handleCloseModal={handleCloseModal}
                             btnInfo={
-                              <div className={btnStyle.iconUserDiv}>
-                                <i
-                                  className={`far fa-user  ${style.userIcon}`}
-                                ></i>
+                              <div className={`${btnStyle.iconUserDiv} ${style.loginButton}`}>
+                               Login
                               </div>
                             }
                           />
@@ -476,24 +473,14 @@ function NavBar({ logoImage }) {
                         <MenuDropDown
                           handleCloseModal={handleCloseModal}
                           dropDownInfo={
-                            <div className={btnStyle.userloggedinBtn}>
-                              <i
-                                className={`far fa-user  ${style.userIcon}`}
-                              ></i>
-                              {initialState.username.split(" ")[0]}
+                            <div className={`${btnStyle.userloggedinBtn} ${style.logoutButton}`} onClick={logout}>
+                            <i className="fas fa-sign-out-alt">
+                                    {t("LogOut")}
+                                  </i>
                             </div>
                           }
                           menuElements={[
-                            {
-                              path: "/Profile",
-                              title: (
-                                <div>
-                                  <i className="fas fa-user-circle">
-                                    {t("Profile")}
-                                  </i>{" "}
-                                </div>
-                              ),
-                            },
+
                             {
                               path: "/",
                               title: (

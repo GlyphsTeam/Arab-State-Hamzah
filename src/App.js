@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Crisp } from "crisp-sdk-web";
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes   } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/layout/navbar/Navbar";
 import Footer from "./components/layout/footer/Footer";
@@ -62,7 +62,9 @@ import Business from "./components/addbussinse/Business";
 import MyBusiness from "./pages/MyBusiness";
 import RentFormAc from './components/JobRentForm/rentForm/RentFormApartment'
 import MySavedBlogs from './pages/MySavedBlogs';
-import PostJobCompany from './pages/PostJobCompany'
+import PostJobCompany from './pages/PostJobCompany';
+import { useSelector } from 'react-redux';
+import { stateCategory } from './redux/slices/login'
 function App() {
   let generalUrl = "general-setting";
   const [Data] = useAxios(generalUrl);
@@ -70,6 +72,8 @@ function App() {
   const logoBlueImage = Data?.data?.logo;
   const spinnerLogo = Data?.data?.icon_loading;
   const city = process.env.REACT_APP_City;
+  const stateMus = useSelector(stateCategory);
+  console.log("stateMus>>.",stateMus)
   if (city === "GA") {
     import('./assets/style/App.module.css').then(() => {
     }).catch((error) => console.log(error))
@@ -163,31 +167,28 @@ function App() {
 
   const [lang] = GetLang();
 
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      window.scrollTo(0, 0);
-    }, 1000);
+  //   setIsLoading(true);
+  //   setTimeout(() => {
+  //     setIsLoading(false);
+  //     window.scrollTo(0, 0);
+  //   }, 1000);
 
-  }, []);
+  // }, []);
 
 
   return (
     <>
 
       <Router basename={`/${lang}`}>
-        {isLoading ? (
+        {stateMus?.isLoading ? (
           <>
             <SpinnerStatic />
           </>
-        )
-          :
-          <Spinner logo={spinnerLogo} />
-        }
+        ) : <></>}
 
         <MetaPixel />
         <ScrollToTop />

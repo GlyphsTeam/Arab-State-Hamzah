@@ -58,7 +58,6 @@ function ShowBlog() {
     }
   }, [showBlogData?.saved])
   let favoriteIcon = isSaved ? 'fas fa-bookmark' : 'far fa-bookmark';
-console.log()
   return (
     <div className={style.showBlogContainer}>
       <Helmet>

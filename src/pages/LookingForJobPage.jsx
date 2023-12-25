@@ -6,7 +6,6 @@ function JobPage() {
   const url = `jobs/web/looking_for`;
   const [Data] = useAxios(url);
   const lookingForData = Data?.data;
-console.log("lookingForDataJob>>",lookingForData)
   return (
     <div>
       <Helmet>

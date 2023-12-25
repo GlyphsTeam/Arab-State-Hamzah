@@ -21,7 +21,6 @@ function DropDownSearch({title, name, nameTo, subData, filterChange, fields_num,
       }
 
       ));
-console.log("title<<<",title)
       
   return (
     <>

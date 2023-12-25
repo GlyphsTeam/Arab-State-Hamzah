@@ -263,7 +263,6 @@ function ForRentForm() {
                 await axios.get(subCategoryUrl, {
                     headers: { "Authorization": `Bearer ${token}` }
                 }).then((res) => {
-                    console.log("resss", res.data.data)
                     setSubCategorys(res?.data?.data)
                     if (res?.data?.data?.length === 0) {
                         setHiddenBussines(true)
@@ -371,27 +370,11 @@ function ForRentForm() {
 
     const handlerSubmitForm = async (e) => {
         e.preventDefault()
-        if (company.length === 0) {
-            setMessageAlert("please fill The Company Name")
-            setTypeAlert("warning");
-            setShowAlert(true);
-            setTimeout(() => {
-                setShowAlert(false);
-
-            }, 2000)
-        }
+      
         if (businessType.length === "") {
             setBusinessType("2")
         }
-        if (streetAddress === "") {
-            setMessageAlert("please fill The Street Address")
-            setTypeAlert("warning");
-            setShowAlert(true);
-            setTimeout(() => {
-                setShowAlert(false);
-
-            }, 2000)
-        }
+   
         if (city === "") {
             setMessageAlert("please fill The  City")
             setTypeAlert("warning");
@@ -401,8 +384,10 @@ function ForRentForm() {
 
             }, 2000)
         }
-        if (state === "") {
-            setMessageAlert("please fill The State")
+
+     
+        if (images.length < 3) {
+            setMessageAlert("please Upload your Main Photos  at least three")
             setTypeAlert("warning");
             setShowAlert(true);
             setTimeout(() => {
@@ -410,35 +395,8 @@ function ForRentForm() {
 
             }, 2000)
         }
-        if (code === "") {
-            setMessageAlert("please fill The  Postal Code")
-            setTypeAlert("warning");
-            setShowAlert(true);
-            setTimeout(() => {
-                setShowAlert(false);
-
-            }, 2000)
-        }
-        if (phoneNumber === "") {
-            setMessageAlert("please fill The Phone Number ")
-            setTypeAlert("warning");
-            setShowAlert(true);
-            setTimeout(() => {
-                setShowAlert(false);
-
-            }, 2000)
-        }
-        if (email === "") {
-            setMessageAlert("please fill Your Email")
-            setTypeAlert("warning");
-            setShowAlert(true);
-            setTimeout(() => {
-                setShowAlert(false);
-
-            }, 2000)
-        }
-        if (businsesLine === "") {
-            setMessageAlert("please fill The Business Description")
+        if (images2.length < 3) {
+            setMessageAlert("please Upload your gallery  at least three")
             setTypeAlert("warning");
             setShowAlert(true);
             setTimeout(() => {
@@ -455,8 +413,8 @@ function ForRentForm() {
 
             }, 2000)
         }
-        if (images.length < 3) {
-            setMessageAlert("please Upload your Main Photos  at least three")
+        if (businsesLine === "") {
+            setMessageAlert("please fill The Business Description")
             setTypeAlert("warning");
             setShowAlert(true);
             setTimeout(() => {
@@ -464,8 +422,44 @@ function ForRentForm() {
 
             }, 2000)
         }
-        if (images2.length < 3) {
-            setMessageAlert("please Upload your gallery  at least three")
+        if (email === "") {
+            setMessageAlert("please fill Your Email")
+            setTypeAlert("warning");
+            setShowAlert(true);
+            setTimeout(() => {
+                setShowAlert(false);
+
+            }, 2000)
+        }
+        if (phoneNumber === "") {
+            setMessageAlert("please fill The Phone Number ")
+            setTypeAlert("warning");
+            setShowAlert(true);
+            setTimeout(() => {
+                setShowAlert(false);
+
+            }, 2000)
+        }
+        if (code === "") {
+            setMessageAlert("please fill The  Postal Code")
+            setTypeAlert("warning");
+            setShowAlert(true);
+            setTimeout(() => {
+                setShowAlert(false);
+
+            }, 2000)
+        }
+        if (state === "") {
+            setMessageAlert("please fill The State")
+            setTypeAlert("warning");
+            setShowAlert(true);
+            setTimeout(() => {
+                setShowAlert(false);
+
+            }, 2000)
+        }
+        if (streetAddress === "") {
+            setMessageAlert("please fill The Street Address")
             setTypeAlert("warning");
             setShowAlert(true);
             setTimeout(() => {
@@ -491,6 +485,15 @@ function ForRentForm() {
 
             }, 2000)
         }
+        if (company.length === 0) {
+            setMessageAlert("please fill The Company Name")
+            setTypeAlert("warning");
+            setShowAlert(true);
+            setTimeout(() => {
+                setShowAlert(false);
+
+            }, 2000)
+        }
         if (company !== ""
             && streetAddress !== ""
             && city !== ""
@@ -507,7 +510,6 @@ function ForRentForm() {
             let formData = new FormData();
             let baseURL = `https://glyphsmarketingbusiness.com/api/GA/en/${state}/business/create`;
             const token = localStorage.getItem('arab_user_token');
-
             formData.append('name', company);
             formData.append('main_id', businessType);
             formData.append('state', state);
@@ -526,7 +528,9 @@ function ForRentForm() {
             formData.append('pinterest', pinterest);
             formData.append('cover', uploadedImage)
             formData.append('logo', uploadedImage2);
-            formData.append("branch_id[]", branchIds);
+            branchIds.forEach((brach) => {
+                formData.append("branch_id[]", brach);
+            })
             images?.forEach((image) => {
                 formData.append("photos[]", image);
             });
@@ -630,6 +634,7 @@ function ForRentForm() {
             }
         }
     }
+    console.log('branchIds>>>>>>>><', branchIds)
     const handlerSetBusinessTest = (e) => {
         const selectedValues = Array.from(e.target.selectedOptions, (option) => option.value);
         const resultIds = subCategorys

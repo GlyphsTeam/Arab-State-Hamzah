@@ -77,14 +77,31 @@
 
 .accordionBodyMobile{
   padding: 3px 10px !important;
+  position: relative;
+  right:10px;
+  
 }
 
 .linkBlock{
   display: block;
+  margin-top:10px;
+}
+.profileNav{
+  display:flex;
+  i{
+    margin-right:10px;
+    margin-top:4px;
+    color:var(--white);
+  }
+}
+.logoutButton i{
+  margin-left:20px;
+}
+.loginButton{
+  font-weight:400;
 }
 
-
-// .categoriesMainDropdown{
+// .categoriesMainDrpdown{
 //   position: relative;
 // }
 
@@ -441,7 +458,9 @@ display: none !important;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    margin-right:50px;
+    position: relative;
+    top: 200px;
     .navMobileMargin {
       margin: 16px 0px 16px 0px;
      

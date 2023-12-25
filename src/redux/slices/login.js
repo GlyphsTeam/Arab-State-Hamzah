@@ -5,6 +5,8 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
   ?  localStorage.getItem("arab_user_name") 
   : 'Guest',
   newField: null, 
+  isLoading: true
+
 };
 
  const userSlice = createSlice({
@@ -17,10 +19,14 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
     setNewField: (state, action) => {
       state.newField = action.payload;
     },
+    setLoading: (state, action) => {
+      state.isLoading = action.payload
+    },
   },
 });
 
- export const { setUsername,setNewField } = userSlice.actions;
+ export const {setLoading, setUsername,setNewField } = userSlice.actions;
+ export const stateCategory = (state=>state.user);
 
  const store = configureStore({
   reducer: {

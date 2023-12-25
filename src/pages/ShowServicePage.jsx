@@ -12,7 +12,6 @@ const ShowServicePage = () => {
   let url = `our_services/show/${id}`
   const [Data] = useAxios(url);
   const data = Data?.data;
-console.log("Data>>>Sh",data?.service?.title)
   return (
     <>
     <Helmet>

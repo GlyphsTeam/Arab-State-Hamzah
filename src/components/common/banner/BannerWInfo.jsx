@@ -16,7 +16,7 @@ const BannerWInfo = ({ data }) => {
 
           <LazyLoadImage className={style.hero} src={item?.media} key={index} alt='Hero' />
           <div className={style.infoDiv}>
-            <LazyLoadImage className={`${style.square} ${i18n.language === 'ar' ? style.squareAr : ''}`} src={require('../../../assets/Images/common/heroSquare.png')} alt="Square"/>
+            <LazyLoadImage  className={`${style.square} ${i18n.language === 'ar' ? style.squareAr : ''}`} src={require('../../../assets/Images/common/heroSquare.png')} alt="Square"/>
             <div className={style.articleDiv}>
               <h2 className={style.mainTitle}>
                 {item?.title}

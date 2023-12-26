@@ -8,17 +8,9 @@ import AdvBanner from "../components/common/AdvBanner";
 import BannerWInfo from "../components/common/banner/BannerWInfo";
 import HomeTitle from "../components/common/title/HomeTitle";
 import { Helmet } from 'react-helmet';
-// import { useEffect } from "react";
 
-function Home({ baseURL }) {
-  // useEffect(() => {
-  //   document.body.classList.add('route-transition');
+function Home() {
 
-  //   setTimeout(() => {
-  //     document.body.classList.remove('route-transition');
-  //   }, 1500); 
-
-  // }, [])
   let urlId;
 
   const [t] = useTranslation();

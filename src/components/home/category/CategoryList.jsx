@@ -6,7 +6,7 @@ import HomeTitle from "../../common/title/HomeTitle";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function CategoryList({ data }) {
-  const [t, i18n] = useTranslation();
+  const [t] = useTranslation();
   const [isWeb, setIsWeb] = useState(false)
 
 
@@ -22,7 +22,6 @@ function CategoryList({ data }) {
   return (
     <>
       <HomeTitle title={t("Our Services")} />
-      {/* <h3>hello</h3> */}
       <div className={style.mainCategoryDiv}>
         <div className={`container ${style.container}`}>
 

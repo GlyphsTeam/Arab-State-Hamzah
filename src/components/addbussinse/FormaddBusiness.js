@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import style from "../../assets/style/formStyle/addbuinsesFrom.module.css";
-import Alert from "../customAlert/Alert";
 import useAxios from "../../hooks/useAxiosGet";
 import { useTranslation } from "react-i18next";
 import Dropzone from "react-dropzone";
-import contactStyle from "../../assets/style/contactUs.module.css";
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -17,28 +15,31 @@ import SpinnerStatic from '../common/Spinner';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import LoadingSpiner from "../Button/LoadingSpiner";
+import InputSelect from "../UI/InputSelect";
 function ForRentForm() {
 
     const [t, i18n] = useTranslation();
     const navigation = useNavigate();
     const [showAlert, setShowAlert] = useState(false);
     const titleBussines = "Business Form"
-    const [company, setCompany] = useState("");
+    const companyName = useRef(null);
+    const street = useRef(null);
+    const postalCode = useRef(null);
+    const phone = useRef(null);
+    const websiteUrl = useRef(null);
+    const emailForm = useRef(null);
+    const businessDes = useRef(null);
+    const faceBook = useRef(null);
+    const pinterestLine = useRef(null);
+    const instagramRef = useRef(null);
+    const twitterRef = useRef(null);
+    const youtubeRef = useRef(null);
+    const tikTokRef = useRef(null);
+
     const [businessType, setBusinessType] = useState("2");
-    const [streetAddress, setStreetAddress] = useState("");
     const [city, setCity] = useState("");
     const [state, setState] = useState("");
-    const [code, setCode] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState("");
-    const [website, setWebsite] = useState("");
-    const [email, setEmail] = useState("");
-    const [pinterest, setPinterest] = useState("");
-    const [businsesLine, setbusinsesLine] = useState("");
-    const [facebook, setFaceBook] = useState("");
-    const [instagram, setInstagram] = useState("");
-    const [twitter, setTwitter] = useState("");
-    const [youtube, setYoutube] = useState("");
-    const [tikTok, setTikTok] = useState("");
+
     const [inputFields, setInputFields] = useState([{ id: 0, text: '' }]);
     const [nextId, setNextId] = useState(1);
     const [messageAlert, setMessageAlert] = useState("");
@@ -232,16 +233,8 @@ function ForRentForm() {
     }
 
 
-    const [showImageInput, setShowImageInput] = useState(true);
-    const [show, setShow] = useState(false);
-    const [success, setSuccess] = useState(false);
-    const [showTitleWarn, setShowTitleWarn] = useState(false);
-    const [showPlaceWarn, setShowPlaceWarn] = useState(false);
+
     const [count, setCount] = useState();
-    const [showImageWarn, setShowImageWarn] = useState(false);
-    const [descriptionWarning, setDescriptionWarning] = useState(false);
-    // let subId = businessType;
-    // let subCategoryUrl = `main-categories/${businessType}/sub-categories`;
 
     let urlStates = 'state_page/business';
     let urlCategories = 'main-categories'
@@ -283,7 +276,20 @@ function ForRentForm() {
         getSubCategory()
     }, [businessType])
 
-    const handleChangeCity = (e) => {
+    const handlerSetBusinessTest = useCallback((e) => {
+        const selectedValues = Array.from(e.target.selectedOptions, (option) => option.value);
+        const resultIds = subCategorys
+            .filter(item => selectedValues.includes(item.id.toString()))
+            .map(item => ({ id: item.id, name: item.name }));
+        resultIds.forEach((item) => {
+            if (!branchIds.includes(String(item.id))) {
+                setSelectedOptions([...selectedOptions, item]);
+                setBranchIds([...branchIds, ...selectedValues]);
+            }
+        })
+    },[selectedOptions]);
+    
+    const handleChangeCity = useCallback((e) => {
         setState(e.target.value);
         let cityName = statesAndcityes?.find((item) => {
             return item?.id === parseInt(e.target.value);
@@ -293,10 +299,16 @@ function ForRentForm() {
         })
         setCity(subCity[0]);
         setCitys(subCity);
-    }
-    const handlerSetBusiness = (e) => {
+    }, [state]);
+
+    const handlerSetBusiness = useCallback((e) => {
         setBusinessType(e.target.value);
-    }
+    }, [businessType]);
+
+    const handlerCity = useCallback((e) => {
+        setCity(e.target.value)
+    }, [city]);
+    
     const handleImageDrop = (acceptedFiles) => {
         if (images.length + acceptedFiles?.length > 6) {
             setMessageAlert("You can upload only 6 images.")
@@ -370,11 +382,11 @@ function ForRentForm() {
 
     const handlerSubmitForm = async (e) => {
         e.preventDefault()
-      
+
         if (businessType.length === "") {
             setBusinessType("2")
         }
-   
+
         if (city === "") {
             setMessageAlert("please fill The  City")
             setTypeAlert("warning");
@@ -385,7 +397,7 @@ function ForRentForm() {
             }, 2000)
         }
 
-     
+
         if (images.length < 3) {
             setMessageAlert("please Upload your Main Photos  at least three")
             setTypeAlert("warning");
@@ -413,7 +425,7 @@ function ForRentForm() {
 
             }, 2000)
         }
-        if (businsesLine === "") {
+        if (businessDes.current?.value === "") {
             setMessageAlert("please fill The Business Description")
             setTypeAlert("warning");
             setShowAlert(true);
@@ -422,7 +434,7 @@ function ForRentForm() {
 
             }, 2000)
         }
-        if (email === "") {
+        if (emailForm.current?.value === "") {
             setMessageAlert("please fill Your Email")
             setTypeAlert("warning");
             setShowAlert(true);
@@ -431,7 +443,7 @@ function ForRentForm() {
 
             }, 2000)
         }
-        if (phoneNumber === "") {
+        if (phone.current?.value === "") {
             setMessageAlert("please fill The Phone Number ")
             setTypeAlert("warning");
             setShowAlert(true);
@@ -440,7 +452,7 @@ function ForRentForm() {
 
             }, 2000)
         }
-        if (code === "") {
+        if (postalCode.current?.value === "") {
             setMessageAlert("please fill The  Postal Code")
             setTypeAlert("warning");
             setShowAlert(true);
@@ -458,7 +470,7 @@ function ForRentForm() {
 
             }, 2000)
         }
-        if (streetAddress === "") {
+        if (street.current?.value === "") {
             setMessageAlert("please fill The Street Address")
             setTypeAlert("warning");
             setShowAlert(true);
@@ -485,7 +497,7 @@ function ForRentForm() {
 
             }, 2000)
         }
-        if (company.length === 0) {
+        if (companyName.current?.value === "") {
             setMessageAlert("please fill The Company Name")
             setTypeAlert("warning");
             setShowAlert(true);
@@ -494,14 +506,15 @@ function ForRentForm() {
 
             }, 2000)
         }
-        if (company !== ""
-            && streetAddress !== ""
+        if (
+            companyName.current?.value !== "" &&
+            street.current?.value !== ""
             && city !== ""
             && state !== ""
-            && code !== ""
-            && phoneNumber !== ""
-            && email !== ""
-            && businsesLine !== ""
+            && postalCode.current?.value !== ""
+            && phone.current?.value !== ""
+            && emailForm.current?.value !== ""
+            && businessDes.current?.value !== ""
             && inputFields.length > 0
             && images.length >= 2
             && images2.length >= 2
@@ -510,22 +523,22 @@ function ForRentForm() {
             let formData = new FormData();
             let baseURL = `https://glyphsmarketingbusiness.com/api/GA/en/${state}/business/create`;
             const token = localStorage.getItem('arab_user_token');
-            formData.append('name', company);
+            formData.append('name', companyName.current?.value);
             formData.append('main_id', businessType);
             formData.append('state', state);
             formData.append("city", city);
-            formData.append('zip_code', code);
-            formData.append('address', streetAddress);
-            formData.append('phone_number', phoneNumber);
-            formData.append('email', email);
-            formData.append('description', businsesLine);
-            formData.append('website_url', website);
-            formData.append('facebook', facebook);
-            formData.append('twitter', twitter);
-            formData.append('instagram', instagram);
-            formData.append('youtube', youtube);
-            formData.append('tiktok', tikTok);
-            formData.append('pinterest', pinterest);
+            formData.append('zip_code', postalCode.current?.value);
+            formData.append('address', street.current?.value);
+            formData.append('phone_number', phone.current?.value);
+            formData.append('email', emailForm.current?.value);
+            formData.append('description', businessDes.current?.value);
+            formData.append('website_url', websiteUrl.current?.value);
+            formData.append('facebook', faceBook.current?.value);
+            formData.append('twitter', twitterRef.current?.value);
+            formData.append('instagram', instagramRef.current?.value);
+            formData.append('youtube', youtubeRef.current?.value);
+            formData.append('tiktok', tikTokRef.current?.value);
+            formData.append('pinterest', pinterestLine.current?.value);
             formData.append('cover', uploadedImage)
             formData.append('logo', uploadedImage2);
             branchIds.forEach((brach) => {
@@ -559,22 +572,22 @@ function ForRentForm() {
                     setMessageAlert("Your Post Has been Published successfully");
                     setTypeAlert("success");
                     setShowAlert(true);
-                    setCompany("");
+                    companyName.current = null;
+                    street.current = null;
+                    postalCode.current = null;
+                    phone.current = null;
+                    emailForm.current = null;
+                    businessDes.current = null;
+                    youtubeRef.current = null;
+                    tikTokRef.current = null;
+                    instagramRef.current = null;
+                    faceBook.current = null;
+                    pinterestLine.current = null;
+                    websiteUrl.current = null;
+                    twitterRef.current = null;
                     setBusinessType("");
-                    setStreetAddress("");
                     setCity("");
                     setState("");
-                    setCode("");
-                    setPhoneNumber("");
-                    setWebsite("");
-                    setEmail("");
-                    setPinterest("");
-                    setbusinsesLine("");
-                    setFaceBook("");
-                    setInstagram("");
-                    setTwitter("");
-                    setYoutube("");
-                    setTikTok("");
                     setInputFields([{ id: 0, text: '' }]);
                     setImages([]);
                     setImages2([]);
@@ -634,19 +647,7 @@ function ForRentForm() {
             }
         }
     }
-    console.log('branchIds>>>>>>>><', branchIds)
-    const handlerSetBusinessTest = (e) => {
-        const selectedValues = Array.from(e.target.selectedOptions, (option) => option.value);
-        const resultIds = subCategorys
-            .filter(item => selectedValues.includes(item.id.toString()))
-            .map(item => ({ id: item.id, name: item.name }));
-        resultIds.forEach((item) => {
-            if (!branchIds.includes(String(item.id))) {
-                setSelectedOptions([...selectedOptions, item]);
-                setBranchIds([...branchIds, ...selectedValues]);
-            }
-        })
-    };
+
     const handleRemoveFromBranchIds = (value) => {
         setBranchIds((prevBranchIds) => prevBranchIds.filter((id) => id !== String(value)));
 
@@ -663,15 +664,6 @@ function ForRentForm() {
             <form className={style.formDiv} >
                 <div className={style.formFlex}>
                     <div>
-                        {showImageInput && (
-                            <>
-                                {showImageWarn && (
-                                    <p className={contactStyle.contactValidation}>
-                                        {t("Image is required")}
-                                    </p>
-                                )}
-                            </>
-                        )}
                         <div className={style.inputDiv}>
                             <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold" }} className={style.labelStyle}>{t("Company Name")}</label>
                             <input
@@ -679,56 +671,29 @@ function ForRentForm() {
                                 type="text"
                                 id="company"
                                 placeholder={t("Company Name")}
-                                value={company}
                                 className={style.inputForm}
-                                onChange={(e) => setCompany(e.target.value)}
+                                ref={companyName}
                             />
                         </div>
-                        {showTitleWarn && (
-                            <p className={contactStyle.contactValidation}>
-                                {t("Company Name is required")}
-                            </p>
-                        )}
-
                         <>
                             <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Your Business Type")}</label>
                             <div className={`${style.inputDiv}`}>
-                                <select
+                                <InputSelect
+                                    handlerChange={handlerSetBusiness}
                                     name="businessType"
-                                    required
-                                    id="businessType"
-                                    value={businessType}
-                                    onChange={(e) => handlerSetBusiness(e)}
-                                >
-                                    {mirgeCate && mirgeCate?.map((item) => {
-                                        return (
-                                            <option key={item?.id} value={item?.id}>
-                                                {item?.name}
-                                            </option>
-                                        );
-                                    })}
-                                </select>
+                                    inputValue={businessType}
+                                    optionsValue={mirgeCate}
+                                />
                             </div>
                             {LoadingSub && <LoadingSpiner />}
                         </>
                         {!hiddenBussines && <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Business Subcategories(Select one or more)")}</label>}
                         {!hiddenBussines && <div className={`${style.inputDiv}`}>
-                            <select
+                            <InputSelect
+                                handlerChange={handlerSetBusinessTest}
                                 name="SubbusinessType"
-                                required
-                                id="SubbusinessType"
-                                onChange={(e) => handlerSetBusinessTest(e)}
-                            >
-                                {subCategorys.length !== 0 && subCategorys?.map((item) => {
-                                    const isSelected = branchIds.includes(item.id);
-
-                                    return (
-                                        <option key={item?.id} value={item?.id} selected={isSelected} >
-                                            {item?.name}
-                                        </option>
-                                    );
-                                })}
-                            </select>
+                                optionsValue={subCategorys}
+                            />
                             {selectedOptions.length !== 0 && selectedOptions?.map((sub) => {
                                 return <div className={style.optionsContainer} key={sub?.id}>
                                     <li>{sub?.name}</li>
@@ -736,8 +701,6 @@ function ForRentForm() {
                                 </div>
                             })}
                         </div>}
-                        { }
-
                         <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }} className={`${style.labelStyle}`}>{t("Your Business Cover")}</label>
                         <div className={` ${style.uploadImageDiv} ${style.uploadBorder}`}>
                             <Dropzone onDrop={handleImageDropOne}>
@@ -792,9 +755,8 @@ function ForRentForm() {
                         type="text"
                         id="Street Address"
                         placeholder={t("Street Address")}
-                        value={streetAddress}
+                        ref={street}
                         className={style.inputForm}
-                        onChange={(e) => setStreetAddress(e.target.value)}
                     />
                 </div>
                 <div className={style.inputDiv}>
@@ -803,45 +765,21 @@ function ForRentForm() {
                 <div className={style.inputFlex}>
                     <div className={style.inputDiv}>
                         <label style={{ color: "rgba(190, 0, 64, 1)", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("State / Province")}</label>
-                        <select
-                            placeholder="select a city"
+                        <InputSelect
                             name="State"
-                            required
-                            id="State"
-                            className={style.cityInput}
-                            value={state}
-                            onChange={(e) => handleChangeCity(e)}
-                            style={{ width: '322px' }}
-                        >
-                            <option>Select</option>
-                            {statesAndcityes?.map((item) => {
-                                return (
-                                    <option key={item?.id} value={item?.id}>
-                                        {item?.state_name}
-                                    </option>
-                                );
-                            })}
-                        </select>
+                            inputValue={state}
+                            handlerChange={handleChangeCity}
+                            optionsValue={statesAndcityes}
+                        />
                     </div>
                     <div className={style.inputDiv}>
                         <label style={{ color: "rgba(190, 0, 64, 1)", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("City")}</label>
-                        <select
+                        <InputSelect
                             name="City"
-                            id="City"
-                            required
-                            className={style.cityInput}
-                            value={city}
-                            onChange={(e) => setCity(e.target.value)}
-                            style={{ width: '322px' }}
-                        >
-                            {cities?.map((item) => {
-                                return (
-                                    <option key={item} value={item}>
-                                        {item}
-                                    </option>
-                                );
-                            })}
-                        </select>
+                            inputValue={city}
+                            handlerChange={handlerCity}
+                            optionsValue={cities}
+                        />
                     </div>
                 </div>
                 <div className={style.inputDiv}>
@@ -852,9 +790,8 @@ function ForRentForm() {
                         required
                         id="Code"
                         placeholder={t("Postal / Zip Code")}
-                        value={code}
                         className={style.cityInput}
-                        onChange={(e) => setCode(e.target.value)}
+                        ref={postalCode}
                     />
                 </div>
                 <div className={style.inputFlex}>
@@ -866,9 +803,8 @@ function ForRentForm() {
                             type="text"
                             id="phoneNumber"
                             placeholder={t("123-456-789")}
-                            value={phoneNumber}
                             className={style.cityInput}
-                            onChange={(e) => setPhoneNumber(e.target.value)}
+                            ref={phone}
                         />
                     </div>
                     <div className={style.inputDiv}>
@@ -878,9 +814,8 @@ function ForRentForm() {
                             type="text"
                             id="website"
                             placeholder={t("www.domain.com")}
-                            value={website}
                             className={style.cityInput}
-                            onChange={(e) => setWebsite(e.target.value)}
+                            ref={websiteUrl}
                         />
                     </div>
                 </div>
@@ -893,9 +828,8 @@ function ForRentForm() {
                             id="email"
                             required
                             placeholder={t("example@example.com")}
-                            value={email}
                             className={style.cityInput}
-                            onChange={(e) => setEmail(e.target.value)}
+                            ref={emailForm}
                         />
                     </div>
                     <div className={style.inputDiv}>
@@ -910,9 +844,8 @@ function ForRentForm() {
                         required
                         id="businsesLine"
                         placeholder={t("Description")}
-                        value={businsesLine}
                         className={style.textAreayInput}
-                        onChange={(e) => setbusinsesLine(e.target.value)}
+                        ref={businessDes}
                     />
                 </div>
                 <div className={style.inputDiv}>
@@ -939,9 +872,8 @@ function ForRentForm() {
                             name="facebook"
                             type="email"
                             id="facebook"
-                            value={facebook}
                             className={style.cityInput}
-                            onChange={(e) => setFaceBook(e.target.value)}
+                            ref={faceBook}
                         />
                     </div>
                     <div className={style.inputDiv}>
@@ -950,9 +882,8 @@ function ForRentForm() {
                             name="instagram"
                             type="email"
                             id="instagram"
-                            value={instagram}
+                            ref={instagramRef}
                             className={style.cityInput}
-                            onChange={(e) => setInstagram(e.target.value)}
                         />
                     </div>
                 </div>
@@ -963,9 +894,8 @@ function ForRentForm() {
                             name="twitter"
                             type="email"
                             id="twitter"
-                            value={twitter}
+                            ref={twitterRef}
                             className={style.cityInput}
-                            onChange={(e) => setTwitter(e.target.value)}
                         />
                     </div>
                     <div className={style.inputDiv}>
@@ -974,9 +904,8 @@ function ForRentForm() {
                             name="youtube"
                             type="email"
                             id="youtube"
-                            value={youtube}
+                            ref={youtubeRef}
                             className={style.cityInput}
-                            onChange={(e) => setYoutube(e.target.value)}
                         />
                     </div>
                     <div className={style.inputDiv}>
@@ -985,9 +914,8 @@ function ForRentForm() {
                             name="tikTok"
                             type="email"
                             id="tiktok"
-                            value={tikTok}
                             className={style.cityInput}
-                            onChange={(e) => setTikTok(e.target.value)}
+                            ref={tikTokRef}
                         />
                     </div>
                     <div className={style.inputDiv}>
@@ -996,9 +924,8 @@ function ForRentForm() {
                             name="Pinterest"
                             type="email"
                             id="Pinterest"
-                            value={pinterest}
                             className={style.cityInput}
-                            onChange={(e) => setPinterest(e.target.value)}
+                            ref={pinterestLine}
                         />
                     </div>
                 </div>
@@ -1026,7 +953,6 @@ function ForRentForm() {
                                     <div key={image.name} className={style.imageContainer}>
                                         <LazyLoadImage
                                             src={URL.createObjectURL(image)}
-                                            // className={style.image}
                                             alt=""
                                             width='150'
                                             height='150'
@@ -1068,7 +994,6 @@ function ForRentForm() {
                                     <div key={image.name} className={style.imageContainer}>
                                         <LazyLoadImage
                                             src={URL.createObjectURL(image)}
-                                            // className={style.image}
                                             alt=""
                                             width='150'
                                             height='150'
@@ -1241,33 +1166,6 @@ function ForRentForm() {
                         </div>
                     </div>
                 </div>
-
-                {descriptionWarning && (
-                    <p className={contactStyle.contactValidation}>
-                        {t("Description is required")}
-                    </p>
-                )}
-                {success ? (
-                    <Alert
-                        type="success"
-                        message={t("Your post submitted successfully and it's under review")}
-                        show={show}
-                        setShow={setShow}
-                        time="4000"
-                        count={count}
-                        setCount={setCount}
-                    />
-                ) : (
-                    <Alert
-                        type="warning"
-                        message={t("Please fill phone number or email address")}
-                        show={show}
-                        setShow={setShow}
-                        time="4000"
-                        count={count}
-                        setCount={setCount}
-                    />
-                )}
             </form>
             <div className={style.formBtnContainer}>
                 <button type="submit" className={style.formBtn} onClick={handlerSubmitForm}>

@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function Card({ data }) {
-  const [t, i18n] = useTranslation();
+  const [t] = useTranslation();
 
   return (
     <>

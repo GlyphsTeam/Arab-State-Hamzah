@@ -6,11 +6,10 @@
   padding-top: 30px;
 }
 .categoryImage{
-  margin-left: -25px;
   margin-top: -20px;
 }
 .categoryImageAr{
-  margin-right: -25px;
+  margin-right: 0;
 }
 .categoryImageFilter {
   filter: brightness(0.5);
@@ -36,7 +35,6 @@
   align-items: center;
   position: relative;
   top: -20px;
-  right: 8px;
 }
 .categoryContainer img {
   object-fit: cover;

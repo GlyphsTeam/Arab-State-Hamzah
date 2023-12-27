@@ -1,61 +1,62 @@
 import style from "../../../assets/style/common/banner.module.css";
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 function Banner({ data }) {
   const [t, i18n] = useTranslation();
-  const settings = {
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    pauseOnHover: true,
-    // fade: true,
-    arrows: false,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 380,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+  console.log("data>>Ba",data)
+  // const settings = {
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   autoplay: true,
+  //   autoplaySpeed: 5000,
+  //   pauseOnHover: true,
+  //   fade: true,
+  //   arrows: false,
+  //   responsive: [
+  //     {
+  //       breakpoint: 1024,
+  //       settings: {
+  //         slidesToShow: 1,
+  //         slidesToScroll: 1,
+  //       },
+  //     },
+  //     {
+  //       breakpoint: 600,
+  //       settings: {
+  //         slidesToShow: 1,
+  //         slidesToScroll: 1,
+  //       },
+  //     },
+  //     {
+  //       breakpoint: 480,
+  //       settings: {
+  //         slidesToShow: 1,
+  //         slidesToScroll: 1,
+  //       },
+  //     },
+  //     {
+  //       breakpoint: 380,
+  //       settings: {
+  //         slidesToShow: 1,
+  //         slidesToScroll: 1,
+  //       },
+  //     },
+  //   ],
+  // };
   return (
     <div className={`${style.categoryContainer} `}>
-      <Slider {...settings}>
+      {/* <Slider {...settings}> */}
         {data?.map((item, index) => (
           <Link to={item.url} target={item.url ? "blank" : "_self"} key={index}>
             <div className={style.categoryContainerDiv}>
               {item.type === "image" ? (
                 <LazyLoadImage
-                src={item?.media}
+                src={item.media}
                 alt="ad"
                 className={i18n.language==='en'?style.categoryImage:style.categoryImageAr}
                 />
@@ -76,7 +77,6 @@ function Banner({ data }) {
               <div className={style.bannerText}>
                 <h1>{t(item?.title)}</h1>
                 <p>{item?.description}</p>
-                {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> */}
               </div>
               {item?.city && (
                 <div className={style.cityDiv}>
@@ -86,7 +86,7 @@ function Banner({ data }) {
             </div>
           </Link>
         ))}
-      </Slider>
+      {/* </Slider> */}
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import style from "../../assets/style/homePage/job.module.css";
 import { useTranslation } from "react-i18next";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import ButtonFour from "../Button/ButtonFour";
 
 function Card({ data }) {
   const [t] = useTranslation();
@@ -20,7 +21,9 @@ function Card({ data }) {
           </div>
           <div className={style.descriptionParagraphDiv}>
             <h2 className={style.cardTitle}>{data?.title}</h2>
-            <h2 className={style.cardText}>{t("find more")}</h2>
+            <ButtonFour>
+            {t("find more")}
+            </ButtonFour>
           </div>
         </Link>
       )}

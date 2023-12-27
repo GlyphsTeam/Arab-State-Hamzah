@@ -11,8 +11,8 @@ function useAxios(url, loading) {
   const cityId = localStorage.getItem("cityId");
   const city_ID = process.env.REACT_APP_City_ID;
   let loadingStatus;
-  if(loading){
-    loadingStatus = loading;
+  if(loading==="false"){
+    loadingStatus = false;
   }
   else{
     loadingStatus = true;

@@ -18,6 +18,7 @@ function BlogPage() {
   const pathName = urlpath.pathname;
   let urlId;
   const titlePage = "Blog Page";
+  console.log("cccc>>>",blogData)
   return (
     <>
     <Helmet>

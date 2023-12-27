@@ -2,11 +2,6 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 import style from "../../assets/style/formStyle/addbuinsesFrom.module.css";
 import useAxios from "../../hooks/useAxiosGet";
 import { useTranslation } from "react-i18next";
-import Dropzone from "react-dropzone";
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { Link } from "react-router-dom";
 import AlertBussiness from "../common/alert/Alert";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
@@ -16,6 +11,9 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import LoadingSpiner from "../Button/LoadingSpiner";
 import InputSelect from "../UI/InputSelect";
+import BusinessTime from "./BusinessTime";
+import ImageSelector from "../UI/ImageSelector";
+import ButtonTwo from "../Button/ButtonTwo";
 function ForRentForm() {
 
     const [t, i18n] = useTranslation();
@@ -35,11 +33,9 @@ function ForRentForm() {
     const twitterRef = useRef(null);
     const youtubeRef = useRef(null);
     const tikTokRef = useRef(null);
-
     const [businessType, setBusinessType] = useState("2");
     const [city, setCity] = useState("");
     const [state, setState] = useState("");
-
     const [inputFields, setInputFields] = useState([{ id: 0, text: '' }]);
     const [nextId, setNextId] = useState(1);
     const [messageAlert, setMessageAlert] = useState("");
@@ -58,37 +54,44 @@ function ForRentForm() {
     const [work_times, setwork_times] = useState([{
         day_type: "Mon",
         time_from: "09:00 AM",
-        time_to: "09:00 PM"
+        time_to: "09:00 PM",
+        day: "Monday"
     },
     {
         day_type: "Tue",
         time_from: "09:00 AM",
-        time_to: "09:00 PM"
+        time_to: "09:00 PM",
+        day: "Tuseday"
     },
     {
         day_type: "Wed",
         time_from: "09:00 AM",
-        time_to: "09:00 PM"
+        time_to: "09:00 PM",
+        day: "Wednesday"
     },
     {
         day_type: "Thu",
         time_from: "09:00 AM",
-        time_to: "09:00 PM"
+        time_to: "09:00 PM",
+        day: "Thursday"
     },
     {
         day_type: "Fri",
         time_from: "09:00 AM",
-        time_to: "09:00 PM"
+        time_to: "09:00 PM",
+        day: "Friday"
     },
     {
         day_type: "Sat",
         time_from: "09:00 AM",
-        time_to: "09:00 PM"
+        time_to: "09:00 PM",
+        day: "Saturday"
     },
     {
         day_type: "Sun",
         time_from: "09:00 AM",
-        time_to: "09:00 PM"
+        time_to: "09:00 PM",
+        day: "Sunday"
     },
     ]);
     const updateWorkTimeFrom = (updatedDay, newTimeFrom) => {
@@ -133,75 +136,8 @@ function ForRentForm() {
         const updatedFields = inputFields.filter((field) => field.id !== id);
         setInputFields(updatedFields);
     };
-    const handleMondayTimeChange = (newTime) => {
-        let date = convertToDateString(newTime);
-        updateWorkTimeFrom('Mon', date);
-    };
-    const handleMondayEndTimeChange = (newTime) => {
-        let date = convertToDateString(newTime);
-        updateWorkTimeTo('Mon', date)
-    };
-    const handleTusedayTimeChange = (newTime) => {
-        let date = convertToDateString(newTime);
-        updateWorkTimeFrom('Tue', date);
 
-    };
-    const handleTusedayEndTimeChange = (newTime) => {
-        let date = convertToDateString(newTime);
-        updateWorkTimeTo('Tue', date)
-
-    };
-    const handleWednesdayTimeChange = (newTime) => {
-        let date = convertToDateString(newTime);
-        updateWorkTimeFrom('Wed', date);
-
-    };
-    const handleWednesdayEndTimeChange = (newTime) => {
-        let date = convertToDateString(newTime);
-        updateWorkTimeTo('Wed', date)
-
-    };
-    const handleThursdayTimeChange = (newTime) => {
-        let date = convertToDateString(newTime);
-        updateWorkTimeFrom('Thu', date);
-
-    };
-    const handleThursdayEndTimeChange = (newTime) => {
-        let date = convertToDateString(newTime);
-        updateWorkTimeTo('Thu', date)
-
-    };
-    const handleFridayTimeChange = (newTime) => {
-        let date = convertToDateString(newTime);
-        updateWorkTimeFrom('Fri', date);
-
-    };
-    const handleFridayEndTimeChange = (newTime) => {
-        let date = convertToDateString(newTime);
-        updateWorkTimeTo('Fri', date)
-
-    };
-    const handleSaturdayTimeChange = (newTime) => {
-        let date = convertToDateString(newTime);
-        updateWorkTimeFrom('Sat', date);
-
-    };
-    const handleSaturdayEndTimeChange = (newTime) => {
-        let date = convertToDateString(newTime);
-        updateWorkTimeTo('Sat', date)
-
-    };
-    const handleSundayyTimeChange = (newTime) => {
-        let date = convertToDateString(newTime);
-        updateWorkTimeFrom('Sun', date);
-
-    };
-    const handleSundayEndTimeChange = (newTime) => {
-        let date = convertToDateString(newTime);
-        updateWorkTimeTo('Sun', date)
-
-    };
-    const handleImageDropOne = (acceptedFiles) => {
+    const handleImageDropOne = useCallback((acceptedFiles) => {
         const isImage = acceptedFiles.every(file => file.type.startsWith('image/'));
         if (isImage) {
             const image = acceptedFiles[0]
@@ -214,9 +150,9 @@ function ForRentForm() {
                 setShowAlert(false);
             }, 3000)
         }
-    };
+    }, [uploadedImage]);
 
-    const handleImageDropTwo = (acceptedFiles) => {
+    const handleImageDropTwo = useCallback((acceptedFiles) => {
         const isImage = acceptedFiles.every(file => file.type.startsWith('image/'));
         if (isImage) {
             const image = acceptedFiles[0];
@@ -230,7 +166,7 @@ function ForRentForm() {
                 setShowAlert(false);
             }, 3000)
         }
-    }
+    }, [uploadedImage2])
 
 
 
@@ -287,8 +223,8 @@ function ForRentForm() {
                 setBranchIds([...branchIds, ...selectedValues]);
             }
         })
-    },[selectedOptions]);
-    
+    }, [selectedOptions]);
+
     const handleChangeCity = useCallback((e) => {
         setState(e.target.value);
         let cityName = statesAndcityes?.find((item) => {
@@ -308,8 +244,18 @@ function ForRentForm() {
     const handlerCity = useCallback((e) => {
         setCity(e.target.value)
     }, [city]);
-    
-    const handleImageDrop = (acceptedFiles) => {
+
+    const handlerDayChangeFrom = useCallback((newTime, day) => {
+        let date = convertToDateString(newTime);
+        updateWorkTimeFrom(day, date)
+    }, []);
+
+    const handlerDayChangeTo = useCallback((newTime, day) => {
+        let date = convertToDateString(newTime);
+        updateWorkTimeTo(day, date)
+    }, []);
+
+    const handleImageDrop = useCallback((acceptedFiles) => {
         if (images.length + acceptedFiles?.length > 6) {
             setMessageAlert("You can upload only 6 images.")
             setTypeAlert("warning");
@@ -333,14 +279,14 @@ function ForRentForm() {
             }
         }
 
-    };
+    }, [images]);
 
     const handleRemoveImage = (index) => {
         const updatedImages = [...images];
         updatedImages.splice(index, 1);
         setImages(updatedImages);
     };
-    const handleImageDrop2 = (acceptedFiles) => {
+    const handleImageDrop2 = useCallback((acceptedFiles) => {
         if (images2.length + acceptedFiles?.length > 10) {
             setMessageAlert("You can upload only 10 images.")
             setTypeAlert("warning");
@@ -363,7 +309,7 @@ function ForRentForm() {
                 }, 3000)
             }
         }
-    };
+    }, [images2])
 
     const handleRemoveImage2 = (index) => {
         const updatedImages = [...images2];
@@ -521,7 +467,7 @@ function ForRentForm() {
             && uploadedImage !== null
             && uploadedImage2 !== null) {
             let formData = new FormData();
-            let baseURL = `https://glyphsmarketingbusiness.com/api/GA/en/${state}/business/create`;
+            let baseURL = `https://glyphsmarketingbusiness.com/api/${process.env.REACT_APP_City}/en/${state}/business/create`;
             const token = localStorage.getItem('arab_user_token');
             formData.append('name', companyName.current?.value);
             formData.append('main_id', businessType);
@@ -655,7 +601,7 @@ function ForRentForm() {
     };
     return (
         <>
-            {isLoadingBusines && <SpinnerStatic text="Please do not close the page. Business form submission may take a few minutes. Thank you for your patience!" />}
+            {isLoadingBusines && <SpinnerStatic text={true} />}
             <Helmet>
                 <title>{titleBussines}</title>
                 <meta name="description" content={titleBussines} />
@@ -703,42 +649,22 @@ function ForRentForm() {
                         </div>}
                         <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }} className={`${style.labelStyle}`}>{t("Your Business Cover")}</label>
                         <div className={` ${style.uploadImageDiv} ${style.uploadBorder}`}>
-                            <Dropzone onDrop={handleImageDropOne}>
-                                {({ getRootProps, getInputProps }) => (
-                                    <div {...getRootProps()}>
-                                        <input {...getInputProps()} required accept="image/*" />
-                                        <div className={style.postHousingUploadImage}>
-                                            <LazyLoadImage
-                                                src={!uploadedImage ? require("../../assets/Images/uploadBlack.png") : URL.createObjectURL(uploadedImage)}
-                                                alt="uploadImageform"
-                                                style={{ marginTop: "-36px", marginRight: '10px' }}
-                                            />
-                                        </div>
-                                    </div>
-                                )}
-                            </Dropzone>
-
+                            <ImageSelector
+                                handlerDrop={handleImageDropOne}
+                                uploadStyle="postHousingUploadImage"
+                                uploadedImage={uploadedImage}
+                            />
                         </div>
                     </div>
 
                     <div>
                         <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("Upload Business Logo")}</label>
                         <div className={` ${style.uploadImageDiv} ${style.uploadBorder}`}>
-                            <Dropzone onDrop={handleImageDropTwo}>
-                                {({ getRootProps, getInputProps }) => (
-                                    <div {...getRootProps()}>
-                                        <input {...getInputProps()} required accept="image/*" />
-                                        <div className={style.postHousingUploadImage}>
-                                            <LazyLoadImage
-                                                src={!uploadedImage2 ? require("../../assets/Images/uploadBlack.png") : URL.createObjectURL(uploadedImage2)}
-                                                alt="uploadImageform"
-                                                style={{ marginTop: '-40px' }}
-                                            />
-                                        </div>
-                                    </div>
-                                )}
-                            </Dropzone>
-
+                            <ImageSelector
+                                handlerDrop={handleImageDropTwo}
+                                uploadStyle="postHousingUploadImage"
+                                uploadedImage={uploadedImage2}
+                            />
                         </div>
                         <div className={style.helpDiv}>
                             <h3 className={style.h3Help}>{t("Do You Need Any Help! Contact Us")}</h3>
@@ -933,21 +859,11 @@ function ForRentForm() {
                     <div>
                         <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("Main Photos of Your Business - 6 Pic")}</label>
                         <div className={` ${style.uploadImageDiv}`}>
-                            <Dropzone onDrop={handleImageDrop}>
-                                {({ getRootProps, getInputProps }) => (
-                                    <div {...getRootProps()}>
-                                        <input {...getInputProps()} required accept="image/*" />
-                                        <div className={style.mainPh}>
-                                            <LazyLoadImage
-                                                src={require("../../assets/Images/uploadBlack.png")}
-                                                alt="uploadImageform"
-                                                style={{ marginTop: '-10px' }}
-                                            />
-                                            <p>{t("Add Photos")}</p>
-                                        </div>
-                                    </div>
-                                )}
-                            </Dropzone>
+                            <ImageSelector
+                                handlerDrop={handleImageDrop}
+                                textButton="Add Photos"
+                                uploadStyle="mainPh"
+                            />
                             <div className={style.imageContainerDiv}>
                                 {images?.map((image, index) => (
                                     <div key={image.name} className={style.imageContainer}>
@@ -972,23 +888,11 @@ function ForRentForm() {
                     <div>
                         <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("Extra 6-10 photos to gallery")}</label>
                         <div className={` ${style.uploadImageDiv}`}>
-                            <Dropzone onDrop={handleImageDrop2}>
-                                {({ getRootProps, getInputProps }) => (
-                                    <div {...getRootProps()}>
-                                        <input {...getInputProps()} accept="image/*" />
-                                        <div className={style.mainPh}>
-                                            <LazyLoadImage
-                                                src={require("../../assets/Images/uploadBlack.png")}
-                                                alt="uploadImageform"
-                                                style={{ marginTop: '-10px' }}
-
-                                            />
-                                            <p>{t("Add Photos")}</p>
-
-                                        </div>
-                                    </div>
-                                )}
-                            </Dropzone>
+                            <ImageSelector
+                                handlerDrop={handleImageDrop2}
+                                textButton="Add Photos"
+                                uploadStyle="mainPh"
+                            />
                             <div className={style.imageContainerDiv}>
                                 {images2?.map((image, index) => (
                                     <div key={image.name} className={style.imageContainer}>
@@ -1012,165 +916,29 @@ function ForRentForm() {
                     </div>
                 </div>
                 <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold" }}>{t("Your Business Working Hours")}</label><br></br>
-                <label style={{ color: "rgba(190, 0, 64, 1)", fontSize: "25px", fontWeight: "bold" }}>{t("Monday")}</label>
-                <div className={style.inputFlexWeek}>
-                    <div className={style.inputFlexDays}>
-                        <div className={style.inputDiv}>
-                            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DemoContainer components={['TimePicker']}>
-                                    <TimePicker onChange={handleMondayTimeChange} />
-                                </DemoContainer>
-                            </LocalizationProvider>
+                {work_times.map((time) => {
+                    return <>
+                        <label style={{ color: "rgba(190, 0, 64, 1)", fontSize: "25px", fontWeight: "bold" }}>{t(`${time.day}`)}</label>
+                        <div className={style.inputFlexWeek} key={time.day}>
+                            <div className={style.inputFlexDays}>
+                                <div className={style.inputDiv}>
+                                    <BusinessTime day={time.day_type} handlerChange={handlerDayChangeFrom} />
+                                </div>
+                                <div className={style.inputDiv}>
+                                    <h2 className={style.jpgStyle}>{t("Until")}</h2>
+                                </div>
+                                <div className={style.inputDiv}>
+                                    <BusinessTime day={time.day_type} handlerChange={handlerDayChangeTo} />
+                                </div>
+                            </div>
                         </div>
-                        <div className={style.inputDiv}>
-                            <h2 className={style.jpgStyle}>{t("Until")}</h2>
-                        </div>
-                        <div className={style.inputDiv}>
-                            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DemoContainer components={['TimePicker']}>
-                                    <TimePicker onChange={handleMondayEndTimeChange} />
-                                </DemoContainer>
-                            </LocalizationProvider>
-                        </div>
-                    </div>
-                </div>
-                <label style={{ color: "rgba(190, 0, 64, 1)", fontSize: "25px", fontWeight: "bold" }}>{t("Tuseday")}</label>
-                <div className={style.inputFlexWeek}>
-                    <div className={style.inputFlexDays}>
-                        <div className={style.inputDiv}>
-                            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DemoContainer components={['TimePicker']}>
-                                    <TimePicker onChange={handleTusedayTimeChange} />
-                                </DemoContainer>
-                            </LocalizationProvider>
-                        </div>
-                        <div className={style.inputDiv}>
-                            <h2 className={style.jpgStyle}>{t("Until")}</h2>
-                        </div>
-                        <div className={style.inputDiv}>
-                            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DemoContainer components={['TimePicker']}>
-                                    <TimePicker onChange={handleTusedayEndTimeChange} />
-                                </DemoContainer>
-                            </LocalizationProvider>
-                        </div>
-                    </div>
-                </div>
-                <label style={{ color: "rgba(190, 0, 64, 1)", fontSize: "25px", fontWeight: "bold" }}>{t("Wednesday")}</label>
-                <div className={style.inputFlexWeek}>
-                    <div className={style.inputFlexDays}>
-                        <div className={style.inputDiv}>
-                            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DemoContainer components={['TimePicker']}>
-                                    <TimePicker onChange={handleWednesdayTimeChange} />
-                                </DemoContainer>
-                            </LocalizationProvider>
-                        </div>
-                        <div className={style.inputDiv}>
-                            <h2 className={style.jpgStyle}>{t("Until")}</h2>
-                        </div>
-                        <div className={style.inputDiv}>
-                            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DemoContainer components={['TimePicker']}>
-                                    <TimePicker onChange={handleWednesdayEndTimeChange} />
-                                </DemoContainer>
-                            </LocalizationProvider>
-                        </div>
-                    </div>
-                </div>
-                <label style={{ color: "rgba(190, 0, 64, 1)", fontSize: "25px", fontWeight: "bold" }}>{t("Thursday")}</label>
-                <div className={style.inputFlexWeek}>
-                    <div className={style.inputFlexDays}>
-                        <div className={style.inputDiv}>
-                            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DemoContainer components={['TimePicker']}>
-                                    <TimePicker onChange={handleThursdayTimeChange} />
-                                </DemoContainer>
-                            </LocalizationProvider>
-                        </div>
-                        <div className={style.inputDiv}>
-                            <h2 className={style.jpgStyle}>{t("Until")}</h2>
-                        </div>
-                        <div className={style.inputDiv}>
-                            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DemoContainer components={['TimePicker']}>
-                                    <TimePicker onChange={handleThursdayEndTimeChange} />
-                                </DemoContainer>
-                            </LocalizationProvider>
-                        </div>
-                    </div>
-                </div>
-                <label style={{ color: "rgba(190, 0, 64, 1)", fontSize: "25px", fontWeight: "bold" }}>{t("Friday")}</label>
-                <div className={style.inputFlexWeek}>
-                    <div className={style.inputFlexDays}>
-                        <div className={style.inputDiv}>
-                            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DemoContainer components={['TimePicker']}>
-                                    <TimePicker onChange={handleFridayTimeChange} />
-                                </DemoContainer>
-                            </LocalizationProvider>
-                        </div>
-                        <div className={style.inputDiv}>
-                            <h2 className={style.jpgStyle}>{t("Until")}</h2>
-                        </div>
-                        <div className={style.inputDiv}>
-                            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DemoContainer components={['TimePicker']}>
-                                    <TimePicker onChange={handleFridayEndTimeChange} />
-                                </DemoContainer>
-                            </LocalizationProvider>
-                        </div>
-                    </div>
-                </div>
-                <label style={{ color: "rgba(190, 0, 64, 1)", fontSize: "25px", fontWeight: "bold" }}>{t("Saturday")}</label>
-                <div className={style.inputFlexWeek}>
-                    <div className={style.inputFlexDays}>
-                        <div className={style.inputDiv}>
-                            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DemoContainer components={['TimePicker']}>
-                                    <TimePicker onChange={handleSaturdayTimeChange} />
-                                </DemoContainer>
-                            </LocalizationProvider>
-                        </div>
-                        <div className={style.inputDiv}>
-                            <h2 className={style.jpgStyle}>{t("Until")}</h2>
-                        </div>
-                        <div className={style.inputDiv}>
-                            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DemoContainer components={['TimePicker']}>
-                                    <TimePicker onChange={handleSaturdayEndTimeChange} />
-                                </DemoContainer>
-                            </LocalizationProvider>
-                        </div>
-                    </div>
-                </div>
-                <label style={{ color: "rgba(190, 0, 64, 1)", fontSize: "25px", fontWeight: "bold" }}>{t("Sunday")}</label>
-                <div className={style.inputFlexWeek}>
-                    <div className={style.inputFlexDays}>
-                        <div className={style.inputDiv}>
-                            <LocalizationProvider dateAdapter={AdapterDayjs} >
-                                <DemoContainer components={['TimePicker']} >
-                                    <TimePicker onChange={handleSundayyTimeChange} />
-                                </DemoContainer>
-                            </LocalizationProvider>
-                        </div>
-                        <div className={style.inputDiv}>
-                            <h2 className={style.jpgStyle}>{t("Until")}</h2>
-                        </div>
-                        <div className={style.inputDiv}>
-                            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DemoContainer components={['TimePicker']}>
-                                    <TimePicker onChange={handleSundayEndTimeChange} />
-                                </DemoContainer>
-                            </LocalizationProvider>
-                        </div>
-                    </div>
-                </div>
+                    </>
+                })}
             </form>
-            <div className={style.formBtnContainer}>
-                <button type="submit" className={style.formBtn} onClick={handlerSubmitForm}>
+            <div className={style.buttonTwoContainer}>
+                <ButtonTwo handlerClick={handlerSubmitForm} buttonType="submit">
                     {t("Submit")}
-                </button>
+                </ButtonTwo>
             </div>
             {showAlert && (
                 <AlertBussiness

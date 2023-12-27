@@ -19,7 +19,7 @@ function Spinner({ logo, text }) {
           :
           <>
             <BeatLoader color={'#123abc'} loading={true} />
-            {text && <p className={style.loadingMessage}>{text}</p>
+            {text&&<p style={{color:"black"}} className={style.loadingMessage}>Please do not close the page. Business form submission may take a few minutes. Thank you for your patience!</p>
             }
           </>
         }

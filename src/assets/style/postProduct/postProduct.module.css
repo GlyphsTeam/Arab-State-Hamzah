@@ -6,6 +6,9 @@
 .optionMainButton span {
   padding: 10px;
 }
+.buttonTwoP button svg{
+  margin:0.6em 0.8em 1em !important ;
+}
 .plusButton {
 height: fit-content !important;
 margin-bottom: 6px !important;
@@ -88,17 +91,24 @@ form select{
         }
 .registerPage form select {
           margin-bottom: 20px !important;
+          padding: 10px;
           border-radius: 12px !important;
           border: 2px solid var(--primary-color)!important; 
           outline: none;
         }
 .registerPage form textarea {
           width: 100%;
+          padding: 10px;
           min-height: 124px !important;
           resize: none !important;
-          border: 2px solid var(--primary-color)!important; 
+          border: 2px solid var(--primary-color)!important;
           outline: none;
-        }
+          border-radius:8px;
+          -moz-border-radius:8px;
+          -ms-border-radius:8px;
+          -o-border-radius:8px;
+          -webkit-border-radius:8px;
+}
 
 .registerPage  .middleFormInputs {
           display: flex;

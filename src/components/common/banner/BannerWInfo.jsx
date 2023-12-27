@@ -6,6 +6,7 @@ import style from "../../../assets/style/common/bannerWInfo.module.css";
 import { Link } from 'react-router-dom';
 import ReactHtmlParser from "html-react-parser";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+import ButtonThree from "../../Button/ButtonThree";
 const BannerWInfo = ({ data }) => {
   const [t, i18n] = useTranslation();
   return (
@@ -27,7 +28,9 @@ const BannerWInfo = ({ data }) => {
               </p>
 
               <Link className={i18n.language === 'en' ? style.btnLink : style.btnLinkAr} to={'/about'}>
-                <p>{t('Read More')}</p>
+                <ButtonThree>
+                {t('Read More')}
+                </ButtonThree>
               </Link>
             </div>
           </div>

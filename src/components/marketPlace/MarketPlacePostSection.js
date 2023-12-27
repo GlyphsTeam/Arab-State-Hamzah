@@ -10,9 +10,9 @@ import MarketPlacePostOption from "./MarketPlacePostOption";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import SpinnerStatic from '../common/Spinner';
 import { useNavigate } from "react-router-dom";
-
+import ButtonTwo from "../Button/ButtonTwo";
 function MarketPlacePostSection() {
-  const [t, i18n] = useTranslation();
+  const [t] = useTranslation();
   const navigation = useNavigate();
   const [isLoadingMarket, setLoadingMarket] = useState(false);
 
@@ -104,15 +104,15 @@ function MarketPlacePostSection() {
   let colorUrl = `color`;
   let yearUrl = `year`;
   let cityUrl = `cities`;
-  const [Data] = useAxios(colorUrl);
-  const [colorData] = useAxios(yearUrl);
-  const [cityData] = useAxios(cityUrl);
-  const [categoryData] = useAxios(`main-market/categories`);
+  const [Data] = useAxios(colorUrl, "false");
+  const [colorData] = useAxios(yearUrl, "false");
+  const [cityData] = useAxios(cityUrl, "false");
+  const [categoryData] = useAxios(`main-market/categories`, "false");
   const [subCategoryData] = useAxios(
-    `category-market?main_id=${selectedMainCategoryID}`
+    `category-market?main_id=${selectedMainCategoryID}`, "false" 
   );
   const [modelData] = useAxios(
-    `product-model?sub_id=${selectedSubCategoryID}`
+    `product-model?sub_id=${selectedSubCategoryID}`, "false"
 
   );
   const color = Data?.data;
@@ -228,7 +228,7 @@ function MarketPlacePostSection() {
               anonymous: "",
               description: "",
               place: "",
-              images:[]
+              images: []
             });
             setSend(false);
             setLoadingMarket(false);
@@ -628,7 +628,7 @@ function MarketPlacePostSection() {
           <p className={jobStyle.required}>{t("Description is required")}</p>
         )}
       </form>
-      <div className="d-flex justify-content-end align-items-center">
+      <div className={`d-flex justify-content-end align-items-center ${style.buttonTwoP}`}>
         {/* <div className={`w-50 ${style.checkboxDivPost}`}>
           <input
             id="remember"
@@ -641,9 +641,10 @@ function MarketPlacePostSection() {
             {t("Anonymous post")}
           </label>
         </div> */}
-        <button className={`${jobStyle.btn}`} onClick={handleSubmit}>
+        <ButtonTwo handlerClick={handleSubmit} buttonType="submit">
           {t("Create")}
-        </button>
+        </ButtonTwo>
+       
       </div>
       {showAlert && (
         <Alert

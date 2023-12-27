@@ -1,0 +1,32 @@
+.buttonTwoContainer {
+    background-color: #ffffff00;
+    color: var(--primary-color);
+    width: 8.5em;
+    height: 2.9em;
+    border: var(--secondary-color) 0.2em solid;
+    border-radius: 11px;
+    text-align: right;
+    transition: all 0.6s ease;
+  }
+  
+  .buttonTwoContainer:hover {
+    background-color: var(--secondary-color);
+    cursor: pointer;
+    color: var(--white);
+  }
+  
+  .buttonTwoContainer svg {
+    width: 1.6em;
+    margin: -0.03em 0.8em 1em;
+    position: absolute;
+    display: flex;
+    transition: all 0.6s ease;
+  }
+  
+  .buttonTwoContainer:hover svg {
+    transform: translateX(5px);
+  }
+  
+  .buttonTwoText {
+    margin: 0 1.5em
+  }

@@ -2,7 +2,7 @@ import style from "../../../assets/style/homePage/blog.module.css";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-
+import ButtonThree from "../../Button/ButtonThree";
 function BlogCard(props,urlId) {
   const [t] = useTranslation();
 
@@ -28,7 +28,9 @@ function BlogCard(props,urlId) {
             </div>
             <div className={style.readMoreContainer}>
                     <small className={style.readMoreText}>
+                      <ButtonThree>
                       {t("Read More")}
+                      </ButtonThree>
                     </small>
                   </div>
           </div>

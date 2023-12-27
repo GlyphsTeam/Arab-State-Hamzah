@@ -1,7 +1,6 @@
+import { memo } from "react";
 
-
-function InputSelect ({ name, inputValue, handlerChange, optionsValue }) {
-
+const InputSelect = memo(({ name, inputValue, handlerChange, optionsValue }) => {
   return (
     <select
       name={name}
@@ -10,16 +9,16 @@ function InputSelect ({ name, inputValue, handlerChange, optionsValue }) {
       value={inputValue}
       onChange={(e) => handlerChange(e)}
     >
-      {optionsValue?.length!==0&&optionsValue?.map((item) => {
+      {optionsValue?.length !== 0 && optionsValue?.map((item) => {
         return (
           <option key={item?.id} value={item?.id}>
-            {item?.name || item?.state_name || item} 
+            {item?.name || item?.state_name || item}
           </option>
         )
       })}
 
     </select>
   )
-}
+});
 
 export default InputSelect;

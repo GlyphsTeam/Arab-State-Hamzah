@@ -5,8 +5,8 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import ResponiveSlider from "../Slider/ResponiveSlider";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-
-function PlacesToVisitSection({urlId , data}) {
+import ButtonThree from "../Button/ButtonThree";
+function PlacesToVisitSection({ urlId, data }) {
   const [t, i18n] = useTranslation();
   const latest_post = data?.model;
   const [currentPage, setCurrentPage] = useState(1);
@@ -37,43 +37,45 @@ function PlacesToVisitSection({urlId , data}) {
                 : style.blogCardContainerAr
             }
           >
-            {currentPosts && currentPosts.length > 0 ?(
+            {currentPosts && currentPosts.length > 0 ? (
               <ResponiveSlider>
-              {currentPosts?.map((item) => (
-                <div key={item.id} className={style.cardImg} style={{marginRight:"10px"}}>
-                  <Link
-                   to={`/show-blog/${item.slug}/${item?.id}`}  state={(urlId = { id: item?.id })}
-                   onClick={handleChangePage}
-                  >
-                    <div className={style.cardImageDiv}>
-                      <LazyLoadImage src={item.image} alt="blogImage"/>
-                    </div>
-                    <div className={style.cardText}>
-                      <h5 className={style.textH5}>{item.title} </h5>
-                      <p className={style.lastCardParagraph}>
-                        {item.description}
-                      </p>
-                    </div>
+                {currentPosts?.map((item) => (
+                  <div key={item.id} className={style.cardImg} style={{ marginRight: "10px" }}>
                     <Link
-                      key={item.id}
-                      to={`/show-blog/${item.slug}/${item?.id}`}  state={(urlId = { id: item?.id })}
+                      to={`/show-blog/${item.slug}/${item?.id}`} state={(urlId = { id: item?.id })}
                       onClick={handleChangePage}
                     >
-                      <div className={style.readMoreContainer}>
-                        <small className={style.readMoreText}>
-                          {t("Read More")}
-                        </small>
+                      <div className={style.cardImageDiv}>
+                        <LazyLoadImage src={item.image} alt="blogImage" />
                       </div>
+                      <div className={style.cardText}>
+                        <h5 className={style.textH5}>{item.title} </h5>
+                        <p className={style.lastCardParagraph}>
+                          {item.description}
+                        </p>
+                      </div>
+                      <Link
+                        key={item.id}
+                        to={`/show-blog/${item.slug}/${item?.id}`} state={(urlId = { id: item?.id })}
+                        onClick={handleChangePage}
+                      >
+                        <div className={style.readMoreContainer}>
+                        <small className={style.readMoreText}>
+                          <ButtonThree>
+                            {t("Read More")}
+                          </ButtonThree>
+                          </small>
+                        </div>
+                      </Link>
                     </Link>
-                  </Link>
-                </div>
-              ))}
+                  </div>
+                ))}
               </ResponiveSlider>
-            ):(
+            ) : (
               <p>No BLog post</p>
             )}
           </div>
-    
+
         </div>
       </div>
     </>

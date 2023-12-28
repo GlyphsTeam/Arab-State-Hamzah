@@ -14,6 +14,12 @@
 .categoryImageFilter {
   filter: brightness(0.5);
 }
+.imgCate{
+  margin-left: -40px;
+}
+.imgCatAr{
+  margin-right: -40px !important;
+}
 .categoryContainerDivAbout img {
   object-fit: cover;
   width: 100%;
@@ -36,6 +42,15 @@
   position: relative;
   top: -20px;
 }
+.categoryContainer .categoryContainerDivAr {
+  width: 100%;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -20px;
+}
+
 .categoryContainer img {
   object-fit: cover;
   width: 100%;

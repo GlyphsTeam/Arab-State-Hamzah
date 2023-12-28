@@ -11,7 +11,9 @@
   margin: 20px auto;
   padding: 0 !important;
 }
-
+.flexClass{
+  display: flex;
+}
 .wrapper:hover {
   box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -19,9 +21,7 @@
 .productImg {
   width: 100%;
 }
-.flexClass{
-display: flex !important;
-}
+
 .favIconColor{
 color: var(--secondary-color) !important;
 cursor: pointer;
@@ -231,29 +231,26 @@ background-color: var(--secondary-color);
   align-items: center;
 }
 
-.flexClass{
-  display: flex;
-}
+
 @media (max-width:500px){
+  .flexClass{
+    flex-direction: column !important;
+    display: flex !important;
+  }
   .enProductPriceBtn {
     position: relative;
-    right: -40%;
-    bottom: 47%;
+    right: -45%;
+    top: -92px;
   }
   .arProductPriceBtn{
     position: relative;
-    left: -40%;
-    bottom: 47%;
+    left: -45%;
+    top: -92px;
   }
   .productPriceBtn{
     flex-direction: column;
   }
-  .flexClass{
-    flex-direction: column !important;
-    height: fit-content !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
+
   .productText{
     margin-top: -50px;
     margin-left: 10px;

@@ -47,8 +47,8 @@ function SavedProduct({ data, isMyPost, baseUrl, type }) {
   }
   return (
     <>
-      <div id={data.id} className='flexClass' style={{display:'flex'}}>
-        <Link to={`${url}/${data.slug}/${data?.id}`} state={(urlId = { id: data?.id })} className={style.wrapper} >
+      <div id={data.id} className={style.flexClass} >
+        <Link to={`${url}/${data.slug}/${data?.id}`} className={style.wrapper} >
           <div className={style.productImg}>
             <LazyLoadImage className={i18n.language === 'en' ? style.enImgBorder : style.arImgBorder} src={data.image} alt='productImage' />
           </div>

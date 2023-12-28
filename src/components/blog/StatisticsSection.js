@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import ResponiveSlider from "../Slider/ResponiveSlider";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-
+import ButtonThree from "../Button/ButtonThree";
 function PlacesToVisitSection({ urlId, data }) {
   const [t, i18n] = useTranslation();
   const latest_post = data?.model;
@@ -59,11 +59,11 @@ function PlacesToVisitSection({ urlId, data }) {
                         to={`/show-blog/${item.slug}/${item?.id}`} state={(urlId = { id: item?.id })}
                         onClick={handleChangePage}
                       >
-                        <div className={style.readMoreContainer}>
-                          <small className={style.readMoreText}>
-                            {t("Read More")}
-                          </small>
-                        </div>
+                        <ButtonThree>
+                          {t("Read More")}
+
+                        </ButtonThree>
+
                       </Link>
                     </Link>
                   </div>

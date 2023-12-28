@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import {  useNavigate } from 'react-router-dom';
 import HeroMobileButtons from '../components/common/marketPlace/HeroMobileButtons/HeroMobileButtons';
 import Alert from '../components/common/alert/Alert';
-
+import ButtonFour from '../components/Button/ButtonFour';
 function MarketPlaceCategory() {
   const [t] = useTranslation();
 
@@ -77,7 +77,13 @@ useEffect(() => {
 
       <div className={filterStyle.addProductBtnDiv}>
         <h1 className='px-4 mt-3'>{t('market category')}</h1>
-        <div onClick={navigateFunction} className={`mt-3 ${filterStyle.addProductBtn} ${filterStyle.webAddProductBtn}`}>{t('Post your product')}</div>
+        <ButtonFour>
+        {t('Post your product')}
+
+        </ButtonFour>
+        {/* <div onClick={navigateFunction} className={`mt-3 ${filterStyle.addProductBtn} ${filterStyle.webAddProductBtn}`}>
+          
+          {t('Post your product')}</div> */}
       </div>
         <CategorySection limit = {limit} categoryData={categoryData} total={total}  setActiveIndex = {setActiveIndex} activeIndex={activeIndex} page={page} setPage = {setPage} scrollPagination={scrollPagination} categoryState = {categoryState} setCategoryState = {setCategoryState} />
       </div>

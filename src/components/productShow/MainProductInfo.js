@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import style from "../../assets/style/showProduct/mainProductInfo.module.css";
+import Alert from "../common/alert/Alert";
 import Share from "../../Utils/Share";
 import { useTranslation } from "react-i18next";
-import Alert from "../common/alert/Alert";
 import { useLocation } from 'react-router-dom'
 import useFetch from "../../hooks/useFetch";
 function MainProductInfo({ showProductData }) {

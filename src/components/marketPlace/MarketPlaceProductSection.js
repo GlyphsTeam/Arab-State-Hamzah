@@ -1,22 +1,22 @@
-import React, {useState} from 'react';
-import Card from '../common/cards/ProductCard';
+import React, { useState } from 'react';
+import Card from '../common/cards/ProductCardSaved';
 import style from '../../assets/style/house/housingCard.module.css';
 import { useDispatch } from 'react-redux';
 import { setCategoryId } from '../../redux/CategoryRedux';
 import { setSubCategoryId } from '../../redux/CategoryRedux';
 import { setCategoryTitle } from '../../redux/CategoryRedux';
 import { setSubCategoryTitle } from '../../redux/CategoryRedux';
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import filterStyle from '../../assets/style/common/filteredPage.module.css'
 import Alert from '../../components/common/alert/Alert';
 
-function MarketPlaceProductSection({ categoryData, categoryState, setCategoryState , token}) {
+function MarketPlaceProductSection({ categoryData, categoryState, setCategoryState, token }) {
   const [t] = useTranslation();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
- 
+
 
 
   const [showAlert, setShowAlert] = useState(false);
@@ -27,18 +27,18 @@ function MarketPlaceProductSection({ categoryData, categoryState, setCategorySta
   }
 
   const navigateFunction = () => {
-    if (token){
+    if (token) {
       navigate("/market-place/new-product");
     }
-    else{
+    else {
       showAlertFunction();
     }
   }
 
 
   const removeFilter = (e) => {
-    if(e === 'main'){
-      setCategoryState({...categoryState, activeFilterTitle:'', mainId:'', activeSubFilterTitle:'', subId:''})
+    if (e === 'main') {
+      setCategoryState({ ...categoryState, activeFilterTitle: '', mainId: '', activeSubFilterTitle: '', subId: '' })
       dispatch(setCategoryId(''));
       dispatch(setSubCategoryId(''));
       dispatch(setCategoryTitle(''));
@@ -48,48 +48,48 @@ function MarketPlaceProductSection({ categoryData, categoryState, setCategorySta
       localStorage.removeItem('mainCategoryTitle');
       localStorage.removeItem('subCategoryTitle');
       navigate('/market-place');
-  }else if(e === 'sub'){
-      setCategoryState({...categoryState, activeSubFilterTitle:'', subId:''})
+    } else if (e === 'sub') {
+      setCategoryState({ ...categoryState, activeSubFilterTitle: '', subId: '' })
       dispatch(setSubCategoryId(''));
       dispatch(setSubCategoryTitle(''));
       localStorage.removeItem('subCategoryId');
       localStorage.removeItem('subCategoryTitle');
       navigate('/market-place/subCategory');
-  }
+    }
   }
   return (
     <>
 
-<div className={filterStyle.addProductBtnDiv}>
-       <div className={`row ${style.smallTitlesPlace}`}>
-        {categoryState.activeFilterTitle && (
-          <h3 className={style.filterResult}>{categoryState.activeFilterTitle} <i className="far fa-times-circle" onClick={()=> removeFilter('main')}></i></h3>
-        )}
+      <div className={filterStyle.addProductBtnDiv}>
+        <div className={`row ${style.smallTitlesPlace}`}>
+          {categoryState.activeFilterTitle && (
+            <h3 className={style.filterResult}>{categoryState.activeFilterTitle} <i className="far fa-times-circle" onClick={() => removeFilter('main')}></i></h3>
+          )}
 
-        <h3 className={`${style.filterResult} ${style.arrowFilter}`}> &gt; </h3>
-       
-        {categoryState.activeSubFilterTitle && (
-          <h3 className={style.filterResult}> {categoryState.activeSubFilterTitle} <i className="far fa-times-circle" onClick={()=> removeFilter('sub')}></i></h3>
-        )}
+          <h3 className={`${style.filterResult} ${style.arrowFilter}`}> &gt; </h3>
 
-    </div>
-    
-    <div  onClick={navigateFunction} className={`mt-3 ${filterStyle.addProductBtn} ${filterStyle.webAddProductBtn}`}>{t('Post your product')}</div>
+          {categoryState.activeSubFilterTitle && (
+            <h3 className={style.filterResult}> {categoryState.activeSubFilterTitle} <i className="far fa-times-circle" onClick={() => removeFilter('sub')}></i></h3>
+          )}
+
+        </div>
+
+        <div onClick={navigateFunction} className={`mt-3 ${filterStyle.addProductBtn} ${filterStyle.webAddProductBtn}`}>{t('Post your product')}</div>
       </div>
-    <div className={`row `}>
+      <div className={`row `}>
 
         {
-        categoryData?.map((item, index)=>
-              <Card key={index} isFavorite = {item.favorites} data = {item} type="market"/>
-        )
+          categoryData?.map((item, index) =>
+            <Card key={index} isFavorite={item.favorites} data={item} type="market" />
+          )
         }
 
-    </div>
-    {
-      showAlert && (
-    <Alert type="warning" message={t("Please login first.")} showAlert = {showAlert} setShowAlert={setShowAlert} time = '5000' count={count}
-            setCount={setCount}/>
-     )}
+      </div>
+      {
+        showAlert && (
+          <Alert type="warning" message={t("Please login first.")} showAlert={showAlert} setShowAlert={setShowAlert} time='5000' count={count}
+            setCount={setCount} />
+        )}
     </>
   )
 }

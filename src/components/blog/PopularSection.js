@@ -5,11 +5,11 @@ import Pagination from "./Pagination";
 import { React, useState, useRef } from "react";
 import ReactHtmlParser from 'html-react-parser';
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-
-function PopularSection({ data  , urlId}) {
+import ButtonFour from "../Button/ButtonFour";
+function PopularSection({ data, urlId }) {
   const [t,] = useTranslation();
- 
-  const around_georgia =data?.model;
+
+  const around_georgia = data?.model;
   const handleChangePage = () => {
     window.scrollTo(0, 0);
   };
@@ -36,7 +36,7 @@ function PopularSection({ data  , urlId}) {
   const scrollPagination = () => {
     if (window.innerWidth < 480) {
       statisticsId.current.scrollIntoView();
-      }
+    }
   };
   return (
     <>
@@ -45,34 +45,35 @@ function PopularSection({ data  , urlId}) {
         {currentPosts?.map((item) => (
           <Link
             key={item.id}
-            to={`/show-blog/${item.slug}/${item?.id}`}  state={(urlId = { id: item?.id })}
+            to={`/show-blog/${item.slug}/${item?.id}`} state={(urlId = { id: item?.id })}
             onClick={handleChangePage}
           >
             <div className={style.columnCardsContainerDiv}>
-              <div className={ style.colCardImg}>
-                <LazyLoadImage src={item.image} alt="blogImage"/>
+              <div className={style.colCardImg}>
+                <LazyLoadImage src={item.image} alt="blogImage" />
               </div>
               <div className={style.cloumnParagraph}>
                 <h3>{item.title} </h3>
                 <p >
                   {item?.web_description && ReactHtmlParser(`${item?.web_description}`)}
-                  </p>
+                </p>
                 <div className={style.columnCardReadMore}>
                   <Link
                     key={item.id}
-                    to={`/show-blog/${item.slug}/${item?.id}`}  state={(urlId = { id: item?.id })}
-            onClick={handleChangePage}
+                    to={`/show-blog/${item.slug}/${item?.id}`} state={(urlId = { id: item?.id })}
+                    onClick={handleChangePage}
                   >
-                    <small className={style.readMoreText}>
-                      {t("Read More")}
-                    </small>
+                    <ButtonFour>
+                      Read More
+                    </ButtonFour>
+
                   </Link>
                 </div>
               </div>
             </div>
           </Link>
         ))}
-             <Pagination
+        <Pagination
           totalPosts={around_georgia?.length}
           postsPerPage={postsPerPage}
           setCurrentPage={setCurrentPage}

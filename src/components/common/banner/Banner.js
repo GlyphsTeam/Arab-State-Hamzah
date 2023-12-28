@@ -1,4 +1,4 @@
-import style from "../../../assets/style/common/banner.module.css";
+import style from "../../../assets/style/common/bannerTwo.module.css";
 import Slider from "react-slick";
 import useAxios from "../../../hooks/useAxiosGet";
 import { Link, useLocation, useParams } from "react-router-dom";
@@ -9,7 +9,7 @@ function Banner({ bannerUrl }) {
   let url = useLocation();
   const path = url.pathname;
   const { id } = useParams();
-  const [t] = useTranslation();
+  const [t, i18n] = useTranslation();
   const [Data] = useAxios(`${bannerUrl}`);
   const getPageName = () => {
     switch (path) {
@@ -26,7 +26,7 @@ function Banner({ bannerUrl }) {
       case "/Blog":
         return "";
       case "/Our-Service":
-        return  t("Our Services");
+        return t("Our Services");
       default:
         return "";
     }
@@ -77,24 +77,27 @@ function Banner({ bannerUrl }) {
       <Slider {...settings}>
         {Data?.data?.map((item, index) => (
           <Link to={item.url} key={index}>
-            <div className={style.categoryContainerDiv}>
+            <div className={i18n.language === "en" ? style.categoryContainerDiv : style.categoryContainerDivAr} >
               <LazyLoadImage
                 src={item?.image}
                 alt="ad"
-                style={{marginLeft:'-25px'}}
                 className={
-                  path === "/Blog" || path === `/Show-User-Guide/${id}`
+                  `
+                  ${path === "/Blog" || path === `/Show-User-Guide/${id}`
                     ? style.categoryImage
                     : style.categoryImageFilter
+                  }
+                `
                 }
+
               />
               <div
                 className={
                   path === "/Blog"
                     ? style.categoryHeaderHidden
                     : path === "/Jobs/Job" || path === "/Jobs/Rent"
-                    ? style.categoryHeaderTextJobRent
-                    : style.categoryHeaderText
+                      ? style.categoryHeaderTextJobRent
+                      : style.categoryHeaderText
                 }
               >
                 <p>{getPageName()}</p>

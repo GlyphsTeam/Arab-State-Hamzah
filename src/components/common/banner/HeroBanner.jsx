@@ -6,7 +6,6 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 function Banner({ data }) {
   const [t, i18n] = useTranslation();
-  console.log("data>>Ba",data)
   // const settings = {
   //   infinite: true,
   //   speed: 500,

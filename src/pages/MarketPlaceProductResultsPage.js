@@ -267,7 +267,6 @@ function CategoryPage() {
             categoryState={categoryState}
             setCategoryState={setCategoryState}
             token={token}
-
           />
         </div>
       </div>

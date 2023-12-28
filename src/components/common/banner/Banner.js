@@ -31,6 +31,7 @@ function Banner({ bannerUrl }) {
         return "";
     }
   };
+  console.log("Data>>>Market",Data)
   const settings = {
     infinite: true,
     speed: 500,
@@ -74,13 +75,14 @@ function Banner({ bannerUrl }) {
   };
   return (
     <div className={`${style.categoryContainer} `}>
-      <Slider {...settings}>
+      {/* <Slider {...settings}> */}
         {Data?.data?.map((item, index) => (
           <Link to={item.url} key={index}>
             <div className={i18n.language === "en" ? style.categoryContainerDiv : style.categoryContainerDivAr} >
               <LazyLoadImage
                 src={item?.image}
                 alt="ad"
+               
                 className={
                   `
                   ${path === "/Blog" || path === `/Show-User-Guide/${id}`
@@ -105,7 +107,7 @@ function Banner({ bannerUrl }) {
             </div>
           </Link>
         ))}
-      </Slider>
+      {/* </Slider> */}
     </div>
   );
 }

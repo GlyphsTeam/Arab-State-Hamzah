@@ -8,9 +8,7 @@
   .categoryImage{
     margin-top: -20px;
   }
-  .categoryImageAr{
-    margin-right: 0;
-  }
+
   .categoryImageFilter {
     filter: brightness(0.5);
   }
@@ -50,12 +48,12 @@
     position: relative;
     top: -20px;
   }
-  .categoryContainerDivAr img{
-    margin-right: -40px !important;
+  .categoryContainerDivAr .categoryImageFilter{
+    margin-right: 0px !important;
   }
   
-  .categoryContainerDiv img{
-    margin-left: -40px !important;
+  .categoryContainerDiv .categoryImageFilter{
+    margin-left: 0px !important;
   }
   .categoryContainer img {
     object-fit: cover;

@@ -11,6 +11,7 @@
   margin-top: 51px;
 }
 .jobContact{
+  justify-content: space-evenly;
   display:flex;
   flex-wrap:wrap;
 }

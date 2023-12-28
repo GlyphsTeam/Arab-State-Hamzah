@@ -75,15 +75,12 @@ useEffect(() => {
 
   
 
-      <div className={filterStyle.addProductBtnDiv}>
+      <div className={filterStyle.addProductBtnDiv} onClick={navigateFunction}>
         <h1 className='px-4 mt-3'>{t('market category')}</h1>
         <ButtonFour>
         {t('Post your product')}
 
-        </ButtonFour>
-        {/* <div onClick={navigateFunction} className={`mt-3 ${filterStyle.addProductBtn} ${filterStyle.webAddProductBtn}`}>
-          
-          {t('Post your product')}</div> */}
+        </ButtonFour>     
       </div>
         <CategorySection limit = {limit} categoryData={categoryData} total={total}  setActiveIndex = {setActiveIndex} activeIndex={activeIndex} page={page} setPage = {setPage} scrollPagination={scrollPagination} categoryState = {categoryState} setCategoryState = {setCategoryState} />
       </div>

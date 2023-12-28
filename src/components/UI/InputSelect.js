@@ -9,6 +9,7 @@ const InputSelect = memo(({ name, inputValue, handlerChange, optionsValue }) => 
       value={inputValue}
       onChange={(e) => handlerChange(e)}
     >
+      <option>Select</option>
       {optionsValue?.length !== 0 && optionsValue?.map((item) => {
         return (
           <option key={item?.id} value={item?.id}>

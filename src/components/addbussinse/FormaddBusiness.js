@@ -183,6 +183,8 @@ function ForRentForm() {
     const mirgeCate = [...businessCategories, ...serviceCategories];
     const [Data] = useAxios(urlStates);
     const statesAndcityes = Data?.data;
+    console.log("statesAndcityes>>",statesAndcityes)
+    console.log("cities>>>",cities)
     useEffect(() => {
         const getSubCategory = async () => {
             try {
@@ -225,7 +227,7 @@ function ForRentForm() {
         })
     }, [selectedOptions]);
 
-    const handleChangeCity = useCallback((e) => {
+    const handleChangeCity = (e) => {
         setState(e.target.value);
         let cityName = statesAndcityes?.find((item) => {
             return item?.id === parseInt(e.target.value);
@@ -235,7 +237,7 @@ function ForRentForm() {
         })
         setCity(subCity[0]);
         setCitys(subCity);
-    }, [state]);
+    }
 
     const handlerSetBusiness = useCallback((e) => {
         setBusinessType(e.target.value);

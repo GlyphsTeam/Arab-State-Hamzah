@@ -15,7 +15,14 @@
   display:flex;
   flex-wrap:wrap;
 }
-
+.uploadTitle h2{
+  height: fit-content;
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 10px !important;
+  margin-top: 20px;
+  color: var(--primary-color) !important;
+}
 .helpDiv{
   width:350px;
   min-width:200px;
@@ -205,7 +212,7 @@
     height: 20px;
 }
 .inputDivImage {
-  display: flex !important;
+  justify-content: space-between;
   align-items: center;
 }
  .inputDivImage img {

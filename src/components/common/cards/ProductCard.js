@@ -77,7 +77,7 @@ function ProductCard({ data, isMyPost, baseUrl, type }) {
 
   return (
     <>
-      <div id={data.id}  >
+      <div id={data.id} className={style.flexClass} >
         <Link to={`${url}/${data.slug}/${data?.id}`} className={style.wrapper} >
           <div className={style.productImg}>
             <LazyLoadImage className={i18n.language === 'en' ? style.enImgBorder : style.arImgBorder} src={data.image} alt='productImage' />

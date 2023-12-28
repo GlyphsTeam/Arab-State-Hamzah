@@ -283,7 +283,7 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
           </div>
           <div className={style.inputDivImage}>
             <div className={style.uploadTitle}>
-              <h2>{t("upload logo of your company")}</h2>
+              <p>{t("upload logo of your company")}</p>
             </div>
             <label
               className={

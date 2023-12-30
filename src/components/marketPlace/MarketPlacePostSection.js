@@ -11,10 +11,12 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 import SpinnerStatic from '../common/Spinner';
 import { useNavigate } from "react-router-dom";
 import ButtonTwo from "../Button/ButtonTwo";
+import LoadingSpiner from "../Button/LoadingSpiner";
 function MarketPlacePostSection() {
   const [t] = useTranslation();
   const navigation = useNavigate();
   const [isLoadingMarket, setLoadingMarket] = useState(false);
+  const [LoadingSub, setLoadingSub] = useState(false);
 
   const [marketFormData, setMarketFormData] = useState({
     title: "",
@@ -287,6 +289,7 @@ function MarketPlacePostSection() {
   };
 
   const handleImageDrop = async (acceptedFiles) => {
+    setLoadingSub(true)
     const editedImages = [];
 
     for (const file of acceptedFiles) {
@@ -298,6 +301,7 @@ function MarketPlacePostSection() {
       ...marketFormData,
       images: [...marketFormData?.images, ...editedImages],
     });
+    setLoadingSub(false)
   };
 
   const convertToWebP = (file) => {
@@ -350,6 +354,8 @@ function MarketPlacePostSection() {
     <div className={`${style.registerFormDiv}`}>
       {isLoadingMarket && <SpinnerStatic />}
       <form>
+      {LoadingSub&&<LoadingSpiner/>}
+
         <div className={`w-100 ${productStyle.uploadImageDiv}`}>
           <Dropzone onDrop={handleImageDrop}>
             {({ getRootProps, getInputProps }) => (
@@ -380,9 +386,6 @@ function MarketPlacePostSection() {
             ))}
           </div>
         </div>
-        {showImageWarn && (
-          <p className={jobStyle.required}>{t("Image is required")}</p>
-        )}
         <select
           name="main_category"
           id="main_category"

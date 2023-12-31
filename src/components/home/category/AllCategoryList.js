@@ -110,8 +110,8 @@ import Title from "../../common/Title";
               settings: {
                 infinite: true,
                 slidesToShow: 2,
-                slidesToScroll: 2,
-                autoplaySpeed: 3000
+                slidesToScroll: 1,
+                autoplaySpeed: 3000,
               }
             }
           ]

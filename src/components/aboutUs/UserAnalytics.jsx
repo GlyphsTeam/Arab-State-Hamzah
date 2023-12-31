@@ -91,7 +91,7 @@ const UserAnalytics = ({ aboutData }) => {
             </div>
           </div>
 
-          <div className={style.userAnalyticsTextMobile}>
+          <div className={style.userAnalyticsTextMobile} >
             <Slider {...settings}>
               {/* {userAnalyticsDataArr?.map((item, index) => ( */}
               <div className={style.userAnalyticsCard}>

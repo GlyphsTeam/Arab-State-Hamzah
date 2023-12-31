@@ -1,7 +1,7 @@
 
 
 
-  .card {
+.card {
     max-width: 100%; /* Set a maximum width */
     width: 350px; /* Ensure the width is 100% of the parent container */
     box-sizing: border-box; /* Include padding and border in the width calculation */
@@ -25,14 +25,13 @@
   }
   .boxandPublished{
     height: 100%;
-    margin-top: 3px;
+    /* margin-top: 30px; */
     display:flex !important;
     justify-content:space-between;
     align-items: center;
   }
    .boxandPublished p{
       font-size:12px;
-      margin-top:5px;
       color:var(--secondary-color);
       font-weight:600;
     
@@ -63,7 +62,7 @@
   }
 
   .parCard{
-    height:51px;
+    height:95px;
   }
    .parCard h3{
       font-size:16px;
@@ -103,9 +102,8 @@
       /* text-overflow:ellipsis; */
       color:rgba(21, 56, 102, 1);
   }
-  .timeCard,
-  .timeCardJobCard{
-    height: 38px;
+  .timeCard{
+    height: 11px;
     display:flex;
     justify-content:space-between;
   }
@@ -115,13 +113,9 @@
       margin-top: 14px;
       color:rgba(200, 28, 80, 1);
 }
-.timeCardJobCard{
-  height: 40px;
-}
 .publishingClass{
   margin-top:10px !important;
   font-size:12px;
-  margin-left: 12px;
 }
 
 .boxsCard{

@@ -91,7 +91,7 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
               <h3>{jobData.looking_for_text}</h3>
               <p>{jobData.description}</p>
             </div>
-            <div className={style.timeCard}>
+            <div className={style.timeCardJobCard}>
               <p>{jobData.type}</p>
             </div>
             <div className={style.boxandPublished}>
@@ -102,7 +102,7 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
                 <div className={style.box4}></div>
               </div>
               {pathName === "/saved-job" || pathName === "/jobs" ? <></> : <div>
-                {jobData.status ? <p className='publishingClass'>Published</p> : <p className='publishingClass'>Waiting for approval</p>}
+                {jobData.status ? <p className={style.publishingClass}>Published</p> : <p className={style.publishingClass}>Waiting for approval</p>}
               </div>}
               {pathName === "/saved-job" || pathName === "/jobs" ?<p>{jobData.created_at}</p>:<></>}
 

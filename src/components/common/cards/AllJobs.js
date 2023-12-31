@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import style from "../../../assets/style/job/jobCard.module.css";
+import style from "../../../assets/style/job/AllJob.module.css";
 import Alert from "../alert/Alert";
 import { Link } from 'react-router-dom';
 import Share from "../../../Utils/Share";
@@ -71,7 +71,7 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
             </div>
             <div className={pathName === "/saved-job" || pathName === '/jobs' ? style.parCardPublished : style.parCard}>
               <h3>{jobData.looking_for_text}</h3>
-              <p>{ReactHtmlParser(jobData.web_description)}</p>
+              <p>{jobData.description}</p>
             </div>
             <div className={style.timeCard}>
               <p>{jobData.type}</p>

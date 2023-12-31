@@ -58,6 +58,9 @@
   .userAnalyticsText {
     font-size: 15px;
   }
+  .userAnalyticsTextMobile{
+    margin-right: 60px !important;
+  }
 }
 
 @media (max-width: 600px) {

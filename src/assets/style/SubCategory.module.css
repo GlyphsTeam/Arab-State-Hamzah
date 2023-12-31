@@ -18,12 +18,16 @@
   left: 95%;
 
 }
+.categoryBussiness{
+  display: flex;
+  flex-wrap: wrap;
+}
 .showMapButton {
   background: var(--tertiary-color);
   width: fit-content;
   padding: 5px 20px;
   /* border-radius: 15px; */
-  color: var(--primary-color);
+  color: var(--white);
   font-size: 18px;
 }
 .hideMapButton {

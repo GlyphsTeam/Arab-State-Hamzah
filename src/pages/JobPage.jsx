@@ -31,7 +31,6 @@ function Job({ baseURL }) {
   useEffect(() => {
     url = `jobs/web?limit_by=6&looking=${pageType}&page=${page}&limit_by=${limit}&sort_by=${filters.sort_by}&type=${filters.type}&experience=${filters.experience}&salary_from=${filters.salary_from}&salary_to=${filters.salary_to}&place=${filters.place}`;
   }, [page]);
-    console.log("url>>>jobs>",url)
   const [Data] = useAxios(url);
   const jobsData = Data?.data;
 

@@ -73,7 +73,7 @@ useEffect(() => {
                 <i className="fab fa-apple"></i>
                   <div className={style.playStoreDiv}>
                     {/* <p>Download on the</p> */}
-                    <p className={i18n.language==="ar"?style.playStoreAr:""}> Download on the App Store</p>
+                    <p className={i18n.language==="ar"?style.playStoreAr:""}> Available on the App Store</p>
                   </div>
                 </div>
               </a>

@@ -23,6 +23,11 @@
   .filterResult{
     font-size: 30px !important;
   }
+  .addProductBtnDiv button{
+    font-size: 10px;
+    width: 150px;
+    padding: 8px;
+  }
 }
 .activeLi{
   background-color: #c81c50;

@@ -99,6 +99,9 @@
   .easySearchCard img {
     margin: auto;
   }
+   .easySearchCardContainer{
+    margin-right: 25px;
+   }
 }
 
 @media (max-width: 800px) {

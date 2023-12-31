@@ -70,4 +70,12 @@
     width: 64%;
     margin: 0px;
   }
+  .discoverServiceText P{
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    height: 100%;
+  }
 }

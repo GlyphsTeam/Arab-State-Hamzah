@@ -1,4 +1,4 @@
-import JobCard from "../common/cards/JobCard";
+import JobCard from "../common/cards/AllJobs";
 import style from "../../assets/style/job/jobCard.module.css";
 const JobLatestPost = ({data, title}) => {
     let urlId;

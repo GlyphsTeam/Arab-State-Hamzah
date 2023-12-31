@@ -6,7 +6,7 @@ function CategoryCard(props) {
 
   return (
     <>
-      <div key={props.id}>
+      <div key={props.id} className={style.sliderMargin}>
         <div className={style.cardBody}>
           <LazyLoadImage
             className={style.listImg}

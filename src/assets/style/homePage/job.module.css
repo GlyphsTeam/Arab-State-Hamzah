@@ -81,6 +81,7 @@
   text-decoration: none;
   position: relative;
   margin: 0px 41px 60px;
+  right: 17px;
 }
 .jobSectionImg {
   height: 405.186px;
@@ -119,13 +120,15 @@
   }
   .descriptionParagraphDiv{
     justify-content: space-around;
-    flex-direction: column;
+    /* flex-direction: column; */
     max-width: 370px;
 
   }
   .cardTitle{
-    font-size: 25px;
+    
+    font-size: 18px;
   }
+ 
   .cardText{
     font-size: 16px;
 

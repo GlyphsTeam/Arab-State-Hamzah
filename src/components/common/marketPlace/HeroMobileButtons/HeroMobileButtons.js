@@ -29,9 +29,9 @@ function HeroMobileButtons({setOpenMobileCategory , token}) {
     <div className={filterStyle.mainButtonsDiv}>
 
         <button onClick={() => setOpenMobileCategory(true)} className={`mt-3 ${filterStyle.addProductBtn} ${filterStyle.mobileAddProductBtn}`}>{t('Menu Category')}</button>
-         {
+         {/* {
         <div onClick={navigateFunction} className={`mt-3 ${filterStyle.addProductBtn} ${filterStyle.mobileAddProductBtn}`}>{t('Post your product')}</div>
-         }
+         } */}
     </div>
     {
       showAlert && (

@@ -35,7 +35,7 @@
 @media screen and (max-width: 768px) {
 
     .cardDiv{
-        min-width: 120px;
+        min-width: 175px;
         max-width: 150px !important;
         margin: auto;
     }

@@ -123,5 +123,10 @@
 @media (max-width:480px){
     .description{
         font-size:14px !important;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp:10 ;
+        overflow: hidden;
+        height: 100%;
     }
 }

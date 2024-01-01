@@ -16,8 +16,13 @@
 .profileDropdown:hover{
   color: var(--secondary-color) !important;
 }
+.loginButton{
+  margin-right:20px !important;
+}
 
-
+.userIcon{
+  margin-left:10px;
+}
 
 .nestedDropDownDiv{
   display: flex;
@@ -96,6 +101,7 @@
 }
 .logoutButton i{
   margin-left:20px;
+  margin-right:20px;
 }
 .loginButton{
   font-weight:400;
@@ -453,14 +459,26 @@ display: none !important;
   // .navBarSearchMainDiv {
   //   margin: 0px 16px;
   // }
-  .rightSubContainerMobile {
+  .rightSubContainerMobile{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-right:50px;
     position: relative;
     top: 200px;
+    .navMobileMargin {
+      margin: 16px 0px 16px 0px;
+     
+    }
+  }
+  .rightSubContainerMobileAr{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 200px;
+    left:25px;
     .navMobileMargin {
       margin: 16px 0px 16px 0px;
      
@@ -557,12 +575,14 @@ display: none !important;
 @media (max-width:500px){
   .imageContainerSpan{
     img{
-      width:100px !important;
-      height:100px !important;
+      width:75px !important;
+      height:75px !important;
     }
   }
   .statesImg{
     margin-bottom: 80px !important;
-
+  }
+  .searchText{
+    font-size:14px;
   }
 }

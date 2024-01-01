@@ -1405,7 +1405,7 @@ transition: all 0.4s ease;
 
 @media (max-width:500px){
   .columnCardsContainerDiv{
-    min-height: 200px;
+    min-height: 220px;
   }
   .cloumnParagraph p{
     margin-top: 0px !important;
@@ -1428,5 +1428,8 @@ transition: all 0.4s ease;
   }
   .seeMoreButton button{
     display: none;
+  }
+  .columnCardReadMore button{
+    margin-bottom: 20px !important;
   }
 }

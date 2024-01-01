@@ -613,7 +613,7 @@ function ForRentForm() {
                 <div className={style.formFlex}>
                     <div>
                         <div className={style.inputDiv}>
-                            <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold" }} className={style.labelStyle}>{t("Company Name")}</label>
+                            <label style={{ color: "#05436B",  fontWeight: "bold" }} className={style.labelStyle}>{t("Company Name")}</label>
                             <input
                                 name="company"
                                 type="text"
@@ -624,7 +624,7 @@ function ForRentForm() {
                             />
                         </div>
                         <>
-                            <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Your Business Type")}</label>
+                            <label style={{ color: "#05436B",  fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Your Business Type")}</label>
                             <div className={`${style.inputDiv}`}>
                                 <InputSelect
                                     handlerChange={handlerSetBusiness}
@@ -635,7 +635,7 @@ function ForRentForm() {
                             </div>
                             {LoadingSub && <LoadingSpiner />}
                         </>
-                        {!hiddenBussines && <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Business Subcategories(Select one or more)")}</label>}
+                        {!hiddenBussines && <label style={{ color: "#05436B", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Business Subcategories(Select one or more)")}</label>}
                         {!hiddenBussines && <div className={`${style.inputDiv}`}>
                             <InputSelect
                                 handlerChange={handlerSetBusinessTest}
@@ -649,7 +649,7 @@ function ForRentForm() {
                                 </div>
                             })}
                         </div>}
-                        <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }} className={`${style.labelStyle}`}>{t("Your Business Cover")}</label>
+                        <label style={{ color: "#05436B", fontWeight: "bold", marginTop: '10px' }} className={`${style.labelStyle}`}>{t("Your Business Cover")}</label>
                         <div className={` ${style.uploadImageDiv} ${style.uploadBorder}`}>
                             <ImageSelector
                                 handlerDrop={handleImageDropOne}
@@ -660,7 +660,7 @@ function ForRentForm() {
                     </div>
 
                     <div>
-                        <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("Upload Business Logo")}</label>
+                        <label style={{ color: "#05436B", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Upload Business Logo")}</label>
                         <div className={` ${style.uploadImageDiv} ${style.uploadBorder}`}>
                             <ImageSelector
                                 handlerDrop={handleImageDropTwo}
@@ -674,9 +674,9 @@ function ForRentForm() {
                         </div>
                     </div>
                 </div>
-                <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "600" }}>{t("Your Business Location")}</label><br></br>
+                <label style={{ color: "#05436B", fontWeight: "600" }} className={style.labelStyle}>{t("Your Business Location")}</label><br></br>
                 <div className={style.inputDiv}>
-                    <label style={{ color: "rgba(190, 0, 64, 1)", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("Street Address")}</label>
+                    <label style={{ color: "rgba(190, 0, 64, 1)", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Street Address")}</label>
                     <input
                         required
                         name="Street Address"
@@ -692,7 +692,7 @@ function ForRentForm() {
                 </div>
                 <div className={style.inputFlex}>
                     <div className={style.inputDiv}>
-                        <label style={{ color: "rgba(190, 0, 64, 1)", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("State / Province")}</label>
+                        <label style={{ color: "rgba(190, 0, 64, 1)", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("State / Province")}</label>
                         <InputSelect
                             name="State"
                             inputValue={state}
@@ -701,7 +701,7 @@ function ForRentForm() {
                         />
                     </div>
                     <div className={style.inputDiv}>
-                        <label style={{ color: "rgba(190, 0, 64, 1)", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("City")}</label>
+                        <label style={{ color: "rgba(190, 0, 64, 1)", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("City")}</label>
                         <InputSelect
                             name="City"
                             inputValue={city}
@@ -711,7 +711,7 @@ function ForRentForm() {
                     </div>
                 </div>
                 <div className={style.inputDiv}>
-                    <label style={{ color: "rgba(190, 0, 64, 1)", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("Postal Code")}</label>
+                    <label style={{ color: "rgba(190, 0, 64, 1)", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Postal Code")}</label>
                     <input
                         name="Code"
                         type="text"
@@ -724,7 +724,7 @@ function ForRentForm() {
                 </div>
                 <div className={style.inputFlex}>
                     <div className={style.inputDiv}>
-                        <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("Phone Number")}</label>
+                        <label style={{ color: "#05436B", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Phone Number")}</label>
                         <input
                             name="phoneNumber"
                             required
@@ -736,7 +736,7 @@ function ForRentForm() {
                         />
                     </div>
                     <div className={style.inputDiv}>
-                        <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("Website Link (if Available)")}</label>
+                        <label style={{ color: "#05436B", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Website Link (if Available)")}</label>
                         <input
                             name="webiste"
                             type="text"
@@ -749,7 +749,7 @@ function ForRentForm() {
                 </div>
                 <div className={style.inputFlex}>
                     <div className={style.inputDiv}>
-                        <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("E-Mail")}</label>
+                        <label style={{ color: "#05436B", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("E-Mail")}</label>
                         <input
                             name="email"
                             type="email"
@@ -765,7 +765,7 @@ function ForRentForm() {
                     </div>
                 </div>
                 <div className={style.inputDiv}>
-                    <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("Describe Your Business (About 1-3 Lines)")}</label>
+                    <label style={{ color: "#05436B", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Describe Your Business (About 1-3 Lines)")}</label>
                     <textarea
                         name="businsesLine"
                         type="text"
@@ -777,7 +777,7 @@ function ForRentForm() {
                     />
                 </div>
                 <div className={style.inputDiv}>
-                    <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("What Services Do you offer?(3-9)")}</label>
+                    <label style={{ color: "#05436B", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("What Services Do you offer?(3-9)")}</label>
                     {inputFields.map((inputField, index) => (
                         <div key={inputField.id} className={style.inputContanierFileds}>
                             <input
@@ -795,7 +795,7 @@ function ForRentForm() {
                 </div>
                 <div className={style.inputFlex}>
                     <div className={style.inputDiv}>
-                        <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("Facebook")} :</label>
+                        <label style={{ color: "#05436B", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Facebook")} :</label>
                         <input
                             name="facebook"
                             type="email"
@@ -805,7 +805,7 @@ function ForRentForm() {
                         />
                     </div>
                     <div className={style.inputDiv}>
-                        <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("Instagram")} :</label>
+                        <label style={{ color: "#05436B", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Instagram")} :</label>
                         <input
                             name="instagram"
                             type="email"
@@ -817,7 +817,7 @@ function ForRentForm() {
                 </div>
                 <div className={style.inputFlex}>
                     <div className={style.inputDiv}>
-                        <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("Twitter")} :</label>
+                        <label style={{ color: "#05436B", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Twitter")} :</label>
                         <input
                             name="twitter"
                             type="email"
@@ -827,7 +827,7 @@ function ForRentForm() {
                         />
                     </div>
                     <div className={style.inputDiv}>
-                        <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("YouTube")} :</label>
+                        <label style={{ color: "#05436B", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("YouTube")} :</label>
                         <input
                             name="youtube"
                             type="email"
@@ -837,7 +837,7 @@ function ForRentForm() {
                         />
                     </div>
                     <div className={style.inputDiv}>
-                        <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("TikTok")} :</label>
+                        <label style={{ color: "#05436B", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("TikTok")} :</label>
                         <input
                             name="tikTok"
                             type="email"
@@ -847,7 +847,7 @@ function ForRentForm() {
                         />
                     </div>
                     <div className={style.inputDiv}>
-                        <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("Pinterest")} :</label>
+                        <label style={{ color: "#05436B", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Pinterest")} :</label>
                         <input
                             name="Pinterest"
                             type="email"
@@ -859,7 +859,7 @@ function ForRentForm() {
                 </div>
                 <div className={style.inputFlex}>
                     <div>
-                        <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("Main Photos of Your Business - 6 Pic")}</label>
+                        <label style={{ color: "#05436B", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Main Photos of Your Business - 6 Pic")}</label>
                         <div className={` ${style.uploadImageDiv}`}>
                             <ImageSelector
                                 handlerDrop={handleImageDrop}
@@ -888,7 +888,7 @@ function ForRentForm() {
                         <h2 className={style.jpgStyle}>Jpg, Jpeg, Png </h2>
                     </div>
                     <div>
-                        <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold", marginTop: '10px' }}>{t("Extra 6-10 photos to gallery")}</label>
+                        <label style={{ color: "#05436B", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Extra 6-10 photos to gallery")}</label>
                         <div className={` ${style.uploadImageDiv}`}>
                             <ImageSelector
                                 handlerDrop={handleImageDrop2}
@@ -917,10 +917,10 @@ function ForRentForm() {
                         <h2 className={style.jpgStyle}>Jpg, Jpeg, Png </h2>
                     </div>
                 </div>
-                <label style={{ color: "#05436B", fontSize: "25px", fontWeight: "bold" }}>{t("Your Business Working Hours")}</label><br></br>
+                <label style={{ color: "#05436B", fontWeight: "bold" }} className={style.labelStyle}>{t("Your Business Working Hours")}</label><br></br>
                 {work_times.map((time) => {
                     return <>
-                        <label style={{ color: "rgba(190, 0, 64, 1)", fontSize: "25px", fontWeight: "bold" }}>{t(`${time.day}`)}</label>
+                        <label style={{ color: "rgba(190, 0, 64, 1)", fontWeight: "bold" }} className={style.labelBussiness}>{t(`${time.day}`)}</label>
                         <div className={style.inputFlexWeek} key={time.day}>
                             <div className={style.inputFlexDays}>
                                 <div className={style.inputDiv}>

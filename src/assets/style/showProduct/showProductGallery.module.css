@@ -3,6 +3,17 @@
     */padding: 10px;
 
 }
+.productGallery{
+    transition: scale 450ms ease opacity 450ms linear;
+    -webkit-transition: scale 450ms ease opacity 450ms linear;
+    -moz-transition: scale 450ms ease opacity 450ms linear;
+    -ms-transition: scale 450ms ease opacity 450ms linear;
+    -o-transition: scale 450ms ease opacity 450ms linear;
+}
+.subGalleryDiv:has(img:hover) img:not(:hover){
+    scale:.8;
+    opacity: .7;
+}
 .subGalleryDiv{
     display: flex;
     justify-content: center;
@@ -57,6 +68,11 @@ box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8p
     .mainImageDiv img{
         height: 287px;
         width: 100% !important;
+        margin-left: -20px;
+    }
+    .customPrevArrow,
+    .customNextArrow{
+      color:var(--white)
     }
 
 }

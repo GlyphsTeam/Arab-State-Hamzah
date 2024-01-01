@@ -145,4 +145,11 @@
     .filterResult{
         font-size: 30px !important;
       }
+      .smallTitlesPlace h3{
+        font-size: 10px !important;
+      }
+      .addProductBtnDiv .smallTitlesPlace{
+         flex-wrap: nowrap !important;
+      
+      }
 }

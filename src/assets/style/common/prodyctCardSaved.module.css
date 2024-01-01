@@ -263,6 +263,7 @@
     }
     .productInfo{
       max-width: 95%;
+      height: 135px;
     }
     .myProductPost{
       position: relative;

@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 50px;
     padding: 50px 30px;
     /* height: fit-content; */
     /* top: 15px; */
@@ -22,11 +23,15 @@
 .registerForm input ,label{
     font-size: 18px !important;
 }
+.signUpTi{
+    color: var(--primary-color);
+}
 .profileImg{
     height: 210px;
     /* border-radius: 50%; */
     margin: auto;
     align-self: center;
+    object-fit: cover;
     margin-top: 0;
     /* width: 100%; */
 }
@@ -55,6 +60,9 @@
 .formRow{
     border-bottom: 2px solid var(--secondary-color);
     padding: 8px 0;
+}
+.userSign{
+    width: fit-content;
 }
 .formControl{
     border: none;

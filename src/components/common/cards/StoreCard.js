@@ -44,7 +44,6 @@ function SubCategoryCard({ storeData }) {
         <div>
         <Link
           to={`/Marketprofile/${storeData.slug}/${storeData?.id}`}
-          state={(urlId = { id: storeData?.id })}
           className={`${style.subCategoryCardLink} `}
         >
           <LazyLoadImage className={`${style.categoryImage}`} src={storeData.image} height={215} alt="imag-store" />

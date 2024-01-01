@@ -37,7 +37,7 @@ function Footer({logoImage}) {
               <div className={style.firstLinksDiv}>
                 <Link to="/">{t("Home")}</Link> |
                 <Link to="/Our-Service">{t("Our Services")}</Link> |
-                <Link to="/Blog">{t("Blog")}</Link>|<Link to="/User-Guide">User Guide</Link>{" "}
+                <Link to="/Blog">{t("Blog")}</Link>|<Link to="/User-Guide">{t("User Guide")}</Link>{" "}
                 
               </div>
               <div className={style.secondLinksDiv}>

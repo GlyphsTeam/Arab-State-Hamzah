@@ -13,8 +13,9 @@ function MyBusiness({ baseUrl }) {
       <div className='col-lg-3 col-md-4 col-sm-12 px-0'>
         <Menu activeList='2' />
       </div>
+      <p className={style.parProfile}>My posts &gt; My Business</p>
 
-      <div className={`col-lg-9 col-md-8 col-sm-12 ${style.cardConianerGrid}`}>
+      <div className={`col-lg-9 col-md-8 col-sm-12 ${style.cardConianerGridBussiness}`}>
         { bussinseData?.map((data) => {
           return (<CardBussiness data={data} key={data._id} typePage={2}/>)
         })

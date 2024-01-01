@@ -511,7 +511,7 @@ h1 {
 }
 @media (max-width: 768px) {
   .cardDiv {
-    min-width: 120px;
+    min-width: 175px;
     max-width: 150px !important;
     margin: auto;
     padding: 20px 5px;
@@ -643,6 +643,10 @@ h1 {
   }
   .card img {
     height: 128px;
+  }
+  
+  .cardDiv p{
+    font-size: 12px;
   }
 }
 

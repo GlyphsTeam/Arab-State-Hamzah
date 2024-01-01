@@ -1,6 +1,6 @@
 @import "../_App.module.scss";
 .labelStyle{
-    font-size: 25px;
+    font-size: 20px;
     color:"#05436B"; 
 }
 .formFlex{
@@ -185,7 +185,6 @@ margin-top: 10px;
     color: #808080;
   }
 .inputDiv label {
-    font-size: 20px !important;
     color: var(--primary-color);
     font-weight: bold;
   }
@@ -359,6 +358,7 @@ margin-top: 10px;
 .textAreayInput{
     width:747px;
     height:271px;
+    padding: 10px;
     border:2px soild;
     border-color: var(--primary-color) !important;
 }
@@ -433,5 +433,14 @@ margin-top: 10px;
 @media (max-width:500px){
   .deleteInput{
     margin-top:15px;
+  }
+  .labelStyle{
+    font-size: 16px !important;
+  }
+  .jpgStyle{
+    margin-top: 14px;
+  }
+  .labelBussiness{
+    margin-top: 14px;
   }
 }

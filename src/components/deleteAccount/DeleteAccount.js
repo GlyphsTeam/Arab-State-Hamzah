@@ -50,7 +50,7 @@ function ChangePassword({ baseUrl }) {
 
             <div className={`w-100 ${style.changePasswordDiv}`}>
               <div className={`w-100 ${style.passwordInput}`}>
-                <h3>{t('delete page')}</h3>
+                <h3 className={style.deleteAc}>{t('delete page')}</h3>
               </div>
             </div>
           </form>

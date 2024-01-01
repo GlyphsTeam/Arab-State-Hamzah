@@ -31,7 +31,7 @@
     font-size: 30px;
   }
  .userAnalyticsTextMobile i {
-    height: 91px;
+    height: 40px;
     font-size: 62px;
   }
 .fadeScrollElement{
@@ -60,6 +60,15 @@
   }
   .userAnalyticsTextMobile{
     margin-right: 60px !important;
+  } 
+  .userAnalyticsCard i{
+    font-size: 30px !important;
+  }
+  .userAnalyticsCard p{
+    font-size: 30px !important;
+  }
+  .userAnalyticsCard h5{
+    font-size: 25px !important;
   }
 }
 

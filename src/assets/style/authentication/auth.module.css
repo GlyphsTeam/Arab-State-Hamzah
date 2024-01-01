@@ -39,7 +39,7 @@
 .passwordInput{
             display: flex;
         position: relative;
-
+       top: 33px !important;
         }
 .loginBtnsDiv{
         display: flex;
@@ -120,5 +120,17 @@
                 width: 95%;
             }
         }
+    }
+}
+
+@media (max-width:500px){
+    .passwordInput{
+        padding-top: 50px !important;
+    }
+    .loginBtnsDiv{
+        padding-top: 20px !important;
+    }
+    .deleteAc{
+        font-size: 15px;
     }
 }

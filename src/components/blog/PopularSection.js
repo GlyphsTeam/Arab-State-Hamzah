@@ -64,7 +64,7 @@ function PopularSection({ data, urlId }) {
                     onClick={handleChangePage}
                   >
                     <ButtonFour>
-                      Read More
+                            {t("Read More")}
                     </ButtonFour>
 
                   </Link>

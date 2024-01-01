@@ -260,15 +260,16 @@ background-color: var(--secondary-color);
   }
   .productInfo{
     max-width: 95%;
+    height: 135px;
   }
   .myProductPost{
     position: relative;
     right: -40%;
-    bottom: 77%;
+    bottom: 179%;
   }
   .myProductPostAr{
     position: relative;
     left: -40%;
-    bottom: 77%;
+    bottom: 179%;
   }
 }

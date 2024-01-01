@@ -58,14 +58,14 @@ const Email = ({baseURL, setShowEmail,setShowOtp, logo, setShowRegister}) => {
             <div className={style.loginBody}>
                 <div className={`col-lg-3 col-md-8 col-sm-10 ${style.profileCard}`}>
                     <div className="row">
-                        <h1 className='text-center'>Sign Up</h1>
                         <div className={style.emailLogo}>
                             <LazyLoadImage src={logo} alt="react logo" className={style.profileImg} />
                         </div>
+                        <h1 className={`text-center ${style.signUpTi}`}>{t("Sign Up")}</h1>
                     </div>
                     <div>
                         <div className={`row mt-4 ${style.formRow}`}>
-                            <label htmlFor="email" className={`col-2 `}><i className={`fas fa-envelope ${style.icon}`}></i></label>
+                            <label htmlFor="email" className={`col-2 ${style.userSign}`}><i className={`fas fa-envelope ${style.icon}`}></i></label>
                             <input
                                 className={`col-10 ${style.formControl}`}
                                 id="email"

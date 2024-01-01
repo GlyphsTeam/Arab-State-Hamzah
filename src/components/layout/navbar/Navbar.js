@@ -34,7 +34,7 @@ function NavBar({ logoImage }) {
   const initialState = {
     username: localStorage.getItem("arab_user_name")
       ? localStorage.getItem("arab_user_name")
-      : "Guest",
+      : t("Guest"),
     newField: null,
   };
   const handleShowNavbar = () => {
@@ -464,15 +464,15 @@ function NavBar({ logoImage }) {
                       </Link>
                     </ul>
                   </nav>
-                  <div className={style.rightSubContainerMobile}>
+                  <div className={i18n.language === "en" ? style.rightSubContainerMobile : style.rightSubContainerMobileAr}>
                     <div>
-                      {initialState && initialState.username === "Guest" ? (
+                      {initialState && initialState.username === "Guest" || initialState.username === "زائر" ? (
                         <Link to="/login">
                           <Button
                             handleCloseModal={handleCloseModal}
                             btnInfo={
                               <div className={`${btnStyle.iconUserDiv} ${style.loginButton}`}>
-                               Login
+                                {t("Login")}
                               </div>
                             }
                           />
@@ -482,9 +482,9 @@ function NavBar({ logoImage }) {
                           handleCloseModal={handleCloseModal}
                           dropDownInfo={
                             <div className={`${btnStyle.userloggedinBtn} ${style.logoutButton}`} onClick={logout}>
-                            <i className="fas fa-sign-out-alt">
-                                    {t("LogOut")}
-                                  </i>
+                              <i className="fas fa-sign-out-alt">
+                                {t("LogOut")}
+                              </i>
                             </div>
                           }
                           menuElements={[
@@ -493,7 +493,7 @@ function NavBar({ logoImage }) {
                               path: "/",
                               title: (
                                 <div onClick={logout}>
-                                  <i className="fas fa-sign-out-alt">
+                                  <i className={`fas fa-sign-out-alt ${style.loginButton}`}>
                                     {t("LogOut")}
                                   </i>
                                 </div>

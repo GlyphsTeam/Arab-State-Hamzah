@@ -22,7 +22,6 @@ function Login({ baseURL, logo }) {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [loginSuccess, setLoginSuccess] = useState(false);
-  const [crossDoma, setCross]= useState("");
   userEmail && formData.append("email", userEmail);
   userPassword && formData.append("password", userPassword);
 
@@ -86,7 +85,7 @@ function Login({ baseURL, logo }) {
                 className={`col-md-12 col-sm-12 col-lg-6 ${style.formOrder}`}
               >
                 <form className={style.form}>
-                  <h1>Login</h1>
+                  <h1 className={style.signUpTi}>{t("Login")}</h1>
                   <div className={`row mt-4 ${style.formRow}`}>
                     <label htmlFor="email" className={`col-2 `}>
                       <i className={`fas fa-envelope ${style.icon}`}></i>

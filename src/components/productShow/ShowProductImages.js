@@ -69,14 +69,14 @@ function ShowProductGallery({ data }) {
           {data?.gallery.map((item, index) => (
             <div key={index}>
               {" "}
-              <LazyLoadImage src={item} alt="gallery"/>
+              <LazyLoadImage src={item} alt="gallery" />
             </div>
           ))}
         </Slider>
       </div>
       <div className={style.subGalleryDiv}>
         {data?.gallery.map((item, index) => (
-          <LazyLoadImage key={index} src={item} alt="gallery"/>
+          <LazyLoadImage key={index} src={item} alt="gallery" className={style.productGallery}/>
         ))}
       </div>
       {/* {isModalOpen && <ShowImage images={images} setIsModalOpen={setIsModalOpen} activeIndex={activeIndex}/>} */}

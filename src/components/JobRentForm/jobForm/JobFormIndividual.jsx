@@ -51,7 +51,6 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
     name: "experience_level",
   }));
 
-  const [warning, setWarning] = useState(false);
   const [success, setSuccess] = useState(false);
   const [showTitleWarn, setShowTitleWarn] = useState(false);
   const [showLocationWarn, setShowLocationWarn] = useState(false);
@@ -211,11 +210,7 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
       setJobFormData({ ...jobFormData, anonymous: "false" });
     }
   };
-  // const [filters, setFilters] = useState({
-  //   place: "",
-  //   type: "",
-  //   salary_type:""
-  // });
+ 
 
   const filterChange = (event, type) => {
     const { name, value } = event;

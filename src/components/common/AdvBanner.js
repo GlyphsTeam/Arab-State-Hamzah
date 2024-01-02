@@ -1,14 +1,17 @@
 import style from "../../assets/style/common/advBanner.module.css";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-
-function AdvBanner({ ADV_left, ADV_Right }) {
+import { useSelector } from 'react-redux';
+import { homeState } from '../../redux/Home/home'
+function AdvBanner() {
+   const stateHome = useSelector(homeState);
+   console.log("Homs>>>",stateHome)
   return (
     <div className={style.conatiner}>
       <div className={` row `}>
         {/* <Slider {...settings}> */}
         <div className={`col-lg-12 col-md-12 col-sm-12`}>
-          {ADV_left?.slice(0, 1).map((item, index) => (
+          {stateHome?.homeData?.advertisements_left?.slice(0, 1).map((item, index) => (
             <Link to={item.url} key={index}>
               <div className={style.categoryContainerDiv}>
                 <LazyLoadImage src={item.image} alt="ad" />
@@ -17,7 +20,7 @@ function AdvBanner({ ADV_left, ADV_Right }) {
           ))}
         </div>
 
-        <div className={`col-lg-4 col-md-12 col-sm-12`}>       
+        <div className={`col-lg-4 col-md-12 col-sm-12`}>
         </div>
       </div>
     </div>

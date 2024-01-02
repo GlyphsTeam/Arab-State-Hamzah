@@ -4,12 +4,13 @@ import AllCategoryList from "./AllCategoryList";
 import { useTranslation } from "react-i18next";
 import HomeTitle from "../../common/title/HomeTitle";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-
+import { homeState } from '../../../redux/Home/home';
+import { useSelector } from 'react-redux'
 function CategoryList({ data }) {
   const [t] = useTranslation();
   const [isWeb, setIsWeb] = useState(false)
-
-
+  const stateHome = useSelector(homeState);
+  
 
 
   useEffect(() => {

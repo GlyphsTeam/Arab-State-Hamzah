@@ -12,6 +12,7 @@ import SpinnerStatic from '../common/Spinner';
 import { useNavigate } from "react-router-dom";
 import ButtonTwo from "../Button/ButtonTwo";
 import LoadingSpiner from "../Button/LoadingSpiner";
+import InputSelect from "../UI/InputSelect";
 function MarketPlacePostSection() {
   const [t] = useTranslation();
   const navigation = useNavigate();
@@ -98,11 +99,10 @@ function MarketPlacePostSection() {
     });
 
   marketFormData.points &&
-    marketFormData?.points?.forEach((image) => {
-      formData.append("points[]", marketFormData.points);
+    marketFormData?.points?.forEach((point) => {
+      formData.append("points[]", point);
     });
 
-  let url = `market/create`;
   let colorUrl = `color`;
   let yearUrl = `year`;
   let cityUrl = `cities`;
@@ -111,7 +111,7 @@ function MarketPlacePostSection() {
   const [cityData] = useAxios(cityUrl, "false");
   const [categoryData] = useAxios(`main-market/categories`, "false");
   const [subCategoryData] = useAxios(
-    `category-market?main_id=${selectedMainCategoryID}`, "false" 
+    `category-market?main_id=${selectedMainCategoryID}`, "false"
   );
   const [modelData] = useAxios(
     `product-model?sub_id=${selectedSubCategoryID}`, "false"
@@ -145,7 +145,7 @@ function MarketPlacePostSection() {
 
     if (
       marketFormData.title === "" ||
-      // marketFormData.place === "" ||
+      marketFormData.place === "" ||
       marketFormData.type === "" ||
       (marketFormData.phone === "" && marketFormData.email === "") ||
       marketFormData.images.length === 0
@@ -246,16 +246,7 @@ function MarketPlacePostSection() {
       }
     }
   };
-  const anonymousClick = () => {
-    if (
-      marketFormData.anonymous === "false" ||
-      marketFormData.anonymous !== "true"
-    ) {
-      setMarketFormData({ ...marketFormData, anonymous: "true" });
-    } else {
-      setMarketFormData({ ...marketFormData, anonymous: "false" });
-    }
-  };
+
   const handleCategoryChange = (e) => {
     const selectedMainCategory = e.target.value;
     setSelectedMainCategoryID(selectedMainCategory);
@@ -277,31 +268,32 @@ function MarketPlacePostSection() {
     handleChange(e);
   };
 
-  const sharedClick = () => {
-    if (
-      marketFormData.is_bathroom_shared === "" ||
-      marketFormData.is_bathroom_shared !== "true"
-    ) {
-      setMarketFormData({ ...marketFormData, is_bathroom_shared: "true" });
-    } else {
-      setMarketFormData({ ...marketFormData, is_bathroom_shared: "false" });
-    }
-  };
+ 
 
   const handleImageDrop = async (acceptedFiles) => {
-    setLoadingSub(true)
-    const editedImages = [];
-
-    for (const file of acceptedFiles) {
-      const editedImage = await convertToWebP(file);
-      editedImages.push(editedImage);
+    if (marketFormData.images?.length + acceptedFiles?.length > 9) {
+      setMessageAlert("You can upload just 9 images");
+      setShowAlert(true);
+      setTypeAlert("warning")
+      setTimeout(() => {
+        setShowAlert(false);
+      }, 3000);
     }
+    else {
+      setLoadingSub(true)
+      const editedImages = [];
 
-    setMarketFormData({
-      ...marketFormData,
-      images: [...marketFormData?.images, ...editedImages],
-    });
-    setLoadingSub(false)
+      for (const file of acceptedFiles) {
+        const editedImage = await convertToWebP(file);
+        editedImages.push(editedImage);
+      }
+
+      setMarketFormData({
+        ...marketFormData,
+        images: [...marketFormData?.images, ...editedImages],
+      });
+      setLoadingSub(false)
+    }
   };
 
   const convertToWebP = (file) => {
@@ -354,7 +346,7 @@ function MarketPlacePostSection() {
     <div className={`${style.registerFormDiv}`}>
       {isLoadingMarket && <SpinnerStatic />}
       <form>
-      {LoadingSub&&<LoadingSpiner/>}
+        {LoadingSub && <LoadingSpiner />}
 
         <div className={`w-100 ${productStyle.uploadImageDiv}`}>
           <Dropzone onDrop={handleImageDrop}>
@@ -386,66 +378,45 @@ function MarketPlacePostSection() {
             ))}
           </div>
         </div>
-        <select
+        {showImageWarn && (
+          <p className={jobStyle.required}>{t("images are required")}</p>
+        )}
+        <InputSelect
           name="main_category"
-          id="main_category"
-          value={marketFormData.main_category}
-          // onChange={handleChange}
-          className={`w-100 ${jobStyle.dropDownMain}`}
-          onChange={handleCategoryChange}
-        >
-          <option value="">{t("Main Category")}</option>
-          {category?.map((item) => {
-            return (
-              <option key={item.id} value={item.id}>
-                {item.name}
-              </option>
-            );
-          })}
-        </select>
+          inputValue={marketFormData.main_category}
+          handlerChange={handleCategoryChange}
+          optionsValue={category}
+          classNameInput={'w-100'}
+          selectName="main_category"
+        />
         {showMainCategoryWarn && (
           <p className={jobStyle.required}>{t("main category is required")}</p>
         )}
 
         {marketFormData.main_category && (
-          <select
+          <InputSelect
             name="category"
-            id="category"
-            value={marketFormData.category}
-            onChange={handleSubCategoryChange}
-            className={`w-100 ${jobStyle.dropDownMain}`}
-          >
-            <option value="">{t("Sub Category")}</option>
-            {subCategory?.map((item) => {
-              return (
-                <option key={item.id} value={item.id}>
-                  {item.name}
-                </option>
-              );
-            })}
-          </select>
+            inputValue={marketFormData.category}
+            handlerChange={handleSubCategoryChange}
+            optionsValue={subCategory}
+            classNameInput={'w-100'}
+            selectName="category"
+
+          />
         )}
         {marketFormData.main_category && showCategoryWarn && (
           <p className={jobStyle.required}>{t("sub category is required")}</p>
         )}
 
         {marketFormData?.category && marketFormData?.main_category && (
-          <select
+          <InputSelect
             name="sub_category"
-            id="sub_category"
-            value={marketFormData.sub_category}
-            onChange={handleChange}
-            className={`w-100 ${jobStyle.dropDownMain}`}
-          >
-            <option value="">{t("Type")}</option>
-            {model?.map((item) => {
-              return (
-                <option key={item.id} value={item.id}>
-                  {item.name}
-                </option>
-              );
-            })}
-          </select>
+            inputValue={marketFormData.sub_category}
+            handlerChange={handleChange}
+            optionsValue={model}
+            classNameInput={'w-100'}
+            selectName="sub_category"
+          />
         )}
         {marketFormData.category &&
           marketFormData.main_category &&
@@ -464,35 +435,6 @@ function MarketPlacePostSection() {
         {showTitleWarn && (
           <p className={jobStyle.required}>{t("Title is required")}</p>
         )}
-
-        {/* <div className={`${style.typeField} ${style.requiredClass}`}>
-          <input
-            type="radio"
-            id="lookingFor"
-            name="accomodation-rent"
-            onChange={() => setLooking(1)}
-          />
-          <label className="px-2" htmlFor="lookingFor">
-            {t("For buy")}
-          </label>
-        </div> */}
-        {/* <div className={`${style.typeField} ${style.requiredClass}`}>
-          <input
-            type="radio"
-            id="rent"
-            name="accomodation-rent"
-            onChange={() => setLooking(2)}
-          />
-          <label className="px-2" htmlFor="rent">
-            {t("For sale")}
-          </label>
-        </div> */}
-        {/* {showLooking && (
-          <p className={jobStyle.required}>
-            {t("Looking for sale or buy is required")}
-          </p>
-        )} */}
-
         <input
           className={`w-100`}
           name="price"
@@ -504,45 +446,26 @@ function MarketPlacePostSection() {
         {showPriceWarn && (
           <p className={jobStyle.required}>Price is required</p>
         )}
-        <select
+        <InputSelect
           name="year"
-          id="year"
-          value={marketFormData.year}
-          onChange={handleChange}
-          className={`w-100 ${jobStyle.dropDownMain}`}
-        >
-          <option value="">{t("Year")}</option>
-          {year?.map((item) => {
-            return (
-              <option key={item.id} value={item.name}>
-                {item.name}
-              </option>
-            );
-          })}
-        </select>
+          inputValue={marketFormData.year}
+          handlerChange={handleChange}
+          optionsValue={year}
+          classNameInput={'w-100'}
+          selectName="year"
+        />
         {showYearWarn && (
           <p className={jobStyle.required}>Year is required</p>
         )}
-        {/* {showLocationWarn && (
-          <p className={jobStyle.required}>year is required</p>
-        )} */}
-
-        <select
+        <InputSelect
           name="color"
-          id="color"
-          value={marketFormData.color}
-          onChange={handleChange}
-          className={`w-100 ${jobStyle.dropDownMain}`}
-        >
-          <option value="">{t("Color")}</option>
-          {color?.map((item) => {
-            return (
-              <option key={item.id} value={item.name}>
-                {item.name}
-              </option>
-            );
-          })}
-        </select>
+          inputValue={marketFormData.color}
+          handlerChange={handleChange}
+          optionsValue={color}
+          classNameInput={'w-100'}
+          selectName="Color"
+        
+        />
         {showColorWarn && (
           <p className={jobStyle.required}>Color is required</p>
         )}
@@ -632,22 +555,11 @@ function MarketPlacePostSection() {
         )}
       </form>
       <div className={`d-flex justify-content-end align-items-center ${style.buttonTwoP}`}>
-        {/* <div className={`w-50 ${style.checkboxDivPost}`}>
-          <input
-            id="remember"
-            name="anonymous"
-            type="checkbox"
-            className={`col-1`}
-            onClick={anonymousClick}
-          />
-          <label htmlFor="remember" className="col-11">
-            {t("Anonymous post")}
-          </label>
-        </div> */}
+
         <ButtonTwo handlerClick={handleSubmit} buttonType="submit">
           {t("Create")}
         </ButtonTwo>
-       
+
       </div>
       {showAlert && (
         <Alert

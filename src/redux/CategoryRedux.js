@@ -1,5 +1,4 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
-
 const initialState = {
   categoryId: localStorage.getItem('mainCategoryId') ? localStorage.getItem('mainCategoryId') : '',
   subCategoryId: localStorage.getItem('subCategoryId') ? localStorage.getItem('subCategoryId') : '',
@@ -28,7 +27,6 @@ const category = createSlice({
     },
     setLoading: (state, action) => {
       state.isLoading = action.payload
-
     },
   },
 });

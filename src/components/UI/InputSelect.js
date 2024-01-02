@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-const InputSelect = memo(({ name, inputValue, handlerChange, optionsValue }) => {
+const InputSelect = memo(({ name, inputValue, handlerChange, optionsValue, classNameInput, selectName }) => {
   return (
     <select
       name={name}
@@ -8,12 +8,13 @@ const InputSelect = memo(({ name, inputValue, handlerChange, optionsValue }) => 
       id={name}
       value={inputValue}
       onChange={(e) => handlerChange(e)}
+      className={classNameInput}
     >
-      <option>Select</option>
+      <option>{selectName || "Select"}</option>
       {optionsValue?.length !== 0 && optionsValue?.map((item) => {
         return (
           <option key={item?.id} value={item?.id}>
-            {item?.name || item?.state_name || item}
+            {item?.name || item?.state_name || item || item?.city}
           </option>
         )
       })}

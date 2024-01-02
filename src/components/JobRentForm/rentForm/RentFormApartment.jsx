@@ -31,12 +31,10 @@ function ShowRentForm({ baseUrl }) {
   const [images, setImages] = useState([]);
   const [is_bathroom_shared, set_is_bathroom_shared] = useState("");
   const [showImageInput, setShowImageInput] = useState(true);
-  let url = "en/rents/create";
   const token = localStorage.getItem("arab_user_token");
   const [show, setShow] = useState(false);
   const [warning, setWarning] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [Res, setRes] = useState([]);
 
   const [count, setCount] = useState();
   const formData = new FormData();
@@ -324,31 +322,7 @@ function ShowRentForm({ baseUrl }) {
               })}
             </select>
           </div>
-          {/* <div className={style.requiredClass}>
-          <div className={` ${style.mainDiv} ${style.selectMarginBtm}`}>
-            <div className={style.subDiv}>
-              <select
-                name="type"
-                id="type"
-                className={`${style.fieldWidth} ${style.fieldHeight}`}
-                onChange={(e) => setType(e.target.value)}
-              >
-                <option value="">{t("Accommodation type")}</option>
-                <option value="apartment">{t("Apartment")}</option>
-                <option value="house">{t("House")}</option>
-                <option value="room">{t("Room")}</option>
-                <option value="townhouse_type">{t("Townhouse")}</option>
-              </select>
-            </div>
-          </div>
-          
-        </div> */}
-
-          {/* {showTypeWarn && (
-          <p className={contactStyle.contactValidation}>
-            {t("Accommodation is required")}
-          </p>
-        )} */}
+   
           <div
             className={
               i18n.language === "en"

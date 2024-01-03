@@ -19,13 +19,13 @@ function Home() {
   let urlId;
   const [t] = useTranslation();
   const url = `home`;
-  useEffect(() => {
+  const getHomeData = async () => { 
     const token = localStorage.getItem('arab_user_token');
     const city_ID = process.env.REACT_APP_City_ID;
     const baseURL = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${city_ID}`;
     if (stateHome?.homeData === null) {
       dispatch(setLoading(true));
-      axios.get(`${baseURL}/${url}`, {
+     await axios.get(`${baseURL}/${url}`, {
         headers: { "Authorization": `Bearer ${token}` }
       }).then((res) => {
         dispatch(setHomeData(res.data.data))
@@ -35,6 +35,9 @@ function Home() {
         dispatch(setLoading(false));
       })
     }
+  }
+  useEffect(() => {
+    getHomeData();
   }, [])
   return (
     <>

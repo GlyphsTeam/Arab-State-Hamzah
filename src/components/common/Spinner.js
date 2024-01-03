@@ -1,8 +1,22 @@
 import style from '../../assets/style/spinner.module.css'
 import { BeatLoader } from 'react-spinners';
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-function Spinner({ logo, text }) {
-
+import { useState, useEffect } from 'react';
+function Spinner({ logo, text, textForm }) {
+  const string = textForm;
+  const [currentText, setCurrentText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  let delay = 100;
+  useEffect(() => {
+    if (currentIndex < string?.length) {
+      const timeout = setTimeout(() => {
+        setCurrentText(prevText => prevText + string[currentIndex]);
+        setCurrentIndex(prevIndex => prevIndex + 1);
+      }, delay);
+  
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, delay, string]);
   let clasaSpinner;
   if (text) {
     clasaSpinner = style.spinnerCloum
@@ -18,8 +32,8 @@ function Spinner({ logo, text }) {
           <LazyLoadImage src={logo} alt='BeatLoader' />
           :
           <>
-            <BeatLoader color={'#123abc'} loading={true} />
-            {text&&<p style={{color:"black"}} className={style.loadingMessage}>Please do not close the page. Business form submission may take a few minutes. Thank you for your patience!</p>
+            <BeatLoader className={style.BeatLoader}  loading={true} />
+            {text && <p  className={style.loadingMessage}>{currentText}</p>
             }
           </>
         }

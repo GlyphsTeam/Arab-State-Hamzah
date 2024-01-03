@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import style from "../../../assets/style/homePage/categoryList.module.css";
 import AllCategoryList from "./AllCategoryList";
 import { useTranslation } from "react-i18next";
-import HomeTitle from "../../common/title/HomeTitle";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { homeState } from '../../../redux/Home/home';
 import { useSelector } from 'react-redux'
@@ -22,7 +21,8 @@ function CategoryList({ data }) {
 
   return (
     <>
-      <HomeTitle title={t("Our Services")} />
+      {/* <HomeTitle title={t("Our Services")} /> */}
+      <h2 className={style.titleServerice}>{t("Our Services")}</h2>
       <div className={style.mainCategoryDiv}>
         <div className={`container ${style.container}`}>
 

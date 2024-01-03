@@ -17,3 +17,11 @@
 .spinnerCloum{
     flex-direction: column !important;
 }
+.loadingMessage{
+    text-align: center ;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+.BeatLoader span{
+    background-color: var(--primary-color) !important;
+}

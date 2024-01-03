@@ -183,8 +183,7 @@ function ForRentForm() {
     const mirgeCate = [...businessCategories, ...serviceCategories];
     const [Data] = useAxios(urlStates);
     const statesAndcityes = Data?.data;
-    console.log("statesAndcityes>>",statesAndcityes)
-    console.log("cities>>>",cities)
+
     useEffect(() => {
         const getSubCategory = async () => {
             try {
@@ -603,7 +602,7 @@ function ForRentForm() {
     };
     return (
         <>
-            {isLoadingBusines && <SpinnerStatic text={true} />}
+            {isLoadingBusines && <SpinnerStatic text={true} textForm="Please do not close the page. Business form submission may take a few minutes. Thank you for your patience!" />}
             <Helmet>
                 <title>{titleBussines}</title>
                 <meta name="description" content={titleBussines} />
@@ -613,7 +612,7 @@ function ForRentForm() {
                 <div className={style.formFlex}>
                     <div>
                         <div className={style.inputDiv}>
-                            <label style={{ color: "#05436B",  fontWeight: "bold" }} className={style.labelStyle}>{t("Company Name")}</label>
+                            <label style={{ color: "#05436B", fontWeight: "bold" }} className={style.labelStyle}>{t("Company Name")}</label>
                             <input
                                 name="company"
                                 type="text"
@@ -624,7 +623,7 @@ function ForRentForm() {
                             />
                         </div>
                         <>
-                            <label style={{ color: "#05436B",  fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Your Business Type")}</label>
+                            <label style={{ color: "#05436B", fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Your Business Type")}</label>
                             <div className={`${style.inputDiv}`}>
                                 <InputSelect
                                     handlerChange={handlerSetBusiness}

@@ -4,9 +4,7 @@ const HomeTitle = ({title}) => {
   return (
     <>
     <div className={style.mainDiv}>
-        <hr className={style.topHr} />
         <h2 className={style.title}>{title}</h2>
-        <hr className={style.bottomHr} />
     </div>
     </>
   )

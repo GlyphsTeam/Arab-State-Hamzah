@@ -10,8 +10,7 @@ function UserPostsSection({ savedData, type, baseUrl }) {
   return (
     <>
       {type === "house" && (
-        <div className={`row `}>
-          <p className={style.parProfile}>My posts &gt; houses</p>
+        <div className={`row `}><p className={style.parProfile}><span dangerouslySetInnerHTML={{ __html: t('My Posts > Houses') }} /></p>
 
           {savedData?.rents?.length > 0 ? (
             savedData?.rents?.map((item, index) => (
@@ -32,8 +31,8 @@ function UserPostsSection({ savedData, type, baseUrl }) {
       )}
       {type === "job" && (
         <div className={`row mb-3 ${style.savedJobRow}`}>
-          <p className={style.parProfile}>My posts &gt; jobs</p>
-
+          <p className={style.parProfile}><span dangerouslySetInnerHTML={{ __html: t('My Posts > Jobs') }} /></p>
+         {savedData?.jobs.length===0&&<p className={style.emptyUserMessage}>{t("emptyUserMessage")}</p>}
           <div className={style.cardContainerJob}>
 
             {savedData?.jobs.length > 0 ? (
@@ -48,7 +47,6 @@ function UserPostsSection({ savedData, type, baseUrl }) {
               ))
             ) : (
               <>
-                <p className={style.emptyUserMessage}>{t("emptyUserMessage")}</p>
               </>
             )}
           </div>
@@ -57,7 +55,7 @@ function UserPostsSection({ savedData, type, baseUrl }) {
 
       {type === "product" && (
         <div className={`row mt-5 mb-3 ${style.savedJobRow}`}>
-          <p className={style.parProfile}>My posts &gt; products</p>
+          <p className={style.parProfile}><span dangerouslySetInnerHTML={{ __html: t('My Posts > Products') }} /></p>
 
           {savedData?.market?.length > 0 ? (
             savedData?.market?.map((item, index) => (
@@ -78,7 +76,7 @@ function UserPostsSection({ savedData, type, baseUrl }) {
       )}
       {type === "blog" && (
         <div className={`row mt-5 mb-3 ${style.savedJobRow}`}>
-          <p className={style.parProfile}>Saved &gt; blogs</p>
+          <p className={style.parProfile}><span dangerouslySetInnerHTML={{ __html: t('Saved > Blogs') }} /></p>
           {savedData?.blogs?.length > 0 ? (
             savedData?.blogs?.map((item, index) => (
               <ProductCard

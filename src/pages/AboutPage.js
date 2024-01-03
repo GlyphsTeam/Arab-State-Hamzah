@@ -19,9 +19,8 @@ function AboutPage() {
   const aboutDataRed = useSelector(aboutState);
   const [t] = useTranslation();
   const url = `about`;
-  // const [Data] = useAxios(url);
-  // const aboutData = Data?.data;
-  const fetchAbout = async () => {
+ 
+  const getAboutData = async () => {
     const token = localStorage.getItem("arab_user_token");
     const city_ID = process.env.REACT_APP_City_ID;
     const baseURL = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${city_ID}`;
@@ -39,10 +38,9 @@ function AboutPage() {
   }
   }
   useEffect(() => {
-    fetchAbout()
+    getAboutData()
 
   }, [])
-  console.log("aboutDataRed>>>",aboutDataRed)
 
   return (
     <>

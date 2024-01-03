@@ -14,7 +14,6 @@ function SubCategoryBody() {
 
   const location = useLocation();
   const id = location.pathname.split('/')[location.pathname.split('/').length - 2]
-  const [page, setPage]= useState(1)
   let [showMap, setShowMap] = useState(false);
   let [mobileMap, setMobileMap] = useState(false);
   let [activeIndex, setActiveIndex] = useState(0);
@@ -38,18 +37,7 @@ function SubCategoryBody() {
     }
   }, []);
 
-  const nextPage = () => {
-    if (categoryCards?.length / 4 > activeIndex + 1) {
-      setPage(page + 1);
-      setActiveIndex(activeIndex + 1);
-    }
-  };
-  const previousPage = () => {
-    if (page > 1) {
-      setPage(page - 1);
-      setActiveIndex(activeIndex - 1);
-    }
-  };
+
   const itemsPerPage = 9;
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -61,6 +49,10 @@ function SubCategoryBody() {
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
+    window.scrollTo({
+      top: 350,
+      behavior: 'smooth', 
+    });
   };
   return (
     <div className={`container`}>
@@ -108,11 +100,6 @@ function SubCategoryBody() {
           ))}
         </ul>
       </div>
-        {/* <div className={`col-lg-8 col-md-12 col-sm-12 d-flex flex-wrap`}>
-          {categoryCards?.map((item, index) => (
-            <SubCategoryCard key={index} data={item} typePage={1}/>
-          ))}
-        </div> */}
       </div>
  
     </div>

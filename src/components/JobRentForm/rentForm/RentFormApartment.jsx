@@ -203,7 +203,7 @@ function ShowRentForm({ baseUrl }) {
 
   return (
     <>
-      {isLoadingRent && <SpinnerStatic />}
+      {isLoadingRent && <SpinnerStatic text={true} textForm="Please do not close the page. Rent form submission may take a few minutes. Thank you for your patience!"/>}
       <HeroNav
         mainData={dataR?.slider}
         subData={dataR?.slider?.model}

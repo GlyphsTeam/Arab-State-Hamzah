@@ -57,7 +57,7 @@ const RentPage = lazy(() => import('./pages/LookingForRentPage'));
 const Jobs = lazy(() => import('./pages/JobPage'));
 const Rents = lazy(() => import('./pages/RentPage'));
 const PostJobPage = lazy(() => import('./pages/PostJobPage'));
-const PostRentPage = lazy(() => import('./pages/PostJobPage'));
+const PostRentPage = lazy(() => import('./pages/PostRentPage'));
 const CityHome = lazy(() => import('./pages/multiCity/Home'));
 const SpinnerStatic = lazy(() => import('./components/common/Spinner'));
 const Business = lazy(() => import('./components/addbussinse/Business'));

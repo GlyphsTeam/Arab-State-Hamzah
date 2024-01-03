@@ -219,7 +219,7 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
 
   return (
     <div>
-      {isLoadingJob && <SpinnerStatic />}
+      {isLoadingJob && <SpinnerStatic text={true} textForm="Please do not close the page. Job form submission may take a few minutes. Thank you for your patience!"/>}
       <h2 className={style.jobFormTitle}>Post as Individual </h2>
       <div className={style.jobContact}>
         <form className={style.formDiv}>

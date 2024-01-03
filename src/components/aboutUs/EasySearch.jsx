@@ -1,6 +1,5 @@
 import style from "../../assets/style/about/easySearch.module.css";
 import Slider from "react-slick";
-import Title from "../common/Title";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 const EasySearch = ({ aboutData }) => {
   const settings = {
@@ -65,7 +64,7 @@ const EasySearch = ({ aboutData }) => {
 
       <div className={style.easySearchContainerMobile}>
         {/* <h5>Quick And Easy Search</h5> */}
-        <Title data={aboutData?.title}/>
+        <h2 className={style.titleAbou}>{aboutData?.title}</h2>
         <div className={style.easySearchCardContainer}>
           <Slider {...settings}>
             {aboutData?.model?.map((item, index) => (

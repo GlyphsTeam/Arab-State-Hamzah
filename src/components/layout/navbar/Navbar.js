@@ -39,6 +39,9 @@ function NavBar({ logoImage }) {
   };
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar);
+    if (statesDropDown) {
+      setStatesDropDown(!statesDropDown);
+    }
   };
 
   const handleCloseModal = () => {
@@ -63,6 +66,8 @@ function NavBar({ logoImage }) {
         pathName === "/changepassword" ||
         pathName === "/delete-account" ||
         pathName === "/add-bussinse" ||
+        pathName === "/login" ||
+        pathName === "/register" ||
         pathName.includes("show-product") ||
         pathName.includes('/show-user-guide')
       ) {
@@ -122,8 +127,6 @@ function NavBar({ logoImage }) {
   if (
     pathName === "/my-housing" ||
     pathName === "/my-job" ||
-    pathName === "/login" ||
-    pathName === "/register" ||
     pathName === "/edit-profile" ||
     pathName === "/change-password" ||
     pathName === "/forgot-password" ||
@@ -166,6 +169,8 @@ function NavBar({ logoImage }) {
       pathName === "/changepassword" ||
       pathName === "/delete-account" ||
       pathName === "/add-bussinse" ||
+      pathName === "/login" ||
+      pathName === "/register" ||
       pathName.includes("show-product") ||
       pathName.includes("/show-user-guide")
     ) {
@@ -455,7 +460,7 @@ function NavBar({ logoImage }) {
                       <Link to="/add-bussinse" onClick={handleCloseModal}>
                         <li> {t("Add Business")} </li>
                       </Link>
-                      <Link to="/Profile" onClick={handleCloseModal} className={style.profileNav}>
+                      <Link to={initialState.username === "Guest" || initialState.username === "زائر" ? `/login` : `/Profile`} onClick={handleCloseModal} className={style.profileNav}>
                         <i
                           className={`far fa-user  ${style.userIcon}`}
                         ></i>

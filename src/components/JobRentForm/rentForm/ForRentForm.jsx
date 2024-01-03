@@ -84,16 +84,16 @@ function ForRentForm({ baseUrl, rentPageData }) {
       title === "" ||
       type === "" ||
       place === "" ||
-      phone === ""||
+      phone === "" ||
       description === "" ||
-      images.length === 0||
-      gender===""||
-      email === ""||
-      bathrooms===""||
-      bedrooms===""||
-      area===""
+      images.length === 0 ||
+      gender === "" ||
+      email === "" ||
+      bathrooms === "" ||
+      bedrooms === "" ||
+      area === ""
     ) {
-     
+
       if (type === "") {
         setSuccess(true);
         setTypeAlert("warning")
@@ -121,27 +121,27 @@ function ForRentForm({ baseUrl, rentPageData }) {
         setTypeAlert("warning")
         setMessageAlert("Email is required")
       }
-      if(area===""){
+      if (area === "") {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("Area is required")
       }
-      if(price===""){
+      if (price === "") {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("Price is required")
       }
-      if(bedrooms===""){
+      if (bedrooms === "") {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("Bedrooms is required")
       }
-      if(bathrooms===""){
+      if (bathrooms === "") {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("Bathrooms is required")
       }
-      if(gender===""){
+      if (gender === "") {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("Gender is required")
@@ -172,7 +172,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
           },
           method: "POST",
           body: formData,
-        }).then(()=>{
+        }).then(() => {
           setLoadingRent(false);
           navigate("/my-housing")
 
@@ -185,7 +185,8 @@ function ForRentForm({ baseUrl, rentPageData }) {
         setMessageAlert("There is a problem with the server; please try again later.")
       }
       setShow(true);
-      setCount(4);    }
+      setCount(4);
+    }
   };
   const anonymousClick = () => {
     if (anonymous === "" || anonymous !== "true") {
@@ -204,7 +205,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
 
   return (
     <>
-    {isLoadingRent&&<SpinnerStatic/>}
+      {isLoadingRent && <SpinnerStatic text={true} textForm="Please do not close the page. Rent form submission may take a few minutes. Thank you for your patience!" />}
       <div className={style.titleDiv}>
         <h1>{t("Looking For Rent")}</h1>
         <p>{t("How would you like to post a Rent")}</p>
@@ -266,7 +267,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
- 
+
 
           <>
             <div className={`${style.inputDiv}`}>
@@ -286,7 +287,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
                 })}
               </select>
             </div>
-  
+
           </>
 
           <div className={`${style.inputDiv}`}>
@@ -444,7 +445,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
               className={style.inputForm}
             />
           </div>
-   
+
           <div className={style.checkboxDiv}>
             <input
               id="anonymous"

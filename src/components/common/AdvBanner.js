@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 import { homeState } from '../../redux/Home/home'
 function AdvBanner() {
    const stateHome = useSelector(homeState);
-   console.log("Homs>>>",stateHome)
   return (
     <div className={style.conatiner}>
       <div className={` row `}>

@@ -28,6 +28,20 @@ function CategoryPage() {
       setActiveIndex(activeIndex - 1);
     }
   };
+  const resetFilter = () => {
+    setFilters({
+      sort_by: "",
+      year_from: "",
+      yearto: "",
+      color: "",
+      model_id: "",
+      place: "",
+      condition: "",
+      looking: "",
+      price_from: "",
+      price_to: "",
+    })
+  }
 
   const categoryId = localStorage.getItem("mainCategoryId")
     ? localStorage.getItem("mainCategoryId")
@@ -113,10 +127,10 @@ function CategoryPage() {
         token={token}
 
       />
-     
 
-      <ScrollContainer className="scroll-container"  
-        >
+
+      <ScrollContainer className="scroll-container"
+      >
 
         <div className={filterStyle.sublistCatge}>
           {modelData.data?.map((cat) => {
@@ -127,7 +141,8 @@ function CategoryPage() {
 
       <div className={`row ${filterStyle.pageContainer}`}>
         <div className={`col-sm-1 col-md-3 col-lg-3 ${filterStyle.filterHide}`}>
-          <ProductFilter setMobileFilter={setMobileFilter} mobileFilter={mobileFilter} filterChange={filterChange} filters={filters} />
+
+          <ProductFilter resetFilter={resetFilter} setMobileFilter={setMobileFilter} mobileFilter={mobileFilter} filterChange={filterChange} filters={filters} />
         </div>
 
         <div className={`col-sm-12 col-md-9 col-lg-9 ${filterStyle.pageRow}`}>
@@ -143,10 +158,10 @@ function CategoryPage() {
           </div>
 
           <div className={`col-sm-12 mt-3 ${filterStyle.filterShow}`}>
-            {mobileFilter && 
+            {mobileFilter &&
 
-              <ProductFilter setMobileFilter={setMobileFilter} mobileFilter={mobileFilter} filterChange={filterChange} filters={filters} />
-      }
+              <ProductFilter resetFilter={resetFilter} setMobileFilter={setMobileFilter} mobileFilter={mobileFilter} filterChange={filterChange} filters={filters} />
+            }
           </div>
           <div hidden className={filterStyle.filterDiv}>
             <div className={filterStyle.filterSelect}>

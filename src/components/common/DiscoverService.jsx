@@ -18,7 +18,7 @@ const DiscoverService = ({ data }) => {
       <Title data={data?.title} />
         <p>{data?.web_description && ReactHtmlParser(data?.web_description)}</p>
 
-        <Link to={"https://allarabusa.com/en/User-Guide"}>
+        <Link to={process.env.REACT_APP_ABOUT_URL}>
           <div className={i18n.language === "en" ? style.discoverServiceButton: style.discoverServiceButtonAr }>{t("Start Your Journey")}</div>
         </Link>      
                 

@@ -12,7 +12,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from "react";
 import axios from 'axios';
 import { setLoading } from '../redux/slices/login';
-
 function Home() {
   const dispatch = useDispatch();
   const stateHome = useSelector(homeState);

@@ -3,9 +3,9 @@ import style from '../../../../assets/style/marketPlace/productFilter.module.css
 import useAxios from '../../../../hooks/useAxiosGet';
 import { useTranslation } from "react-i18next";
 import DropDownSearch from './DropDownSearch';
-
-function ProductFilter({ filterChange, filters, mobileFilter, setMobileFilter }) {
-  const [t, i18n] = useTranslation();
+import ButtonOne from '../../../Button/ButtonOne';
+function ProductFilter({ filterChange, filters, mobileFilter, setMobileFilter, resetFilter }) {
+  const [t] = useTranslation();
   const categoryId = localStorage.getItem('mainCategoryId') ? localStorage.getItem('mainCategoryId') : '';
   const subCategoryId = localStorage.getItem('subCategoryId') ? localStorage.getItem('subCategoryId') : '';
   const categoryTitle = localStorage.getItem('mainCategoryTitle') ? localStorage.getItem('mainCategoryTitle') : '';
@@ -30,6 +30,7 @@ function ProductFilter({ filterChange, filters, mobileFilter, setMobileFilter })
           ))
         }
 
+<ButtonOne resetFilter={resetFilter}>{t("Reset Filter")}</ButtonOne>
 
       </div>
     </>

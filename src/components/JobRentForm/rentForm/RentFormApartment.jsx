@@ -81,11 +81,11 @@ function ShowRentForm({ baseUrl }) {
       phone === "" ||
       description === "" ||
       images.length === 0 ||
-      email === ""||
-      gender===""||
-      bathrooms===""||
-      bedrooms===""||
-      area===""
+      email === "" ||
+      gender === "" ||
+      bathrooms === "" ||
+      bedrooms === "" ||
+      area === ""
     ) {
 
       if (type === "") {
@@ -116,27 +116,27 @@ function ShowRentForm({ baseUrl }) {
         setTypeAlert("warning")
         setMessageAlert("Email is required")
       }
-      if(area===""){
+      if (area === "") {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("Area is required")
       }
-      if(price===""){
+      if (price === "") {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("Price is required")
       }
-      if(bedrooms===""){
+      if (bedrooms === "") {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("Bedrooms is required")
       }
-      if(bathrooms===""){
+      if (bathrooms === "") {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("Bathrooms is required")
       }
-      if(gender===""){
+      if (gender === "") {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("Gender is required")
@@ -167,7 +167,7 @@ function ShowRentForm({ baseUrl }) {
           },
           method: "POST",
           body: formData,
-        }).then(()=>{
+        }).then(() => {
           setLoadingRent(false);
           navigate("/my-housing")
         });
@@ -203,7 +203,7 @@ function ShowRentForm({ baseUrl }) {
 
   return (
     <>
-      {isLoadingRent && <SpinnerStatic text={true} textForm="Please do not close the page. Rent form submission may take a few minutes. Thank you for your patience!"/>}
+      {isLoadingRent && <SpinnerStatic text={true} textForm={i18n.language === "en" ? "Please do not close the page. Rent form submission may take a few minutes. Thank you for your patience!" : "فضلك لا تغلق الصفحة. قد يستغرق إرسال المعلومات بضع دقائق. شكرا لك على انتظارك"} />}
       <HeroNav
         mainData={dataR?.slider}
         subData={dataR?.slider?.model}
@@ -322,7 +322,7 @@ function ShowRentForm({ baseUrl }) {
               })}
             </select>
           </div>
-   
+
           <div
             className={
               i18n.language === "en"

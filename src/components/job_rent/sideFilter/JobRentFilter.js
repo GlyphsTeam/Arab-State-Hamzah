@@ -7,7 +7,6 @@ import { useTranslation } from "react-i18next";
 function JobRentFilter({ filterChange, filters, type, setFilters }) {
   const [t] = useTranslation();
 
-
   const [url, setUrl] = useState('');
 
   useEffect(() => {
@@ -45,7 +44,6 @@ function JobRentFilter({ filterChange, filters, type, setFilters }) {
     <>
       <div className={style.mainFilterDiv}>
         <h2 className={style.filterTitle}>Filter</h2>
-        <ButtonOne resetFilter={resetFilter}>{t("Reset Filter")}</ButtonOne>
 
         {
           Data?.data?.map((item, index) => (
@@ -57,6 +55,7 @@ function JobRentFilter({ filterChange, filters, type, setFilters }) {
           ))
         }
 
+<ButtonOne resetFilter={resetFilter}>{t("Reset Filter")}</ButtonOne>
 
       </div>
     </>

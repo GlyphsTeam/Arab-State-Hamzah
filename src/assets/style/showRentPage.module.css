@@ -3,7 +3,7 @@
   height: 350px;
   /* border-radius: 50%; */
   width: 100%;
-  border-top-left-radius: 115px;
+  border-bottom-left-radius: 115px;
   padding: 19px;
 }
 .rentPriceDiv{
@@ -478,7 +478,7 @@ a .contactIcon {
 @media (min-width: 1300px) {
   .imageSize {
     height: 422px;
-    border-top-left-radius: 115px;
+    border-bottom-left-radius: 115px;
 
     width: 422px;
     padding: 19px;

@@ -14,11 +14,11 @@ import ButtonTwo from "../Button/ButtonTwo";
 import LoadingSpiner from "../Button/LoadingSpiner";
 import InputSelect from "../UI/InputSelect";
 function MarketPlacePostSection() {
-  const [t] = useTranslation();
+  const [t, i18n] = useTranslation();
   const navigation = useNavigate();
   const [isLoadingMarket, setLoadingMarket] = useState(false);
   const [LoadingSub, setLoadingSub] = useState(false);
-
+ console.log("MarketPlacePostProduct>>>>", i18n.language==="en")
   const [marketFormData, setMarketFormData] = useState({
     title: "",
     price: "",
@@ -268,7 +268,7 @@ function MarketPlacePostSection() {
     handleChange(e);
   };
 
- 
+
 
   const handleImageDrop = async (acceptedFiles) => {
     if (marketFormData.images?.length + acceptedFiles?.length > 9) {
@@ -344,7 +344,7 @@ function MarketPlacePostSection() {
 
   return (
     <div className={`${style.registerFormDiv}`}>
-      {isLoadingMarket && <SpinnerStatic  text={true} textForm="Please do not close the page. Market form submission may take a few minutes. Thank you for your patience!"/>}
+      {isLoadingMarket && <SpinnerStatic text={true} textForm={i18n.language === "en" ? "Please do not close the page. Market form submission may take a few minutes. Thank you for your patience!" : "فضلك لا تغلق الصفحة. قد يستغرق إرسال المعلومات بضع دقائق. شكرا لك على انتظارك"} />}
       <form>
         {LoadingSub && <LoadingSpiner />}
 
@@ -464,7 +464,7 @@ function MarketPlacePostSection() {
           optionsValue={color}
           classNameInput={'w-100'}
           selectName="Color"
-        
+
         />
         {showColorWarn && (
           <p className={jobStyle.required}>Color is required</p>
@@ -528,7 +528,7 @@ function MarketPlacePostSection() {
           onChange={handleChange}
           value={marketFormData.phone_number}
           placeholder={t("Phone number")}
-          className={`w-100`}
+          className={i18n.language === "en" ? style.phoneNumberclasEn : style.phoneNumberclasAr}
         />
         {requireWarn && (
           <p className={jobStyle.required}>

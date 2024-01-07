@@ -2,8 +2,12 @@ import style from '../../assets/style/spinner.module.css'
 import { BeatLoader } from 'react-spinners';
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { useState, useEffect } from 'react';
+import { useTranslation } from "react-i18next";
+
 function Spinner({ logo, text, textForm }) {
   const string = textForm;
+  const [t] = useTranslation();
+
   const [currentText, setCurrentText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   let delay = 100;
@@ -33,7 +37,7 @@ function Spinner({ logo, text, textForm }) {
           :
           <>
             <BeatLoader className={style.BeatLoader}  loading={true} />
-            {text && <p  className={style.loadingMessage}>{currentText}</p>
+            {text && <p  className={style.loadingMessage}>{t(currentText)}</p>
             }
           </>
         }

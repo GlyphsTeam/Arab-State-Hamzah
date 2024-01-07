@@ -301,7 +301,7 @@
            "rent_desc":   "هذه الخدمة للباحثين عن شقة أو منزل للإيجار ، أو إذا كنت تملك عقار للإيجار",
             "find more": "جد المزيد",
            "experienceTryApp" : "جرب أفضل ما نقدمه ، كل ذلك في تطبيق واحد", 
-           "Our Services" : "خدماتنا", 
+           "Our Services" : "مقدمي الخدمات", 
            "Service Provider" : "الخدمات المقدمة",
            "nestedArrowDir":"left",
            "Products" : "منتجات",
@@ -382,5 +382,8 @@
            "Looking For Accommodation":"يبحث عن سكن",
            "Accomodation for Rent":"سكن للايجار",
            "Job Seekers":"الباحثين عن عمل",
-           "Job Opportunities":"فرص عمل"
+           "Job Opportunities":"فرص عمل",
+           "Menu Category":"قائمه الفئات",
+           "Category List":"قائمه الفئات",
+           "For More Services Visit Our website":"لمزيد من الخدمات قم بزيارة موقعنا"
         }

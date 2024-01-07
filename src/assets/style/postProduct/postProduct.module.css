@@ -9,6 +9,14 @@
 .buttonTwoP button svg{
   margin:0.6em 0.8em 1em !important ;
 }
+.phoneNumberclasEn{
+  direction: ltr ;
+  width: 100% !important;
+}
+.phoneNumberclasAr{
+  direction: rtl ;
+  width: 100% !important;
+}
 .plusButton {
 height: fit-content !important;
 margin-bottom: 6px !important;

@@ -7,6 +7,9 @@
     border: 3px solid var(--primary-color);
 
   }
+  .mainFilterDiv button{
+margin-left: 20px;  
+}
 
   .productDiv{
     padding: 10px 20px;

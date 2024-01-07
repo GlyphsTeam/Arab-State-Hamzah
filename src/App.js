@@ -167,7 +167,6 @@ function App() {
 
   return (
     <>
-
       <Router basename={`/${lang}`}>
         {stateMus?.isLoading ? (
           <>

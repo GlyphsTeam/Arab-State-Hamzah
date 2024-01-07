@@ -94,8 +94,8 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
       jobFormData.description === "" ||
       jobFormData.salary === "" ||
       jobFormData.salary_type === "" ||
-      jobFormData.short_desc === ""||
-      jobFormData.type === ""||
+      jobFormData.short_desc === "" ||
+      jobFormData.type === "" ||
       jobFormData.email === ""
     ) {
       if (jobFormData.description === "") {
@@ -134,7 +134,7 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
         setTypeAlert("warning")
         setMessageAlert("Salary is required")
       }
-      if(jobFormData.type===""){
+      if (jobFormData.type === "") {
         setSuccess(true)
         setShow(true);
         setTypeAlert("warning")
@@ -169,7 +169,7 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
           },
           method: "POST",
           body: formData,
-        }).then(()=>{
+        }).then(() => {
           setLoadingJob(false);
           navigate("/my-job")
         })
@@ -210,7 +210,7 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
       setJobFormData({ ...jobFormData, anonymous: "false" });
     }
   };
- 
+
 
   const filterChange = (event, type) => {
     const { name, value } = event;
@@ -219,7 +219,7 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
 
   return (
     <div>
-      {isLoadingJob && <SpinnerStatic text={true} textForm="Please do not close the page. Job form submission may take a few minutes. Thank you for your patience!"/>}
+      {isLoadingJob && <SpinnerStatic text={true} textForm={i18n.language === "en" ? "Please do not close the page. Job form submission may take a few minutes. Thank you for your patience!" : "فضلك لا تغلق الصفحة. قد يستغرق إرسال المعلومات بضع دقائق. شكرا لك على انتظارك"} />}
       <h2 className={style.jobFormTitle}>Post as Individual </h2>
       <div className={style.jobContact}>
         <form className={style.formDiv}>

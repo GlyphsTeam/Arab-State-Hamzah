@@ -1,5 +1,4 @@
 import style from "../assets/style/about/about.module.css";
-import useAxios from "../hooks/useAxiosGet";
 import AboutImage from "../components/aboutUs/AboutImage";
 import AboutParagraph from "../components/aboutUs/AboutParagraph";
 import DiscoverService from "../components/common/DiscoverService";

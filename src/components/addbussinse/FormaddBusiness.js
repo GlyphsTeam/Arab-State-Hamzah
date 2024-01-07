@@ -602,7 +602,7 @@ function ForRentForm() {
     };
     return (
         <>
-            {isLoadingBusines && <SpinnerStatic text={true} textForm="Please do not close the page. Business form submission may take a few minutes. Thank you for your patience!" />}
+            {isLoadingBusines && <SpinnerStatic text={true} textForm={i18n.language==="en"?"Please do not close the page. Business form submission may take a few minutes. Thank you for your patience!":"فضلك لا تغلق الصفحة. قد يستغرق إرسال المعلومات بضع دقائق. شكرا لك على انتظارك"}/>}
             <Helmet>
                 <title>{titleBussines}</title>
                 <meta name="description" content={titleBussines} />

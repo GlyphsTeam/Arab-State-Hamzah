@@ -31,18 +31,13 @@ function ForRentForm({ baseUrl, rentPageData }) {
   const [images, setImages] = useState([]);
   const [is_bathroom_shared, set_is_bathroom_shared] = useState("");
   const [showImageInput, setShowImageInput] = useState(true);
-  let url = "en/rents/create";
   const token = localStorage.getItem("arab_user_token");
   const [show, setShow] = useState(false);
   const [warning, setWarning] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [Res, setRes] = useState([]);
-  const [showTitleWarn, setShowTitleWarn] = useState(false);
-  const [showPlaceWarn, setShowPlaceWarn] = useState(false);
-  const [showTypeWarn, setShowTypeWarn] = useState(false);
+
   const [count, setCount] = useState();
   const [showImageWarn, setShowImageWarn] = useState(false);
-  const [descriptionWarning, setDescriptionWarning] = useState(false);
   const formData = new FormData();
   title && formData.append("title", title);
   description && formData.append("description", description);
@@ -205,7 +200,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
 
   return (
     <>
-      {isLoadingRent && <SpinnerStatic text={true} textForm="Please do not close the page. Rent form submission may take a few minutes. Thank you for your patience!" />}
+      {isLoadingRent && <SpinnerStatic text={true} textForm={i18n.language==="en"?"Please do not close the page. Rent form submission may take a few minutes. Thank you for your patience!":"فضلك لا تغلق الصفحة. قد يستغرق إرسال المعلومات بضع دقائق. شكرا لك على انتظارك"}/>}
       <div className={style.titleDiv}>
         <h1>{t("Looking For Rent")}</h1>
         <p>{t("How would you like to post a Rent")}</p>

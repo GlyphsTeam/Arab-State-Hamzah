@@ -12,9 +12,15 @@ import useAxios from "../../../hooks/useAxiosGet";
 import NestedDropDown from "./NestedDropDown";
 import AccordionMobile from "./AccordionMobile";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-
+import Alert from "../../common/alert/Alert";
+import Advert from "../../Advertisement/Advertusments"
 function NavBar({ logoImage }) {
   const [showNavbar, setShowNavbar] = useState(false);
+  const [messageAlert, setMessageAlert] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
+  const [typeAlert, setTypeAlert] = useState("");
+  const [count, setCount] = useState();
+
   const [navbar, setNavbar] = useState(false);
   const [dropDown, setDropDown] = useState(false);
   const [statesDropDown, setStatesDropDown] = useState(false);
@@ -83,6 +89,22 @@ function NavBar({ logoImage }) {
     localStorage.clear();
     navigate("/");
   };
+  const handlerBussines = () => {
+    const token = localStorage.getItem("arab_user_token");
+    console.log("tokeN>>>>>>",token)
+    if (token) {
+      console.log("tokeN>>>>>>",true)
+      navigate("/add-bussinse");
+    }
+    else {
+      setMessageAlert("Please Login First")
+      setTypeAlert("warning");
+      setShowAlert(true);
+      setTimeout(()=>{
+        setShowAlert(false)
+      },3000)
+    }
+  }
 
   const ltrDir = () => {
     document.getElementById("root").style.direction = "ltr";
@@ -197,6 +219,7 @@ function NavBar({ logoImage }) {
 
   return (
     <>
+    <Advert/>
       {!hideNavbar && (
         <header
           className={`${nav === "one" ? style.headerContainer : style.headerContainer2
@@ -278,11 +301,11 @@ function NavBar({ logoImage }) {
                   {t("BlogNav")}
                 </li>
               </Link>
-              <Link to="/add-bussinse">
+              <button onClick={handlerBussines} className={style.buttonBussines}>
                 <li className={pathName === "/add-bussinse" ? style.activePath : ""}>
                   {t("Add Business")}
                 </li>
-              </Link>
+              </button>
             </ul>
           </nav>
           <div className={style.rightSubContainer}>
@@ -457,9 +480,9 @@ function NavBar({ logoImage }) {
                       <Link to="/Blog" onClick={handleCloseModal}>
                         <li> {t("Blog")} </li>
                       </Link>
-                      <Link to="/add-bussinse" onClick={handleCloseModal}>
+                      <button onClick={handlerBussines} className={style.buttonBussines}>
                         <li> {t("Add Business")} </li>
-                      </Link>
+                      </button>
                       <Link to={initialState.username === "Guest" || initialState.username === "زائر" ? `/login` : `/Profile`} onClick={handleCloseModal} className={style.profileNav}>
                         <i
                           className={`far fa-user  ${style.userIcon}`}
@@ -578,6 +601,14 @@ function NavBar({ logoImage }) {
           </div>
         </div>
       )}
+      {showAlert && <Alert
+        message={messageAlert}
+        show={showAlert}
+        type={typeAlert}
+        count={count}
+        setCount={setCount}
+      />
+      }
     </>
   );
 }

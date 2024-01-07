@@ -16,7 +16,7 @@ function MarketPlacePostOption() {
     points: [],
   });
   inputFields &&
-  inputFields.forEach((point, index) => {
+    inputFields.forEach((point, index) => {
       formData.append(`points[${index}]`, point.text);
     });
 
@@ -110,7 +110,7 @@ function MarketPlacePostOption() {
           <div key={inputField.id} className={style.inputContanierFileds}>
             <input
               className={style.servericeInput}
-              placeholder={`Option ${index}`}
+              placeholder={`Option ${index + 1}`}
               type="text"
               value={inputField.text}
               onChange={(event) => handleInputChange(inputField.id, event)}

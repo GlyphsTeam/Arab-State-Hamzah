@@ -8,19 +8,34 @@ function Advertusments() {
     const [t] = useTranslation();
     const location = useLocation();
     const [adverShow, setAdverShow] = useState(true);
-    console.log("location",location)
-    useEffect(()=>{
-        if(location.pathname==="/add-bussinse"){
+    useEffect(() => {
+        if (location.pathname === "/add-bussinse" ||
+            location.pathname === "/Profile" ||
+            location.pathname === "/User-Guide" ||
+            location.pathname === "/saved-blogs" ||
+            location.pathname === "/saved-store" ||
+            location.pathname === "/saved-accomodation" ||
+            location.pathname === "/saved-job" ||
+            location.pathname === "/saved-product" ||
+            location.pathname === "/my-business" ||
+            location.pathname === "/my-housing" ||
+            location.pathname === "/my-job" ||
+            location.pathname === "/my-product" ||
+            location.pathname === "/changePassword" ||
+            location.pathname === "/delete-account" ||
+            location.pathname === "/login" ||
+            location.pathname === "/Register" ||
+            location.pathname === "/Forget-password") {
             setAdverShow(false)
         }
-        else{
+        else {
             setAdverShow(true)
         }
-    },[location])
+    }, [location])
     return (
         <>
             {adverShow && <div className={style.containerAdver}>
-                <LazyLoadImage  src={Glyphs} alt="logo" className={style.logoGlyphs}/>
+                <LazyLoadImage src={Glyphs} alt="logo" className={style.logoGlyphs} />
                 <p className={style.adverPar}>
                     {t("For More Services Visit Our website")} : <a href="https://glyphsmarketing.com" target="_blank" rel="noreferrer">Visit</a>
                 </p>

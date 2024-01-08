@@ -91,9 +91,7 @@ function NavBar({ logoImage }) {
   };
   const handlerBussines = () => {
     const token = localStorage.getItem("arab_user_token");
-    console.log("tokeN>>>>>>",token)
     if (token) {
-      console.log("tokeN>>>>>>",true)
       navigate("/add-bussinse");
     }
     else {

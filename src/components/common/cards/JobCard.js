@@ -104,7 +104,7 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
               {pathName === "/saved-job" || pathName === "/jobs" ? <></> : <div>
                 {jobData.status ? <p className={style.publishingClass}>Published</p> : <p className={style.publishingClass}>Waiting for approval</p>}
               </div>}
-              {pathName === "/saved-job" || pathName === "/jobs" ?<p>{jobData.created_at}</p>:<></>}
+              {pathName === "/saved-job" || pathName === "/jobs" ?<p className={style.jobCreatedAt}>{jobData.created_at}</p>:<></>}
 
             </div>
 

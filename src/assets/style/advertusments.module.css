@@ -1,5 +1,5 @@
 .adverPar{
-    color: var(--primary-color);
+    color: var(--white);
     text-align: center;
     padding-top: 2px;
     margin-top: 8px;
@@ -8,11 +8,12 @@
 }
 .adverPar a{
     text-decoration: underline;
-    color: var(--secondary-color) !important;
+    color: #2dcafb !important;
     font-weight: 600;
 }
 .containerAdver{
     width: 100%;
+    background-color: #141b2d;
     display: flex;
     align-items: center;
     justify-content: center;

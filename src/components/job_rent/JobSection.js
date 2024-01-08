@@ -104,7 +104,7 @@ function JobSection({
         </div>
       </div>
 
-      <AdvBanner data={jobsData?.advertisements} />
+      {/* <AdvBanner data={jobsData?.advertisements} /> */}
 
       <JobLatestPost
         title={jobsData?.Latest_post?.title}

@@ -1,7 +1,7 @@
 import JobCard from "../../components/common/cards/JobCard";
 import ProductCard from "../../components/common/cards/SavedProduct";
 import StoreCard from "../../components/common/cards/StoreCard";
-import HousingCard from "../../components/common/cards/HousingCard";
+import HousingCard from "../../components/common/cards/NewCardRent";
 import style from "../../assets/style/userProfile/userProfile.module.css";
 import { useTranslation } from "react-i18next";
 
@@ -31,22 +31,26 @@ function SavedSection({ savedData, type }) {
         <div className={`row `}>
           <p className={style.parProfile}><span dangerouslySetInnerHTML={{ __html: t('Saved > Rent') }} />
           </p>
-          {savedData?.length > 0 ? (
-            savedData?.map((item, index) => (
-              <HousingCard key={index} houseData={item} />
-            ))
-          ) : (
-            <>
-              <p className={style.emptyUserMessage}>{t("emptyUserMessage")}</p>
-            </>
-          )}
+          <div className={savedData?.length > 0 ? style.cardContainerJob : style.cardContainerJobZero}>
+
+            {savedData?.length > 0 ? (
+              savedData?.map((item, index) => (
+                <HousingCard key={index} houseData={item} />
+              ))
+            ) : (
+              <>
+                <p className={style.emptyUserMessage}>{t("emptyUserMessage")}</p>
+              </>
+            )}
+          </div>
+
         </div>
       )}
 
       {type === "job" && (
         <div className={`row mb-3 ${style.savedJobRow}`}>
           <p className={style.parProfile}><span dangerouslySetInnerHTML={{ __html: t('Saved > Jobs') }} /></p>
-          <div className={style.cardContainerJob}>
+          <div className={savedData?.length > 0 ? style.cardContainerJob : style.cardContainerJobZero}>
 
             {savedData?.length > 0 ? (
               savedData?.map((item, index) => (

@@ -1,6 +1,9 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 import home from '../Home/home'
 import about from '../About/about';
+import services from '../OurServices/services';
+import blog from '../Blog/blog';
+import contact from '../ContactUs/contact';
  const initialState = {
   username: localStorage.getItem("arab_user_name")
   ?  localStorage.getItem("arab_user_name") 
@@ -33,7 +36,10 @@ import about from '../About/about';
   reducer: {
     user: userSlice.reducer,
     home:home,
-    about:about
+    about:about,
+    services:services,
+    blog:blog,
+    contact:contact
   },
   setNewField: (state, action) => {
     state.newField = action.payload;

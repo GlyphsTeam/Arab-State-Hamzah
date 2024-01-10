@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import style from "../../assets/style/job_rent/card.module.css";
 import Pagination from "../blog/Pagination";
-import HousingCard from "../../components/common/cards/AllRent";
 import JobRentFilter from "./sideFilter/JobRentFilter";
 import PopUp from "../PopUp/Popup";
 import { useTranslation } from "react-i18next";
+import NewCardRent from "../common/cards/NewCardRent";
 
 function RentSection({
   rents_api,
@@ -50,7 +50,7 @@ function RentSection({
     //   placesToVisitId.current.scrollIntoView();
     //   }
   };
-
+ 
 
   const total = rentsData?.rents?.total;
   const [isMobile, setIsMobile] = useState(false);
@@ -73,13 +73,15 @@ function RentSection({
               )}
             </>
             :
-            <JobRentFilter setFilters={setFilters}  filterChange={filterChange} filters={filters} type='rent' />
+            <JobRentFilter setFilters={setFilters} filterChange={filterChange} filters={filters} type='rent' />
           }
         </div>
         <div className="col-lg-9">
-          {rentsData?.rents?.model?.map((item, index) => (
-            <HousingCard key={index} houseData={item} urlId={urlId} />
-          ))}
+          <div className={style.houseNewContiner}>
+            {rentsData?.rents?.model?.map((item, index) => (
+              <NewCardRent key={index} houseData={item} urlId={urlId} />
+            ))}
+          </div>
 
           <Pagination
             totalPosts={total}

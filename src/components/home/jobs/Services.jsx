@@ -1,13 +1,17 @@
 import style from "../../../assets/style/homePage/job.module.css";
 import Card from "../../common/Card";
 import Slider from "react-slick";
-function Services({ data }) {
+import { homeState } from '../../../redux/Home/home'
+import { useSelector } from 'react-redux'
+function Services() {
+  const stateHome = useSelector(homeState);
+  const dataServers = stateHome?.homeData?.our_service?.model;
   function SampleNextArrow(props) {
     const { onClick } = props;
     return (
       <div className={style.customNextArrow} onClick={onClick}>
         <i className="fas fa-chevron-right"></i>
-      </div> 
+      </div>
     );
   }
 
@@ -63,14 +67,14 @@ function Services({ data }) {
       <div className={style.mainDiv}>
         <div className={` ${style.blogContainer}`}>
           <div className={` ${style.cardsRowCenterDesktop}`}>
-            {data?.map((data , index) => (
-              <Card data={data} key={index}/>
+            {dataServers?.map((data, index) => (
+              <Card data={data} key={index} />
             ))}
           </div>
           <div className={` ${style.cardsRowCenterMobile}`}>
             <Slider {...settings}>
-              {data?.map((data , index) => (
-                <Card data={data} key={index}/>
+              {dataServers?.map((data, index) => (
+                <Card data={data} key={index} />
               ))}
             </Slider>
           </div>

@@ -2,19 +2,23 @@ import style from "../../../assets/style/homePage/blog.module.css";
 import BlogCard from "./BlogCard";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
-function Blog({ data }) {
+import { useSelector } from 'react-redux';
+import { homeState } from '../../../redux/Home/home'
+function Blog() {
+  const stateHome = useSelector(homeState);
+  const homeStateBlog = stateHome?.homeData?.blogs_new;
   const handleChangePage = () => {
-    window.scrollTo(0, 0); 
+    window.scrollTo(0, 0);
   };
-  let cards = data?.model?.map((item, index) => (
-      <BlogCard
-        key={index}
-        description={item.description}
-        image={item.image}
-        title={item.title}
-        slug={item.slug}
-        id={item.id}
-      />
+  let cards = homeStateBlog?.model?.map((item, index) => (
+    <BlogCard
+      key={index}
+      description={item.description}
+      image={item.image}
+      title={item.title}
+      slug={item.slug}
+      id={item.id}
+    />
   ));
   function SampleNextArrow(props) {
     const { onClick } = props;
@@ -33,7 +37,7 @@ function Blog({ data }) {
       </div>
     );
   }
-  
+
   const settings = {
     infinite: true,
     speed: 500,
@@ -71,7 +75,7 @@ function Blog({ data }) {
         },
       },
     ],
-};
+  };
   return (
     <>
       <div className={style.mainDiv}>
@@ -79,16 +83,16 @@ function Blog({ data }) {
           <Link to="/Blog" className={style.blogTitleLink} onClick={handleChangePage}>
             {/* <h1 className={style.blogTitle}>{t("Blog")}</h1> */}
             <div className={style.titleDiv}>
-                <p className={style.littleTitle}>{data?.sub_title}</p>
-                <h1 className={style.mainTitle}>{data?.title}</h1>
+              <p className={style.littleTitle}>{homeStateBlog?.sub_title}</p>
+              <h1 className={style.mainTitle}>{homeStateBlog?.title}</h1>
             </div>
           </Link>
           <div className={`row ${style.cardsRowCenter}`}>
-          <Slider {...settings}>
+            <Slider {...settings}>
 
-            {cards}
+              {cards}
             </Slider>
-            </div>
+          </div>
         </div>
       </div>
     </>

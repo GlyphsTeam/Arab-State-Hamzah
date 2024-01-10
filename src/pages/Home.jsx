@@ -15,16 +15,15 @@ import { setLoading } from '../redux/slices/login';
 function Home() {
   const dispatch = useDispatch();
   const stateHome = useSelector(homeState);
-  let urlId;
   const [t] = useTranslation();
   const url = `home`;
-  const getHomeData = async () => { 
+  const getHomeData = async () => {
     const token = localStorage.getItem('arab_user_token');
     const city_ID = process.env.REACT_APP_City_ID;
     const baseURL = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${city_ID}`;
     if (stateHome?.homeData === null) {
       dispatch(setLoading(true));
-     await axios.get(`${baseURL}/${url}`, {
+      await axios.get(`${baseURL}/${url}`, {
         headers: { "Authorization": `Bearer ${token}` }
       }).then((res) => {
         dispatch(setHomeData(res.data.data))
@@ -44,14 +43,13 @@ function Home() {
         <title>{stateHome?.homeData?.hero[0]?.title}</title>
         <meta name='description' content={stateHome?.homeData?.hero[0]?.description} />
       </Helmet>
-      <BannerWInfo data={stateHome?.homeData?.hero} />
-
+      <BannerWInfo />
       <HomeTitle title={t("Advertisement")} />
       <AdvBanner />
-      <CategoryList data={stateHome?.homeData?.category} urlId={urlId} />
-      <Services data={stateHome?.homeData?.our_service?.model} />
-      <TryApp data={stateHome?.homeData?.try_app} />
-      <Blog data={stateHome?.homeData?.blogs_new} urlId={urlId} />
+      <CategoryList />
+      <Services />
+      <TryApp />
+      <Blog />
 
     </>
   );

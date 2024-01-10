@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import style from "../../assets/style/Blog.module.css";
 import { useTranslation } from "react-i18next";
 import ReactHtmlParser from "html-react-parser";
+import { useSelector } from 'react-redux';
+import { blogState } from '../../redux/Blog/blog'
 
-function BlogLetter({ Data }) {
+function BlogLetter() {
   const [t] = useTranslation();
   const [expanded, setExpanded] = useState(false);
-  const blog = Data?.data?.main;
+  const blogData = useSelector(blogState);
+  const blog = blogData?.blogData?.main;
   const toggleExpand = () => {
     setExpanded(!expanded);
   };

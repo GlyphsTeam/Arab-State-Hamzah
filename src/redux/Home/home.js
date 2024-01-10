@@ -9,7 +9,6 @@ const homeReducer = createSlice({
     initialState,
     reducers: {
      setHomeData:(state, actions) => { 
-        console.log("ac>>",actions.payload)
         state.homeData = actions.payload
      }
     }

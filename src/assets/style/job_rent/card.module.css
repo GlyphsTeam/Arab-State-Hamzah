@@ -11,7 +11,10 @@
   height: 25px;
   overflow: hidden;
 }
-
+.houseNewContiner{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
 .cardContainer{
   /* height: 100%; */
   display: grid;
@@ -435,6 +438,9 @@
 .imageDivArabic img{
   height: 73px;
   width: 66px;
+}
+.houseNewContiner{
+  margin-left: 10px;
 }
 }
 

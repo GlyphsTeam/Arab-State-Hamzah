@@ -3,7 +3,11 @@ import style from "../../assets/style/about/userAnalytics.module.css";
 import Slider from "react-slick";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-const UserAnalytics = ({ aboutData }) => {
+import { aboutState } from '../../redux/About/about'
+import { useSelector } from 'react-redux';
+const UserAnalytics = () => {
+  const aboutStateRedx = useSelector(aboutState);
+  const aboutRedux = aboutStateRedx?.aboutData?.statistics;
 
   const settings = {
     infinite: true,
@@ -47,7 +51,7 @@ const UserAnalytics = ({ aboutData }) => {
     ],
   };
 
-  
+
 
   // const Box = ({ num }) => {
   const control = useAnimation();
@@ -64,55 +68,55 @@ const UserAnalytics = ({ aboutData }) => {
 
   return (
     <>
-      
-        <div
-          className={style.userAnalyticsContainer}
-          style={{ backgroundImage: `url(${aboutData?.image})` }}
-        >
-          <div className={style.userAnalyticsText}>
-            {/* {userAnalyticsDataArr?.map((item, index) => ( */}
-            <div className={style.userAnalyticsCard}>
-              {/* <img src={aboutData?.icon_businesses} alt="" /> */}
-              <i className={aboutData?.icon_businesses}></i>
-              <p>{aboutData?.businesses}</p>
-              <h5>{aboutData?.title_businesses}</h5>
-            </div>
 
-            <div className={style.userAnalyticsCard}>
-              <i className={aboutData?.icon_users}></i>
-              <p>{aboutData?.users}</p>
-              <h5>{aboutData?.title_users}</h5>
-            </div>
-
-            <div className={style.userAnalyticsCard}>
-              <i className={aboutData?.icon_verified_users}></i>
-              <p>{aboutData?.verified_users}</p>
-              <h5>{aboutData?.title_verified_users}</h5>
-            </div>
+      <div
+        className={style.userAnalyticsContainer}
+        style={{ backgroundImage: `url(${aboutRedux?.image})` }}
+      >
+        <div className={style.userAnalyticsText}>
+          {/* {userAnalyticsDataArr?.map((item, index) => ( */}
+          <div className={style.userAnalyticsCard}>
+            {/* <img src={aboutRedux?.icon_businesses} alt="" /> */}
+            <i className={aboutRedux?.icon_businesses}></i>
+            <p>{aboutRedux?.businesses}</p>
+            <h5>{aboutRedux?.title_businesses}</h5>
           </div>
 
-          <div className={style.userAnalyticsTextMobile} >
-            <Slider {...settings}>
-              {/* {userAnalyticsDataArr?.map((item, index) => ( */}
-              <div className={style.userAnalyticsCard}>
-                <i className={aboutData?.icon_businesses}></i>
-                <p>{aboutData?.businesses}</p>
-                <h5>{aboutData?.title_businesses}</h5>
-              </div>
-              <div className={style.userAnalyticsCard}>
-                <i className={aboutData?.icon_users}></i>
-                <p>{aboutData?.users}</p>
-                <h5>{aboutData?.title_users}</h5>
-              </div>
+          <div className={style.userAnalyticsCard}>
+            <i className={aboutRedux?.icon_users}></i>
+            <p>{aboutRedux?.users}</p>
+            <h5>{aboutRedux?.title_users}</h5>
+          </div>
 
-              <div className={style.userAnalyticsCard}>
-                <i className={aboutData?.icon_verified_users}></i>
-                <p>{aboutData?.verified_users}</p>
-                <h5>{aboutData?.title_verified_users}</h5>
-              </div>
-            </Slider>
+          <div className={style.userAnalyticsCard}>
+            <i className={aboutRedux?.icon_verified_users}></i>
+            <p>{aboutRedux?.verified_users}</p>
+            <h5>{aboutRedux?.title_verified_users}</h5>
           </div>
         </div>
+
+        <div className={style.userAnalyticsTextMobile} >
+          <Slider {...settings}>
+            {/* {userAnalyticsDataArr?.map((item, index) => ( */}
+            <div className={style.userAnalyticsCard}>
+              <i className={aboutRedux?.icon_businesses}></i>
+              <p>{aboutRedux?.businesses}</p>
+              <h5>{aboutRedux?.title_businesses}</h5>
+            </div>
+            <div className={style.userAnalyticsCard}>
+              <i className={aboutRedux?.icon_users}></i>
+              <p>{aboutRedux?.users}</p>
+              <h5>{aboutRedux?.title_users}</h5>
+            </div>
+
+            <div className={style.userAnalyticsCard}>
+              <i className={aboutRedux?.icon_verified_users}></i>
+              <p>{aboutRedux?.verified_users}</p>
+              <h5>{aboutRedux?.title_verified_users}</h5>
+            </div>
+          </Slider>
+        </div>
+      </div>
     </>
   );
 };

@@ -1,7 +1,11 @@
 import style from "../../assets/style/about/easySearch.module.css";
 import Slider from "react-slick";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-const EasySearch = ({ aboutData }) => {
+import { useSelector } from 'react-redux';
+import { aboutState } from '../../redux/About/about'
+const EasySearch = () => {
+  const aboutRedux = useSelector(aboutState);
+  const aboutReduxData = aboutRedux?.aboutData?.easy_search;
   const settings = {
     infinite: true,
     speed: 500,
@@ -47,13 +51,13 @@ const EasySearch = ({ aboutData }) => {
   return (
     <>
       <div className={style.easySearchContainer}>
-        <h5>{aboutData?.title}</h5>
+        <h5>{aboutReduxData?.title}</h5>
 
-          <div className={style.easySearchHr}>
-            <hr />
-          </div>
+        <div className={style.easySearchHr}>
+          <hr />
+        </div>
         <div className={style.easySearchCardContainer}>
-          {aboutData?.model?.map((item, index) => (
+          {aboutReduxData?.model?.map((item, index) => (
             <div className={style.easySearchCard} key={index}>
               <LazyLoadImage src={item?.image} alt="" />
               <p>{item.title}</p>
@@ -64,10 +68,10 @@ const EasySearch = ({ aboutData }) => {
 
       <div className={style.easySearchContainerMobile}>
         {/* <h5>Quick And Easy Search</h5> */}
-        <h2 className={style.titleAbou}>{aboutData?.title}</h2>
+        <h2 className={style.titleAbou}>{aboutReduxData?.title}</h2>
         <div className={style.easySearchCardContainer}>
           <Slider {...settings}>
-            {aboutData?.model?.map((item, index) => (
+            {aboutReduxData?.model?.map((item, index) => (
               <div className={style.easySearchCard} key={index}>
                 <LazyLoadImage src={item?.image} alt="" />
                 <p>{item.title}</p>

@@ -44,7 +44,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background-color: #ef476f;
+    background-color: var(--secondary-color);
     color: aliceblue;
     font-weight: 800;
     transition: all .5s ease;

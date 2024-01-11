@@ -31,7 +31,6 @@ function Banner({ bannerUrl }) {
         return "";
     }
   };
-  console.log("Data>>>Market",Data)
   const settings = {
     infinite: true,
     speed: 500,

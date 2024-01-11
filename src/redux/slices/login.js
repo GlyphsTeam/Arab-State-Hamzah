@@ -4,6 +4,8 @@ import about from '../About/about';
 import services from '../OurServices/services';
 import blog from '../Blog/blog';
 import contact from '../ContactUs/contact';
+import business from '../Business/business';
+import rent from '../Rent/rent';
  const initialState = {
   username: localStorage.getItem("arab_user_name")
   ?  localStorage.getItem("arab_user_name") 
@@ -39,7 +41,9 @@ import contact from '../ContactUs/contact';
     about:about,
     services:services,
     blog:blog,
-    contact:contact
+    contact:contact,
+    business:business,
+    rent:rent
   },
   setNewField: (state, action) => {
     state.newField = action.payload;

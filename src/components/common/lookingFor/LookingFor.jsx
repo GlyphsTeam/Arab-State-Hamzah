@@ -6,9 +6,17 @@ import { useTranslation } from "react-i18next";
 import Alert from '../../customAlert/Alert'
 import { useNavigate } from 'react-router-dom';
 import { LazyLoadImage } from "react-lazy-load-image-component";
-
-function LookingFor({ data, pageType }) {
-
+import { useSelector } from 'react-redux';
+import { rentState } from '../../../redux/Rent/rent';
+function LookingFor({ pageType }) {
+  const rentData = useSelector(rentState);
+  let lookingData;
+  if (pageType === "rent") {
+    lookingData = rentData.rentData;
+  }
+  else {
+    lookingData = rentData.jobData
+  }
   const [t, i18n] = useTranslation();
   const [show, setShow] = useState(false);
   const [count, setCount] = useState();
@@ -18,22 +26,17 @@ function LookingFor({ data, pageType }) {
     setCount(4);
   }
   const showPostModal = (url) => {
-
     navigate(url)
-
-
   }
   return (
     <>
       <div className={`container ${style.container}`}>
-        {data?.sections?.map((item, index) => (
+        {lookingData?.sections?.map((item, index) => (
           <div key={index} className={`row ${i18n.language === "en" ? style.mainDiv : style.mainDivAr}`}>
             <div className={`col-8 ${style.infoDiv}`}>
               <h2 className={i18n.language === "en" ? style.lookingForTitle : style.lookingForTitleAr}>{item?.title}</h2>
 
               {item?.web_description && ReactHtmlParser(`${item.web_description}`)}
-
-
               <div className={style.divBtns}>
                 {item.type === "jobs" ? (
                   <>
@@ -41,13 +44,13 @@ function LookingFor({ data, pageType }) {
                       {t("+ Add Post")}
                     </button>
                     <Link state={({ type: item?.looking })} className={style.postLink} to={item.url}>
-                     {t("Posted Jobs")}
+                      {t("Posted Jobs")}
                     </Link>
                   </>
                 ) : item.type === "employees" ? (
                   <>
                     <button className={style.postLink} onClick={() => localStorage.getItem('arab_user_token') ? showPostModal('/jobforcompany') : showAlert()}>
-                    {t("+ Add Post")}
+                      {t("+ Add Post")}
                     </button>
                     <Link state={({ type: item?.looking })} className={style.postLink} to={item.url}>
                       {t("Posted Employees")}
@@ -57,17 +60,17 @@ function LookingFor({ data, pageType }) {
                 ) : item.type === "rent" ? (
                   <>
                     <button className={style.postLink} onClick={() => localStorage.getItem('arab_user_token') ? showPostModal("/rentForm") : showAlert()}>
-                    {t("+ Add Post")}
+                      {t("+ Add Post")}
                     </button>
                     <Link state={({ type: item?.looking })} className={style.postLink} to={item.url}>
-                     {t("Posted Appartment")}
+                      {t("Posted Appartment")}
 
                     </Link>
                   </>
                 ) : (
                   <>
                     <button className={style.postLink} onClick={() => localStorage.getItem('arab_user_token') ? showPostModal('/post-rent') : showAlert()}>
-                    {t("+ Add Post")}
+                      {t("+ Add Post")}
                     </button>
                     <Link state={({ type: item?.looking })} className={style.postLink} to={item.url}>
                       {t("Posted Accomodation")}

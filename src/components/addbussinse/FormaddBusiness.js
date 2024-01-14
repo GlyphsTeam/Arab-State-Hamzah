@@ -20,6 +20,7 @@ import {
       } from '../../redux/Business/business';
 import { setLoading } from '../../redux/slices/login';
 import { useDispatch, useSelector } from "react-redux";
+import ButtonSeven from "../Button/ButtonSeven";
 function ForRentForm() {
 
     const [t, i18n] = useTranslation();
@@ -985,9 +986,9 @@ function ForRentForm() {
                 })}
             </form>
             <div className={style.buttonTwoContainer}>
-                <ButtonTwo handlerClick={handlerSubmitForm} buttonType="submit">
+                <ButtonSeven handlerClick={handlerSubmitForm} buttonType="submit">
                     {t("Submit")}
-                </ButtonTwo>
+                </ButtonSeven>
             </div>
             {showAlert && (
                 <AlertBussiness

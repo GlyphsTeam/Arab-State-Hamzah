@@ -13,12 +13,12 @@ import { useNavigate } from "react-router-dom";
 import ButtonTwo from "../Button/ButtonTwo";
 import LoadingSpiner from "../Button/LoadingSpiner";
 import InputSelect from "../UI/InputSelect";
+import ButtonSeven from "../Button/ButtonSeven";
 function MarketPlacePostSection() {
   const [t, i18n] = useTranslation();
   const navigation = useNavigate();
   const [isLoadingMarket, setLoadingMarket] = useState(false);
   const [LoadingSub, setLoadingSub] = useState(false);
- console.log("MarketPlacePostProduct>>>>", i18n.language==="en")
   const [marketFormData, setMarketFormData] = useState({
     title: "",
     price: "",
@@ -556,9 +556,9 @@ function MarketPlacePostSection() {
       </form>
       <div className={`d-flex justify-content-end align-items-center ${style.buttonTwoP}`}>
 
-        <ButtonTwo handlerClick={handleSubmit} buttonType="submit">
+        <ButtonSeven handlerClick={handleSubmit} buttonType="submit">
           {t("Create")}
-        </ButtonTwo>
+        </ButtonSeven>
 
       </div>
       {showAlert && (

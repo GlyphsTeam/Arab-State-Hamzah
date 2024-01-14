@@ -8,6 +8,7 @@ function SavedStorePage() {
   const url = `profile/favorite`;
   const [Data] = useAxios(url);
   const savedData = Data?.data;
+  console.log("savedData>>>>>>>",savedData)
   return (
     <div className={`row w-100 m-0 ${style.userPage}`}>
 

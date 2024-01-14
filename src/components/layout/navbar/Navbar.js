@@ -71,7 +71,7 @@ function NavBar({ logoImage }) {
         pathName === "/my-product" ||
         pathName === "/changepassword" ||
         pathName === "/delete-account" ||
-        pathName === "/add-bussinse" ||
+        pathName === "/add-business" ||
         pathName === "/login" ||
         pathName === "/register" ||
         pathName.includes("show-product") ||
@@ -92,7 +92,7 @@ function NavBar({ logoImage }) {
   const handlerBussines = () => {
     const token = localStorage.getItem("arab_user_token");
     if (token) {
-      navigate("/add-bussinse");
+      navigate("/add-business");
     }
     else {
       setMessageAlert("Please Login First")
@@ -166,9 +166,9 @@ function NavBar({ logoImage }) {
     pathName === "/saved-job" ||
     pathName === "/saved-product" ||
     pathName === "/search-result/{keyword}" ||
-    pathName === "/my-business" ||
+    pathName === "/add-business" ||
     pathName === "/saved-blogs" ||
-    pathName === "/add-bussinse" ||
+    pathName === "/add-business" ||
     pathName === "/forget-password" ||
     isSmallScreen & pathName.includes('/Marketprofile')
   ) {
@@ -188,7 +188,7 @@ function NavBar({ logoImage }) {
       pathName === "/my-product" ||
       pathName === "/changepassword" ||
       pathName === "/delete-account" ||
-      pathName === "/add-bussinse" ||
+      pathName === "/add-business" ||
       pathName === "/login" ||
       pathName === "/register" ||
       pathName.includes("show-product") ||
@@ -300,7 +300,7 @@ function NavBar({ logoImage }) {
                 </li>
               </Link>
               <button onClick={handlerBussines} className={style.buttonBussines}>
-                <li className={pathName === "/add-bussinse" ? style.activePath : ""}>
+                <li className={pathName === "/add-business" ? style.activePath : ""}>
                   {t("Add Business")}
                 </li>
               </button>

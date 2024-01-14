@@ -194,7 +194,7 @@ function App() {
                 <Route path={`/saved-blogs`} element={<MySavedBlogs />} />
                 <Route path={`/delete-account`} element={<DeleteAccountPage baseUrl={authAPI} logo={logoBlueImage} />} />
                 <Route path={`/changePassword`} element={<ChangePassword baseUrl={authAPI} logo={logoImage} />} />
-                <Route path={'/add-bussinse'} element={<Business baseURL={baseURL} />} />
+                <Route path={'/add-business'} element={<Business baseURL={baseURL} />} />
               </Route>
 
               <Route path={``} element={<Home baseURL={baseURL} />} />

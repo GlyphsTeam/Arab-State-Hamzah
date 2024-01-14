@@ -1,0 +1,21 @@
+.buttonSeven {
+    --font-color: #fefefe;
+    --bg-color: #111;
+    --main-color: #fefefe;
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid var(--primary-color);
+    background-color: var(--secondary-color);
+    box-shadow: 4px 4px var(--primary-color);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--font-color);
+    cursor: pointer;
+  }
+  
+  .buttonSeven:active {
+    box-shadow: 0px 0px var(--primary-color);
+    transform: translate(3px, 3px);
+  }
+  

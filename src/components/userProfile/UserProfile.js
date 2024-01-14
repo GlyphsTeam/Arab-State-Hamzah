@@ -136,7 +136,7 @@ function UserProfile({ userData }) {
               {!editProfile && (
                 <button className={style.editBtn} onClick={() => editClick()}>{t('Edit Profile')}</button>
               )}
-              <Link className={style.editBtn} to="/add-bussinse" >
+              <Link className={style.editBtn} to="/add-business" >
                 Add Business              </Link>
               {editProfile && (
                 <div className={style.saveDiv}>

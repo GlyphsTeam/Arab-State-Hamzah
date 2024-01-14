@@ -28,6 +28,7 @@ function LookingFor({ pageType }) {
   const showPostModal = (url) => {
     navigate(url)
   }
+  console.log("lookingData?.sections>>>",lookingData?.sections)
   return (
     <>
       <div className={`container ${style.container}`}>

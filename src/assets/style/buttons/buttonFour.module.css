@@ -7,7 +7,14 @@
   .btnFourconteiner svg{
     height: 30px;
   }
-  
+  .svgClassAr{
+    transform: scale(-1) !important;
+    -webkit-transform: scale(-1) !important;
+    -moz-transform: scale(-1) !important;
+    -ms-transform: scale(-1) !important;
+    -o-transform: scale(-1) !important;
+    margin-right: 20px !important;
+}
   .btnFourcontent {
     display: flex;
     align-items: center;

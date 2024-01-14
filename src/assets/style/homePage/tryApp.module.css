@@ -12,6 +12,7 @@
 }
 .googlePlayDiv p{
   width: 130px;
+  height: fit-content !important;
   text-align: center;
   margin-top: 30px;
   font-size: 17px !important;
@@ -19,6 +20,7 @@
 .playStoreDiv p{
   width: 130px;
   text-align: center;
+  height: fit-content !important;
   margin-top: 30px;
   font-size: 17px !important;
 }

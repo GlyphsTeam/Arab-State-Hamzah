@@ -12,7 +12,7 @@ import useAxios from "../hooks/useAxiosGet";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import StoreHero from "../components/marketProfile/StoreHero";
-
+import { Helmet } from 'react-helmet';
 function MarketProfile() {
   const [t] = useTranslation();
   const [showPhotoModal, setShowPhotoModal] = useState(false);
@@ -29,8 +29,13 @@ function MarketProfile() {
   }
   let [Data] = useAxios(url);
   const data = Data.data;
+  console.log("data>>>>>>",data)
   return (
     <>
+    <Helmet>
+      <title>{data?.name}</title>
+      <meta name="description" content={data?.description}/>
+    </Helmet>
       <div className={style.serviceComponent}>
         <StoreHero data={data} />
         <div className={`${style.marketingContainerSection} container col-12`}>

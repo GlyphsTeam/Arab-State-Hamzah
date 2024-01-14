@@ -8,6 +8,7 @@ import useAxios from "../hooks/useAxiosGet";
 import { useTranslation } from "react-i18next";
 import Alert from "../components/customAlert/Alert";
 import HeroBanner from "../components/common/banner/HeroBanner";
+import { Helmet } from 'react-helmet'
 const ShowRentPage = () => {
   const [rentData, setRentData] = useState();
   const [count, setCount] = useState();
@@ -23,10 +24,13 @@ const ShowRentPage = () => {
   });
   const [show, setShow] = useState(false);
 
-
+console.log("Data>>>>>",Data?.data)
   return (
     <>
-
+        <Helmet>
+          <title>{rentData?.rent?.title}</title>
+          <meta name='description' content={rentData?.rent?.description}/>
+        </Helmet>
       <HeroBanner
         data={rentData?.hero}
 

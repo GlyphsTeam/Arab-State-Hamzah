@@ -8,8 +8,8 @@ import useAxios from "../hooks/useAxiosGet";
 import { useTranslation } from "react-i18next";
 import Alert from "../components/customAlert/Alert";
 import HeroBanner from "../components/common/banner/HeroBanner";
-
-function   ShowJobPage() {
+import { Helmet } from 'react-helmet';
+function ShowJobPage() {
   const [jobData, setJobData] = useState();
   const [count, setCount] = useState();
   const [t] = useTranslation();
@@ -23,12 +23,16 @@ function   ShowJobPage() {
     setJobData(Data?.data);
   });
   const [show, setShow] = useState(false);
+  console.log("jobData>>>",jobData)
   return (
     <>
- 
+    <Helmet>
+      <title>{jobData?.job?.title}</title>
+      <meta name="description" content={jobData?.job?.description}/>
+    </Helmet>
+
       <HeroBanner
         data={jobData?.hero}
-
       />
       <div className={style.mainJobContainer}>
         <div className={style.subMainJob}>

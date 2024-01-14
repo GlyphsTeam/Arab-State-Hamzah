@@ -6,6 +6,11 @@
   color: var(--secondary-color);
   margin-bottom: 20px;
 }
+.infoDiv p{
+ font-size: 20px !important;
+ height: fit-content;
+ color: var(--primary-color) !important;
+}
 .lookingForTitleAr{
   text-align: right;
 }
@@ -214,5 +219,9 @@
   }
   .mainDiv{
     padding: 40px 0 40px;
+  }
+  .infoDiv p{
+    font-size: 14px !important;
+    line-height: 1.7 !important;
   }
 }

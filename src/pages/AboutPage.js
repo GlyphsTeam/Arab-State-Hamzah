@@ -17,7 +17,7 @@ function AboutPage() {
   const aboutDataRed = useSelector(aboutState);
   const [t] = useTranslation();
   const url = `about`;
-
+  console.log("aboutRed>>>>", aboutDataRed.aboutData?.about)
   const getAboutData = async () => {
     const token = localStorage.getItem("arab_user_token");
     const city_ID = process.env.REACT_APP_City_ID;
@@ -38,13 +38,16 @@ function AboutPage() {
   useEffect(() => {
     getAboutData()
 
-  }, [])
-
+  }, []);
+  
   return (
     <>
       <Helmet>
         <title>{aboutDataRed?.aboutData?.slider[0]?.title}</title>
-        <meta name="description" content={aboutDataRed?.aboutData?.slider[0]?.description} />
+        {aboutDataRed?.aboutData?.about.map((item) => {
+          return <meta name="description" content={item?.description} />
+        })
+      }
       </Helmet>
       <HeroBanner data={aboutDataRed?.aboutData?.slider} />
 

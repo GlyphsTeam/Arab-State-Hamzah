@@ -14,15 +14,27 @@
     cursor: pointer;
     color: var(--white);
   }
+  .submitTwo{
+    right: 0% !important;
+  }
   
-  .buttonTwoContainer svg {
+  .buttonTwoContainer svg,
+  .submitTwoAr,
+  .submitTwo {
     width: 1.6em;
     margin: -0.03em 0.8em 1em;
     position: absolute;
     display: flex;
     transition: all 0.6s ease;
   }
-  
+  .submitTwoAr{
+     right: 51%;
+     transform: scaleX(-1) !important ;
+     -webkit-transform: scaleX(-1) !important ;
+     -moz-transform: scaleX(-1) !important ;
+     -ms-transform: scaleX(-1) !important ;
+     -o-transform: scaleX(-1) !important ;
+}
   .buttonTwoContainer:hover svg {
     transform: translateX(5px);
   }

@@ -26,9 +26,8 @@ function ShowBlog() {
   const pathName = `/${i18n?.language}`+urlpath.pathname;
   let urlId;
   const [Data] = useAxios(showBlogUrl);
-  console.log("blogShiw>>>",Data)
   let showBlogData = Data?.data?.blog;
-
+  console.log("showBlogData>>>>>>",showBlogData)
   let sliderData = Data?.data;
   const saveBlogHandler = async (id) => {
     const token = localStorage.getItem('arab_user_token')

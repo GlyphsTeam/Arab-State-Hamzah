@@ -33,7 +33,6 @@ function BlogPage() {
       })
     }
   }
-
   useEffect(() => {
     getServiersData();
   }, [])
@@ -41,7 +40,9 @@ function BlogPage() {
     <>
       <Helmet>
         <title>{servicesData?.services?.servicesData?.main?.title}</title>
-        <meta name="description" content={servicesData?.services?.servicesData?.main?.short} />
+        {servicesData?.services?.servicesData?.services.map((item)=>{
+          return <meta name="description" content={item?.description}/>
+        })}
       </Helmet>
       <div className={style.blogPageStyle}>
         <HeroBanner

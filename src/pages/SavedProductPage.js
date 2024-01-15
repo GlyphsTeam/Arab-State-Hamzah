@@ -1,14 +1,44 @@
 import Menu from '../components/common/UserProfileMenu';
 import SavedSection from '../components/userProfile/SavedSection';
-import useAxios from "../hooks/useAxiosGet";
 import style from '../assets/style/userProfile/userProfile.module.css'
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSavedMarket } from '../redux/Market/market';
+import { setLoading } from '../redux/slices/login';
+import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 function SavedProductPage() {
+  const [t] = useTranslation();
+  const dispatch = useDispatch();
+  const productSaved = useSelector((state) => state.market.savedMarket);
 
   const url = `profile/market/save`;
-  const [Data] = useAxios(url);
-  const savedData = Data?.data;
 
+  const getSavedProduct = async () => {
+    const token = localStorage.getItem("arab_user_token");
+    const city_ID = process.env.REACT_APP_City_ID;
+    const baseURL = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${city_ID}`;
+    if (productSaved === null) {
+      dispatch(setLoading(true));
+      await axios.get(`${baseURL}/${url}`, {
+        headers: { "Authorization": `Bearer ${token}` }
+      }).then((res) => {
+
+        dispatch(setLoading(false));
+        dispatch(setSavedMarket(res.data?.data));
+
+      }).catch((err) => {
+        console.log(err);
+        dispatch(setLoading(false));
+
+      });
+    }
+  }
+  useEffect(() => {
+    getSavedProduct();
+  }, []);
+  console.log("productSaved>>>>>>", productSaved)
   return (
     <div className={`row w-100 m-0 ${style.userPage}`}>
 
@@ -17,7 +47,7 @@ function SavedProductPage() {
       </div>
 
       <div className='col-lg-9 col-md-8 col-sm-12'>
-        <SavedSection savedData = {savedData} type='product' />
+        <SavedSection savedData={productSaved} type='product' />
       </div>
 
     </div>

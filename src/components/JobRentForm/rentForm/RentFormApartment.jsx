@@ -169,7 +169,11 @@ function ShowRentForm({ baseUrl }) {
           body: formData,
         }).then(() => {
           setLoadingRent(false);
-          navigate("/my-housing")
+          navigate("/my-housing", {
+            state: {
+              stateLoading: true
+            }
+          })
         });
       } catch (error) {
         console.log(error);

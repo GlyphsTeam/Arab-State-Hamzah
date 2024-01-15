@@ -4,7 +4,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     marketData: null,
     marketPlace: null,
-    marketNav: null
+    marketNav: null,
+    savedMarket: null
 };
 
 const marketRedux = createSlice({
@@ -19,6 +20,9 @@ const marketRedux = createSlice({
         },
         setMarketNav: (state, actions) => {
             state.marketNav = actions.payload;
+        },
+        setSavedMarket: (state, actions) => { 
+            state.savedMarket = actions.payload;
         }
     }
 });
@@ -28,7 +32,8 @@ export const marketState = (state => state.market);
 export const {
     setMarketData,
     setMarketPlace,
-    setMarketNav
+    setMarketNav,
+    setSavedMarket
 } = marketRedux.actions;
 
 export default marketRedux.reducer;

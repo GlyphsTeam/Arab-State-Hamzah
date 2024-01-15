@@ -4,6 +4,8 @@ const initialState = {
     businessData: null,
     businessMainCat: null,
     businessStateAndCity: null,
+    savedBussiness: null,
+    postedBussiness: null
 }
 
 const businessRedux = createSlice({
@@ -19,6 +21,12 @@ const businessRedux = createSlice({
         setBusinessStateCity: (state, actions) => {
             state.businessStateAndCity = actions.payload;
         },
+        setSavedBussiness: (state, actions) => {
+            state.savedBussiness = actions.payload;
+        },
+        setPostedBussiness: (state, actions) => { 
+            state.postedBussiness = actions.payload;
+        }
 
     }
 });
@@ -26,8 +34,10 @@ const businessRedux = createSlice({
 export const {
     setBusinessData,
     setBusinessMainCat,
-    setBusinessStateCity
- } = businessRedux.actions;
+    setBusinessStateCity,
+    setSavedBussiness,
+    setPostedBussiness
+} = businessRedux.actions;
 
 export const stateBussinse = (state => state.business);
 

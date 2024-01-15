@@ -57,6 +57,7 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
     element.parentNode.removeChild(element);
   }
   const deletePostJob = async (id) => {
+    console.log("id>>>>",id)
     let url = `user/jobs/delete/${id}`;
     let backend_url = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/0/${url}`
     const token = localStorage.getItem('arab_user_token')
@@ -104,7 +105,7 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
               {pathName === "/saved-job" || pathName === "/jobs" ? <></> : <div>
                 {jobData.status ? <p className={style.publishingClass}>Published</p> : <p className={style.publishingClass}>Waiting for approval</p>}
               </div>}
-              {pathName === "/saved-job" || pathName === "/jobs" ?<p className={style.jobCreatedAt}>{jobData.created_at}</p>:<></>}
+              {pathName === "/saved-job" || pathName === "/jobs" ?<p className={style.jobCreatedAt}>{jobData.created_at?.replace("ago", " ")}</p>:<></>}
 
             </div>
 

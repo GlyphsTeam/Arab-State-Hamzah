@@ -2,7 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     rentData: null,
-    jobData: null
+    jobData: null,
+    savedDataRent: null,
+    savedDataJob: null,
+    postedRent:null,
+    postedJob:null,
 };
 
 const rentRedux = createSlice({
@@ -14,6 +18,18 @@ const rentRedux = createSlice({
         },
         setJobData: (state, actions) => {
             state.jobData = actions.payload;
+        },
+        setSavedDataProfile: (state, actions) => {
+            state.savedDataRent = actions.payload;
+        },
+        setSavedJobData: (state, actions) => { 
+            state.savedDataJob = actions.payload;
+        },
+        setPostedRent:(state, actions) => {
+            state.postedRent = actions.payload;
+        },
+        setPostedJob:(state, actions) => {
+            state.postedJob = actions.payload;
         }
     }
 });
@@ -21,6 +37,12 @@ const rentRedux = createSlice({
 
 export const rentState = (state => state.rent);
 
-export const { setRentData, setJobData } = rentRedux.actions;
+export const { 
+    setRentData, 
+    setJobData, 
+    setSavedDataProfile, 
+    setSavedJobData,
+    setPostedRent,
+    setPostedJob } = rentRedux.actions;
 
 export default rentRedux.reducer;

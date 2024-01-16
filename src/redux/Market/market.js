@@ -5,7 +5,8 @@ const initialState = {
     marketData: null,
     marketPlace: null,
     marketNav: null,
-    savedMarket: null
+    savedMarket: null,
+    postedMarket: null,
 };
 
 const marketRedux = createSlice({
@@ -21,8 +22,11 @@ const marketRedux = createSlice({
         setMarketNav: (state, actions) => {
             state.marketNav = actions.payload;
         },
-        setSavedMarket: (state, actions) => { 
+        setSavedMarket: (state, actions) => {
             state.savedMarket = actions.payload;
+        },
+        setPostedMarket: (state, actions) => { 
+            state.postedMarket = actions.payload;
         }
     }
 });
@@ -33,7 +37,8 @@ export const {
     setMarketData,
     setMarketPlace,
     setMarketNav,
-    setSavedMarket
+    setSavedMarket,
+    setPostedMarket
 } = marketRedux.actions;
 
 export default marketRedux.reducer;

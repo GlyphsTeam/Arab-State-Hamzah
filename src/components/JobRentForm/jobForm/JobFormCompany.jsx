@@ -7,9 +7,11 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import SpinnerStatic from '../../common/Spinner';
+import ButtonSeven from "../../Button/ButtonSeven";
 
 const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
   const [t, i18n] = useTranslation();
+
   const [isLoadingJob, setLoadingJob] = useState(false);
   const [typeAlert, setTypeAlert] = useState("");
   const [messageAlert, setMessageAlert] = useState("");
@@ -91,8 +93,8 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
       jobFormData.salary === "" ||
       jobFormData.salary_type === "" ||
       jobFormData.short_desc === "" ||
-      jobFormData.description === ""||
-      jobFormData.logo===""
+      jobFormData.description === "" ||
+      jobFormData.logo === ""
     ) {
 
 
@@ -146,7 +148,7 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
         setTypeAlert("warning")
         setMessageAlert("City is required")
       }
-      if(jobFormData.logo===""){
+      if (jobFormData.logo === "") {
         setSuccess(true)
         setShow(true);
         setTypeAlert("warning")
@@ -214,7 +216,11 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
       setSuccess(true);
       setCount(4);
       setTimeout(() => {
-        navigate("/my-job");
+        navigate("/my-job", {
+          state: {
+            stateLoading: true
+          }
+        });
       }, 3000);
     }
   };
@@ -233,7 +239,7 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
 
   return (
     <div>
-      {isLoadingJob && <SpinnerStatic text={true} textForm={i18n.language==="en"?"Please do not close the page. Job form submission may take a few minutes. Thank you for your patience!":"فضلك لا تغلق الصفحة. قد يستغرق إرسال المعلومات بضع دقائق. شكرا لك على انتظارك"}/>}
+      {isLoadingJob && <SpinnerStatic text={true} textForm={i18n.language === "en" ? "Please do not close the page. Job form submission may take a few minutes. Thank you for your patience!" : "فضلك لا تغلق الصفحة. قد يستغرق إرسال المعلومات بضع دقائق. شكرا لك على انتظارك"} />}
       <h2 className={style.jobFormTitle}>Post as A Company </h2>
       <div className={style.jobContact}>
         <form className={style.formDiv}>
@@ -462,9 +468,9 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
         </div>
       </div>
       <div className={style.submitButton}>
-        <button type="submit" onClick={handleSubmit}>
-          {t("Post a Job")}
-        </button>
+        <ButtonSeven handlerClick={handleSubmit} buttonType="submit">
+        {t("Post a Job")}
+        </ButtonSeven>
       </div>
     </div>
   );

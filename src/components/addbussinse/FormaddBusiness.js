@@ -12,7 +12,6 @@ import LoadingSpiner from "../Button/LoadingSpiner";
 import InputSelect from "../UI/InputSelect";
 import BusinessTime from "./BusinessTime";
 import ImageSelector from "../UI/ImageSelector";
-import ButtonTwo from "../Button/ButtonTwo";
 import { 
      stateBussinse, 
      setBusinessMainCat, 
@@ -215,7 +214,6 @@ function ForRentForm() {
         await axios.get(`${baseURL}/${urlCategories}`, {
             headers: { "Authorization": `Bearer ${token}` }
         }).then((res) => {
-            console.log("res>>>>>>",res)
             const mainCategories = res.data?.data;
             const businessCategories = mainCategories?.business || [];
             const serviceCategories = mainCategories?.service || [];
@@ -235,7 +233,6 @@ function ForRentForm() {
             await axios.get(subCategoryUrl, {
                 headers: { "Authorization": `Bearer ${token}` }
             }).then((res) => {
-                console.log("resS",res)
                 setSubCategorys(res?.data?.data)
                 if (res?.data?.data?.length === 0) {
                     setHiddenBussines(true)
@@ -648,7 +645,6 @@ function ForRentForm() {
 
         setSelectedOptions((prevSelectedOptions) => prevSelectedOptions.filter((sub) => sub?.id !== value));
     };
-    console.log("sbuss>>>>>>>",businessState)
     return (
         <>
             {isLoadingBusines && <SpinnerStatic text={true} textForm={i18n.language === "en" ? "Please do not close the page. Business form submission may take a few minutes. Thank you for your patience!" : "فضلك لا تغلق الصفحة. قد يستغرق إرسال المعلومات بضع دقائق. شكرا لك على انتظارك"} />}

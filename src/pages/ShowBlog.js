@@ -27,7 +27,6 @@ function ShowBlog() {
   let urlId;
   const [Data] = useAxios(showBlogUrl);
   let showBlogData = Data?.data?.blog;
-  console.log("showBlogData>>>>>>",showBlogData)
   let sliderData = Data?.data;
   const saveBlogHandler = async (id) => {
     const token = localStorage.getItem('arab_user_token')

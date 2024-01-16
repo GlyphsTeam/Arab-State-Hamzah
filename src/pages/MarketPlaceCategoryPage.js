@@ -50,7 +50,6 @@ function MarketPlaceCategory() {
     getMarketData(customApi);
   }, []);
 
-  console.log("categoryData<<<<<<<", marketPlace)
 
 
   const getMarketData = async (url) => {

@@ -1,11 +1,12 @@
 import Select from "react-select";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import style from "../../../assets/style/formStyle/jobForm.module.css";
 import Alert from "../../customAlert/Alert";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import SpinnerStatic from '../../common/Spinner';
+import ButtonSeven from "../../Button/ButtonSeven";
 
 const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
   const [t, i18n] = useTranslation();
@@ -17,20 +18,21 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
 
   const token = localStorage.getItem("arab_user_token");
   const navigate = useNavigate();
-
+  const titleRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const salaryRef = useRef(null);
+  const salary_typeRef = useRef(null);
+  const emailRef = useRef(null);
+  const phoneRef = useRef(null);
+  const short_descRef = useRef(null);
   const [jobFormData, setJobFormData] = useState({
-    title: "",
     anonymous: "false",
-    description: "",
-    salary: "",
-    salary_type: "",
-    type: "",
     company: "",
-    email: "",
-    phone: "",
+    type: "",
     place: "",
-    short_desc: "",
     experience_level: "",
+
+
   });
 
   const options = jobPageData?.cities?.map((item) => ({
@@ -49,86 +51,57 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
     value: item?.value,
     label: item?.name,
     name: "experience_level",
+
   }));
 
   const [success, setSuccess] = useState(false);
   const [showTitleWarn, setShowTitleWarn] = useState(false);
-  const [showLocationWarn, setShowLocationWarn] = useState(false);
-  const [showTypeWarn, setShowTypeWarn] = useState(false);
-  const [descriptionWarning, setDescriptionWarning] = useState(false);
-
-  const formData = new FormData();
-  jobFormData.title && formData.append("title", jobFormData?.title);
-  jobFormData.anonymous && formData.append("anonymous", jobFormData?.anonymous);
-  jobFormData.description &&
-    formData.append("description", jobFormData?.description);
-  jobFormData.salary && formData.append("salary", jobFormData?.salary);
-  jobFormData.salary_type &&
-    formData.append("salary_type", jobFormData?.salary_type);
-  jobFormData.type && formData.append("type", jobFormData?.type);
-  jobFormData.company && formData.append("company", jobFormData?.company);
-  jobFormData.email && formData.append("email", jobFormData?.email);
-  jobFormData.phone && formData.append("phone", jobFormData?.phone);
-  jobFormData.place && formData.append("place", jobFormData?.place);
-  formData.append("looking", 1);
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setJobFormData({ ...jobFormData, [name]: value });
-    if (name === "place" && value !== "") {
-      setShowLocationWarn(false);
-    }
-    if (name === "type" && value !== "") {
-      setShowTypeWarn(false);
-    }
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     setCount(4);
-
     if (
-      jobFormData.title === "" ||
+      titleRef.current?.value === "" ||
       jobFormData.place === "" ||
-      jobFormData.phone === "" ||
-      jobFormData.description === "" ||
-      jobFormData.salary === "" ||
-      jobFormData.salary_type === "" ||
-      jobFormData.short_desc === "" ||
+      phoneRef.current?.value === "" ||
+      descriptionRef.current?.value === "" ||
+      salaryRef.current?.value === "" ||
+      salary_typeRef.current?.value === "" ||
+      short_descRef.current?.value === "" ||
       jobFormData.type === "" ||
-      jobFormData.email === ""
+      emailRef.current?.value === ""
     ) {
-      if (jobFormData.description === "") {
+      if (descriptionRef.current?.value === "") {
         setSuccess(true)
         setShow(true);
         setTypeAlert("warning")
         setMessageAlert("Description is required")
       }
-      if (jobFormData.short_desc === "") {
+      if (short_descRef.current?.value === "") {
         setSuccess(true)
         setShow(true);
         setTypeAlert("warning")
         setMessageAlert("Short_desc is required")
       }
-      if (jobFormData.email === "") {
+      if (emailRef.current?.value === "") {
         setSuccess(true)
         setShow(true);
         setTypeAlert("warning")
         setMessageAlert("Email is required")
       }
-      if (jobFormData.phone === "") {
+      if (phoneRef.current?.value === "") {
         setSuccess(true)
         setShow(true);
         setTypeAlert("warning")
         setMessageAlert("Phone is required")
       }
-      if (jobFormData.salary_type === "") {
+      if (salary_typeRef.current?.value === "") {
         setSuccess(true)
         setShow(true);
         setTypeAlert("warning")
         setMessageAlert("Salary_type is required")
       }
-      if (jobFormData.salary === "") {
+      if (salaryRef.current?.value === "") {
         setSuccess(true)
         setShow(true);
         setTypeAlert("warning")
@@ -153,7 +126,7 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
         setTypeAlert("warning")
         setMessageAlert("Experience_level is required")
       }
-      if (jobFormData.title === "") {
+      if (titleRef.current?.value === "") {
         setSuccess(true)
         setShow(true);
         setTypeAlert("warning")
@@ -162,6 +135,19 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
     } else {
       setLoadingJob(true);
       try {
+        const formData = new FormData();
+        formData.append("title", titleRef.current?.value);
+        jobFormData.anonymous && formData.append("anonymous", jobFormData?.anonymous);
+        formData.append("description", descriptionRef.current?.value);
+        formData.append("salary", salaryRef.current?.value);
+        formData.append("salary_type", salary_typeRef.current?.value);
+        formData.append("type", jobFormData.type);
+        jobFormData.company && formData.append("company", jobFormData?.company);
+        formData.append("email", emailRef.current?.value);
+        formData.append("phone", phoneRef.current?.value);
+        formData.append("place", jobFormData.place);
+        formData.append("looking", 1);
+
         fetch(`${baseUrl}/jobs/create`, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -169,9 +155,14 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
           },
           method: "POST",
           body: formData,
-        }).then(() => {
+        }).then((res) => {
+          console.log("res>>>>>>",res)
           setLoadingJob(false);
-          navigate("/my-job")
+          navigate("/my-job", {
+            state: {
+              stateLoading: true
+            }
+          })
         })
       } catch (error) {
         console.log(error);
@@ -210,12 +201,12 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
       setJobFormData({ ...jobFormData, anonymous: "false" });
     }
   };
-
-
   const filterChange = (event, type) => {
     const { name, value } = event;
     setJobFormData({ ...jobFormData, [name]: value });
   };
+
+
 
   return (
     <div>
@@ -231,10 +222,10 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
               id="title"
               placeholder={t("Job Title")}
               required
-              onChange={handleChange}
               onKeyUp={() => setShowTitleWarn(false)}
-              value={jobFormData.title}
               className={style.inputForm}
+              ref={titleRef}
+
             />
           </div>
           {showTitleWarn && (
@@ -251,8 +242,6 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
             <label>{t("Experience Level")}</label>
             <Select
               options={experienceOptions}
-              // value={jobFormData?.place}
-              // onChange={filterChange}
               onChange={filterChange}
               isSearchable={true}
               placeholder={t("Select...")}
@@ -270,15 +259,11 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
               <label>{t("City")}</label>
               <Select
                 options={options}
-                // value={jobFormData?.place}
-                // onChange={filterChange}
                 onChange={filterChange}
                 isSearchable={true}
                 placeholder={t("Select...")}
               />
-              {showLocationWarn && (
-                <p className={style.contactValidation}>{t("City is required")}</p>
-              )}
+              
             </div>
             <div
               className={
@@ -290,15 +275,11 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
               <label>{t("Job Type")}</label>
               <Select
                 options={typeOptions}
-                onChange={filterChange}
                 isSearchable={true}
                 placeholder={t("Select...")}
+                onChange={filterChange}
               />
-              {showTypeWarn && (
-                <p className={style.contactValidation}>
-                  {t("Job Type is required")}
-                </p>
-              )}
+         
             </div>
           </div>
 
@@ -313,17 +294,14 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
               type="text"
               id="salary"
               name="salary"
-              onChange={handleChange}
-              value={jobFormData.salary}
+              ref={salaryRef}
               placeholder={t("Salary")}
               className={style.firstInput}
-            ></input>
-
+            />
             <select
               name="salary_type"
               id="salary_type"
-              // className={style.fieldWidth}
-              onChange={handleChange}
+              ref={salary_typeRef}
             >
               <option value="">{t("Salary Type")}</option>
               {jobPageData?.type_salary?.map((salaryType) => (
@@ -331,10 +309,6 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
                   {salaryType.name}
                 </option>
               ))}
-
-              {/* <option value="d">{t("Day")}</option>
-            <option value="w">{t("Week")}</option>
-            <option value="m">{t("Month")}</option> */}
             </select>
 
           </div>
@@ -345,9 +319,8 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
               type="tel"
               id="phone"
               name="phone"
-              onChange={handleChange}
+              ref={phoneRef}
               placeholder={t("Phone number")}
-              value={jobFormData.phone}
             />
           </div>
 
@@ -357,8 +330,7 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
               type="email"
               id="email"
               name="email"
-              onChange={handleChange}
-              value={jobFormData.email}
+              ref={emailRef}
               placeholder={t("Email Address")}
             />
           </div>
@@ -369,27 +341,21 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
               type="text"
               id="short_desc"
               name="short_desc"
-              onChange={handleChange}
-              value={jobFormData.short_desc}
+              ref={short_descRef}
               placeholder={t("Short Description")}
             />
           </div>
 
           <div className={style.txtAreaDiv}>
-            {/* <label>{t("Description")}</label> */}
+            <label>{t("Description")}</label>
             <textarea
               id="description"
               name="description"
-              onChange={handleChange}
-              value={jobFormData.description}
+              ref={descriptionRef}
               placeholder={t("Description")}
             ></textarea>
           </div>
-          {descriptionWarning && (
-            <p className={style.contactValidation}>
-              {t("Description is required")}
-            </p>
-          )}
+        
           <div className={style.checkboxDiv}>
             <input
               id="remember"
@@ -419,9 +385,10 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
         </div>
       </div>
       <div className={style.submitButton}>
-        <button type="submit" onClick={handleSubmit}>
-          {t("Post a Job")}
-        </button>
+        <ButtonSeven handlerClick={handleSubmit} buttonType="submit">
+        {t("Post a Job")}
+
+        </ButtonSeven>
       </div>
     </div>
   );

@@ -40,7 +40,6 @@ function MySavedBlogs({ baseUrl }) {
     getSavedBlogs();
   }, []);
 
-  console.log("stateBlog>>>>>>", stateBlog)
   return (
     <div className={`row w-100 m-0 ${style.userPage}`}>
 

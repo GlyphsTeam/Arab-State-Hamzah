@@ -38,7 +38,6 @@ function SavedProductPage() {
   useEffect(() => {
     getSavedProduct();
   }, []);
-  console.log("productSaved>>>>>>", productSaved)
   return (
     <div className={`row w-100 m-0 ${style.userPage}`}>
 

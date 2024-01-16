@@ -25,7 +25,6 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
   formData.append('id', jobData.id);
   const [Res] = useFetch('favorite/job', formData, send);
   let favoriteIcon = isFav ? 'fas fa-bookmark' : 'far fa-bookmark';
-  console.log("jobData>>>",jobData)
   const handleClick = () => {
     setShowShareModal(true);
   };

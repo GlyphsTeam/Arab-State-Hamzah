@@ -21,7 +21,10 @@
   justify-content: space-evenly;
   flex-wrap:wrap;
 }
+.formBtnContainer button{
+  width: max-content !important;
 
+}
 .helpDiv{
   width:350px;
   min-width:200px;

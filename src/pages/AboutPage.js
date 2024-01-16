@@ -17,7 +17,6 @@ function AboutPage() {
   const aboutDataRed = useSelector(aboutState);
   const [t] = useTranslation();
   const url = `about`;
-  console.log("aboutRed>>>>", aboutDataRed.aboutData?.about)
   const getAboutData = async () => {
     const token = localStorage.getItem("arab_user_token");
     const city_ID = process.env.REACT_APP_City_ID;

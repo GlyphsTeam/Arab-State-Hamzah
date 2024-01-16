@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import style from "../../assets/style/postProduct/postProduct.module.css";
 import Alert from "../common/alert/Alert";
 import jobStyle from "../../assets/style/postProduct/postProduct.module.css";
@@ -10,7 +10,6 @@ import MarketPlacePostOption from "./MarketPlacePostOption";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import SpinnerStatic from '../common/Spinner';
 import { useNavigate } from "react-router-dom";
-import ButtonTwo from "../Button/ButtonTwo";
 import LoadingSpiner from "../Button/LoadingSpiner";
 import InputSelect from "../UI/InputSelect";
 import ButtonSeven from "../Button/ButtonSeven";
@@ -19,19 +18,19 @@ function MarketPlacePostSection() {
   const navigation = useNavigate();
   const [isLoadingMarket, setLoadingMarket] = useState(false);
   const [LoadingSub, setLoadingSub] = useState(false);
+  const titleRef = useRef(null);
+  const priceRef = useRef(null);
+  const condationRef = useRef(null);
+  const placeRef = useRef(null);
+  const emailRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const phone_numberRef = useRef(null)
   const [marketFormData, setMarketFormData] = useState({
-    title: "",
-    price: "",
-    email: "",
-    phone_number: "",
     main_category: "",
     sub_category: "",
     year: "",
     color: "false",
-    condition: "",
     anonymous: "",
-    description: "",
-    place: "",
     category: "",
     looking: "",
     images: [],
@@ -66,42 +65,6 @@ function MarketPlacePostSection() {
   const [lookingState, setLooking] = useState(0);
   const [descriptionWarning, setDescriptionWarning] = useState(false);
 
-  let formData = new FormData();
-  marketFormData.title && formData.append("title", marketFormData?.title);
-
-  marketFormData.description &&
-    formData.append("description", marketFormData?.description.replace(/\n/g, "<br>"));
-
-  marketFormData.email && formData.append("email", marketFormData?.email);
-  marketFormData.phone_number &&
-    formData.append("phone_number", marketFormData?.phone_number);
-  marketFormData.price && formData.append("price", marketFormData?.price);
-  marketFormData.condition &&
-    formData.append("condition", marketFormData?.condition);
-
-
-  marketFormData.category &&
-    formData.append("sub_id", marketFormData?.category);
-  marketFormData.color && formData.append("color", marketFormData?.color);
-  marketFormData.sub_category &&
-    formData.append("model_id", marketFormData?.sub_category);
-  marketFormData.main_category &&
-    formData.append("main_id", marketFormData?.main_category);
-  marketFormData.place && formData.append("place", marketFormData?.place);
-  lookingState && formData.append("looking", lookingState);
-
-  marketFormData.anonymous &&
-    formData.append("anonymous", marketFormData?.anonymous);
-
-  marketFormData.images &&
-    marketFormData?.images?.forEach((image) => {
-      formData.append("images[]", image);
-    });
-
-  marketFormData.points &&
-    marketFormData?.points?.forEach((point) => {
-      formData.append("points[]", point);
-    });
 
   let colorUrl = `color`;
   let yearUrl = `year`;
@@ -144,13 +107,13 @@ function MarketPlacePostSection() {
     setDescriptionWarning(false);
 
     if (
-      marketFormData.title === "" ||
-      marketFormData.place === "" ||
+      titleRef.current?.value === "" ||
+      placeRef.current?.value === "" ||
       marketFormData.type === "" ||
-      (marketFormData.phone === "" && marketFormData.email === "") ||
+      (phone_numberRef.current?.value === "" && emailRef.current?.value === "") ||
       marketFormData.images.length === 0
     ) {
-      if (marketFormData.title === "") {
+      if (titleRef.current?.value === "") {
         setShowTitleWarn(true);
       }
       if (marketFormData.category === "") {
@@ -169,16 +132,16 @@ function MarketPlacePostSection() {
       if (marketFormData.images.length === 0) {
         setShowImageWarn(true);
       }
-      if (regex.test(marketFormData.email)) {
+      if (regex.test(emailRef.current?.value)) {
         setShowEmailRegexWarn(true);
       }
-      if (marketFormData.phone_number === "" && marketFormData.email === "") {
+      if (phone_numberRef.current?.value === "" && emailRef.current?.value === "") {
         setRequireWarn(true);
       }
-      if (marketFormData.description === "") {
+      if (descriptionRef.current?.value === "") {
         setDescriptionWarning(true);
       }
-      if (marketFormData.price === "") {
+      if (priceRef.current?.value === "") {
         setShowPriceWarn(true);
       }
       if (marketFormData.year === "") {
@@ -187,13 +150,13 @@ function MarketPlacePostSection() {
       if (marketFormData.color === "") {
         setColorWarn(true);
       }
-      if (marketFormData.condition === "") {
+      if (condationRef.current?.value === "") {
         setCondwationWarn(true);
       }
-      if (marketFormData.place === "") {
+      if (placeRef.current?.value === "") {
         setPlaceWarn(true);
       }
-      if (marketFormData.email === "") {
+      if (emailRef.current?.value === "") {
         setEmailWarn(true);
       }
 
@@ -202,6 +165,38 @@ function MarketPlacePostSection() {
       let baseURL = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${process.env.REACT_APP_City_ID}/market/create`;
       setLoadingMarket(true);
       try {
+        let formData = new FormData();
+        formData.append("title", titleRef.current?.value);
+        formData.append("description", descriptionRef.current?.value?.replace(/\n/g, "<br>"));
+
+        formData.append("email", emailRef.current?.value);
+        formData.append("phone_number", phone_numberRef.current?.value);
+        formData.append("price", priceRef.current?.value);
+        
+        formData.append("condition", condationRef.current?.value);
+        marketFormData.category &&
+          formData.append("sub_id", marketFormData?.category);
+        marketFormData.color && formData.append("color", marketFormData?.color);
+        marketFormData.sub_category &&
+          formData.append("model_id", marketFormData?.sub_category);
+        marketFormData.main_category &&
+          formData.append("main_id", marketFormData?.main_category);
+        marketFormData.place && formData.append("place", marketFormData?.place);
+        lookingState && formData.append("looking", lookingState);
+
+        marketFormData.anonymous &&
+          formData.append("anonymous", marketFormData?.anonymous);
+
+        marketFormData.images &&
+          marketFormData?.images?.forEach((image) => {
+            formData.append("images[]", image);
+          });
+
+        marketFormData.points &&
+          marketFormData?.points?.forEach((point) => {
+            formData.append("points[]", point);
+          });
+
         await fetch(`${baseURL}`, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -218,18 +213,11 @@ function MarketPlacePostSection() {
             setTypeAlert("success")
             setMessageAlert("Your Post Has been Published successfully")
             setMarketFormData({
-              title: "",
-              price: "",
-              email: "",
-              phone_number: "",
               main_category: "",
               sub_category: "",
               year: "",
               color: "false",
-              condition: "",
               anonymous: "",
-              description: "",
-              place: "",
               images: []
             });
             setSend(false);
@@ -429,8 +417,7 @@ function MarketPlacePostSection() {
           name="title"
           type="text"
           placeholder={t("Title")}
-          value={marketFormData.title}
-          onChange={handleChange}
+          ref={titleRef}
         />
         {showTitleWarn && (
           <p className={jobStyle.required}>{t("Title is required")}</p>
@@ -440,8 +427,7 @@ function MarketPlacePostSection() {
           name="price"
           type="text"
           placeholder={t("Price")}
-          value={marketFormData.price}
-          onChange={handleChange}
+          ref={priceRef}
         />
         {showPriceWarn && (
           <p className={jobStyle.required}>Price is required</p>
@@ -476,8 +462,7 @@ function MarketPlacePostSection() {
         <select
           id="condition"
           name="condition"
-          value={marketFormData.condition}
-          onChange={handleChange}
+          ref={condationRef}
           className={`w-100 ${jobStyle.dropDownMain}`}
         >
           <option value="">{t("Condition")}</option>
@@ -492,8 +477,7 @@ function MarketPlacePostSection() {
           <select
             name="place"
             id="place"
-            value={marketFormData.place}
-            onChange={handleChange}
+            ref={placeRef}
             className={`w-100 ${jobStyle.dropDownMain}`}
           >
             <option value="">{t("Place")}</option>
@@ -513,8 +497,7 @@ function MarketPlacePostSection() {
           type="email"
           id="email"
           name="email"
-          onChange={handleChange}
-          value={marketFormData.email}
+          ref={emailRef}
           placeholder={t("Email")}
           className={`w-100`}
         />
@@ -525,8 +508,7 @@ function MarketPlacePostSection() {
           type="tel"
           id="phone_number"
           name="phone_number"
-          onChange={handleChange}
-          value={marketFormData.phone_number}
+          ref={phone_numberRef}
           placeholder={t("Phone number")}
           className={i18n.language === "en" ? style.phoneNumberclasEn : style.phoneNumberclasAr}
         />
@@ -547,8 +529,7 @@ function MarketPlacePostSection() {
           className={jobStyle.textArea}
           placeholder={t("Description")}
           name="description"
-          onChange={handleChange}
-          value={marketFormData.description}
+          ref={descriptionRef}
         ></textarea>
         {descriptionWarning && (
           <p className={jobStyle.required}>{t("Description is required")}</p>

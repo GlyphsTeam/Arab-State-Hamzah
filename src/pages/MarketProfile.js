@@ -29,7 +29,6 @@ function MarketProfile() {
   }
   let [Data] = useAxios(url);
   const data = Data.data;
-  console.log("data>>>>>>",data)
   return (
     <>
     <Helmet>

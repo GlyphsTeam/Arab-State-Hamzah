@@ -23,7 +23,6 @@ function ShowJobPage() {
     setJobData(Data?.data);
   });
   const [show, setShow] = useState(false);
-  console.log("jobData>>>",jobData)
   return (
     <>
     <Helmet>

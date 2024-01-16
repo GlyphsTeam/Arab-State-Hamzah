@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import style from "../../../assets/style/formStyle/rentForm.module.css";
 import Alert from "../../customAlert/Alert";
 import useAxios from "../../../hooks/useAxiosGet";
@@ -8,25 +8,29 @@ import { Link, useNavigate } from "react-router-dom";
 import HeroNav from "../../common/HeroNav";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import SpinnerStatic from '../../common/Spinner';
+import ButtonSeven from "../../Button/ButtonSeven";
 
 function ShowRentForm({ baseUrl }) {
   const navigate = useNavigate();
   const [t, i18n] = useTranslation();
-  const [title, setTitle] = useState("");
+  const titleRef = useRef(null);
+  const areaRef = useRef(null);
+  const placeRef = useRef(null);
+  const genderRef = useRef(null);
+  const emailRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const priceRef = useRef(null);
+  const bathroomsRef = useRef(null);
+  const bedroomsRef = useRef(null);
+  const phoneRef = useRef(null);
+  const typeRef = useRef(null);
+
+
+
   const [messageAlert, setMessageAlert] = useState("");
   const [isLoadingRent, setLoadingRent] = useState(false);
 
   const [typeAlert, setTypeAlert] = useState("");
-  const [area, setArea] = useState("");
-  const [gender, setGender] = useState("");
-  const [email, setEmail] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [bathrooms, setBathrooms] = useState("");
-  const [bedrooms, setBedrooms] = useState("");
-  const [phone, setPhone] = useState("");
-  const [type, setType] = useState("");
-  const [place, setPlace] = useState("");
   const [anonymous, setAnonymous] = useState("");
   const [images, setImages] = useState([]);
   const [is_bathroom_shared, set_is_bathroom_shared] = useState("");
@@ -37,27 +41,6 @@ function ShowRentForm({ baseUrl }) {
   const [success, setSuccess] = useState(false);
 
   const [count, setCount] = useState();
-  const formData = new FormData();
-  title && formData.append("title", title);
-  description && formData.append("description", description);
-  gender && formData.append("gender", gender);
-  email && formData.append("email", email);
-  phone && formData.append("phone_number", phone);
-  price && formData.append("price", price);
-  bathrooms && formData.append("bathrooms", bathrooms);
-  bedrooms && formData.append("bedrooms", bedrooms);
-  type && formData.append("types", type);
-  area && formData.append("area", area);
-  place && formData.append("place", place);
-  formData.append("looking", 1);
-  anonymous && formData.append("anonymous", anonymous);
-  is_bathroom_shared &&
-    formData.append("is_bathroom_shared", is_bathroom_shared);
-
-  images &&
-    images.forEach((image) => {
-      formData.append("images[]", image);
-    });
 
   const handleImageDrop = (acceptedFiles) => {
     setImages((prevImages) => [...prevImages, ...acceptedFiles]);
@@ -73,28 +56,27 @@ function ShowRentForm({ baseUrl }) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-
     if (
-      title === "" ||
-      type === "" ||
-      place === "" ||
-      phone === "" ||
-      description === "" ||
+      titleRef.current?.value === "" ||
+      typeRef.current?.value === "" ||
+      placeRef.current?.value === "" ||
+      phoneRef.current?.value === "" ||
+      descriptionRef.current?.value === "" ||
       images.length === 0 ||
-      email === "" ||
-      gender === "" ||
-      bathrooms === "" ||
-      bedrooms === "" ||
-      area === ""
+      emailRef.current?.value === "" ||
+      genderRef.current?.value === "" ||
+      bathroomsRef.current?.value === "" ||
+      bedroomsRef.current?.value === "" ||
+      areaRef.current?.value === ""
     ) {
 
-      if (type === "") {
+      if (typeRef.current?.value === "") {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("type is required")
       }
 
-      if (description === "") {
+      if (descriptionRef.current?.value === "") {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("Description is required")
@@ -103,7 +85,7 @@ function ShowRentForm({ baseUrl }) {
 
       }
 
-      if (phone === "") {
+      if (phoneRef.current?.value === "") {
         setWarning(true);
         setShow(true);
         setCount(4);
@@ -111,42 +93,42 @@ function ShowRentForm({ baseUrl }) {
         setTypeAlert("warning")
         setMessageAlert("Phone is required")
       }
-      if (email === "") {
+      if (emailRef.current?.value === "") {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("Email is required")
       }
-      if (area === "") {
+      if (areaRef.current?.value === "") {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("Area is required")
       }
-      if (price === "") {
+      if (priceRef.current?.value === "") {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("Price is required")
       }
-      if (bedrooms === "") {
+      if (bedroomsRef.current?.value === "") {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("Bedrooms is required")
       }
-      if (bathrooms === "") {
+      if (bathroomsRef.current?.value === "") {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("Bathrooms is required")
       }
-      if (gender === "") {
+      if (genderRef.current?.value === "") {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("Gender is required")
       }
-      if (place === "") {
+      if (placeRef.current?.value === "") {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("Location is required")
       }
-      if (title === "") {
+      if (titleRef.current?.value === "") {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("Title is required")
@@ -157,8 +139,30 @@ function ShowRentForm({ baseUrl }) {
         setMessageAlert("Image is required")
       }
 
-    } else {
+    }
+    else {
       try {
+        const formData = new FormData();
+        formData.append("title", titleRef.current?.value);
+        formData.append("description", descriptionRef.current?.value);
+        formData.append("gender", genderRef.current?.value);
+        formData.append("email", emailRef.current?.value);
+        formData.append("phone_number", phoneRef.current?.value);
+        formData.append("price", priceRef.current?.value);
+        formData.append("bathrooms", bathroomsRef.current?.value);
+        formData.append("bedrooms", bedroomsRef.current?.value);
+        formData.append("types", typeRef.current?.value);
+        formData.append("area", areaRef.current?.value);
+        formData.append("place", placeRef.current?.value);
+        formData.append("looking", 1);
+        anonymous && formData.append("anonymous", anonymous);
+        is_bathroom_shared &&
+          formData.append("is_bathroom_shared", is_bathroom_shared);
+
+        images.forEach((image) => {
+          formData.append("images[]", image);
+        });
+
         setLoadingRent(true);
         fetch(`${baseUrl}/rents/create`, {
           headers: {
@@ -241,7 +245,6 @@ function ShowRentForm({ baseUrl }) {
                     <div key={image.name} className={style.imageContainer}>
                       <LazyLoadImage
                         src={URL.createObjectURL(image)}
-                        // className={style.image}
                         alt=""
                       />
                       <button
@@ -263,9 +266,8 @@ function ShowRentForm({ baseUrl }) {
               type="text"
               id="title"
               placeholder={t("Title")}
-              value={title}
               className={style.inputForm}
-              onChange={(e) => setTitle(e.target.value)}
+              ref={titleRef}
             />
           </div>
 
@@ -275,8 +277,7 @@ function ShowRentForm({ baseUrl }) {
               <select
                 name="place"
                 id="place"
-                // value={place}
-                onChange={(e) => setPlace(e.target.value)}
+                ref={placeRef}
               >
                 <option value="">{t("Location")}</option>
                 {dataR?.cities?.map((item) => {
@@ -295,8 +296,7 @@ function ShowRentForm({ baseUrl }) {
             <select
               name="type"
               id="type"
-              // value={place}
-              onChange={(e) => setType(e.target.value)}
+              ref={typeRef}
             >
               <option value="">{t("Type")}</option>
               {dataR?.type?.map((item) => {
@@ -313,8 +313,8 @@ function ShowRentForm({ baseUrl }) {
             <select
               name="gender"
               id="gender"
+              ref={genderRef}
               className={`${style.fieldWidth} ${style.fieldHeight}`}
-              onChange={(e) => setGender(e.target.value)}
             >
               <option value="choose one">{t("Gender")}</option>
               {dataR?.gender?.map((item, index) => {
@@ -339,8 +339,8 @@ function ShowRentForm({ baseUrl }) {
               id="bedrooms"
               placeholder="bedrooms"
               className={`${style.fieldWidth} ${style.fieldHeight}`}
-              onChange={(e) => setBedrooms(e.target.value)}
-            ></input>
+              ref={bedroomsRef}
+            />
             <input
               name="bathrooms"
               id="bathrooms"
@@ -348,8 +348,8 @@ function ShowRentForm({ baseUrl }) {
               className={
                 i18n.language === "en" ? style.secondSelect : style.secondSelectAr
               }
-              onChange={(e) => setBathrooms(e.target.value)}
-            ></input>
+              ref={bathroomsRef}
+            />
           </div>
           <div className={style.checkboxDiv}>
             <input
@@ -369,9 +369,8 @@ function ShowRentForm({ baseUrl }) {
               type="text"
               id="price"
               placeholder={t("Price")}
-              value={price}
               className={style.inputForm}
-              onChange={(e) => setPrice(e.target.value)}
+              ref={priceRef}
             />
           </div>
           <div className={style.inputDiv}>
@@ -380,9 +379,8 @@ function ShowRentForm({ baseUrl }) {
               type="text"
               id="area"
               placeholder={t("Area square feet")}
-              value={area}
               className={style.inputForm}
-              onChange={(e) => setArea(e.target.value)}
+              ref={areaRef}
             />
           </div>
           <div className={style.inputDiv}>
@@ -391,9 +389,8 @@ function ShowRentForm({ baseUrl }) {
               type="text"
               id="phone"
               placeholder={t("Phone number")}
-              value={phone}
               className={style.inputForm}
-              onChange={(e) => setPhone(e.target.value)}
+              ref={phoneRef}
             />
           </div>
           <div className={style.inputDiv}>
@@ -402,17 +399,15 @@ function ShowRentForm({ baseUrl }) {
               type="text"
               id="email"
               placeholder={t("Email Address")}
-              value={email}
               className={style.inputForm}
-              onChange={(e) => setEmail(e.target.value)}
+              ref={emailRef}
             />
           </div>
           <div className={style.textAreaDiv}>
             <textarea
               id="description"
               name="description"
-              onChange={(e) => setDescription(e.target.value)}
-              value={description}
+              ref={descriptionRef}
               placeholder={t("Description")}
               className={style.inputForm}
             />
@@ -447,9 +442,11 @@ function ShowRentForm({ baseUrl }) {
         </div>
       </div>
       <div className={style.formBtnContainer}>
-        <button type="submit" className={style.formBtn} onClick={handleSubmit}>
-          {t("submit")}
-        </button>
+    
+        <ButtonSeven handlerClick={handleSubmit} buttonType="submit">
+        {t("submit")}
+
+        </ButtonSeven>
       </div>
     </>
   );

@@ -7,29 +7,34 @@ import { setLoading } from '../redux/slices/login';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 function MyJobPage({ baseUrl }) {
   const url = `user/jobs`;
   const [t] = useTranslation();
   const jobPosted = useSelector((state) => state.rent.postedJob);
   const dispatch = useDispatch();
+  const location = useLocation();
+  const { stateLoading } = location.state || {};
   const getJobPosted = async () => {
     const token = localStorage.getItem("arab_user_token");
     const city_ID = process.env.REACT_APP_City_ID;
     const baseURL = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${city_ID}`;
 
-    dispatch(setLoading(true));
-    await axios.get(`${baseURL}/${url}`, {
+    if (jobPosted === null || stateLoading === true) {
+      dispatch(setLoading(true));
+      await axios.get(`${baseURL}/${url}`, {
 
-      headers: { "Authorization": `Bearer ${token}` }
-    }).then((res) => {
+        headers: { "Authorization": `Bearer ${token}` }
+      }).then((res) => {
 
-      dispatch(setPostedJob(res.data?.data));
-      dispatch(setLoading(false));
+        dispatch(setPostedJob(res.data?.data));
+        dispatch(setLoading(false));
 
-    }).catch((err) => {
-      console.log(err);
-      dispatch(setLoading(false));
-    })
+      }).catch((err) => {
+        console.log(err);
+        dispatch(setLoading(false));
+      })
+    }
   }
   useEffect(() => {
     getJobPosted();

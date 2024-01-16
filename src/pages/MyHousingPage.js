@@ -40,7 +40,6 @@ function SavedJobPage({ baseUrl }) {
     getPostedRent();
 
   }, []);
-  console.log("postedRent>>>>>>", postedRent)
   return (
     <div className={`row w-100 m-0 ${style.userPage}`}>
 

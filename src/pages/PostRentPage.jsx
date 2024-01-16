@@ -6,7 +6,7 @@ const PostJobPage = ({ baseUrl }) => {
   const cityUrl = `rents/web/create_page`;
   const [Data] = useAxios(cityUrl);
   const rentPageData = Data?.data;
-
+  
   return (
     <div>
       <HeroNav

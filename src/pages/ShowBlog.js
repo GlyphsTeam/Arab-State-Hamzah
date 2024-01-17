@@ -14,16 +14,18 @@ import EventCards from "../components/blog/EventCards";
 import Share from "../Utils/Share";
 import axios from "axios";
 import { Helmet } from 'react-helmet';
+import { useDispatch } from 'react-redux';
+import { setSavedBlogData } from '../redux/Blog/blog'
 function ShowBlog() {
   const [t, i18n] = useTranslation();
   const location = useLocation();
   const [isSaved, setSaved] = useState(false);
   const id = location.pathname.split('/')[location.pathname.split('/').length - 1]
   const [showShareModal, setShowShareModal] = useState(false);
-
+  const dispatch = useDispatch();
   let showBlogUrl = `blogs/web/show/${id}`;
   const urlpath = useLocation();
-  const pathName = `/${i18n?.language}`+urlpath.pathname;
+  const pathName = `/${i18n?.language}` + urlpath.pathname;
   let urlId;
   const [Data] = useAxios(showBlogUrl);
   let showBlogData = Data?.data?.blog;
@@ -32,19 +34,20 @@ function ShowBlog() {
     const token = localStorage.getItem('arab_user_token')
     let formData = new FormData();
     formData.append('id', id);
-    let backend_url = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/0/favorite/blog`
+    let backend_url = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${process.env.REACT_APP_City_ID}/favorite/blog`
     await axios.post(backend_url, formData, {
       headers: {
         Authorization: `Bearer ${token}`
       }
     }).then((res) => {
-        if(isSaved){
-          setSaved(false)
-        }
-        else{
-          setSaved(true);
-        }
-  
+      dispatch(setSavedBlogData(null));
+      if (isSaved) {
+        setSaved(false)
+      }
+      else {
+        setSaved(true);
+      }
+
     }).catch((err) => console.log(err))
   }
   useEffect(() => {
@@ -60,7 +63,7 @@ function ShowBlog() {
     <div className={style.showBlogContainer}>
       <Helmet>
         <title>{showBlogData?.title}</title>
-        <meta name="description" content={ReactHtmlParser(`${showBlogData?.web_description}`)}/>
+        <meta name="description" content={ReactHtmlParser(`${showBlogData?.web_description}`)} />
       </Helmet>
       <BlogHeader data={sliderData?.slider} />
       <Banner />
@@ -75,14 +78,14 @@ function ShowBlog() {
             <div >
               {/* <img src={showBlogData?.image} className={style.showBlogImage} alt="img-showBlog"/> */}
               <div className={style.iconsShareAndSave}>
-              <i className={`${favoriteIcon} ${style.favIconColor}`} onClick={() => saveBlogHandler(id)}></i>
+                <i className={`${favoriteIcon} ${style.favIconColor}`} onClick={() => saveBlogHandler(id)}></i>
                 <p className={`px-3 ${style.favoriteIconCursor}`} onClick={() => setShowShareModal(true)}>
                   <i
                     className={`fas fa-share-square ${style.shareIconMargin}`}
 
                   ></i>
                 </p>
-               <a href={showBlogData?.link_youtube} target="_blank" rel="noreferrer"><i className={`fab fa-youtube ${style.youtubIcon}`}></i></a>
+                <a href={showBlogData?.link_youtube} target="_blank" rel="noreferrer"><i className={`fab fa-youtube ${style.youtubIcon}`}></i></a>
               </div>
               {showShareModal && <Share url={pathName} setShowShareModal={setShowShareModal} />}
 

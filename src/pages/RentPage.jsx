@@ -32,7 +32,6 @@ function Job({ baseURL }) {
     url = `rents/web?page=${page}&limit_by=${limit}&looking=${pageType}&order_by=${filters.order_by}&sort_by=${filters.sort_by}&type=${filters.type}&price_from=${filters.price_from}&price_to=${filters.price_to}&place=${filters.place}`;
   }, [page]);
 
-
   const [Data] = useAxios(url);
   const rentsData = Data?.data;
 

@@ -3,13 +3,14 @@ import style from "../../assets/style/showRentPage.module.css";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Share from "../../Utils/Share";
-import useFetch from "../../hooks/useFetch";
 import ReactHtmlParser from 'html-react-parser';
-
+import { useDispatch } from 'react-redux';
+import { setSavedDataProfile } from '../../redux/Rent/rent';
 function TopRentCard({ rentData, setShow, token, setCount, id }) {
   const [saveId, setSaveId] = useState();
   const [activeSave, setActiveSave] = useState(rentData?.saved);
   const [t, i18n] = useTranslation();
+  const dispatch = useDispatch();
   const [showShareModal, setShowShareModal] = useState(false);
   const formData = new FormData();
   const urlpath = useLocation();
@@ -20,18 +21,21 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
 
   let favoriteIcon = activeSave ? "fas fa-bookmark" : "far fa-bookmark";
   async function handleSaveJob() {
-      token ? saveRent() : setShow(true);
-      const tokenUser = localStorage.getItem("arab_user_token")
-      setCount(4);
-      setSend(true)
-      await fetch(`https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${process.env.REACT_APP_City_ID}/favorite/rent`,{
-        headers: {
-          Authorization: `Bearer ${tokenUser}`,
-          Accept: "application/json",
-        },
-        method:"POST",
-        body: formData,
-      }).then((result)=>console.log(result)).catch((err)=>console.log(err))
+    token ? saveRent() : setShow(true);
+    const tokenUser = localStorage.getItem("arab_user_token")
+    setCount(4);
+    setSend(true)
+    await fetch(`https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${process.env.REACT_APP_City_ID}/favorite/rent`, {
+      headers: {
+        Authorization: `Bearer ${tokenUser}`,
+        Accept: "application/json",
+      },
+      method: "POST",
+      body: formData,
+    }).then((result) => {
+      dispatch(setSavedDataProfile(null));
+
+    }).catch((err) => console.log(err))
   }
   const saveRent = (e) => {
     activeSave ? setActiveSave(false) : setActiveSave(true);
@@ -50,12 +54,12 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
         </p>
         <div className={style.firstSection}>
           <div>
-          <div className={style.infoSection}>
-                <i className={`fas fa-phone-alt ${style.locationIcon}`}></i>
-            <h4 className={style.titleInfo}>{t("Phone Number")}</h4>
+            <div className={style.infoSection}>
+              <i className={`fas fa-phone-alt ${style.locationIcon}`}></i>
+              <h4 className={style.titleInfo}>{t("Phone Number")}</h4>
             </div>
-         
-            <p className={`${style.infoParagraph} ${i18n.language==='en'?style.phoneClass:style.phoneClassAr}`}>
+
+            <p className={`${style.infoParagraph} ${i18n.language === 'en' ? style.phoneClass : style.phoneClassAr}`}>
               <a href={`tel:${rentData?.phone_number}`}>
                 {rentData?.phone_number}
               </a>
@@ -70,7 +74,7 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
               <h4 className={style.titleInfo}>{t("Email")}</h4>
             </div>
 
-            <p className={`${style.infoParagraph} ${i18n.language==='en'?style.phoneClass:style.phoneClassAr}`}>
+            <p className={`${style.infoParagraph} ${i18n.language === 'en' ? style.phoneClass : style.phoneClassAr}`}>
               <a href={`mailto:${rentData?.email}`}>{rentData?.email}</a>
             </p>
           </div>
@@ -79,10 +83,10 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
               <i className={`fas fa-map-marker-alt ${style.locationIcon}`}></i>
               <h4 className={style.titleInfo}>{t("Location")}</h4>
             </div>
-            <p className={`${style.infoParagraph} ${i18n.language==='en'?style.phoneClass:style.phoneClassAr}`}>{rentData?.place}</p>
+            <p className={`${style.infoParagraph} ${i18n.language === 'en' ? style.phoneClass : style.phoneClassAr}`}>{rentData?.place}</p>
           </div>
         </div>
-        
+
         <div className="d-flex justify-content-between align-items-center">
           <div className={style.houseNumber}>
             {rentData?.bedrooms && (
@@ -130,15 +134,15 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
                 <i className="fas fa-venus-mars"></i> {rentData?.gender}
               </p>
             )}
-                <p
-                className={
-                  i18n.language === "en"
-                    ? style.priceClass
-                    : style.houseNumberParagraphLastRight
-                }
-              >
-              {t("Price")} : {'$'+rentData?.price}
-              </p>
+            <p
+              className={
+                i18n.language === "en"
+                  ? style.priceClass
+                  : style.houseNumberParagraphLastRight
+              }
+            >
+              {t("Price")} : {'$' + rentData?.price}
+            </p>
           </div>
 
           {/* <div className={style.addressRentContainer}>
@@ -173,15 +177,15 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
             <button>{t("Back To Rent")}</button>
           </Link>
           <div className={style.addressRentContainer}>
-          <div
-            className={
-              i18n.language === "en" ? style.rentPriceDiv : style.rentPriceDivAr
-            }
-          >
-            <h4 className={style.titleInfo}>{t("Price")} :</h4>
-            <p className={style.rentStyle}> {`$${rentData?.price}`}</p>
+            <div
+              className={
+                i18n.language === "en" ? style.rentPriceDiv : style.rentPriceDivAr
+              }
+            >
+              <h4 className={style.titleInfo}>{t("Price")} :</h4>
+              <p className={style.rentStyle}> {`$${rentData?.price}`}</p>
+            </div>
           </div>
-        </div>
         </div>
       </div>
       <div className={style.shareSaveSection}>
@@ -189,11 +193,11 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
           className={`fas fa-share-square ${style.rentIcon}`}
           onClick={() => setShowShareModal(true)}
         ></i>
-       {!rentData?.is_user_post&&<i
+        {!rentData?.is_user_post && <i
           className={`${favoriteIcon} ${style.rentIcon}`}
           onClick={handleSaveJob}
         ></i>
-       }
+        }
       </div>
       <div
         className={
@@ -209,7 +213,7 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
           <i className={`fas fa-phone-alt ${style.}`}></i>
           {rentData?.phone_number}
         </p> */}
-   
+
 
       </div>
       {showShareModal && (

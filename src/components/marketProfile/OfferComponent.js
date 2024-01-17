@@ -2,7 +2,7 @@ import style from "../../assets/style/marketProfile.module.css";
 import { useTranslation } from "react-i18next";
 
 function OfferComponent({ data }) {
-  const [t, i18n] = useTranslation();
+  const [t] = useTranslation();
 
   return (
     <div className="mt-5 pt-4">

@@ -7,9 +7,12 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 import useFetch from "../../../hooks/useFetch";
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
-import ReactHtmlParser from 'html-react-parser'
+import { useDispatch } from 'react-redux';
+import { setSavedJobData } from '../../../redux/Rent/rent';
 function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
-  const [t,i18n] = useTranslation();
+  const [t, i18n] = useTranslation();
+  const dispatch = useDispatch();
+
 
   const [send, setSend] = useState(false);
   const [count, setCount] = useState(4);
@@ -41,6 +44,7 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
     if (token) {
       setIsFav(!isFav);
       setSend(true);
+      dispatch(setSavedJobData(null));
       setTimeout(() => {
         setSend(false);
       }, 100);

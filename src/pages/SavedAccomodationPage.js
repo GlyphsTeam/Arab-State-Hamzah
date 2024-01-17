@@ -20,20 +20,20 @@ function SavedJobPage() {
     const city_ID = process.env.REACT_APP_City_ID;
     const baseURL = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${city_ID}`;
 
-    if (savedRent === null) { 
-    dispatch(setLoading(true))
-    await axiso.get(`${baseURL}/${url}`, {
-      headers: { "Authorization": `Bearer ${token}` }
+    if (savedRent === null) {
+      dispatch(setLoading(true))
+      await axiso.get(`${baseURL}/${url}`, {
+        headers: { "Authorization": `Bearer ${token}` }
 
-    }).then((res) => {
-      dispatch(setSavedDataProfile(res.data?.data));
-      dispatch(setLoading(false))
+      }).then((res) => {
+        dispatch(setSavedDataProfile(res.data?.data));
+        dispatch(setLoading(false))
 
-    }).catch((err) => {
-      console.log(err);
-      dispatch(setLoading(false));
-    })
-  }
+      }).catch((err) => {
+        console.log(err);
+        dispatch(setLoading(false));
+      })
+    }
   }
   useEffect(() => {
     getSavedRent();

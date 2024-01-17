@@ -46,7 +46,7 @@ function SubCategoryBody() {
   const currentCards = categoryCards?.slice(startIndex, endIndex);
 
   const totalPages = Math.ceil(categoryCards?.length / itemsPerPage);
-
+  
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
     window.scrollTo({

@@ -4,14 +4,17 @@ import useFetchPost from "../../hooks/useFetch";
 import { useTranslation } from "react-i18next";
 import Share from "../../Utils/Share";
 import { useLocation } from "react-router-dom";
-
+import { useDispatch } from 'react-redux';
+import { setSavedBussiness } from '../../redux/Business/business';
 function Favorite_Contact({ data, setShow, setCount }) {
-  const [t, i18n] = useTranslation();
+  const [t] = useTranslation();
   const [isFavorite, setIsFavorite] = useState();
   const [send, setSend] = useState(false);
   const location = useLocation();
   const id = location.pathname.split('/')[location.pathname.split('/').length - 1];
   const pathName = location.pathname;
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
     if (data?.saved) {
@@ -33,6 +36,7 @@ function Favorite_Contact({ data, setShow, setCount }) {
     if (token) {
       isFavorite ? setIsFavorite(false) : setIsFavorite(true);
       setSend(true);
+      dispatch(setSavedBussiness(null));
       setTimeout(() => {
         setSend(false);
       }, 100);

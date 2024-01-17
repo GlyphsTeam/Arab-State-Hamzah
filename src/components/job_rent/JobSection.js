@@ -3,7 +3,6 @@ import style from "../../assets/style/job_rent/card.module.css";
 import Pagination from "../blog/Pagination";
 import JobCard from "../../components/common/cards/AllJobs";
 import JobLatestPost from "./JobLatestPost";
-import AdvBanner from "../common/AdvBanner";
 import JobRentFilter from "./sideFilter/JobRentFilter";
 import PopUp from "../PopUp/Popup";
 import { useTranslation } from "react-i18next";

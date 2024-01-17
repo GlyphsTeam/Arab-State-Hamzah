@@ -156,7 +156,13 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
           method: "POST",
           body: formData,
         }).then((res) => {
-          console.log("res>>>>>>",res)
+          titleRef.current = null;
+          descriptionRef.current = null;
+          salaryRef.current = null;
+          salary_typeRef.current = null;
+          emailRef.current = null;
+          phoneRef.current = null;
+          
           setLoadingJob(false);
           navigate("/my-job", {
             state: {

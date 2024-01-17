@@ -172,7 +172,7 @@ function MarketPlacePostSection() {
         formData.append("email", emailRef.current?.value);
         formData.append("phone_number", phone_numberRef.current?.value);
         formData.append("price", priceRef.current?.value);
-        
+
         formData.append("condition", condationRef.current?.value);
         marketFormData.category &&
           formData.append("sub_id", marketFormData?.category);
@@ -205,7 +205,13 @@ function MarketPlacePostSection() {
           method: "POST",
           body: formData,
         }).then((result) => {
-          console.log("result>>>", result)
+          titleRef.current = null;
+          descriptionRef.current = null;
+          emailRef.current = null;
+          phone_numberRef.current = null;
+          priceRef.current = null;
+          condationRef.current = null;
+          placeRef.current = null;
           setSend(true);
           setTimeout(() => {
             setCount(4);

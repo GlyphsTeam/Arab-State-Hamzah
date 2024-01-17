@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 function Interested({ data }) {
-  const [t, i18n] = useTranslation();
+  const [t] = useTranslation();
   let urlId;
 
   return (

@@ -5,11 +5,15 @@ import { useTranslation } from "react-i18next";
 import Share from "../../Utils/Share";
 import ReactHtmlParser from "html-react-parser";
 import useFetch from "../../hooks/useFetch";
+import { useDispatch } from 'react-redux';
+import { setSavedJobData } from '../../redux/Rent/rent';
 function MiddleJob({ jobData, setShow, token, setCount, id }) {
   const [saveId, setSaveId] = useState();
   const [activeSave, setActiveSave] = useState(jobData?.saved);
   const [t, i18n] = useTranslation();
   const [send, setSend] = useState(false);
+  const dispatch = useDispatch();
+
   const formData = new FormData();
   const [showShareModal, setShowShareModal] = useState(false);
   const urlpath = useLocation();
@@ -18,15 +22,17 @@ function MiddleJob({ jobData, setShow, token, setCount, id }) {
   const [Res] = useFetch('favorite/job', formData, send);
   let saveIcon = activeSave ? "fas" : "far";
   function handleSaveJob() {
-      token ? saveJob() : setShow(true);
-      setCount(4);
-      setSend(true)
+    token ? saveJob() : setShow(true);
+    setCount(4);
+    setSend(true);
+    dispatch(setSavedJobData(null));
+
   }
   const saveJob = (e) => {
     activeSave ? setActiveSave(false) : setActiveSave(true);
     setSaveId(jobData.id);
   };
- 
+
   return (
     <div className={style.jobTxtContainer}>
       <div className={`d-flex ${style.mainContainer}`}>
@@ -59,7 +65,7 @@ function MiddleJob({ jobData, setShow, token, setCount, id }) {
               <p className={style.middleJobParagraph}>
                 {/* {jobData?.description} */}
                 {jobData?.web_description && ReactHtmlParser(`${jobData.web_description}`)}
-                </p>
+              </p>
               <div className={style.contactStyleMobile}>
                 {jobData?.email && (
                   <p className={style.contactParagraph}>
@@ -106,7 +112,7 @@ function MiddleJob({ jobData, setShow, token, setCount, id }) {
         <h2 className={style.descriptionTitle}>{t("Description")}</h2>
         <p className={style.middleJobParagraph}>
           {jobData?.web_description && ReactHtmlParser(`${jobData.web_description}`)}
-          </p>
+        </p>
       </div>
       {showShareModal && (
         <Share

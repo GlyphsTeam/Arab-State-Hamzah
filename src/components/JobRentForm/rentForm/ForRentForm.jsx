@@ -169,6 +169,17 @@ function ForRentForm({ baseUrl, rentPageData }) {
           method: "POST",
           body: formData,
         }).then(() => {
+          titleRef.current = null;
+          descriptionRef.current = null;
+          genderRef.current = null;
+          emailRef.current = null;
+          phoneRef.current = null;
+          priceRef.current = null;
+          bathroomsRef.current = null;
+          bedroomsRef.current = null;
+          typeRef.current = null;
+          areaRef.current = null;
+          placeRef.current = null;
           setLoadingRent(false);
           navigate("/my-housing", {
             state: {

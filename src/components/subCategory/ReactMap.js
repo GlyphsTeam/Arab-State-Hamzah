@@ -1,23 +1,40 @@
 import React from "react";
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
-
+import axiso from 'axios';
+import { useEffect, useState } from "react";
 const containerStyle = {
   width: "100%",
   height: "350px",
   borderRadius: "25px",
 };
 
-const center = {
-  lat: parseFloat(process.env.REACT_APP_MAP_LAT),
-  lng: parseFloat(process.env.REACT_APP_MAP_LNG),
-};
+
 
 function LastMap({ data }) {
+  const [lat, setLat] = useState("");
+  const [log, setLong] = useState("");
+
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: process.env.REACT_APP_MAP_KEY,
   });
+  const getLocation = async () => {
+    const baseURL = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/en/project`;
+    await axiso.get(baseURL).then((res) => {
+      setLat(res.data?.data.project?.latitude);
+      setLong(res.data?.data.project?.longitude);
+    }).catch((err) => {
+      console.log(err);
+    })
 
+  }
+  useEffect(() => {
+    getLocation();
+  }, [])
+  const center = {
+    lat: parseFloat(lat),
+    lng: parseFloat(log),
+  };
   const [map, setMap] = React.useState(null);
 
   const onLoad = React.useCallback(function callback(map) {
@@ -47,19 +64,22 @@ function LastMap({ data }) {
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
-      zoom={8}
-      // onLoad={onLoad}
-      // onUnmount={onUnmount}
+      zoom={6}
+    // onLoad={onLoad}
+    // onUnmount={onUnmount}
     >
+
       <>
         {markers?.map((marker) => (
           <Marker
+
             key={marker.name}
+
             onClick={marker.onClick}
-            position={marker.position}
+            position={{ lat: marker.position.lat, lng: marker.position.lng }}
             label={{
               text: marker.name,
-              color: "black",
+              color: "red",
               fontWeight: "bold",
               fontSize: "12px",
             }}

@@ -7,13 +7,15 @@ import { useLocation } from 'react-router-dom'
 import ReactHtmlParser from 'html-react-parser'
 import useFetch from "../../../hooks/useFetch";
 import Alert from "../../common/alert/Alert";
-
+import { useDispatch } from 'react-redux';
+import { setSavedMarket } from '../../../redux/Market/market';
 function ProductCard({ data, isMyPost, baseUrl, type }) {
     const [t, i18n] = useTranslation();
     const [send, setSend] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
+    const dispatch = useDispatch();
 
-    const token = localStorage.getItem("arab_user_token");
+    const token = localStorage.getItem("arab_user_token"); 
     const [isFav, setIsFav] = useState(data?.save_job);
     let favoriteIcon = isFav ? 'fas fa-bookmark' : 'far fa-bookmark';
     const location = useLocation();
@@ -44,6 +46,7 @@ function ProductCard({ data, isMyPost, baseUrl, type }) {
         if (token) {
             setIsFav(!isFav);
             setSend(true);
+            dispatch(setSavedMarket(null))
             setTimeout(() => {
                 setSend(false);
             }, 100);

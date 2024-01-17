@@ -6,7 +6,8 @@ import { Link, useLocation } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
 import Share from "../../../Utils/Share";
 import Alert from "../alert/Alert";
-
+import { useDispatch } from 'react-redux';
+import { setSavedDataProfile } from '../../../redux/Rent/rent';
 function NewCardRent({ houseData }) {
     const [t, i18n] = useTranslation();
     const [send, setSend] = useState(false);
@@ -17,10 +18,12 @@ function NewCardRent({ houseData }) {
     const token = localStorage.getItem("arab_user_token");
     const [showShareModal, setShowShareModal] = useState(false);
     const location = useLocation();
+    const dispatch = useDispatch();
     const addToFavorite = (id) => {
         if (token) {
             setIsFav(!isFav);
             setSend(true);
+            dispatch(setSavedDataProfile(null))
             setTimeout(() => {
                 setSend(false);
             }, 100);
@@ -41,6 +44,7 @@ function NewCardRent({ houseData }) {
     };
     let formData = new FormData();
     formData.append("id", houseData.id);
+    console.log("houseData.id>>>>>>>",houseData.id);
     const [Res] = useFetch('favorite/rent', formData, send);
 
     let favoriteIcon = isFav ? "fas fa-bookmark" : "far fa-bookmark";

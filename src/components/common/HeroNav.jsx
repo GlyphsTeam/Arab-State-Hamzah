@@ -5,7 +5,6 @@ import { useTranslation } from "react-i18next";
 import ReactHtmlParser from "html-react-parser";
 import { LazyLoadImage} from 'react-lazy-load-image-component'
 function HeroNav({ index, setIndex  , subData , mainData}) {
-  console.log("subData>>>",subData)
   const [t, i18n] = useTranslation();
   const [activeIndex, setActiveIndex] = useState(index);
   useEffect(() => {

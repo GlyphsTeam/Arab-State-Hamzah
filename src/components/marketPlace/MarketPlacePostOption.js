@@ -3,9 +3,9 @@ import style from "../../assets/style/postProduct/postProduct.module.css";
 import { useTranslation } from "react-i18next";
 
 function MarketPlacePostOption() {
-  const [inputValue, setInputValue] = useState("");
-  const [isInputVisible, setInputVisible] = useState(false);
-  const [points, setPoints] = useState("");
+  // const [inputValue, setInputValue] = useState("");
+  // const [isInputVisible, setInputVisible] = useState(false);
+  // const [points, setPoints] = useState("");
   const [t, i18n] = useTranslation();
   const [inputFields, setInputFields] = useState([{ id: 0, text: '' }]);
   const [nextId, setNextId] = useState(1);
@@ -23,25 +23,25 @@ function MarketPlacePostOption() {
 
 
 
-  const handleSaveMessage = (event) => {
-    event.preventDefault();
-    if (points !== "") {
-      housingFormData.points.push(points);
-      setPoints("");
-      setInputVisible(false);
-    } else {
-      setInputVisible(false);
-    }
-  };
+  // const handleSaveMessage = (event) => {
+  //   event.preventDefault();
+  //   if (points !== "") {
+  //     housingFormData.points.push(points);
+  //     setPoints("");
+  //     setInputVisible(false);
+  //   } else {
+  //     setInputVisible(false);
+  //   }
+  // };
 
-  const handleDeleteMessage = () => {
-    setInputValue("");
-    setInputVisible(false);
-  };
+  // const handleDeleteMessage = () => {
+  //   setInputValue("");
+  //   setInputVisible(false);
+  // };
 
-  const handleToggleInput = () => {
-    setInputVisible(!isInputVisible);
-  };
+  // const handleToggleInput = () => {
+  //   setInputVisible(!isInputVisible);
+  // };
 
   const handleDeleteMessageArray = (index) => {
     const updatedPoints = [...housingFormData.points];

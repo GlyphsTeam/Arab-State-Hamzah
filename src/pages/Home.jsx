@@ -1,17 +1,18 @@
-import TryApp from "../components/home/tryApp/TryApp";
-import CategoryList from "../components/home/category/CategoryList";
-import Blog from "../components/home/blog/Blog";
-import Services from "../components/home/jobs/Services";
+import { useEffect, lazy, Suspense } from "react";
 import { useTranslation } from "react-i18next";
-import AdvBanner from "../components/common/AdvBanner";
-import BannerWInfo from "../components/common/banner/BannerWInfo";
-import HomeTitle from "../components/common/title/HomeTitle";
 import { Helmet } from 'react-helmet';
 import { setHomeData, homeState } from '../redux/Home/home';
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from "react";
 import axios from 'axios';
 import { setLoading } from '../redux/slices/login';
+const CategoryList = lazy(() => import('../components/home/category/CategoryList'));
+const TryApp = lazy(() => import('../components/home/tryApp/TryApp'));
+const Blog = lazy(() => import('../components/home/blog/Blog'));
+const Services = lazy(() => import('../components/home/jobs/Services'));
+const AdvBanner = lazy(() => import('../components/common/AdvBanner'));
+const BannerWInfo = lazy(() => import('../components/common/banner/BannerWInfo'));
+const HomeTitle = lazy(() => import('../components/common/title/HomeTitle'));
+
 function Home() {
   const dispatch = useDispatch();
   const stateHome = useSelector(homeState);
@@ -43,6 +44,7 @@ function Home() {
         <title>{stateHome?.homeData?.hero[0]?.title}</title>
         <meta name='description' content={stateHome?.homeData?.hero[0]?.description} />
       </Helmet>
+      <Suspense fallback={<p>Loading...</p>}>
       <BannerWInfo />
       <HomeTitle title={t("Advertisement")} />
       <AdvBanner />
@@ -50,7 +52,7 @@ function Home() {
       <Services />
       <TryApp />
       <Blog />
-
+      </Suspense>
     </>
   );
 }

@@ -1,7 +1,7 @@
 
 function ChooseCityPage() {
-    const cityClick = (id) => {
-    };
+    // const cityClick = (id) => {
+    // };
 
     const city = [
         {

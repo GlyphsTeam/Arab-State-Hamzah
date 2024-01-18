@@ -2,7 +2,7 @@ import style from "../../assets/style/show_blog.module.css";
 import Slider from "react-slick";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 
-function LeftShowBlog({ Data, showUserGuide }) {
+function LeftShowBlog({ Data }) {
   const leftShowBlogData = Data?.data?.blog?.gallery;
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;

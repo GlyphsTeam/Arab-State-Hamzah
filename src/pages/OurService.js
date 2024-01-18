@@ -1,16 +1,18 @@
-import ServiceCard from "../components/ourService/ServiceCard";
-import OurWebsite from "../components/ourService/OurWebsite";
 import style from "../assets/style/ourService.module.css";
-import ServiceLetter from "../components/ourService/ServiceLetter";
-import ServiceImage from "../components/ourService/ServiceImage";
-import HeroBanner from "../components/common/banner/HeroBanner";
 import { Helmet } from "react-helmet";
 import { useDispatch, useSelector } from 'react-redux';
 import { setLoading } from '../redux/slices/login';
-import { useEffect } from "react";
+import { lazy, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { serversState, setServicesData } from '../redux/OurServices/services';
 import axios from 'axios';
+
+const ServiceCard = lazy(()=>import("../components/ourService/ServiceCard"));
+const OurWebsite = lazy(()=>import("../components/ourService/OurWebsite"));
+const ServiceLetter = lazy(()=>import("../components/ourService/ServiceLetter"));
+const ServiceImage = lazy(()=>import("../components/ourService/ServiceImage"));
+const HeroBanner = lazy(()=>import("../components/common/banner/HeroBanner"))
+
 function BlogPage() {
   const servicesData = useSelector(serversState);
   const dispatch = useDispatch();

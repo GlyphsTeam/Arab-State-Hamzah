@@ -1,18 +1,19 @@
-import React, { useState } from "react";
-import MainStoreCard from "../components/marketProfile/MainStoreCard";
-import Description from "../components/marketProfile/Description";
-import OfferComponent from "../components/marketProfile/OfferComponent";
+import React, { lazy, useState } from "react";
 import style from "../assets/style/marketProfile.module.css";
-import StoreMap from "../components/marketProfile/StoreMap";
-import SocialMedia from "../components/marketProfile/SocialMedia";
-import Gallery from "../components/marketProfile/Gallery";
-import Section from "../components/marketProfile/Interested";
-import PhotoPreview from '../components/marketProfile/ViewImagesSlider';
 import useAxios from "../hooks/useAxiosGet";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import StoreHero from "../components/marketProfile/StoreHero";
 import { Helmet } from 'react-helmet';
+const MainStoreCard = lazy(() => import("../components/marketProfile/MainStoreCard"));
+const Description = lazy(() => import("../components/marketProfile/Description"));
+const OfferComponent = lazy(() => import("../components/marketProfile/OfferComponent"));
+const StoreMap = lazy(() => import("../components/marketProfile/StoreMap"));
+const SocialMedia = lazy(() => import("../components/marketProfile/SocialMedia"));
+const Gallery = lazy(() => import("../components/marketProfile/Gallery"));
+const Section = lazy(() => import("../components/marketProfile/Interested"));
+const PhotoPreview = lazy(() => import("../components/marketProfile/ViewImagesSlider"));
+const StoreHero = lazy(() => import("../components/marketProfile/StoreHero"));
+
 function MarketProfile() {
   const [t] = useTranslation();
   const [showPhotoModal, setShowPhotoModal] = useState(false);
@@ -21,20 +22,21 @@ function MarketProfile() {
   const token = localStorage.getItem('arab_user_token');
   const id = location.pathname.split('/')[location.pathname.split('/').length - 1];
   let url;
-  if(token){
-   url = `business/show/${id}`;
+  if (token) {
+    url = `business/show/${id}`;
   }
-  else{
+  else {
     url = `show-store/${id}`;
   }
   let [Data] = useAxios(url);
   const data = Data.data;
+
   return (
     <>
-    <Helmet>
-      <title>{data?.name}</title>
-      <meta name="description" content={data?.description}/>
-    </Helmet>
+      <Helmet>
+        <title>{data?.name}</title>
+        <meta name="description" content={data?.description} />
+      </Helmet>
       <div className={style.serviceComponent}>
         <StoreHero data={data} />
         <div className={`${style.marketingContainerSection} container col-12`}>

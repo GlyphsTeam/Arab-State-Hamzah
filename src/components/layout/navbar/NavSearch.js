@@ -1,11 +1,11 @@
-import React , {useState} from "react";
+import React, { useState } from "react";
 import style from "../../../assets/style/layout/navbar.module.scss";
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 
 function NavSearch() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [t, i18n] = useTranslation();
+  const [t] = useTranslation();
   const navigate = useNavigate();
   const [showInput, setShowInput] = useState(false);
 
@@ -19,7 +19,7 @@ function NavSearch() {
   }
   const handleSearchSubmit = (event) => {
     setShowInput(!showInput);
-    if(event !== "") {
+    if (event !== "") {
       navigate(`/search-result/${event}`);
       setSearchQuery("");
     }
@@ -32,24 +32,24 @@ function NavSearch() {
 
 
 
-  
-    return (
-      <div className={style.navSearchDiv}>
-         {showInput && (
-          <input
-            className={style.searchText}
-            type="text"
-            placeholder={t("Search Anything")}
-            onChange={handleSearchInput}
-            onKeyDown={handleKeyDown}
-            value={searchQuery}
-          />
-         )}
-        <i
-          className={`fa fa-search ${style.searchIcon}`}
-          onClick={()=> {handleSearchSubmit(searchQuery)}} 
-        ></i>
-      </div>
-    );
-  }
+
+  return (
+    <div className={style.navSearchDiv}>
+      {showInput && (
+        <input
+          className={style.searchText}
+          type="text"
+          placeholder={t("Search Anything")}
+          onChange={handleSearchInput}
+          onKeyDown={handleKeyDown}
+          value={searchQuery}
+        />
+      )}
+      <i
+        className={`fa fa-search ${style.searchIcon}`}
+        onClick={() => { handleSearchSubmit(searchQuery) }}
+      ></i>
+    </div>
+  );
+}
 export default NavSearch;

@@ -3,13 +3,10 @@ import useAxios from "../../../hooks/useAxiosGet";
 import ScrollContainer from "react-indiana-drag-scroll";
 import SliderList from "./CardSlider";
 import { useTranslation } from "react-i18next";
-import { useLocation } from "react-router-dom";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 function SubCategorySlider({activeIndex , handleClick , id}) {
   const [t] = useTranslation();
-  const location = useLocation();
-  const idI = location?.state?.id;
 
   let url = `main-categories/${id}/sub-categories`;
   let [Data] = useAxios(url);

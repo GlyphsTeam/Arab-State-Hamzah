@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import style from "../assets/style/showRentPage.module.css";
-import TopRentCard from "../components/showRent/TopRentCard";
-import RentImg from "../components/showRent/RentImg";
-import BottomRentCard from "../components/showRent/BottomRentCard";
 import { Link, useLocation } from "react-router-dom";
 import useAxios from "../hooks/useAxiosGet";
 import { useTranslation } from "react-i18next";
-import Alert from "../components/customAlert/Alert";
-import HeroBanner from "../components/common/banner/HeroBanner";
-import { Helmet } from 'react-helmet'
+
+import { Helmet } from 'react-helmet';
+
+const TopRentCard = lazy(() => import("../components/showRent/TopRentCard"));
+const RentImg = lazy(() => import("../components/showRent/RentImg"));
+const BottomRentCard = lazy(() => import("../components/showRent/BottomRentCard"));
+const Alert = lazy(() => import("../components/customAlert/Alert"));
+const HeroBanner = lazy(() => import("../components/common/banner/HeroBanner"));
+
 const ShowRentPage = () => {
   const [rentData, setRentData] = useState();
   const [count, setCount] = useState();
@@ -26,10 +29,11 @@ const ShowRentPage = () => {
 
   return (
     <>
-        <Helmet>
-          <title>{rentData?.rent?.title}</title>
-          <meta name='description' content={rentData?.rent?.description}/>
-        </Helmet>
+      <Helmet>
+        <title>{rentData?.rent?.title}</title>
+        <meta name='description' content={rentData?.rent?.description} />
+      </Helmet>
+      <Suspense fallback={<p>Loading...</p>}>
       <HeroBanner
         data={rentData?.hero}
 
@@ -95,6 +99,7 @@ const ShowRentPage = () => {
           setCount={setCount}
         />
       </div>
+      </Suspense>
     </>
   );
 };

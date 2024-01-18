@@ -12,7 +12,7 @@ function SubscribeFooter() {
   const [send, setSend] = useState(false);
   const formData = new FormData();
   const [isSubscribed, setIsSubscribed] = useState(false);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 

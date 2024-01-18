@@ -5,7 +5,7 @@ import useAxios from "../../hooks/useAxiosGet";
 import { useTranslation } from "react-i18next";
 import contactStyle from "../../assets/style/contactUs.module.css";
 function JobForm({ setJobFormOpen, baseURL }) {
-  const [t, i18n] = useTranslation();
+  const [t] = useTranslation();
   const [show, setShow] = useState(false);
   const [count, setCount] = useState();
   const cityUrl = `cities`;

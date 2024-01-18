@@ -1,4 +1,3 @@
-import { React } from "react";
 import style from "../../assets/style/common/pagination.module.css";
 
 const Pagination = ({

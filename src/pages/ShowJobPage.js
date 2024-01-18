@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react";
-import JobImg from "../components/showJob/JobImg";
-import LastJob from "../components/showJob/LastJob";
-import MiddleJob from "../components/showJob/MiddleJob";
+import React, { useState, useEffect, lazy, Suspense } from "react";
+
 import style from '../assets/style/ShowJobPage.module.css';
 import { Link, useLocation } from "react-router-dom";
 import useAxios from "../hooks/useAxiosGet";
 import { useTranslation } from "react-i18next";
-import Alert from "../components/customAlert/Alert";
-import HeroBanner from "../components/common/banner/HeroBanner";
+
 import { Helmet } from 'react-helmet';
+const JobImg = lazy(() => import("../components/showJob/JobImg"));
+const LastJob = lazy(() => import("../components/showJob/LastJob"));
+const MiddleJob = lazy(() => import("../components/showJob/MiddleJob"));
+const Alert = lazy(() => import("../components/customAlert/Alert"));
+const HeroBanner = lazy(() => import('../components/common/banner/HeroBanner'));
 function ShowJobPage() {
   const [jobData, setJobData] = useState();
   const [count, setCount] = useState();
@@ -25,11 +27,11 @@ function ShowJobPage() {
   const [show, setShow] = useState(false);
   return (
     <>
-    <Helmet>
-      <title>{jobData?.job?.title}</title>
-      <meta name="description" content={jobData?.job?.description}/>
-    </Helmet>
-
+      <Helmet>
+        <title>{jobData?.job?.title}</title>
+        <meta name="description" content={jobData?.job?.description} />
+      </Helmet>
+      <Suspense fallback={<p>Loading...</p>}>
       <HeroBanner
         data={jobData?.hero}
       />
@@ -105,6 +107,7 @@ function ShowJobPage() {
         count={count}
         setCount={setCount}
       />
+      </Suspense>
     </>
   );
 }

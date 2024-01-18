@@ -1,7 +1,7 @@
 import style from "../../assets/style/showUserGuide.module.css";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 
-function ShowGuideSteps({ Data, showUserGuide }) {
+function ShowGuideSteps({  showUserGuide }) {
   const showBlogParagraph = showUserGuide?.steps;
   return (
     <>

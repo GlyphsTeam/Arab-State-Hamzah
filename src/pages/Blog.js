@@ -1,11 +1,5 @@
-import BlogHeader from "../components/blog/BlogHeader";
-import BlogLetter from "../components/blog/BlogLetter";
-import BlogCards from "../components/blog/StatisticsSection";
-import PopularCards from "../components/blog/PopularSection";
-import BlogSearch from "../components/blog/BlogSearch";
-import EventCards from "../components/blog/EventCards";
-import Tags from "../components/blog/Tags";
-import PlacesToVisit from "../components/blog/PlacesToVisitSection";
+import { useEffect, lazy, Suspense } from "react";
+
 import style from "../assets/style/Blog.module.css";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -13,10 +7,18 @@ import { blogState, setBlogData } from '../redux/Blog/blog';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
 import { setLoading } from '../redux/slices/login';
+
+const BlogHeader = lazy(() => import('../components/blog/BlogHeader'));
+const BlogLetter = lazy(() => import("../components/blog/BlogLetter"));
+const BlogCards = lazy(() => import("../components/blog/StatisticsSection"));
+const PopularCards = lazy(() => import("../components/blog/PopularSection"));
+const BlogSearch = lazy(() => import("../components/blog/BlogSearch"));
+const EventCards = lazy(() => import("../components/blog/EventCards"));
+const Tags = lazy(() => import("../components/blog/Tags"));
+const PlacesToVisit = lazy(() => import("../components/blog/PlacesToVisitSection"))
 function BlogPage() {
-  
+
   const url = `blogs/web`
   const dispatch = useDispatch();
   const stateBlog = useSelector(blogState);
@@ -52,6 +54,7 @@ function BlogPage() {
         <title>{titlePage}</title>
         <meta name="description" content={stateBlog?.blogData?.main?.description} />
       </Helmet>
+      <Suspense fallback={<p>Loading...</p>}>
       <div className={style.blogPageStyle}>
         <BlogHeader data={stateBlog?.blogData?.slider} />
         <div className={`${style.firstConBackground}`}>
@@ -95,6 +98,7 @@ function BlogPage() {
           </div>
         </div>
       </div>
+      </Suspense>
     </>
   );
 }

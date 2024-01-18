@@ -8,7 +8,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 import contactStyle from "../../assets/style/contactUs.module.css";
 function ShowRentForm({ setRentOpen, baseURL }) {
-  const [t, i18n] = useTranslation();
+  const [t] = useTranslation();
   const [title, setTitle] = useState("");
   const [area, setArea] = useState("");
   const [gender, setGender] = useState("");

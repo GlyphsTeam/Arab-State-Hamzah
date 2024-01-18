@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import filterStyle from '../assets/style/common/filteredPage.module.css'
-import CategoryNav from '../components/common/marketPlace/marketNav/CategoryNav';
-import CategorySection from '../components/marketPlace/MarketPlaceCategorySection';
-import AdvBanner from '../components/common/banner/Banner';
 import { useTranslation } from "react-i18next";
 import { useNavigate } from 'react-router-dom';
-import HeroMobileButtons from '../components/common/marketPlace/HeroMobileButtons/HeroMobileButtons';
-import Alert from '../components/common/alert/Alert';
-import ButtonFour from '../components/Button/ButtonFour';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { setMarketPlace, marketState } from '../redux/Market/market';
 import { setLoading } from '../redux/slices/login';
+const CategoryNav = lazy(() => import("../components/common/marketPlace/marketNav/CategoryNav"));
+const CategorySection = lazy(() => import("../components/marketPlace/MarketPlaceCategorySection"));
+const AdvBanner = lazy(() => import("../components/common/banner/Banner"));
+const HeroMobileButtons = lazy(() => import("../components/common/marketPlace/HeroMobileButtons/HeroMobileButtons"));
+const Alert = lazy(() => import("../components/common/alert/Alert"));
+const ButtonFour = lazy(() => import("../components/Button/ButtonFour"));
 function MarketPlaceCategory() {
   const [t] = useTranslation();
   const marketPlace = useSelector(marketState)
@@ -55,27 +55,28 @@ function MarketPlaceCategory() {
   const getMarketData = async (url) => {
     const city_ID = process.env.REACT_APP_City_ID;
     const baseURL = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${city_ID}`;
-    if(marketPlace.marketPlace===null){
-    dispatch(setLoading(true));
-    await axios.get(`${baseURL}/${url}`, {
-    
-      headers: { "Authorization": `Bearer ${token}` },
-    
-    }).then((res) => {  
-      dispatch(setMarketPlace(res.data?.data))
-      dispatch(setLoading(false));
-    }).catch((err) => {
-      console.log(err);
-      dispatch(setLoading(false));
-    })
-  }
+    if (marketPlace.marketPlace === null) {
+      dispatch(setLoading(true));
+      await axios.get(`${baseURL}/${url}`, {
+
+        headers: { "Authorization": `Bearer ${token}` },
+
+      }).then((res) => {
+        dispatch(setMarketPlace(res.data?.data))
+        dispatch(setLoading(false));
+      }).catch((err) => {
+        console.log(err);
+        dispatch(setLoading(false));
+      })
+    }
 
   }
-  
+
 
 
   return (
     <>
+    <Suspense fallback={<p>Loading...</p>}>
       <div className={filterStyle.bannerMarketPlace}>
         <AdvBanner bannerUrl="sliders/page?page=App\Models\MarketMainCategoryPage" />
 
@@ -101,7 +102,7 @@ function MarketPlaceCategory() {
 
             </ButtonFour>
           </div>
-          <CategorySection  />
+          <CategorySection />
         </div>
 
       </div>
@@ -111,6 +112,7 @@ function MarketPlaceCategory() {
           <Alert type="warning" message={t("Please login first.")} showAlert={showAlert} setShowAlert={setShowAlert} time='5000' count={count}
             setCount={setCount} />
         )}
+        </Suspense>
     </>
   )
 }

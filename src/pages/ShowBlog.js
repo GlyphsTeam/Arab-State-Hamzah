@@ -1,21 +1,22 @@
-import React, { useEffect, useState } from "react";
-import style from "../assets/style/show_blog.module.css";
-import LeftShowBlog from "../components/showBlog/LeftShowBlog";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 import useAxios from "../hooks/useAxiosGet";
-import Similar from "../components/blog/Similar";
-import ShowBlogParagraph from "../components/showBlog/ShowBlogParagraph";
-import BlogSearch from "../components/blog/BlogSearch";
+import style from "../assets/style/show_blog.module.css";
 import { useTranslation } from "react-i18next";
 import ReactHtmlParser from 'html-react-parser';
 import { useLocation } from 'react-router-dom';
-import Banner from "../components/common/banner/Banner";
-import BlogHeader from "../components/blog/BlogHeader";
-import EventCards from "../components/blog/EventCards";
-import Share from "../Utils/Share";
 import axios from "axios";
 import { Helmet } from 'react-helmet';
 import { useDispatch } from 'react-redux';
-import { setSavedBlogData } from '../redux/Blog/blog'
+import { setSavedBlogData } from '../redux/Blog/blog';
+const LeftShowBlog = lazy(() => import("../components/showBlog/LeftShowBlog"));
+const Similar = lazy(() => import("../components/blog/Similar"));
+const ShowBlogParagraph = lazy(() => import("../components/showBlog/ShowBlogParagraph"));
+const BlogSearch = lazy(() => import("../components/blog/BlogSearch"));
+const Banner = lazy(() => import("../components/common/banner/Banner"));
+const BlogHeader = lazy(() => import("../components/blog/BlogHeader"));
+const EventCards = lazy(() => import("../components/blog/EventCards"));
+const Share = lazy(() => import("../Utils/Share"));
+
 function ShowBlog() {
   const [t, i18n] = useTranslation();
   const location = useLocation();
@@ -65,6 +66,7 @@ function ShowBlog() {
         <title>{showBlogData?.title}</title>
         <meta name="description" content={ReactHtmlParser(`${showBlogData?.web_description}`)} />
       </Helmet>
+      <Suspense fallback={<p>Loading...</p>}>
       <BlogHeader data={sliderData?.slider} />
       <Banner />
 
@@ -115,7 +117,9 @@ function ShowBlog() {
       <div>
         <Similar showBlogData={showBlogData} id={id} />
       </div>
+      </Suspense>
     </div>
+
   );
 }
 export default ShowBlog;

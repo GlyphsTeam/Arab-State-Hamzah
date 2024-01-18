@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { lazy, useState } from "react";
 import style from "../assets/style/showUserGuide.module.css";
-import LeftShowUserGuide from "../components/showUserGuide/LeftShowUserGuide";
 import { useLocation } from "react-router-dom";
 import useAxios from "../hooks/useAxiosGet";
-import Similar from "../components/blog/Similar";
-import ShowGuideSteps from "../components/showUserGuide/ShowGuideSteps";
-import BlogSearch from "../components/blog/BlogSearch";
-import LatestPosts from "../components/showUserGuide/LatestPosts";
 import { useTranslation } from "react-i18next";
-import UserGuideHeader from "../components/UserGuideComponent/UserGuideHeader";
-import Share from "../Utils/Share";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
+const LeftShowUserGuide = lazy(() => import("../components/showUserGuide/LeftShowUserGuide"));
+const Similar = lazy(() => import("../components/blog/Similar"));
+const ShowGuideSteps = lazy(() => import("../components/showUserGuide/ShowGuideSteps"));
+const BlogSearch = lazy(() => import("../components/blog/BlogSearch"));
+const LatestPosts = lazy(() => import("../components/showUserGuide/LatestPosts"));
+const UserGuideHeader = lazy(() => import("../components/UserGuideComponent/UserGuideHeader"));
+const Share = lazy(() => import("../Utils/Share"));
 function ShowUserGuide() {
   const [t, i18n] = useTranslation();
 

@@ -1,25 +1,26 @@
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import React, { useEffect, useState, useRef, useCallback, lazy, Suspense } from "react";
 import style from "../../assets/style/formStyle/addbuinsesFrom.module.css";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import AlertBussiness from "../common/alert/Alert";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Helmet } from 'react-helmet'
-import SpinnerStatic from '../common/Spinner';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-import LoadingSpiner from "../Button/LoadingSpiner";
-import InputSelect from "../UI/InputSelect";
-import BusinessTime from "./BusinessTime";
-import ImageSelector from "../UI/ImageSelector";
-import { 
-     stateBussinse, 
-     setBusinessMainCat, 
-     setBusinessStateCity,
-      } from '../../redux/Business/business';
+
+import {
+    stateBussinse,
+    setBusinessMainCat,
+    setBusinessStateCity,
+} from '../../redux/Business/business';
 import { setLoading } from '../../redux/slices/login';
 import { useDispatch, useSelector } from "react-redux";
 import ButtonSeven from "../Button/ButtonSeven";
+const AlertBussiness = lazy(() => import("../common/alert/Alert"));
+const SpinnerStatic = lazy(() => import("../common/Spinner"));
+const LoadingSpiner = lazy(() => import("../Button/LoadingSpiner"));
+const InputSelect = lazy(() => import("../UI/InputSelect"));
+const BusinessTime = lazy(() => import("./BusinessTime"));
+const ImageSelector = lazy(() => import("../UI/ImageSelector"))
 function ForRentForm() {
 
     const [t, i18n] = useTranslation();
@@ -188,19 +189,19 @@ function ForRentForm() {
 
 
     const getStatesAndCityes = async () => {
-        if(businessState?.businessStateAndCity===null){
-        const baseURL = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${process.env.REACT_APP_City_ID}`;
-        
-        dispatch(setLoading(true))
-        await axios.get(`${baseURL}/${urlStates}`, {
-            headers: { "Authorization": `Bearer ${token}` }
-        }).then((res) => {
-            dispatch(setBusinessStateCity(res.data?.data));
-            dispatch(setLoading(false));
-        }).catch((err) => { 
-            console.log(err);
-        })
-    }
+        if (businessState?.businessStateAndCity === null) {
+            const baseURL = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${process.env.REACT_APP_City_ID}`;
+
+            dispatch(setLoading(true))
+            await axios.get(`${baseURL}/${urlStates}`, {
+                headers: { "Authorization": `Bearer ${token}` }
+            }).then((res) => {
+                dispatch(setBusinessStateCity(res.data?.data));
+                dispatch(setLoading(false));
+            }).catch((err) => {
+                console.log(err);
+            })
+        }
     }
 
 
@@ -209,22 +210,22 @@ function ForRentForm() {
 
     const getMainCategory = async () => {
         const baseURL = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${process.env.REACT_APP_City_ID}`;
-        if(businessState?.businessMainCat===null){
+        if (businessState?.businessMainCat === null) {
             dispatch(setLoading(true))
-        await axios.get(`${baseURL}/${urlCategories}`, {
-            headers: { "Authorization": `Bearer ${token}` }
-        }).then((res) => {
-            const mainCategories = res.data?.data;
-            const businessCategories = mainCategories?.business || [];
-            const serviceCategories = mainCategories?.service || [];
-            const mirgeCate = [...businessCategories, ...serviceCategories];
-            dispatch(setBusinessMainCat(mirgeCate))
-            dispatch(setLoading(false));
-        }).catch((err) => {
-            console.log(err);
-            dispatch(setLoading(false));
-        })
-    }
+            await axios.get(`${baseURL}/${urlCategories}`, {
+                headers: { "Authorization": `Bearer ${token}` }
+            }).then((res) => {
+                const mainCategories = res.data?.data;
+                const businessCategories = mainCategories?.business || [];
+                const serviceCategories = mainCategories?.service || [];
+                const mirgeCate = [...businessCategories, ...serviceCategories];
+                dispatch(setBusinessMainCat(mirgeCate))
+                dispatch(setLoading(false));
+            }).catch((err) => {
+                console.log(err);
+                dispatch(setLoading(false));
+            })
+        }
     }
     const getSubCategory = async () => {
         try {
@@ -250,10 +251,10 @@ function ForRentForm() {
             console.log(err)
         }
     }
-    useEffect(()=>{
+    useEffect(() => {
         getMainCategory();
         getStatesAndCityes();
-    },[])
+    }, [])
     useEffect(() => {
         getSubCategory();
     }, [businessType])
@@ -647,11 +648,12 @@ function ForRentForm() {
     };
     return (
         <>
-            {isLoadingBusines && <SpinnerStatic text={true} textForm={i18n.language === "en" ? "Please do not close the page. Business form submission may take a few minutes. Thank you for your patience!" : "فضلك لا تغلق الصفحة. قد يستغرق إرسال المعلومات بضع دقائق. شكرا لك على انتظارك"} />}
-            <Helmet>
+           <Helmet>
                 <title>{titleBussines}</title>
                 <meta name="description" content={titleBussines} />
             </Helmet>
+            <Suspense fallback={<p>Loading....</p>} >
+            {isLoadingBusines && <SpinnerStatic text={true} textForm={i18n.language === "en" ? "Please do not close the page. Business form submission may take a few minutes. Thank you for your patience!" : "فضلك لا تغلق الصفحة. قد يستغرق إرسال المعلومات بضع دقائق. شكرا لك على انتظارك"} />}
             <h1 className={style.titleBussines} >{t("Your Business Form")}</h1>
             <form className={style.formDiv} >
                 <div className={style.formFlex}>
@@ -996,6 +998,7 @@ function ForRentForm() {
                     setCount={setCount}
                 />
             )}
+            </Suspense>
         </>
     );
 }

@@ -1,17 +1,19 @@
+import { useEffect, lazy, Suspense } from "react";
 import style from "../assets/style/about/about.module.css";
-import AboutImage from "../components/aboutUs/AboutImage";
-import AboutParagraph from "../components/aboutUs/AboutParagraph";
-import DiscoverService from "../components/common/DiscoverService";
-import EasySearch from "../components/aboutUs/EasySearch";
-import UserAnalytics from "../components/aboutUs/UserAnalytics";
-import HeroBanner from "../components/common/banner/HeroBanner";
+
 import { Helmet } from "react-helmet";
 import { useDispatch, useSelector } from 'react-redux';
 import { aboutState, setAboutData } from '../redux/About/about'
-import { useEffect } from "react";
 import { setLoading } from '../redux/slices/login';
 import { useTranslation } from "react-i18next";
 import axios from 'axios'
+const AboutImage = lazy(() => import('../components/aboutUs/AboutImage'));
+const AboutParagraph = lazy(() => import('../components/aboutUs/AboutParagraph'));
+const DiscoverService = lazy(() => import('../components/common/DiscoverService'));
+const EasySearch = lazy(() => import('../components/aboutUs/EasySearch'));
+const UserAnalytics = lazy(()=>import('../components/aboutUs/UserAnalytics'));
+const HeroBanner = lazy(()=>import('../components/common/banner/HeroBanner'));
+
 function AboutPage() {
   const dispatch = useDispatch();
   const aboutDataRed = useSelector(aboutState);
@@ -38,7 +40,7 @@ function AboutPage() {
     getAboutData()
 
   }, []);
-  
+
   return (
     <>
       <Helmet>
@@ -46,10 +48,10 @@ function AboutPage() {
         {aboutDataRed?.aboutData?.about.map((item) => {
           return <meta name="description" content={item?.description} />
         })
-      }
+        }
       </Helmet>
+      <Suspense fallback={<p>Loading....</p>}>
       <HeroBanner data={aboutDataRed?.aboutData?.slider} />
-
       <div className={`${style.aboutUsMain}`}>
         <div className={`container`}>
           <div className={style.aboutTitle}></div>
@@ -64,6 +66,7 @@ function AboutPage() {
       <UserAnalytics />
       <DiscoverService />
       <EasySearch />
+      </Suspense>
     </>
   );
 }

@@ -3,7 +3,6 @@ import CategoryCard from "./CategoryCard";
 import style from "../../assets/style/SubCategory.module.css";
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import useAxios from "../../hooks/useAxiosGet";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { serversState, setCateDataAll, setCategServers, setCategShop } from '../../redux/OurServices/services';

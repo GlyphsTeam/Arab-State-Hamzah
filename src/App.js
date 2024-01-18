@@ -7,7 +7,6 @@ import Footer from "./components/layout/footer/Footer";
 import { useTranslation } from "react-i18next";
 import OneSignal from 'react-onesignal';
 import useAxios from "./hooks/useAxiosGet";
-import Spinner from './Utils/SpinnerFunction';
 import { useSelector } from 'react-redux';
 import { stateCategory } from './redux/slices/login';
 import GetLang from './Utils/language/GetLang'
@@ -178,7 +177,7 @@ function App() {
         <ScrollToTop />
         <ScrollToTopButton />
         <Navbar url={login_api} regesterUrl={regester_api} logoImage={logoImage} />
-        <Suspense fallback={<Spinner />}>
+        <Suspense fallback={<SpinnerStatic />}>
           <main className="mainSection">
             <Routes>
               <Route element={<PrivateRoutes />}>

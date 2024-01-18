@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import style from "../../../assets/style/layout/navbar.module.scss";
 
 function AccordionComponent({handleCloseModal, data, serviceLinks}) {
-  const [t, i18n] = useTranslation();
+  const [t] = useTranslation();
 
   return (
     <>

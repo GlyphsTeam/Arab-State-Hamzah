@@ -1,7 +1,6 @@
-import React from "react";
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 import axiso from 'axios';
-import { useEffect, useState } from "react";
+import { useEffect, useState, memo } from "react";
 const containerStyle = {
   width: "100%",
   height: "350px",
@@ -35,19 +34,19 @@ function LastMap({ data }) {
     lat: parseFloat(lat),
     lng: parseFloat(log),
   };
-  const [map, setMap] = React.useState(null);
+  // const [map, setMap] = useState(null);
 
-  const onLoad = React.useCallback(function callback(map) {
-    // This is just an example of getting and using the map instance!!! don't just blindly copy!
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
+  // const onLoad = useCallback(function callback(map) {
+  //   // This is just an example of getting and using the map instance!!! don't just blindly copy!
+  //   const bounds = new window.google.maps.LatLngBounds(center);
+  //   map.fitBounds(bounds);
 
-    setMap(map);
-  }, []);
+  //   setMap(map);
+  // }, []);
 
-  const onUnmount = React.useCallback(function callback(map) {
-    setMap(null);
-  }, []);
+  // const onUnmount = useCallback(function callback(map) {
+  //   setMap(null);
+  // }, []);
 
   const markers = data?.map((item) => ({
     name: item.name,
@@ -92,4 +91,4 @@ function LastMap({ data }) {
   );
 }
 
-export default React.memo(LastMap);
+export default memo(LastMap);

@@ -1,13 +1,16 @@
-import ShowProductDescription from "../components/productShow/ShowProductDescription";
-import SubProductInformation from "../components/productShow/SubProductInformation";
+
 import style from "../assets/style/showProduct/showProduct.module.css";
 import { useLocation } from "react-router-dom";
 import useAxios from "../hooks/useAxiosGet";
-import ShowProductImages from "../components/productShow/ShowProductImages";
-import MainProductInfo from "../components/productShow/MainProductInfo";
-import Interested from "../components/productShow/Interested";
-import Header from "../components/marketPlace/MarketHeader";
 
+import { lazy } from "react";
+
+const ShowProductDescription = lazy(()=>import("../components/productShow/ShowProductDescription"));
+const SubProductInformation = lazy(()=>import("../components/productShow/SubProductInformation"));
+const ShowProductImages = lazy(()=>import("../components/productShow/ShowProductImages"));
+const MainProductInfo = lazy(()=>import("../components/productShow/MainProductInfo"));
+const Interested = lazy(()=>import("../components/productShow/Interested"));
+const Header = lazy(()=>import("../components/marketPlace/MarketHeader"));
 function ProductShowPage() {
   const location = useLocation();
   const id = location.pathname.split('/')[location.pathname.split('/').length-1];

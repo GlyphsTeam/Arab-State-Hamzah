@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { React } from "react";
 import style from "../../assets/style/SubCategory.module.css";
 import { useTranslation } from "react-i18next";
 

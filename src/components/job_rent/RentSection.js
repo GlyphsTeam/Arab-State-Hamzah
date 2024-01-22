@@ -49,7 +49,6 @@ function RentSection({
     //   placesToVisitId.current.scrollIntoView();
     //   }
   };
- console.log("houseData.id>>>>>>>",rentsData?.rents?.model)
 
   const total = rentsData?.rents?.total;
   const [isMobile, setIsMobile] = useState(false);

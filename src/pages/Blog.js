@@ -47,7 +47,8 @@ function BlogPage() {
   }
   useEffect(() => {
     getDataBlogs();
-  }, [])
+  }, []);
+  console.log("stateBlog>>>>",stateBlog)
   return (
     <>
       <Helmet>
@@ -78,7 +79,7 @@ function BlogPage() {
           <div className={`container`}>
             <div className={`row `}>
               <div>
-                <BlogCards data={stateBlog?.blogData?.statistics} />
+                <BlogCards data={stateBlog?.blogData?.statistics} lengthCards={stateBlog?.blogData?.statistics?.model?.length}/>
 
               </div>
             </div>
@@ -92,7 +93,7 @@ function BlogPage() {
           </div>
           <div className={`container`}>
             <div className={`pt-5`}>
-              <PlacesToVisit data={stateBlog?.blogData?.visit} urlId={urlId} />
+              <PlacesToVisit data={stateBlog?.blogData?.visit} lengthCards={stateBlog?.blogData?.visit?.model?.length} urlId={urlId} />
               <Tags data={stateBlog?.blogData?.tags} pathName={pathName} />
             </div>
           </div>

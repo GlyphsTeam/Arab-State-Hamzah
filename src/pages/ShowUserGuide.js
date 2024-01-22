@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import useAxios from "../hooks/useAxiosGet";
 import { useTranslation } from "react-i18next";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-
+import { Helmet } from 'react-helmet'
 const LeftShowUserGuide = lazy(() => import("../components/showUserGuide/LeftShowUserGuide"));
 const Similar = lazy(() => import("../components/blog/Similar"));
 const ShowGuideSteps = lazy(() => import("../components/showUserGuide/ShowGuideSteps"));
@@ -24,8 +24,13 @@ function ShowUserGuide() {
   const [showShareModal, setShowShareModal] = useState(false);
   const pathName = `/${i18n?.language}` + location.pathname;
   const youtube_Url = mainShowGuideData?.main?.link_youtube;
+  console.log("mainShowGuideData>>>", mainShowGuideData)
   return (
     <>
+    <Helmet>
+      <title>{showUserGuide?.title}</title>
+      <meta name="description" content={showUserGuide?.description}/>
+    </Helmet>
       <div className={style.showBlogContainer}>
         <UserGuideHeader data={mainShowGuideData?.slider} />
 

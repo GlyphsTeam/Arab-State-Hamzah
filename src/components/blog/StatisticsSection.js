@@ -6,13 +6,12 @@ import { Link } from "react-router-dom";
 import ResponiveSlider from "../Slider/ResponiveSlider";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import ButtonThree from "../Button/ButtonThree";
-function PlacesToVisitSection({ urlId, data }) {
+function PlacesToVisitSection({ urlId, data,lengthCards }) {
   const [t, i18n] = useTranslation();
   const latest_post = data?.model;
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(3);
-  const lastPostIndex = currentPage * postsPerPage;
-  const firstPostIndex = lastPostIndex - postsPerPage;
+  const lastPostIndex = currentPage * lengthCards;
+  const firstPostIndex = lastPostIndex - lengthCards;
   const currentPosts = latest_post?.slice(firstPostIndex, lastPostIndex);
   const placesToVisitId = useRef(null);
 

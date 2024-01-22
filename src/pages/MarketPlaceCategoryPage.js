@@ -6,12 +6,14 @@ import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { setMarketPlace, marketState } from '../redux/Market/market';
 import { setLoading } from '../redux/slices/login';
+import { Helmet } from 'react-helmet'
 const CategoryNav = lazy(() => import("../components/common/marketPlace/marketNav/CategoryNav"));
 const CategorySection = lazy(() => import("../components/marketPlace/MarketPlaceCategorySection"));
 const AdvBanner = lazy(() => import("../components/common/banner/Banner"));
 const HeroMobileButtons = lazy(() => import("../components/common/marketPlace/HeroMobileButtons/HeroMobileButtons"));
 const Alert = lazy(() => import("../components/common/alert/Alert"));
 const ButtonFour = lazy(() => import("../components/Button/ButtonFour"));
+
 function MarketPlaceCategory() {
   const [t] = useTranslation();
   const marketPlace = useSelector(marketState)
@@ -73,46 +75,49 @@ function MarketPlaceCategory() {
   }
 
 
-
   return (
     <>
-    <Suspense fallback={<p>Loading...</p>}>
-      <div className={filterStyle.bannerMarketPlace}>
-        <AdvBanner bannerUrl="sliders/page?page=App\Models\MarketMainCategoryPage" />
+      <Helmet>
+        <title>marketPlace</title>
+        <meta name='description' content='this page for marketPlace'/>
+      </Helmet>
+      <Suspense fallback={<p>Loading...</p>}>
+        <div className={filterStyle.bannerMarketPlace}>
+          <AdvBanner bannerUrl="sliders/page?page=App\Models\MarketMainCategoryPage" />
 
-        <HeroMobileButtons setOpenMobileCategory={setOpenMobileCategory} />
+          <HeroMobileButtons setOpenMobileCategory={setOpenMobileCategory} />
 
-      </div>
-
-      <CategoryNav openMobileCategory={openMobileCategory} setOpenMobileCategory={setOpenMobileCategory} categoryState={categoryState} setCategoryState={setCategoryState} />
-
-      <div className={`row ${filterStyle.pageContainer}`}>
-
-
-
-
-        <div className={`col-sm-12 col-md-12 col-lg-12 ${filterStyle.pageRow}`}>
-
-
-
-          <div className={filterStyle.addProductBtnDiv} onClick={navigateFunction}>
-            <h1 className='px-4 mt-3'>{t('market category')}</h1>
-            <ButtonFour>
-              {t('Post your product')}
-
-            </ButtonFour>
-          </div>
-          <CategorySection />
         </div>
 
-      </div>
+        <CategoryNav openMobileCategory={openMobileCategory} setOpenMobileCategory={setOpenMobileCategory} categoryState={categoryState} setCategoryState={setCategoryState} />
 
-      {
-        showAlert && (
-          <Alert type="warning" message={t("Please login first.")} showAlert={showAlert} setShowAlert={setShowAlert} time='5000' count={count}
-            setCount={setCount} />
-        )}
-        </Suspense>
+        <div className={`row ${filterStyle.pageContainer}`}>
+
+
+
+
+          <div className={`col-sm-12 col-md-12 col-lg-12 ${filterStyle.pageRow}`}>
+
+
+
+            <div className={filterStyle.addProductBtnDiv} onClick={navigateFunction}>
+              <h1 className='px-4 mt-3'>{t('market category')}</h1>
+              <ButtonFour>
+                {t('Post your product')}
+
+              </ButtonFour>
+            </div>
+            <CategorySection />
+          </div>
+
+        </div>
+
+        {
+          showAlert && (
+            <Alert type="warning" message={t("Please login first.")} showAlert={showAlert} setShowAlert={setShowAlert} time='5000' count={count}
+              setCount={setCount} />
+          )}
+      </Suspense>
     </>
   )
 }

@@ -1,14 +1,21 @@
 .mainDiv {
-  /* background: #c1def3; */
-  /* background-image: url("../../Images/home/blogWavy.png"); */
-  background-size: contain;
+  /*background: #c1def3;
+  *//*background-image: url("../../Images/home/blogWavy.png");
+  */background-size: contain;
   background-repeat: no-repeat;
   width: 100%;
   aspect-ratio: 5/2;
   padding: 35px 0;
-  animation: blurFadeIn 1s ease-in both !important;
-  animation-timeline: view() !important;
-  animation-range: entry !important;
+
+}
+@layer components{
+  .mainDiv{
+    animation-name: blurFadeIn;
+    animation:blurFadeIn 1s ease-in both !important;
+    animation-timeline: view() !important;
+    animation-range: entry !important;
+}
+
 }
 @keyframes blurFadeIn {
   0% {

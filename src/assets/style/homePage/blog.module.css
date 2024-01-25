@@ -8,25 +8,24 @@
   padding: 35px 0;
 
 }
-@layer components{
+
   .mainDiv{
-    animation-name: blurFadeIn;
-    animation:blurFadeIn 1s ease-in both !important;
-    animation-timeline: view() !important;
-    animation-range: entry !important;
+    animation: fade-in linear forwards;
+    -webkit-animation: fade-in linear forwards;
+    animation-timeline: view();
+    animation-range: 250px 500px;
 }
 
-}
-@keyframes blurFadeIn {
-  0% {
-    transform: scale(2.5);
+
+
+@keyframes fade-in {
+  from{
+    scale: .8;
     opacity: 0;
-    filter: blur(5px);
   }
-  100% {
-    transform: scale(1);
+  to{
+    scale: 1;
     opacity: 1;
-    filter: blur(0px);
   }
 }
 

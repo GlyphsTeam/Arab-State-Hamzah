@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-
+import ButtonSeven from "../Button/ButtonSeven.js";
 function Login({ baseURL, logo }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -159,12 +159,13 @@ function Login({ baseURL, logo }) {
                     </div>
                   </div>
                   <div className="row">
-                    <button
-                      className={`mt-4 btn rounded-10 w-10 ${style.loginBtn}`}
-                      onClick={handelLogin}
-                    >
-                      {t("login")}
-                    </button>
+                    <div className="mt-4 w-10">
+
+                    <ButtonSeven handlerClick={handelLogin}>
+                    {t("login")}
+
+                    </ButtonSeven>
+                    </div>
                   </div>
                 </form>
                 <div className="row" hidden>

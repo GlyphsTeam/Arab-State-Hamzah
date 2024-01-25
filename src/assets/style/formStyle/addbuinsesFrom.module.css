@@ -43,7 +43,7 @@ margin-top: 10px;
 .newInput{
   margin-top: 20px;
   height: fit-content;
-  background-color: #BE0040;
+  background-color: var(--secondary-color);
   width: fit-content;
   padding: 12px;
   border-radius: 8px;
@@ -53,7 +53,7 @@ margin-top: 10px;
   margin-top: 20px;
   height: 50px;
   margin-left:10px;
-  background-color: #BE0040;
+  background-color: var(--secondary-color);
   width: fit-content;
   padding: 12px;
   border-radius: 8px;
@@ -63,7 +63,7 @@ margin-top: 10px;
   margin-top: 20px;
   height: 50px;
   margin-right:10px;
-  background-color: #BE0040;
+  background-color: var(--secondary-color);
   width: fit-content;
   padding: 12px;
   border-radius: 8px;
@@ -116,7 +116,7 @@ margin-top: 10px;
     height: fit-content;
     cursor: pointer;
     color: #fff;
-    background-color:#BE0040;
+    background-color:var(--secondary-color);
     padding-top: 10px;
     padding-left: 10px;
     padding-bottom: 10px;
@@ -142,7 +142,7 @@ margin-top: 10px;
   background-color: var(--primary-color) !important;
 }
 .notActive{
-  background-color: #BE0040;
+  background-color: var(--secondary-color);
   margin-bottom: 10px;
 }
 .buttonTwoContainer{
@@ -338,7 +338,7 @@ margin-top: 10px;
 .h3Help{
   font-size:20px;
   font-weight:700;
-  color:rgba(5, 67, 107, 1);
+  color:var(--primary-color);
   margin-top:40px;
 }
 .buttonHelp{
@@ -347,7 +347,7 @@ margin-top: 10px;
   height:50px;
   font-weight:600;
   color:rgba(255, 255, 255, 1);
-  background-color:rgba(190, 0, 64, 1);
+  background-color:var(--secondary-color);
 }
 .inputFlex{
     width:65%;

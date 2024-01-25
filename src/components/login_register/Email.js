@@ -1,12 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import style from "./components/login.module.css";
-import profileImg from "../../assets/Images/loginLogo.png"
 import { useTranslation } from "react-i18next";
 import { Link } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 
-const Email = ({baseURL, setShowEmail,setShowOtp, logo, setShowRegister}) => {
+const Email = ({baseURL, setShowEmail, logo, setShowRegister}) => {
     const [t, i18n] = useTranslation();
     const [userEmail, setUserEmail] = useState('');
     const [isValidEmail, setIsValidEmail] = useState(false);
@@ -49,7 +48,9 @@ const Email = ({baseURL, setShowEmail,setShowOtp, logo, setShowRegister}) => {
               }
             else{
                 console.log('Error:', response.statusText);
-                
+                setErrorMessage("The Email is not Vaild");
+                setShowEmailWarn(true);
+                setUserEmail('');
             }
             }
               

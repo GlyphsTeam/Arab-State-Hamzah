@@ -4,12 +4,11 @@ import Email from '../components/login_register/Email';
 
 function Register({baseURL, logo}) {
     const [showEmail, setShowEmail] = useState(true);
-    const [showOtp, setShowOtp] = useState(false);
     const [showRegister, setShowRegister] = useState(false);
 
   return (
     <>
-    {showEmail && (<Email baseURL = {baseURL} setShowEmail={setShowEmail} setShowOtp = {setShowOtp} logo = {logo} setShowRegister={setShowRegister}/>)}
+    {showEmail && (<Email baseURL = {baseURL} setShowEmail={setShowEmail}  logo = {logo} setShowRegister={setShowRegister}/>)}
     {/* {showOtp && (<OTP baseURL = {baseURL}  setShowEmail={setShowEmail} setShowOtp = {setShowOtp} setShowRegister = {setShowRegister} logo = {logo} />)} */}
     {showRegister && (<RegisterPage baseURL = {baseURL} setShowRegister = {setShowRegister} logo = {logo}/>)}
     </>

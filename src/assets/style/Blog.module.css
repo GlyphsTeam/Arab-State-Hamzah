@@ -4,6 +4,9 @@
   color: var(--primary-color);
   
 }
+.cloumnParagraph p {
+  text-align: justify;
+}
 .readMoreContainer button{
   font-size: 12px;
 }

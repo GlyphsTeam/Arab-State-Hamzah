@@ -28,6 +28,7 @@
 .descriptionSection p{
   color: var(--primary-color);
   max-height: 200px;
+  text-align: justify;
   min-height: 150px;
   overflow: auto;
   font-size: 20px;

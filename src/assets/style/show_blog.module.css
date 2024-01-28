@@ -1,5 +1,5 @@
-.showBlogContainer{
-    /* background: #C2DEF3; */
+.showBlogParagraphDiv{
+    text-align: justify;
 }
 .showBlogImage{
     height: 60%;
@@ -102,6 +102,7 @@
     color: var(--primary-color);
     font-size: 20px !important;
     font-weight: 400;
+    text-align: justify !important;
     
 }
 .showBlogParagraphDiv{

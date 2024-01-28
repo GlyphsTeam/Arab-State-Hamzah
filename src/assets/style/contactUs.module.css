@@ -2,6 +2,9 @@
 .mainReachoutDiv{
   padding: 50px;
 }
+.contactParagraph{
+  text-align: justify;
+}
 
 /* .contactTitle{
   padding: 15px 10% !important;

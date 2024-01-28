@@ -3,6 +3,9 @@
     font-size: 20px;
     color:"#05436B"; 
 }
+.formDiv label{
+  color: var(--primary-color) !important;
+}
 .formFlex{
     display:flex;
     justify-content: space-between;

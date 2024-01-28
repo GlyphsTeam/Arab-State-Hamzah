@@ -1,6 +1,5 @@
 import style from "../../assets/style/marketProfile.module.css";
 import { useTranslation } from "react-i18next";
-import ButtonSex from "../Button/ButtonSex";
 
 function SocialMedia({ data }) {
   const [t] = useTranslation();
@@ -10,10 +9,8 @@ function SocialMedia({ data }) {
       {(data?.facebook_link || data?.twitter_link || data?.instagram_link) && (
         <div className={`${style.socialMediaSection} mt-5 pt-4`}>
           <>
-            {/* <h2>{t("Follow shop")} </h2> */}
-            <ButtonSex>
-            {t("Follow shop")}
-            </ButtonSex>
+            <h2>{t("Follow shop")} </h2>
+        
             <div className={`${style.socialMediaIcon} col-2 mt-3`}>
               {data?.twitter_link && (
                 <a target="blank" href={data?.twitter_link}>

@@ -42,7 +42,6 @@ const LookingForRentPage = () => {
     getLookingData();
   }
     , [])
-    console.log("stateLooking>>>>",stateLooking)
   return (
     <div>
       <Helmet>

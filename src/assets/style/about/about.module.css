@@ -5,6 +5,9 @@
   object-fit: cover;
   filter: brightness(0.7);
 }
+.aboutParagraphText p{
+  text-align: justify;
+}
 .aboutImage {
   position: relative;
   display: flex;

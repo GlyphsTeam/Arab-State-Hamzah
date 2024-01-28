@@ -6,6 +6,12 @@
   color: var(--secondary-color);
   margin-bottom: 20px;
 }
+.container p{
+  text-align: justify;
+  line-height: 1.5 !important;
+}
+
+
 .infoDiv p{
  font-size: 20px !important;
  height: fit-content;

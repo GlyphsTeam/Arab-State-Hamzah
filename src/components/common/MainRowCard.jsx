@@ -2,7 +2,7 @@ import style from "../../assets/style/common/mainRowCard.module.css";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import ReactHtmlParser from 'html-react-parser';
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
 function MainRowCard({ data}) {
   const [t] = useTranslation();
   const handleChangePage = () => {
@@ -20,7 +20,7 @@ function MainRowCard({ data}) {
           >
             <div className={style.columnCardsContainerDiv}>
               <div className={style.colCardImg}>
-                <img src={item.image} />
+                <LazyLoadImage src={item.image} />
               </div>
               <div className={style.cloumnParagraph}>
                 <h3>{item.title} </h3>

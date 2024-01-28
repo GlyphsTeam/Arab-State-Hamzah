@@ -20,6 +20,7 @@ function AboutPage() {
   const [t] = useTranslation();
   const url = `about`;
   const getAboutData = async () => {
+    
     const token = localStorage.getItem("arab_user_token");
     const city_ID = process.env.REACT_APP_City_ID;
     const baseURL = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${city_ID}`;

@@ -48,7 +48,7 @@
   position: relative;
 }
 .cardTitle {
-  font-size: 35px;
+  font-size: 30px;
   font-weight: 700;
   padding: 0 14px;
   color: var(--secondary-color);
@@ -197,4 +197,16 @@
     right: 3px;
   }
 
+}
+
+@media (max-width:1024px){
+  .descriptionParagraphDiv button{
+    font-size: 8px !important;
+  }
+  .descriptionParagraphDiv{
+    flex-direction: column;
+  }
+  .cardTitle{
+    margin-right: 50px;
+  }
 }

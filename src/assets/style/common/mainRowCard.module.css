@@ -45,6 +45,7 @@
 }
 .cloumnParagraph p {
   font-size: 20px;
+  text-align: justify;
 }
 .cloumnParagraph h3 {
   color: var(--primary-color);

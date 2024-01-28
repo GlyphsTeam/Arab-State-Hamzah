@@ -24,6 +24,7 @@
     font-weight: 400;
     height: 230px;
     overflow: hidden;
+    text-align: justify;
     max-width: 818px;
     font-size: 22px;
     color: var(--primary-color);

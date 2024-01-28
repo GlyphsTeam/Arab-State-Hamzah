@@ -48,7 +48,6 @@ function BlogPage() {
   useEffect(() => {
     getDataBlogs();
   }, []);
-  console.log("stateBlog>>>>",stateBlog)
   return (
     <>
       <Helmet>

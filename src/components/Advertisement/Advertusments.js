@@ -10,7 +10,7 @@ function Advertusments() {
     const [adverShow, setAdverShow] = useState(true);
     useEffect(() => {
         if (location.pathname === "/add-business" ||
-            location.pathname === "/Profile" ||
+            location.pathname === "/profile" ||
             location.pathname === "/User-Guide" ||
             location.pathname === "/saved-blogs" ||
             location.pathname === "/saved-store" ||

@@ -29,7 +29,6 @@ function Interested({ data }) {
     }
     window.addEventListener('resize', handleResize);
   }, [])
-  console.log("widthScreen>>>",widthScreen)
   let urlId;
 
   return (

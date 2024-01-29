@@ -10,6 +10,7 @@
 .addProductBtnDiv button{
   font-size: 12px ;
 }
+
 .circleRow {
   display: grid !important;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
@@ -227,5 +228,10 @@
     padding-left: 15px;
     padding-right: 15px;
     text-align: center ;
+}
+.addProductBtnDiv button{
+  font-size: 10px;
+  height: fit-content;
+  width: fit-content;
 }
 }

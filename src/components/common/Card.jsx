@@ -5,7 +5,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import ButtonFour from "../Button/ButtonFour";
 
 function Card({ data }) {
-  const [t] = useTranslation();
+  const [t, i18n] = useTranslation();
 
   return (
     <>
@@ -20,7 +20,7 @@ function Card({ data }) {
             <p className={style.cardParagraph}>{data?.short}</p>
           </div>
           <div className={style.descriptionParagraphDiv}>
-            <h2 className={style.cardTitle}>{data?.title}</h2>
+            <h2 className={i18n.language==="en"?"":style.cardTitleAr}>{data?.title}</h2>
             <ButtonFour>
             {t("find more")}
             </ButtonFour>

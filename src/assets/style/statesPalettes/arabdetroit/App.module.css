@@ -8,12 +8,13 @@
     --box-color : #DCE0E6;
     --sub-box-color :  rgba(247, 254, 255, 0.1);
     --highlight-color: #565252;
-    --primary-button-font-color: #2C1D2F;
+    --primary-button-font-color: #DCE0E6;
     --black : #2C1D2F;
     --white: white;
     --danger-color: red;
     --success-color : green;
     --white-blue: #b08db7;
     --light-beige : rgba(253, 202, 104, 0.2);
-    
+    --nav-color: white;
+
     }

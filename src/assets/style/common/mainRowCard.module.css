@@ -287,5 +287,12 @@
     overflow: hidden;
     }
   }
-
+  @media (max-width: 820px) {
+    .textDiv p{
+      -webkit-box-orient: vertical !important;
+      -webkit-line-clamp: 4 !important;
+      display: -webkit-box !important;
+      overflow: hidden !important;
+    }
+  }
 

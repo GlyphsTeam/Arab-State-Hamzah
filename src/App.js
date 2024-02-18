@@ -10,6 +10,7 @@ import useAxios from "./hooks/useAxiosGet";
 import { useSelector } from 'react-redux';
 import { stateCategory } from './redux/slices/login';
 import GetLang from './Utils/language/GetLang'
+
 const Home = lazy(() => import('./pages/Home'));
 const UserProfilePage = lazy(() => import('./pages/UserProfilePage'));
 const SavedStorePage = lazy(() => import('./pages/SavedStorePage'));

@@ -3,11 +3,13 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import ReactHtmlParser from 'html-react-parser';
 import { LazyLoadImage } from "react-lazy-load-image-component";
+
 function MainRowCard({ data}) {
   const [t] = useTranslation();
   const handleChangePage = () => {
     window.scrollTo(0, 0);
   };
+  console.log("data>>>",data)
   return (
     <>
       {/* <h2 className={style.popularHeader}>{t("Our Services")}</h2>
@@ -26,7 +28,7 @@ function MainRowCard({ data}) {
                 <h3>{item.title} </h3>
                 <div className={style.textDiv}>
                 <p>
-                  {item?.web_description && ReactHtmlParser(`${item?.web_description}`)}
+                  {item?.web_short && ReactHtmlParser(`${item?.web_short}`)}
                   </p>
                   </div>
                   <div className={style.columnCardReadMore}>

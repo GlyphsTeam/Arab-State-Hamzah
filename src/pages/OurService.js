@@ -7,11 +7,11 @@ import { useTranslation } from "react-i18next";
 import { serversState, setServicesData } from '../redux/OurServices/services';
 import axios from 'axios';
 
-const ServiceCard = lazy(()=>import("../components/ourService/ServiceCard"));
-const OurWebsite = lazy(()=>import("../components/ourService/OurWebsite"));
-const ServiceLetter = lazy(()=>import("../components/ourService/ServiceLetter"));
-const ServiceImage = lazy(()=>import("../components/ourService/ServiceImage"));
-const HeroBanner = lazy(()=>import("../components/common/banner/HeroBanner"))
+const ServiceCard = lazy(() => import("../components/ourService/ServiceCard"));
+const OurWebsite = lazy(() => import("../components/ourService/OurWebsite"));
+const ServiceLetter = lazy(() => import("../components/ourService/ServiceLetter"));
+const ServiceImage = lazy(() => import("../components/ourService/ServiceImage"));
+const HeroBanner = lazy(() => import("../components/common/banner/HeroBanner"))
 
 function BlogPage() {
   const servicesData = useSelector(serversState);
@@ -42,8 +42,8 @@ function BlogPage() {
     <>
       <Helmet>
         <title>{servicesData?.services?.servicesData?.main?.title}</title>
-        {servicesData?.services?.servicesData?.services.map((item)=>{
-          return <meta name="description" content={item?.description}/>
+        {servicesData?.services?.servicesData?.services.map((item) => {
+          return <meta name="description" content={item?.description} />
         })}
       </Helmet>
       <div className={style.blogPageStyle}>

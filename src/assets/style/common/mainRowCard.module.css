@@ -11,6 +11,11 @@
 .textDiv p{
   color: var(--secondary2-color) !important;
   font-weight: 400;
+  text-align: justify !important;
+}
+.textDiv span{
+  text-align: justify !important;
+
 }
 .columnCardsContainerDiv {
   display: flex;

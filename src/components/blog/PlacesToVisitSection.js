@@ -44,6 +44,7 @@ function PlacesToVisitSection({ urlId, data,lengthCards }) {
                       to={`/show-blog/${item.slug}/${item?.id}`} state={(urlId = { id: item?.id })}
                       onClick={handleChangePage}
                     >
+                      
                       <div className={style.cardImageDiv}>
                         <LazyLoadImage src={item.image} alt="blogImage" />
                       </div>

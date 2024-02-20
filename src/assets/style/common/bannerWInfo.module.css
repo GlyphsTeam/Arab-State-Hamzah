@@ -51,11 +51,12 @@
 }
 .btnLinkAr{
  
-    display: block;
-    margin: 0px 15%;
-    position: relative;
+    display: flex;
+    justify-content: right;
+    /* margin: 0px 15%; */
+    /* position: relative;
     top: 40px;
-    left:173px !important;
+    left:173px !important; */
 }
  .btnLinkAr   p{
         margin: 0;
@@ -67,12 +68,9 @@
 .btnLink{
     height: 60px;
     padding-top: 10px;
-    width: 190px;
-    display: block;
-    margin: 0px 15%;
-    position: relative;
-    top: 40px;
-    left:730px !important;
+    width: 100%;
+    display: flex;
+    justify-content: right;
 }
  .btnLink  p{
         margin: 0;

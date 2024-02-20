@@ -5,7 +5,10 @@
 .contactParagraph{
   text-align: justify;
 }
+.contactParagraph p{
+  color: var(--primary-color) !important;
 
+}
 /* .contactTitle{
   padding: 15px 10% !important;
   padding: 0px 0px 0px 0px!important;

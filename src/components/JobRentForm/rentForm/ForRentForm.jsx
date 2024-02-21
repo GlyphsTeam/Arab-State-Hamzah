@@ -152,7 +152,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
         formData.append("types", typeRef.current?.value);
         formData.append("area", areaRef.current?.value);
         formData.append("place", placeRef.current?.value);
-        formData.append("looking", 0);
+        formData.append("looking", 1);
         anonymous && formData.append("anonymous", anonymous);
         is_bathroom_shared &&
           formData.append("is_bathroom_shared", is_bathroom_shared);

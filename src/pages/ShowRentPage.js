@@ -26,7 +26,8 @@ const ShowRentPage = () => {
     setRentData(Data?.data);
   });
   const [show, setShow] = useState(false);
-
+ 
+  console.log("rentData>>>",rentData)
   return (
     <>
       <Helmet>

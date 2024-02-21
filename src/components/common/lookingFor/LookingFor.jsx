@@ -28,7 +28,6 @@ function LookingFor({ pageType }) {
   const showPostModal = (url) => {
     navigate(url)
   }
-  console.log("lookingData?.sections>>>",lookingData?.sections)
   return (
     <>
       <div className={`container ${style.container}`}>
@@ -60,7 +59,7 @@ function LookingFor({ pageType }) {
                   </>
                 ) : item.type === "rent" ? (
                   <>
-                    <button className={style.postLink} onClick={() => localStorage.getItem('arab_user_token') ? showPostModal("/rentForm") : showAlert()}>
+                    <button className={style.postLink} onClick={() => localStorage.getItem('arab_user_token') ? showPostModal("/post-rent") : showAlert()}>
                       {t("+ Add Post")}
                     </button>
                     <Link state={({ type: item?.looking })} className={style.postLink} to={item.url}>
@@ -70,7 +69,7 @@ function LookingFor({ pageType }) {
                   </>
                 ) : (
                   <>
-                    <button className={style.postLink} onClick={() => localStorage.getItem('arab_user_token') ? showPostModal('/post-rent') : showAlert()}>
+                    <button className={style.postLink} onClick={() => localStorage.getItem('arab_user_token') ? showPostModal('/rentForm') : showAlert()}>
                       {t("+ Add Post")}
                     </button>
                     <Link state={({ type: item?.looking })} className={style.postLink} to={item.url}>

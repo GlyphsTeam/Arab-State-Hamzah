@@ -22,7 +22,7 @@ function Job({ baseURL }) {
     price_to: "",
     place: "",
   });
-
+  console.log("pageType>>",pageType)
   const [page, setPage] = useState(1);
   const limit = 4;
 

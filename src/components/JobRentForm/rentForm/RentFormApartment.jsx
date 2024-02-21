@@ -26,6 +26,8 @@ function ShowRentForm({ baseUrl }) {
   const typeRef = useRef(null);
 
 
+  
+
 
   const [messageAlert, setMessageAlert] = useState("");
   const [isLoadingRent, setLoadingRent] = useState(false);
@@ -154,7 +156,7 @@ function ShowRentForm({ baseUrl }) {
         formData.append("types", typeRef.current?.value);
         formData.append("area", areaRef.current?.value);
         formData.append("place", placeRef.current?.value);
-        formData.append("looking", 1);
+        formData.append("looking",0);
         anonymous && formData.append("anonymous", anonymous);
         is_bathroom_shared &&
           formData.append("is_bathroom_shared", is_bathroom_shared);

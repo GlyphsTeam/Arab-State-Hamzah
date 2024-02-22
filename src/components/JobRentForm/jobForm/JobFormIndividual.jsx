@@ -322,7 +322,6 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
           <div className={style.inputDiv}>
             <label>{t("Phone Number")}</label>
             <input
-              type="tel"
               id="phone"
               name="phone"
               ref={phoneRef}

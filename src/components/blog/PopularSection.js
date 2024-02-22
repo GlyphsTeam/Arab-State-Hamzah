@@ -38,6 +38,7 @@ function PopularSection({ data, urlId }) {
       statisticsId.current.scrollIntoView();
     }
   };
+  
   return (
     <>
       <h2 className={style.popularHeader}>{t("Feed and News")}</h2>

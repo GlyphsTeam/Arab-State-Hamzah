@@ -1,6 +1,8 @@
 import { memo } from "react";
+import { useTranslation } from "react-i18next";
 
 const InputSelect = memo(({ name, inputValue, handlerChange, optionsValue, classNameInput, selectName }) => {
+  const { t } = useTranslation();
   return (
     <select
       name={name}
@@ -10,7 +12,7 @@ const InputSelect = memo(({ name, inputValue, handlerChange, optionsValue, class
       onChange={(e) => handlerChange(e)}
       className={classNameInput}
     >
-      <option>{selectName || "Select"}</option>
+      <option>{selectName || t("Select")}</option>
       {optionsValue?.length !== 0 && optionsValue?.map((item) => {
         return (
           <option key={item?.id} value={item?.id}>

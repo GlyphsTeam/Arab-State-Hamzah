@@ -98,9 +98,9 @@ function NavBar({ logoImage }) {
       setMessageAlert("Please Login First")
       setTypeAlert("warning");
       setShowAlert(true);
-      setTimeout(()=>{
+      setTimeout(() => {
         setShowAlert(false)
-      },3000)
+      }, 3000)
     }
   }
 
@@ -217,7 +217,7 @@ function NavBar({ logoImage }) {
 
   return (
     <>
-    <Advert/>
+      <Advert />
       {!hideNavbar && (
         <header
           className={`${nav === "one" ? style.headerContainer : style.headerContainer2
@@ -370,7 +370,7 @@ function NavBar({ logoImage }) {
             </div>
 
             <div>
-              {initialState && initialState.username === "Guest" ? (
+              {initialState && initialState.username === "Guest" || initialState.username === "زائر" ? (
                 <Link to="/login">
                   <Button
                     handleCloseModal={handleCloseModal}

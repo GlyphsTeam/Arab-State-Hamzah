@@ -2,12 +2,11 @@ import { useState } from "react";
 import style from "../../assets/style/postProduct/postProduct.module.css";
 import { useTranslation } from "react-i18next";
 
-function MarketPlacePostOption() {
+function MarketPlacePostOption({handleChange, setInputFields ,inputFields}) {
   // const [inputValue, setInputValue] = useState("");
   // const [isInputVisible, setInputVisible] = useState(false);
   // const [points, setPoints] = useState("");
   const [t, i18n] = useTranslation();
-  const [inputFields, setInputFields] = useState([{ id: 0, text: '' }]);
   const [nextId, setNextId] = useState(1);
 
 
@@ -17,7 +16,7 @@ function MarketPlacePostOption() {
   });
   inputFields &&
     inputFields.forEach((point, index) => {
-      formData.append(`points[${index}]`, point.text);
+      formData.append(`points[${index}]`, point.point);
     });
 
 
@@ -50,12 +49,12 @@ function MarketPlacePostOption() {
   };
   const handleInputChange = (id, event) => {
     const updatedFields = inputFields.map((field) =>
-      field.id === id ? { ...field, text: event.target.value } : field
+      field.id === id ? { ...field, point: event.target.value } : field
     );
     setInputFields(updatedFields);
   };
   const handleAddFields = () => {
-    setInputFields([...inputFields, { id: nextId, text: '' }]);
+    setInputFields([...inputFields, { id: nextId, point: '' }]);
     setNextId(nextId + 1);
   };
   const handleDeleteField = (id) => {
@@ -73,7 +72,7 @@ function MarketPlacePostOption() {
       {/* {isInputVisible && (
         <div className={style.inputDivOption}>
           <input
-            type="text"
+            type="point"
             value={points}
             onChange={(e) => setPoints(e.target.value)}
             id="option"
@@ -110,9 +109,9 @@ function MarketPlacePostOption() {
           <div key={inputField.id} className={style.inputContanierFileds}>
             <input
               className={style.servericeInput}
-              placeholder={`Option ${index + 1}`}
-              type="text"
-              value={inputField.text}
+              placeholder={`${t("Option")} ${index + 1}`}
+              type="point"
+              value={inputField.point}
               onChange={(event) => handleInputChange(inputField.id, event)}
             />
             <p onClick={() => handleDeleteField(inputField.id)} className={i18n.language === 'en' ? style.deleteInput : style.deleteInputAr}>{t("Delete")}</p>

@@ -104,6 +104,7 @@ function ForRentForm() {
         day: "Sunday"
     },
     ]);
+    
     const updateWorkTimeFrom = (updatedDay, newTimeFrom) => {
         setwork_times(prevWorkTimes => {
             return prevWorkTimes.map(day => {

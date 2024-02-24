@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useTranslation } from "react-i18next";
 import { useDispatch } from 'react-redux';
 import { setLoading } from '../redux/slices/login';
-function useAxios(url, loading) {
+function useAxios(url, loading , ) {
   const [t] = useTranslation();
   const [Data, setData] = useState([]);
   const token = localStorage.getItem('arab_user_token');
@@ -40,7 +40,6 @@ function useAxios(url, loading) {
         .then((response) =>{
           setData(response.data);
           dispatch(setLoading(false));
-
         })
     }
     catch (error) {

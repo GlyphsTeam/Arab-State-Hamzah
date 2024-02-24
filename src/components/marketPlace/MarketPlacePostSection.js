@@ -18,13 +18,17 @@ function MarketPlacePostSection() {
   const navigation = useNavigate();
   const [isLoadingMarket, setLoadingMarket] = useState(false);
   const [LoadingSub, setLoadingSub] = useState(false);
+  const [loadingCategory, setLoadingCategory] = useState(false);
+  const [inputFields, setInputFields] = useState([{ id: 0, point: '' }]);
+
   const titleRef = useRef(null);
   const priceRef = useRef(null);
   const condationRef = useRef(null);
   const placeRef = useRef(null);
   const emailRef = useRef(null);
   const descriptionRef = useRef(null);
-  const phone_numberRef = useRef(null)
+  const phone_numberRef = useRef(null);
+
   const [marketFormData, setMarketFormData] = useState({
     main_category: "",
     sub_category: "",
@@ -72,7 +76,7 @@ function MarketPlacePostSection() {
   const [Data] = useAxios(colorUrl, "false");
   const [colorData] = useAxios(yearUrl, "false");
   const [cityData] = useAxios(cityUrl, "false");
-  const [categoryData] = useAxios(`main-market/categories`, "false");
+  const [categoryData] = useAxios(`main-market/categories`, "false", setLoadingCategory);
   const [subCategoryData] = useAxios(
     `category-market?main_id=${selectedMainCategoryID}`, "false"
   );
@@ -86,13 +90,13 @@ function MarketPlacePostSection() {
   const category = categoryData?.data?.main;
   const subCategory = subCategoryData?.data;
   const model = modelData?.data;
-
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const handleChange = (e) => {
     const { name, value } = e.target;
     setMarketFormData({ ...marketFormData, [name]: value });
   };
 
+  console.log("marketFormData.points>>>>>>>>>",inputFields)
 
   const handleSubmit = async () => {
     setShowTitleWarn(false);
@@ -191,10 +195,9 @@ function MarketPlacePostSection() {
           marketFormData?.images?.forEach((image) => {
             formData.append("images[]", image);
           });
-
-        marketFormData.points &&
-          marketFormData?.points?.forEach((point) => {
-            formData.append("points[]", point);
+          inputFields &&
+          inputFields?.forEach((field) => {
+            formData.append("points[]", field.point);
           });
 
         await fetch(`${baseURL}`, {
@@ -381,7 +384,7 @@ function MarketPlacePostSection() {
           handlerChange={handleCategoryChange}
           optionsValue={category}
           classNameInput={'w-100'}
-          selectName="main_category"
+          selectName={t("main_category")}
         />
         {showMainCategoryWarn && (
           <p className={jobStyle.required}>{t("main category is required")}</p>
@@ -394,13 +397,14 @@ function MarketPlacePostSection() {
             handlerChange={handleSubCategoryChange}
             optionsValue={subCategory}
             classNameInput={'w-100'}
-            selectName="category"
+            selectName={t("category")}
 
           />
         )}
         {marketFormData.main_category && showCategoryWarn && (
           <p className={jobStyle.required}>{t("sub category is required")}</p>
         )}
+        {loadingCategory && <LoadingSpiner />}
 
         {marketFormData?.category && marketFormData?.main_category && (
           <InputSelect
@@ -409,7 +413,7 @@ function MarketPlacePostSection() {
             handlerChange={handleChange}
             optionsValue={model}
             classNameInput={'w-100'}
-            selectName="sub_category"
+            selectName={t("sub_category")}
           />
         )}
         {marketFormData.category &&
@@ -417,7 +421,6 @@ function MarketPlacePostSection() {
           showSubCategoryWarn && (
             <p className={jobStyle.required}> {t("Type is required")}</p>
           )}
-
         <input
           className={`w-100`}
           name="title"
@@ -444,12 +447,13 @@ function MarketPlacePostSection() {
           handlerChange={handleChange}
           optionsValue={year}
           classNameInput={'w-100'}
-          selectName="year"
+          selectName={t("year")}
         />
         {showYearWarn && (
           <p className={jobStyle.required}>Year is required</p>
         )}
-        <InputSelect
+
+        {/* <InputSelect
           name="color"
           inputValue={marketFormData.color}
           handlerChange={handleChange}
@@ -457,7 +461,25 @@ function MarketPlacePostSection() {
           classNameInput={'w-100'}
           selectName="Color"
 
-        />
+        /> */}
+        <select
+          name="color"
+          required
+          id="color"
+          value={marketFormData.color}
+          onChange={handleChange}
+          className={'w-100'}
+        >
+          <option>{t("Color")}</option>
+          {color?.length !== 0 && color?.map((item) => {
+            return (
+              <option key={item?.id} value={item?.id}>
+                {i18n.language === "en" ? item?.name_en : item?.name_ar}
+              </option>
+            )
+          })}
+
+        </select>
         {showColorWarn && (
           <p className={jobStyle.required}>Color is required</p>
         )}
@@ -472,8 +494,8 @@ function MarketPlacePostSection() {
           className={`w-100 ${jobStyle.dropDownMain}`}
         >
           <option value="">{t("Condition")}</option>
-          <option value="new">New</option>
-          <option value="used">Used</option>
+          <option value="new">{t("New")}</option>
+          <option value="used">{t("Used")}</option>
         </select>
         {showConditionWarn && (
           <p className={jobStyle.required}>Condition is required</p>
@@ -529,6 +551,8 @@ function MarketPlacePostSection() {
           value={marketFormData.points}
           marketFormData={marketFormData}
           setMarketFormData={marketFormData}
+          inputFields={inputFields}
+          setInputFields={setInputFields}
         />
 
         <textarea

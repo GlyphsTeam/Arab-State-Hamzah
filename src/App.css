@@ -13,7 +13,7 @@ body{
     font-family: system-ui;
 }
 .mainSection{
-  min-height: 61vh;
+  min-height: 60vh;
 }
 
 
@@ -35,10 +35,6 @@ body{
   background: var(--tertiary-color);
   border-radius: 25px;
   color: var(--dark-blue) !important;
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  -ms-border-radius: 25px;
-  -o-border-radius: 25px;
 }
 .accordion-public-class .accordion-button p{
   height: fit-content;

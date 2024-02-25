@@ -6,6 +6,8 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Helmet } from 'react-helmet'
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 import {
     stateBussinse,
@@ -60,51 +62,67 @@ function ForRentForm() {
     const [branchIds, setBranchIds] = useState([]);
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [LoadingSub, setLoadingSub] = useState(false);
-    const [hiddenBussines, setHiddenBussines] = useState(false)
+    const [hiddenBussines, setHiddenBussines] = useState(false);
+
     const [work_times, setwork_times] = useState([{
         day_type: "Mon",
         time_from: "09:00 AM",
         time_to: "09:00 PM",
-        day: "Monday"
+        day: "Monday",
+        vacation: false,
     },
     {
         day_type: "Tue",
         time_from: "09:00 AM",
         time_to: "09:00 PM",
-        day: "Tuseday"
+        day: "Tuseday",
+        vacation: false,
+
     },
     {
         day_type: "Wed",
         time_from: "09:00 AM",
         time_to: "09:00 PM",
-        day: "Wednesday"
+        day: "Wednesday",
+        vacation: false,
+
     },
     {
         day_type: "Thu",
         time_from: "09:00 AM",
         time_to: "09:00 PM",
-        day: "Thursday"
+        day: "Thursday",
+        vacation: false,
     },
     {
         day_type: "Fri",
         time_from: "09:00 AM",
         time_to: "09:00 PM",
-        day: "Friday"
+        day: "Friday",
+        vacation: false,
+
     },
     {
         day_type: "Sat",
         time_from: "09:00 AM",
         time_to: "09:00 PM",
-        day: "Saturday"
+        day: "Saturday",
+        vacation: false,
+
     },
     {
         day_type: "Sun",
         time_from: "09:00 AM",
         time_to: "09:00 PM",
-        day: "Sunday"
+        day: "Sunday",
+        vacation: false,
     },
     ]);
-    
+
+    console.log("work_times>>>>>", work_times)
+    const handlerChangeCheked = (e, day) => {
+        updateVacationStatus(e, day)
+    }
     const updateWorkTimeFrom = (updatedDay, newTimeFrom) => {
         setwork_times(prevWorkTimes => {
             return prevWorkTimes.map(day => {
@@ -118,7 +136,19 @@ function ForRentForm() {
             });
         });
     };
-
+    const updateVacationStatus = (e, dayType) => {
+        setwork_times(prevWorkTimes => {
+            return prevWorkTimes.map(day => {
+                if (day.day_type === dayType) {
+                    return {
+                        ...day,
+                        vacation: e.target.checked,
+                    };
+                }
+                return day;
+            });
+        });
+    };
     const updateWorkTimeTo = (updatedDay, newTimeTo) => {
         setwork_times(prevWorkTimes => {
             return prevWorkTimes.map(day => {
@@ -547,11 +577,14 @@ function ForRentForm() {
             inputFields?.forEach((offer, index) => {
                 formData.append(`offers[${index}]`, offer.text)
             })
-            work_times.forEach((work, index) => {
+            const filteredWorkTimes = work_times.filter(time => !time.vacation);
+
+            filteredWorkTimes.forEach((work, index) => {
                 formData.append(`work_times[${index}][day_type]`, work.day_type);
                 formData.append(`work_times[${index}][time_from]`, work.time_from);
                 formData.append(`work_times[${index}][time_to]`, work.time_to);
             });
+        
             setLoadingBussines(true);
             try {
                 await fetch(`${baseURL}`, {
@@ -970,13 +1003,16 @@ function ForRentForm() {
                             <div className={style.inputFlexWeek} key={time.day}>
                                 <div className={style.inputFlexDays}>
                                     <div className={style.inputDiv}>
-                                        <BusinessTime day={time.day_type} handlerChange={handlerDayChangeFrom} />
+                                        <BusinessTime day={time.day_type} handlerChange={handlerDayChangeFrom} dayStatus={time.vacation} />
                                     </div>
                                     <div className={style.inputDiv}>
                                         <h2 className={style.jpgStyle}>{t("Until")}</h2>
                                     </div>
                                     <div className={style.inputDiv}>
-                                        <BusinessTime day={time.day_type} handlerChange={handlerDayChangeTo} />
+                                        <BusinessTime day={time.day_type} handlerChange={handlerDayChangeTo} dayStatus={time.vacation} />
+                                    </div>
+                                    <div className={style.inputDiv}>
+                                        <FormControlLabel control={<Checkbox />} label="Off" onChange={(e) => handlerChangeCheked(e, time.day_type)} id={time.day} />
                                     </div>
                                 </div>
                             </div>

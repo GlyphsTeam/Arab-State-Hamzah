@@ -6,8 +6,15 @@
   padding: 22px;
   height: fit-content;
 }
+.footerNumber{
+  direction: ltr !important;
+  unicode-bidi: embed !important;
+}
 .subscribeParagraph{
   margin-bottom: -60px;
+}
+.phoneFooter{
+  direction: ltr !important;
 }
 .subscribeParagraph p{
   color: var(--white);

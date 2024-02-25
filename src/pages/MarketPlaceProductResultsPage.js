@@ -95,7 +95,6 @@ function CategoryPage() {
     `product-model?sub_id=${subCategoryId}`
   );
 
-
   const scrollPagination = () => { };
 
   const filterChange = (event, type) => {

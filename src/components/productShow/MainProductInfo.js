@@ -102,7 +102,16 @@ function MainProductInfo({ showProductData }) {
           <li>{t("Inspect the product before you buy it")}</li>
         </ul>
       </div>
-    
+       <div className={style.generalTipsDiv}>
+        <h3>{t("Deatils")}</h3>
+        <ul>
+          {showProductData?.details?.map((item)=>{
+            return <li>{item?.title}</li>
+          })
+
+          }
+        </ul>
+      </div>
       {showAlert && (
         <Alert
           type="warning"

@@ -3,11 +3,11 @@ import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
-function BusinessTime({ handlerChange , day}) {
+function BusinessTime({ handlerChange , day , dayStatus}) {
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer components={['TimePicker']}>
-                <TimePicker onChange={(e)=>handlerChange(e, day)} />
+                <TimePicker onChange={(e)=>handlerChange(e, day)} disabled={dayStatus}/>
             </DemoContainer>
         </LocalizationProvider>
     )

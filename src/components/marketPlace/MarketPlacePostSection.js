@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import style from "../../assets/style/postProduct/postProduct.module.css";
 import Alert from "../common/alert/Alert";
 import jobStyle from "../../assets/style/postProduct/postProduct.module.css";
@@ -12,14 +12,24 @@ import SpinnerStatic from '../common/Spinner';
 import { useNavigate } from "react-router-dom";
 import LoadingSpiner from "../Button/LoadingSpiner";
 import InputSelect from "../UI/InputSelect";
+import InputSelectValue from "../UI/InputSelectValue";
 import ButtonSeven from "../Button/ButtonSeven";
+import axios from 'axios';
+
 function MarketPlacePostSection() {
   const [t, i18n] = useTranslation();
   const navigation = useNavigate();
   const [isLoadingMarket, setLoadingMarket] = useState(false);
   const [LoadingSub, setLoadingSub] = useState(false);
   const [loadingCategory, setLoadingCategory] = useState(false);
+  const [loadingModale, setLoadingModale] = useState(false);
+  const [showSubCat, setShowSub] = useState(false);
   const [inputFields, setInputFields] = useState([{ id: 0, point: '' }]);
+  const [subCategoryOptions, setSubCategoryOptions] = useState([]);
+  const [modaleOptions, setModaleOptions] = useState([]);
+
+  const token = localStorage.getItem('arab_user_token');
+  let baseURL = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${process.env.REACT_APP_City_ID}`;
 
   const titleRef = useRef(null);
   const priceRef = useRef(null);
@@ -76,27 +86,61 @@ function MarketPlacePostSection() {
   const [Data] = useAxios(colorUrl, "false");
   const [colorData] = useAxios(yearUrl, "false");
   const [cityData] = useAxios(cityUrl, "false");
-  const [categoryData] = useAxios(`main-market/categories`, "false", setLoadingCategory);
-  const [subCategoryData] = useAxios(
-    `category-market?main_id=${selectedMainCategoryID}`, "false"
-  );
-  const [modelData] = useAxios(
-    `product-model?sub_id=${selectedSubCategoryID}`, "false"
+  const [categoryData] = useAxios(`main-market/categories`, "false");
 
-  );
+
+  useEffect(() => {
+    const getSubCategory = async () => {
+      let url = `category-market?main_id=${selectedMainCategoryID}`;
+      setLoadingCategory(true)
+      await axios.get(`${baseURL}/${url}`, {
+        headers: { "Authorization": `Bearer ${token}` }
+      }).then((res) => {
+        setSubCategoryOptions(res.data.data);
+        setLoadingCategory(false)
+      }).catch((err) => console.log(err))
+
+    }
+    getSubCategory();
+  }, [selectedMainCategoryID]);
+
+
+  useEffect(() => {
+    const getDataModale = async () => {
+      let url = `product-model?sub_id=${selectedSubCategoryID}`;
+
+      setLoadingModale(true)
+      await axios.get(`${baseURL}/${url}`, {
+        headers: { "Authorization": `Bearer ${token}` }
+      }).then((res) => {
+        setModaleOptions(res.data.data);
+        if (res.data?.data?.length === 0) {
+          setShowSub(false);
+          setMarketFormData({
+            ...marketFormData,
+            sub_category:""
+          });
+        }
+        else{
+          setShowSub(true);
+        }
+        setLoadingModale(false);
+      }).catch((err) => console.log(err))
+    }
+
+    getDataModale();
+  }, [selectedSubCategoryID]);
+
+console.log("marketFormData>>>>>>,", marketFormData);
   const color = Data?.data;
   const city = cityData?.data;
   const year = colorData?.data;
   const category = categoryData?.data?.main;
-  const subCategory = subCategoryData?.data;
-  const model = modelData?.data;
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const handleChange = (e) => {
     const { name, value } = e.target;
     setMarketFormData({ ...marketFormData, [name]: value });
   };
-
-  console.log("marketFormData.points>>>>>>>>>",inputFields)
 
   const handleSubmit = async () => {
     setShowTitleWarn(false);
@@ -176,6 +220,7 @@ function MarketPlacePostSection() {
         formData.append("email", emailRef.current?.value);
         formData.append("phone_number", phone_numberRef.current?.value);
         formData.append("price", priceRef.current?.value);
+        formData.append("year", marketFormData.year)
 
         formData.append("condition", condationRef.current?.value);
         marketFormData.category &&
@@ -185,7 +230,7 @@ function MarketPlacePostSection() {
           formData.append("model_id", marketFormData?.sub_category);
         marketFormData.main_category &&
           formData.append("main_id", marketFormData?.main_category);
-        marketFormData.place && formData.append("place", marketFormData?.place);
+       formData.append("place", placeRef.current?.value);
         lookingState && formData.append("looking", lookingState);
 
         marketFormData.anonymous &&
@@ -195,9 +240,9 @@ function MarketPlacePostSection() {
           marketFormData?.images?.forEach((image) => {
             formData.append("images[]", image);
           });
-          inputFields &&
+        inputFields &&
           inputFields?.forEach((field) => {
-            formData.append("points[]", field.point);
+            formData.append("details[]", field.point);
           });
 
         await fetch(`${baseURL}`, {
@@ -264,8 +309,6 @@ function MarketPlacePostSection() {
     setMarketFormData({ ...marketFormData, category: e.target.value });
     handleChange(e);
   };
-
-
 
   const handleImageDrop = async (acceptedFiles) => {
     if (marketFormData.images?.length + acceptedFiles?.length > 9) {
@@ -395,7 +438,7 @@ function MarketPlacePostSection() {
             name="category"
             inputValue={marketFormData.category}
             handlerChange={handleSubCategoryChange}
-            optionsValue={subCategory}
+            optionsValue={subCategoryOptions}
             classNameInput={'w-100'}
             selectName={t("category")}
 
@@ -407,20 +450,22 @@ function MarketPlacePostSection() {
         {loadingCategory && <LoadingSpiner />}
 
         {marketFormData?.category && marketFormData?.main_category && (
-          <InputSelect
+          showSubCat?<InputSelect
             name="sub_category"
             inputValue={marketFormData.sub_category}
             handlerChange={handleChange}
-            optionsValue={model}
+            optionsValue={modaleOptions}
             classNameInput={'w-100'}
             selectName={t("sub_category")}
-          />
+          />:""
         )}
         {marketFormData.category &&
           marketFormData.main_category &&
           showSubCategoryWarn && (
             <p className={jobStyle.required}> {t("Type is required")}</p>
           )}
+        {loadingModale && <LoadingSpiner />}
+
         <input
           className={`w-100`}
           name="title"
@@ -441,7 +486,7 @@ function MarketPlacePostSection() {
         {showPriceWarn && (
           <p className={jobStyle.required}>Price is required</p>
         )}
-        <InputSelect
+        <InputSelectValue
           name="year"
           inputValue={marketFormData.year}
           handlerChange={handleChange}

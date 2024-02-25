@@ -25,7 +25,8 @@ function Advertusments() {
             location.pathname === "/delete-account" ||
             location.pathname === "/login" ||
             location.pathname === "/Register" ||
-            location.pathname === "/Forget-password"||
+            location.pathname === "/Profile" ||
+            location.pathname === "/Forget-password" ||
             location.pathname.includes("Show-Product")) {
             setAdverShow(false)
         }

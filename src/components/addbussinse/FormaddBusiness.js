@@ -412,7 +412,7 @@ function ForRentForm() {
         }
 
         if (city === "") {
-            setMessageAlert("please fill The  City")
+        setMessageAlert("please fill The  City")
             setTypeAlert("warning");
             setShowAlert(true);
             setTimeout(() => {
@@ -423,7 +423,7 @@ function ForRentForm() {
 
 
         if (images.length < 3) {
-            setMessageAlert("please Upload your Main Photos  at least three")
+            setMessageAlert(t("please Upload your Main Photos  at least three"))
             setTypeAlert("warning");
             setShowAlert(true);
             setTimeout(() => {
@@ -432,7 +432,7 @@ function ForRentForm() {
             }, 2000)
         }
         if (images2.length < 3) {
-            setMessageAlert("please Upload your gallery  at least three")
+            setMessageAlert(t("please Upload your gallery  at least three"))
             setTypeAlert("warning");
             setShowAlert(true);
             setTimeout(() => {
@@ -441,7 +441,7 @@ function ForRentForm() {
             }, 2000)
         }
         if (inputFields.length < 1) {
-            setMessageAlert("please fill The Services input at least one")
+            setMessageAlert(t("please fill The Services input at least one"))
             setTypeAlert("warning");
             setShowAlert(true);
             setTimeout(() => {
@@ -450,7 +450,7 @@ function ForRentForm() {
             }, 2000)
         }
         if (businessDes.current?.value === "") {
-            setMessageAlert("please fill The Business Description")
+            setMessageAlert(t("please fill The Business Description"))
             setTypeAlert("warning");
             setShowAlert(true);
             setTimeout(() => {
@@ -459,7 +459,7 @@ function ForRentForm() {
             }, 2000)
         }
         if (emailForm.current?.value === "") {
-            setMessageAlert("please fill Your Email")
+            setMessageAlert(t("please fill Your Email"))
             setTypeAlert("warning");
             setShowAlert(true);
             setTimeout(() => {
@@ -468,7 +468,7 @@ function ForRentForm() {
             }, 2000)
         }
         if (phone.current?.value === "") {
-            setMessageAlert("please fill The Phone Number ")
+            setMessageAlert(t("please fill The Phone Number"))
             setTypeAlert("warning");
             setShowAlert(true);
             setTimeout(() => {
@@ -477,7 +477,7 @@ function ForRentForm() {
             }, 2000)
         }
         if (postalCode.current?.value === "") {
-            setMessageAlert("please fill The  Postal Code")
+            setMessageAlert(t("please fill The  Postal Code"))
             setTypeAlert("warning");
             setShowAlert(true);
             setTimeout(() => {
@@ -486,7 +486,7 @@ function ForRentForm() {
             }, 2000)
         }
         if (state === "") {
-            setMessageAlert("please fill The State")
+            setMessageAlert(t("please fill The State"))
             setTypeAlert("warning");
             setShowAlert(true);
             setTimeout(() => {
@@ -495,7 +495,7 @@ function ForRentForm() {
             }, 2000)
         }
         if (street.current?.value === "") {
-            setMessageAlert("please fill The Street Address")
+            setMessageAlert(t("please fill The Street Address"))
             setTypeAlert("warning");
             setShowAlert(true);
             setTimeout(() => {
@@ -504,7 +504,7 @@ function ForRentForm() {
             }, 2000)
         }
         if (uploadedImage === null) {
-            setMessageAlert("please Upload  Your Business Cover")
+            setMessageAlert(t("please Upload  Your Business Cover"))
             setTypeAlert("warning");
             setShowAlert(true);
             setTimeout(() => {
@@ -513,7 +513,7 @@ function ForRentForm() {
             }, 2000)
         }
         if (uploadedImage2 === null) {
-            setMessageAlert("please Upload Business Logo")
+            setMessageAlert(t("please Upload Business Logo"))
             setTypeAlert("warning");
             setShowAlert(true);
             setTimeout(() => {
@@ -522,7 +522,7 @@ function ForRentForm() {
             }, 2000)
         }
         if (companyName.current?.value === "") {
-            setMessageAlert("please fill The Company Name")
+            setMessageAlert(t("please fill The Company Name"))
             setTypeAlert("warning");
             setShowAlert(true);
             setTimeout(() => {
@@ -1012,7 +1012,7 @@ function ForRentForm() {
                                         <BusinessTime day={time.day_type} handlerChange={handlerDayChangeTo} dayStatus={time.vacation} />
                                     </div>
                                     <div className={style.inputDiv}>
-                                        <FormControlLabel control={<Checkbox />} label="Off" onChange={(e) => handlerChangeCheked(e, time.day_type)} id={time.day} />
+                                        <FormControlLabel control={<Checkbox />} label={t("Off")} onChange={(e) => handlerChangeCheked(e, time.day_type)} id={time.day} />
                                     </div>
                                 </div>
                             </div>

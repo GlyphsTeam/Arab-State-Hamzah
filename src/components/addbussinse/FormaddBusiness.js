@@ -861,7 +861,7 @@ function ForRentForm() {
                             <div key={inputField.id} className={style.inputContanierFileds}>
                                 <input
                                     className={style.servericeInput}
-                                    placeholder={`Service ${1 + index}`}
+                                    placeholder={`${t("Service")} ${1 + index}`}
                                     type="text"
                                     value={inputField.text}
                                     onChange={(event) => handleInputChange(inputField.id, event)}

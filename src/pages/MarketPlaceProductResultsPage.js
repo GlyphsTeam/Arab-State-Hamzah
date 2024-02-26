@@ -28,20 +28,7 @@ function CategoryPage() {
       setActiveIndex(activeIndex - 1);
     }
   };
-  const resetFilter = () => {
-    setFilters({
-      sort_by: "",
-      year_from: "",
-      yearto: "",
-      color: "",
-      model_id: "",
-      place: "",
-      condition: "",
-      looking: "",
-      price_from: "",
-      price_to: "",
-    })
-  }
+
 
   const categoryId = localStorage.getItem("mainCategoryId")
     ? localStorage.getItem("mainCategoryId")
@@ -60,7 +47,7 @@ function CategoryPage() {
   const [filters, setFilters] = useState({
     sort_by: "",
     year_from: "",
-    yearto: "",
+    year_to: "",
     color: "",
     model_id: "",
     place: "",
@@ -68,6 +55,7 @@ function CategoryPage() {
     looking: "",
     price_from: "",
     price_to: "",
+    order_by:""
   });
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -78,13 +66,27 @@ function CategoryPage() {
     activeSubFilterTitle: subCategoryTitle,
   });
 
-  let customApi = `filter-market?main_id=${categoryState.mainId}&sub_id=${categoryState.subId}&page=${page}&limit_by=${limit}&model_id=${filters.model_id}&sort_by=${filters.sort_by}&condition=${filters.condition}&looking=${filters.looking}&place=${filters.place}&year_from=${filters.year_from}&year_to=${filters.yearto}&color=${filters.color}`;
-
+  let customApi = `filter-market?main_id=${categoryState.mainId}&sub_id=${categoryState.subId}&page=${page}&limit_by=${limit}&model_id=${filters.model_id}&sort_by=${filters.sort_by}&condition=${filters.condition}&looking=${filters.looking}&place=${filters.place}&year_from=${filters.year_from}&year_to=${filters.year_to}&color=${filters.color}&price_from=${filters.price_from}&price_to=${filters.price_to}&order_by=${filters.order_by}`;
+  const resetFilter = () => {
+    setFilters({
+      sort_by: "",
+      year_from: "",
+      year_to: "",
+      color: "",
+      model_id: "",
+      place: "",
+      condition: "",
+      looking: "",
+      price_from: "",
+      price_to: "",
+      order_by:""
+    })
+  }
   useEffect(() => {
-    customApi = `filter-market?main_id=${categoryState.mainId}&sub_id=${categoryState.subId}&page=${page}&limit_by=${limit}&model_id=${filters.model_id}&sort_by=${filters.sort_by}&condition=${filters.condition}&looking=${filters.looking}&place=${filters.place}&year_from=${filters.year_from}&year_to=${filters.yearto}&color=${filters.color}`;
+    customApi = `filter-market?main_id=${categoryState.mainId}&sub_id=${categoryState.subId}&page=${page}&limit_by=${limit}&model_id=${filters.model_id}&sort_by=${filters.sort_by}&condition=${filters.condition}&looking=${filters.looking}&place=${filters.place}&year_from=${filters.year_from}&year_to=${filters.year_to}&color=${filters.color}&price_from=${filters.price_from}&price_to=${filters.price_to}`;
   }, [filters]);
-
-  const [Data] = useAxios(customApi);
+  console.log("customApi> ", customApi)
+  const [Data] = useAxios(customApi, "false");
   const categoryData = Data?.data;
   const total = Data?.total;
   const [activeItem, setActiveItem] = useState(null);
@@ -103,6 +105,8 @@ function CategoryPage() {
       setFilters({ ...filters, [name]: value });
     } else {
       setFilters({ ...filters, [event.name]: event.value });
+      console.log("Type>>",type, "event.target>>",event.target)
+
     }
   };
   const handleItemClick = (catId) => {
@@ -166,7 +170,7 @@ function CategoryPage() {
             <div className={filterStyle.filterSelect}>
               <span>{t("Sort By")}: </span>
 
-              <select name="sortBy" onChange={filterChange}>
+              <select name="sort_by" onChange={filterChange}>
                 <option value="">{t("select")}</option>
                 <option value="price">{t("Price")}</option>
                 <option value="year">{t("Year")}</option>
@@ -190,13 +194,10 @@ function CategoryPage() {
               </select>
             </div>
 
-
-
-
             <div className={filterStyle.filterSelect}>
               <span> {t("Year to")}: </span>
 
-              <select name="yearto" onChange={filterChange}>
+              <select name="year_to" onChange={filterChange}>
                 <option value="">{t("All")}</option>
                 {yearData?.data?.map((item, index) => {
                   return (

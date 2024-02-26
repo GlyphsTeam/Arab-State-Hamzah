@@ -144,6 +144,7 @@ function ShowRentForm({ baseUrl }) {
     }
     else {
       try {
+
         const formData = new FormData();
         formData.append("title", titleRef.current?.value);
         formData.append("description", descriptionRef.current?.value);
@@ -153,7 +154,7 @@ function ShowRentForm({ baseUrl }) {
         formData.append("price", priceRef.current?.value);
         formData.append("bathrooms", bathroomsRef.current?.value);
         formData.append("bedrooms", bedroomsRef.current?.value);
-        formData.append("types", typeRef.current?.value);
+        formData.append("type", typeRef.current?.value);
         formData.append("area", areaRef.current?.value);
         formData.append("place", placeRef.current?.value);
         formData.append("looking", 0);
@@ -186,11 +187,11 @@ function ShowRentForm({ baseUrl }) {
           areaRef.current = null;
           placeRef.current = null;
           setLoadingRent(false);
-          navigate("/my-housing", {
-            state: {
-              stateLoading: true
-            }
-          })
+          // navigate("/my-housing", {
+          //   state: {
+          //     stateLoading: true
+          //   }
+          // })
         });
       } catch (error) {
         console.log(error);
@@ -232,7 +233,7 @@ function ShowRentForm({ baseUrl }) {
 
       <div className={style.titleDiv}>
         <h1>{t("Apartment For Rent")}</h1>
-        <p>{t("How would you like to post a Rent")}</p>
+        {/* <p>{t("How would you like to post a Rent")}</p> */}
       </div>
       <h2 className={style.jobFormTitle}>{t("Apartment for rent")} </h2>
       <div className={style.jobContact}>
@@ -314,7 +315,7 @@ function ShowRentForm({ baseUrl }) {
               <option value="">{t("Type")}</option>
               {dataR?.type?.map((item) => {
                 return (
-                  <option key={item.value} value={item?.value}>
+                  <option key={item.value} value={item?.id}>
                     {item?.name}
                   </option>
                 );
@@ -350,14 +351,14 @@ function ShowRentForm({ baseUrl }) {
             <input
               name="bedrooms"
               id="bedrooms"
-              placeholder="bedrooms"
+              placeholder={t("bedrooms")}
               className={`${style.fieldWidth} ${style.fieldHeight}`}
               ref={bedroomsRef}
             />
             <input
               name="bathrooms"
               id="bathrooms"
-              placeholder="bathrooms"
+              placeholder={t("bathrooms")}
               className={
                 i18n.language === "en" ? style.secondSelect : style.secondSelectAr
               }
@@ -457,7 +458,7 @@ function ShowRentForm({ baseUrl }) {
       <div className={style.formBtnContainer}>
     
         <ButtonSeven handlerClick={handleSubmit} buttonType="submit">
-        {t("submit")}
+        {t("Submit")}
 
         </ButtonSeven>
       </div>

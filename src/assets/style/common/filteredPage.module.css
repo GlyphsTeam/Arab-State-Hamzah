@@ -10,6 +10,9 @@
 .addProductBtnDiv button{
   font-size: 12px ;
 }
+.addProductBtnDiv span{
+  font-size: 15px;
+}
 
 .circleRow {
   display: grid !important;

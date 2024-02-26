@@ -19,7 +19,7 @@ function PostJobCompany({baseUrl}) {
         />
         <div className={style.titleDiv}>
           <h1>{t("Add Job")}</h1>
-          <p>{t("How would you like to post a job")}</p>
+          {/* <p>{t("How would you like to post a job")}</p> */}
         </div>
   
         <div className={style.btnDiv}>

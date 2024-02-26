@@ -204,6 +204,7 @@
        "contactUsTextSecond": "يسعدنا ايضا في حال وجود اي اقتراحات عندكم بهدف خدمة المجتمع العربي في جورجيا أن ترسلوها لنا، وشكرا لكم.",
        "Email is not valid" : "البريد الالكتروني غير صالح", 
        "per" : "لكل",
+       "Please indicate the gender of the occupants: Male, Female, or Any (open to both or a Family)":"يرجى الإشارة إلى جنس الساكنين: ذكر، أنثى، أو أي شخص (مفتوح لكليهما أو للعائلة)",
         "Bathroom shared" : "حمام مشترك",
         "Saved Job":"الوظائف المحفوظه",
         "Saved Rent" : "الإيجارات المحفوظة",
@@ -265,7 +266,8 @@
         "Sign out":"تسجيل الخروج",
         "Sign Up":"تسجيل مستخدم جديد",
         "Edit Profile":"تعديل المعلومات",
-        "Share" : "مشاركة" , 
+        "Share" : "مشاركة" ,
+        "upload logo of your company":"تحميل شعار شركتك",
         "Share this link via" : "مشاركة هذا الرابط عبر", 
          "copied!": "!تم النسخ" , 
           "copy" : "نسخ",
@@ -406,5 +408,7 @@
            "main_category":"التصنيف الرئيسي",
            "category":"تصنيف",
            "sub_category":"التصنيف الفرعي",
-           "year":"السنة"
+           "year":"السنة",
+           "Postal / Zip Code":"الرمز البريدي",
+           "Service":"خدمة"
         }

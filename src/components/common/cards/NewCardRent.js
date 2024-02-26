@@ -44,7 +44,7 @@ function NewCardRent({ houseData }) {
     };
     let formData = new FormData();
     formData.append("id", houseData.id);
-    console.log("houseData.id>>>>>>>",houseData.id);
+    // console.log("houseData.id>>>>>>>",houseData);
     const [Res] = useFetch('favorite/rent', formData, send);
 
     let favoriteIcon = isFav ? "fas fa-bookmark" : "far fa-bookmark";

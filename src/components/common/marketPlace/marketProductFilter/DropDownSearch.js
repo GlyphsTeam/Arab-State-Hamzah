@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 function DropDownSearch({title, name, nameTo, subData, filterChange, fields_num, filter_type, filters}) {
   const [t] = useTranslation();
-
+ console.log("name>>",name)
     // const [selectedOption, setSelectedOption] = useState(null);
 
     // const options = [
@@ -33,6 +33,7 @@ function DropDownSearch({title, name, nameTo, subData, filterChange, fields_num,
           options={options}
         //   value={selectedOption}
           onChange={filterChange}
+          name={name}
           isSearchable={true}
           placeholder={t('Select...')}
         />
@@ -53,6 +54,7 @@ function DropDownSearch({title, name, nameTo, subData, filterChange, fields_num,
         //   value={selectedOption}
           onChange={filterChange}
           isSearchable={true}
+          name={name}
           placeholder={t('Select...')}
         />
         : 
@@ -68,6 +70,7 @@ function DropDownSearch({title, name, nameTo, subData, filterChange, fields_num,
        options={options}
      //   value={selectedOption}
        onChange={filterChange}
+       name={name}
        isSearchable={true}
        placeholder={t('Select...')}
      />

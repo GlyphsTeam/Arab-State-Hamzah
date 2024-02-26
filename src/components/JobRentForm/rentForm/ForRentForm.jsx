@@ -219,7 +219,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
       {isLoadingRent && <SpinnerStatic text={true} textForm={i18n.language==="en"?"Please do not close the page. Rent form submission may take a few minutes. Thank you for your patience!":"فضلك لا تغلق الصفحة. قد يستغرق إرسال المعلومات بضع دقائق. شكرا لك على انتظارك"}/>}
       <div className={style.titleDiv}>
         <h1>{t("Looking For Rent")}</h1>
-        <p>{t("How would you like to post a Rent")}</p>
+        {/* <p>{t("How would you like to post a Rent")}</p> */}
       </div>
       <h2 className={style.jobFormTitle}>{t("Looking For Rent")} </h2>
       <div className={style.jobContact}>
@@ -451,7 +451,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
       </div>
       <div className={style.formBtnContainer}>
         <ButtonSeven handlerClick={handleSubmit} buttonType="submit">
-        {t("submit")}
+        {t("Submit")}
         </ButtonSeven>
       </div>
     </>

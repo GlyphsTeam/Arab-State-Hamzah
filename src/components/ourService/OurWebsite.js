@@ -19,7 +19,7 @@ function OurWebsite({ourWebsiteData}) {
     window.scrollTo(0, 0);
   };
 
-
+  console.log("currentPosts>>>",currentPosts)
   return (
     <>
       <h2 ref={placesToVisitId} className={style.placesTitle}>{t("Discover Other States")}</h2>
@@ -41,14 +41,15 @@ function OurWebsite({ourWebsiteData}) {
                       <LazyLoadImage src={item.image} alt="CardImage"/>
                     </div>
                     <div className={style.cardText}>
-                      <h5>{item.title} </h5>
+                      <h5>{item?.title} </h5>
                       {/* <p className={style.lastCardParagraph}>
                         {item.description}
                       </p> */}
                     <Link
                       key={item.id}
-                      to={`/show-blog/${item.id}`}
+                      to={item?.link}
                       onClick={handleChangePage}
+                      target="_blank"
                     >
                       <div className={style.readMoreContainer}>
                         <small className={style.readMoreTextOutline}>

@@ -27,6 +27,8 @@ function JobRentFilter({ filterChange, filters, type, setFilters }) {
         price_from: "",
         price_to: "",
         place: "",
+        room_from:"",
+        room_to:""
       })
     }
     else {
@@ -37,13 +39,15 @@ function JobRentFilter({ filterChange, filters, type, setFilters }) {
         salary_from: "",
         salary_to: "",
         place: "",
+        order_by:"",
       })
     }
   }
+  console.log("Data?.data>>",Data?.data)
   return (
     <>
       <div className={style.mainFilterDiv}>
-        <h2 className={style.filterTitle}>Filter</h2>
+        <h2 className={style.filterTitle}>{t("Filter")}</h2>
 
         {
           Data?.data?.map((item, index) => (

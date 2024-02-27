@@ -21,20 +21,20 @@ function Job({ baseURL }) {
     price_from: "",
     price_to: "",
     place: "",
+    room_from:"",
+    room_to:""
   });
-  console.log("pageType>>",pageType)
   const [page, setPage] = useState(1);
   const limit = 4;
 
-  let url = `rents/web?page=${page}&limit_by=${limit}&looking=${pageType}&order_by=${filters.order_by}&sort_by=${filters.sort_by}&type=${filters.type}&price_from=${filters.price_from}&price_to=${filters.price_to}&place=${filters.place}`;
+  let url = `rents/web?page=${page}&limit_by=${limit}&looking=${pageType}&type=${filters.type}&price_from=${filters.price_from}&price_to=${filters.price_to}&place=${filters.place}&room_from=${filters.room_from}&room_to=${filters.room_to}`;
 
   useEffect(() => {
-    url = `rents/web?page=${page}&limit_by=${limit}&looking=${pageType}&order_by=${filters.order_by}&sort_by=${filters.sort_by}&type=${filters.type}&price_from=${filters.price_from}&price_to=${filters.price_to}&place=${filters.place}`;
+    url = `rents/web?page=${page}&limit_by=${limit}&looking=${pageType}&type=${filters.type}&price_from=${filters.price_from}&price_to=${filters.price_to}&place=${filters.place}}&room_from=${filters.room_from}&room_to=${filters.room_to}`;
   }, [page]);
 
-  const [Data] = useAxios(url);
+  const [Data] = useAxios(url, "false");
   const rentsData = Data?.data;
-
 
   const [rentPopUp, setRentPopUp] = useState(false);
   const [showModal, setShowModal] = useState(false);

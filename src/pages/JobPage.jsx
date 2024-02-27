@@ -20,18 +20,21 @@ function Job({ baseURL }) {
     salary_from: "",
     salary_to: "",
     place: "",
+    order_by:"",
   });
 
   let jobs_api = `jobs`;
   const [page, setPage] = useState(1);
   const limit = 10;
 
-  let url = `jobs/web?limit_by=6&looking=${pageType}&page=${page}&limit_by=${limit}&sort_by=${filters.sort_by}&type=${filters.type}&experience=${filters.experience}&salary_from=${filters.salary_from}&salary_to=${filters.salary_to}&place=${filters.place}`;
+  let url = `jobs/web?limit_by=6&looking=${pageType}&page=${page}&limit_by=${limit}&sort_by=${filters.sort_by}&type=${filters.type}&experience=${filters.experience}&salary_from=${filters.salary_from}&salary_to=${filters.salary_to}&place=${filters.place}&order_by=${filters.order_by}`;
  
   useEffect(() => {
-    url = `jobs/web?limit_by=6&looking=${pageType}&page=${page}&limit_by=${limit}&sort_by=${filters.sort_by}&type=${filters.type}&experience=${filters.experience}&salary_from=${filters.salary_from}&salary_to=${filters.salary_to}&place=${filters.place}`;
+    url = `jobs/web?limit_by=6&looking=${pageType}&page=${page}&limit_by=${limit}&sort_by=${filters.sort_by}&type=${filters.type}&experience=${filters.experience}&salary_from=${filters.salary_from}&salary_to=${filters.salary_to}&place=${filters.place}&order_by=${filters.order_by}`;
   }, [page]);
-  const [Data] = useAxios(url);
+
+  
+  const [Data] = useAxios(url, "false");
   const jobsData = Data?.data;
 
   const [jobPopUp, setJobPopUp] = useState(false);

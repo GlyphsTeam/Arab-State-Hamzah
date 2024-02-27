@@ -20,6 +20,8 @@ function DropDownSearch({
     label: item.name,
     name: name,
   }));
+
+  
   return (
     <>
       <p className={style.productFilterTitle}>{title}</p>
@@ -61,7 +63,7 @@ function DropDownSearch({
                 type="text"
                 name={name}
                 value={filters.name}
-                placeholder={`${title} ${t("from")}`}
+                placeholder={subData[0]?.name}
               />
             )}
           </div>
@@ -82,7 +84,7 @@ function DropDownSearch({
                 type="text"
                 name={nameTo}
                 value={filters.nameTo}
-                placeholder={`${title} ${t("to")}`}
+                placeholder={subData[1]?.name}
               />
             )}
           </div>

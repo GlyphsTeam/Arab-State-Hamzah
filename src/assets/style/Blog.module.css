@@ -3,7 +3,9 @@
   padding: 0px 3.6%;
   color: var(--primary-color);
 }
-
+.lastSectionContainer{
+  margin-bottom: 40px;
+}
 .cloumnParagraph p {
   text-align: justify;
 }

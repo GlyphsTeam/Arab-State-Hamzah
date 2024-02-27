@@ -237,4 +237,10 @@
   height: fit-content;
   width: fit-content;
 }
+.addProductBtnDiv button{
+  font-size: 12px ;
+}
+.addProductBtnDiv span{
+  font-size: 12px;
+}
 }

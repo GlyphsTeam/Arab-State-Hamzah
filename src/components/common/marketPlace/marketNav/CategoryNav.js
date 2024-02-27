@@ -201,7 +201,7 @@ function CategoryNav({ categoryState, setCategoryState, setOpenMobileCategory, o
               </div>
             ))
             }
-            <p className={isSunEndClassVisible ? style.otherCatgero : style.otherCatgero} onClick={handleOtherCatHover} >Others Categories...</p>
+            <p className={isSunEndClassVisible ? style.otherCatgero : style.otherCatgero} onClick={handleOtherCatHover} >{t("Others Categories...")}</p>
 
 
           </ul>

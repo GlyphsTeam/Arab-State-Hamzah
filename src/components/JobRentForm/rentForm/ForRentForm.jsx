@@ -149,7 +149,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
         formData.append("price", priceRef.current?.value);
         formData.append("bathrooms", bathroomsRef.current?.value);
         formData.append("bedrooms", bedroomsRef.current?.value);
-        formData.append("types", typeRef.current?.value);
+        formData.append("type", typeRef.current?.value);
         formData.append("area", areaRef.current?.value);
         formData.append("place", placeRef.current?.value);
         formData.append("looking", 1);

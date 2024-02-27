@@ -74,7 +74,8 @@
     "Zip Code":"الرمز البريدي",
     "Business Subcategories(Select one or more)":"الفئات الفرعية للأعمال (اختر واحدة أو أكثر)",
     "Search":"بحث",
-    "Filter":"الفلاتر",
+    "Filter":"فلتر",
+    "Filters":"فلاتر",
     "Living area":"المنطة",
     "Type":"النوع",
     "Gender":"الجنس",
@@ -410,5 +411,15 @@
            "sub_category":"التصنيف الفرعي",
            "year":"السنة",
            "Postal / Zip Code":"الرمز البريدي",
-           "Service":"خدمة"
+           "Service":"خدمة",
+           "Others Categories...":"اخرى...",
+           "Location is required":"يرجى أدخال الموقع",
+           "Gender is required":"يرجى أدخال الجنس",
+           "Bathrooms is required":"يرجى أدخال عدد التواليت",
+           "Bedrooms is required":"يرجى أدخال عدد غرف النوم",
+           "Price is required":"يرجى أدخال السعر",
+           "Area is required":"يرجى أدخال المنطقة",
+           "Email is required":"يرجى أدخال البريد الالكتروني",
+           "Phone is required":"يرجى أدخال رقم الهاتف",
+           "type is required":"يرجى أدخال النوع"
         }

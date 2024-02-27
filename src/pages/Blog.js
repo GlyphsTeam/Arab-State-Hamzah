@@ -15,7 +15,6 @@ const BlogCards = lazy(() => import("../components/blog/StatisticsSection"));
 const PopularCards = lazy(() => import("../components/blog/PopularSection"));
 const BlogSearch = lazy(() => import("../components/blog/BlogSearch"));
 const EventCards = lazy(() => import("../components/blog/EventCards"));
-const Tags = lazy(() => import("../components/blog/Tags"));
 const PlacesToVisit = lazy(() => import("../components/blog/PlacesToVisitSection"))
 function BlogPage() {
 
@@ -93,7 +92,6 @@ function BlogPage() {
           <div className={`container`}>
             <div className={`pt-5`}>
               <PlacesToVisit data={stateBlog?.blogData?.visit} lengthCards={stateBlog?.blogData?.visit?.model?.length} urlId={urlId} />
-              <Tags data={stateBlog?.blogData?.tags} pathName={pathName} />
             </div>
           </div>
         </div>

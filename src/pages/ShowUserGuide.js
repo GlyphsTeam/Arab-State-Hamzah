@@ -24,13 +24,12 @@ function ShowUserGuide() {
   const [showShareModal, setShowShareModal] = useState(false);
   const pathName = `/${i18n?.language}` + location.pathname;
   const youtube_Url = mainShowGuideData?.main?.link_youtube;
-  console.log("mainShowGuideData>>>", mainShowGuideData)
   return (
     <>
-    <Helmet>
-      <title>{showUserGuide?.title}</title>
-      <meta name="description" content={showUserGuide?.description}/>
-    </Helmet>
+      <Helmet>
+        <title>{showUserGuide?.title}</title>
+        <meta name="description" content={showUserGuide?.description} />
+      </Helmet>
       <div className={style.showBlogContainer}>
         <UserGuideHeader data={mainShowGuideData?.slider} />
 
@@ -51,9 +50,9 @@ function ShowUserGuide() {
                   {t("Share Shop")}
                 </p>
 
-                <a href={youtube_Url} target="_blank" rel="noreferrer">
+                {youtube_Url && <a href={youtube_Url} target="_blank" rel="noreferrer">
                   <i className={`fab fa-youtube ${style.youtubIcon}`}></i>
-                </a>
+                </a>}
               </div>
               {showShareModal && (
                 <Share url={pathName} setShowShareModal={setShowShareModal} />

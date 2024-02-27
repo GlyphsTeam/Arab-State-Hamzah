@@ -15,7 +15,6 @@ const CreateAccount = lazy(() => import("../components/UserGuideComponent/Create
 const Use = lazy(() => import("../components/UserGuideComponent/Use"));
 const UserGuideSearch = lazy(() => import("../components/UserGuideComponent/UserGuideSearch"));
 const EventCards = lazy(() => import("../components/UserGuideComponent/EventCards"));
-const Tags = lazy(() => import('../components/UserGuideComponent/Tags'));
 const FAQs = lazy(() => import("../components/UserGuideComponent/FAQs"));
 
 function UserGuidePage() {
@@ -93,7 +92,6 @@ function UserGuidePage() {
           <div className={`container`}>
             <div className={`pt-5`}>
               <FAQs userGuide={userGuidData?.payload?.faq} urlId={urlId} />
-              <Tags userGuide={userGuidData?.payload?.tags} pathName={pathName} />
             </div>
           </div>
         </div>

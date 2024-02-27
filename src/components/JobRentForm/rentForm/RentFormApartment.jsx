@@ -24,9 +24,11 @@ function ShowRentForm({ baseUrl }) {
   const bedroomsRef = useRef(null);
   const phoneRef = useRef(null);
   const typeRef = useRef(null);
+  const [typeId, setTypeId] = useState("");
 
 
-  
+
+
 
 
   const [messageAlert, setMessageAlert] = useState("");
@@ -53,11 +55,10 @@ function ShowRentForm({ baseUrl }) {
     updatedImages.splice(index, 1);
     setImages(updatedImages);
   };
-
-
+console.log("typeId>>",typeId)
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    console.log("typeRef.current?.value>>", typeRef.current?.value)
     if (
       titleRef.current?.value === "" ||
       typeRef.current?.value === "" ||
@@ -75,13 +76,13 @@ function ShowRentForm({ baseUrl }) {
       if (typeRef.current?.value === "") {
         setSuccess(true);
         setTypeAlert("warning")
-        setMessageAlert("type is required")
+        setMessageAlert(t("type is required"))
       }
 
       if (descriptionRef.current?.value === "") {
         setSuccess(true);
         setTypeAlert("warning")
-        setMessageAlert("Description is required")
+        setMessageAlert(t("Description is required"))
         setShow(true)
         setCount(4)
 
@@ -93,52 +94,52 @@ function ShowRentForm({ baseUrl }) {
         setCount(4);
         setSuccess(true);
         setTypeAlert("warning")
-        setMessageAlert("Phone is required")
+        setMessageAlert(t("Phone is required"))
       }
       if (emailRef.current?.value === "") {
         setSuccess(true);
         setTypeAlert("warning")
-        setMessageAlert("Email is required")
+        setMessageAlert(t("Email is required"))
       }
       if (areaRef.current?.value === "") {
         setSuccess(true);
         setTypeAlert("warning")
-        setMessageAlert("Area is required")
+        setMessageAlert(t("Area is required"))
       }
       if (priceRef.current?.value === "") {
         setSuccess(true);
         setTypeAlert("warning")
-        setMessageAlert("Price is required")
+        setMessageAlert(t("Price is required"))
       }
       if (bedroomsRef.current?.value === "") {
         setSuccess(true);
         setTypeAlert("warning")
-        setMessageAlert("Bedrooms is required")
+        setMessageAlert(t("Bedrooms is required"))
       }
       if (bathroomsRef.current?.value === "") {
         setSuccess(true);
         setTypeAlert("warning")
-        setMessageAlert("Bathrooms is required")
+        setMessageAlert(t("Bathrooms is required"))
       }
       if (genderRef.current?.value === "") {
         setSuccess(true);
         setTypeAlert("warning")
-        setMessageAlert("Gender is required")
+        setMessageAlert(t("Gender is required"))
       }
       if (placeRef.current?.value === "") {
         setSuccess(true);
         setTypeAlert("warning")
-        setMessageAlert("Location is required")
+        setMessageAlert(t("Location is required"))
       }
       if (titleRef.current?.value === "") {
         setSuccess(true);
         setTypeAlert("warning")
-        setMessageAlert("Title is required")
+        setMessageAlert(t("Title is required"))
       }
       if (images.length === 0) {
         setSuccess(true);
         setTypeAlert("warning")
-        setMessageAlert("Image is required")
+        setMessageAlert(t("Image is required"))
       }
 
     }
@@ -146,6 +147,10 @@ function ShowRentForm({ baseUrl }) {
       try {
 
         const formData = new FormData();
+        console.log("title", titleRef.current?.value, "description",
+          descriptionRef.current?.value, "gender", genderRef.current?.value,
+          "email", emailRef.current?.value, "phone_number", phoneRef.current?.value, "price", priceRef.current?.value,
+          "type>>>", typeRef.current?.value, "place>>>", placeRef.current?.value)
         formData.append("title", titleRef.current?.value);
         formData.append("description", descriptionRef.current?.value);
         formData.append("gender", genderRef.current?.value);
@@ -154,7 +159,7 @@ function ShowRentForm({ baseUrl }) {
         formData.append("price", priceRef.current?.value);
         formData.append("bathrooms", bathroomsRef.current?.value);
         formData.append("bedrooms", bedroomsRef.current?.value);
-        formData.append("type", typeRef.current?.value);
+        formData.append("type", typeId);
         formData.append("area", areaRef.current?.value);
         formData.append("place", placeRef.current?.value);
         formData.append("looking", 0);
@@ -222,6 +227,7 @@ function ShowRentForm({ baseUrl }) {
   const cityUrl = `rents/web/create_page`;
   const [Data] = useAxios(cityUrl);
   const dataR = Data?.data;
+  console.log("dataR?.type> ", dataR?.type);
 
   return (
     <>
@@ -310,12 +316,12 @@ function ShowRentForm({ baseUrl }) {
             <select
               name="type"
               id="type"
-              ref={typeRef}
+              onChange={(e) => setTypeId(e.target.value)}
             >
-              <option value="">{t("Type")}</option>
+              <option >{t("Type")}</option>
               {dataR?.type?.map((item) => {
                 return (
-                  <option key={item.value} value={item?.id}>
+                  <option key={item.value} value={item?.value}>
                     {item?.name}
                   </option>
                 );
@@ -456,9 +462,9 @@ function ShowRentForm({ baseUrl }) {
         </div>
       </div>
       <div className={style.formBtnContainer}>
-    
+
         <ButtonSeven handlerClick={handleSubmit} buttonType="submit">
-        {t("Submit")}
+          {t("Submit")}
 
         </ButtonSeven>
       </div>

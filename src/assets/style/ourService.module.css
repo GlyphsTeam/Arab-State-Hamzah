@@ -4,6 +4,9 @@
   color: var(--primary-color);
   
 }
+.paragraph p {
+  color:var(--primary-color);
+}
 .cardText{
   display: flex;
   justify-content: space-between;

@@ -146,6 +146,7 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
         formData.append("email", emailRef.current?.value);
         formData.append("phone", phoneRef.current?.value);
         formData.append("place", jobFormData.place);
+        formData.append("experience_level", jobFormData.experience_level)
         formData.append("looking", 1);
 
         fetch(`${baseUrl}/jobs/create`, {

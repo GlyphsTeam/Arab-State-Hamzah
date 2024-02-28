@@ -91,14 +91,15 @@
     position: absolute;
     background: rgba(255, 255, 255, 0.9);
     color: var(--black);
-    width: 140px;
+    border: 1px solid var(--primary-color);
+    width: 250px;
     z-index: 3;
-    height: 100%;
-    left:130px;
-    top: -20px;
+    height: 100% !important;
+    right: 200px;
     padding: 5px 10px;
-    color: var(--primary-color);
+    color: var(--tertiary-color);
     list-style-type: none;
+
 
 }
 

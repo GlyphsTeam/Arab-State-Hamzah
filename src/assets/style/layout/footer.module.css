@@ -6,6 +6,13 @@
   padding: 22px;
   height: fit-content;
 }
+.footerIcon i {
+  font-size: 30px !important;
+  cursor: pointer !important;
+}
+.footerIcon a {
+  cursor: pointer !important;
+}
 .footerNumber{
   direction: ltr !important;
   unicode-bidi: embed !important;
@@ -31,7 +38,7 @@
 }
 
 .footerIcon {
-  padding-top: 15px;
+  padding: 15px;
 }
 .footerIcon a {
     margin: 9px;

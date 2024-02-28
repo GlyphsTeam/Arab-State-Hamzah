@@ -64,15 +64,15 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
       headers: {
         Authorization: `Bearer ${token}`
       }
-    }).then((res) =>{
+    }).then((res) => {
       deleteDiv(id)
-    }).catch((err) => console.log("errorJobCard",err));
+    }).catch((err) => console.log("errorJobCard", err));
   }
   return (
     <>
       <div className={style.card} id={jobData.id}>
         <div className={style.cardTop}>
-          {pathName === "/my-job" ? <button onClick={()=>deletePostJob(jobData?.id)} className={i18n.language==="en"?style.deletePostJob:style.deletePostJobAr}>delete</button> : ''}
+          {pathName === "/my-job" ? <button onClick={() => deletePostJob(jobData?.id)} className={i18n.language === "en" ? style.deletePostJob : style.deletePostJobAr}>delete</button> : ''}
           <Link to={`/show-job/${jobData.slug}/${jobData?.id}`} state={(urlId = { id: jobData?.id })}>
             <LazyLoadImage src={jobData.company_image ? jobData.company_image : jobData.user_image} alt='scs' />
           </Link>
@@ -94,7 +94,7 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
             <div className={style.timeCardJobCard}>
               <p>{jobData.type}</p>
             </div>
-            <div className={style.boxandPublished}>
+            <div className={i18n.language === "en" ? style.boxandPublished : style.boxandPublishedAr}>
               <div className={style.boxsCard}>
                 <div className={style.box1}></div>
                 <div className={style.box2}></div>
@@ -104,7 +104,7 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
               {pathName === "/saved-job" || pathName === "/jobs" ? <></> : <div>
                 {jobData.status ? <p className={style.publishingClass}>Published</p> : <p className={style.publishingClass}>Waiting for approval</p>}
               </div>}
-              {pathName === "/saved-job" || pathName === "/jobs" ?<p className={style.jobCreatedAt}>{jobData.created_at?.replace("ago", " ")}</p>:<></>}
+              {pathName === "/saved-job" || pathName === "/jobs" ? <p className={style.jobCreatedAt}>{jobData.created_at?.replace("ago", " ")}</p> : <></>}
 
             </div>
 

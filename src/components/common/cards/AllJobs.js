@@ -82,7 +82,7 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
                 {jobData.status ? <p className='publishingClass'>Published</p> : <p className='publishingClass'>Waiting for approval</p>}
               </div>}
             </div>
-            <div className={style.boxandPublished}>
+            <div className={i18n.language === "en" ? style.boxandPublished : style.boxandPublishedAr}>
               <div className={style.boxsCard}>
                 <div className={style.box1}></div>
                 <div className={style.box2}></div>

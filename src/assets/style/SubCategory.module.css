@@ -10,13 +10,20 @@
   color: white;
 }
 .deleteIcon{
-  color: #c81c50;
+  color: var(--secondary-color);
   cursor: pointer;
   position: relative;
   bottom: 28px;
   transform: translate(-50%, -50%);
   left: 95%;
-
+}
+.deleteIconAr{
+  color: var(--secondary-color);
+  cursor: pointer;
+  position: relative;
+  bottom: 28px;
+  transform: translate(-50%, -50%);
+  right: 90%;
 }
 .categoryBussiness{
   display: grid;
@@ -664,5 +671,13 @@ h1 {
 @media (max-width:450px){
   .categoryBussiness{
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  .deleteIconAr{
+    color: var(--secondary-color);
+    cursor: pointer;
+    position: relative;
+    bottom: 28px;
+    transform: translate(-50%, -50%);
+    right: 85%;
   }
 }

@@ -9,6 +9,12 @@ import { setMarketNav } from '../../../../redux/Market/market';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLoading } from '../../../../redux/slices/login';
 import axios from 'axios'
+import Button from "@material-ui/core/Button";
+import { Box } from "@mui/material";
+import ArrowRight from "@mui/icons-material/ArrowLeft";
+import styled from 'styled-components';
+import { Dropdown, DropdownMenuItem, DropdownNestedMenuItem } from "./Dropdown";
+
 function CategoryNav({ categoryState, setCategoryState, setOpenMobileCategory, openMobileCategory }) {
   const navigate = useNavigate()
   const [t, i18n] = useTranslation();
@@ -30,34 +36,31 @@ function CategoryNav({ categoryState, setCategoryState, setOpenMobileCategory, o
     const token = localStorage.getItem("arab_user_token");
     const city_ID = process.env.REACT_APP_City_ID;
     const baseURL = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${city_ID}`;
-    if (navData === null){
+    if (navData === null) {
       dispatch(setLoading(true));
-    await axios.get(`${baseURL}/${url}`, {
-      headers: {
-        "Authorization": `Bearer ${token}`
-      }
-    }).then((res) => {
+      await axios.get(`${baseURL}/${url}`, {
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      }).then((res) => {
 
-      dispatch(setMarketNav(res.data?.data));
-      dispatch(setLoading(false));
-    }).catch((err) => {
-      console.log(err);
-    })
-  }
+        dispatch(setMarketNav(res.data?.data));
+        dispatch(setLoading(false));
+      }).catch((err) => {
+        console.log(err);
+      })
+    }
   }
   useEffect(() => {
     getCategoriesNav();
   }, [])
+  const StyledDropdownMenuItem = styled(DropdownMenuItem)`
+  display: block;
+  padding: 8px;
+ 
+`;
 
-  const handleOtherCatHover = () => {
-    if (isSunEndClassVisible) {
-      setSunEndClassVisible(false);
-
-    }
-    else {
-      setSunEndClassVisible(true);
-    }
-  }
+  
 
   const filterActionCategory = (mainTitle, main_Id, subTitle, sub_Id) => {
 
@@ -99,7 +102,6 @@ function CategoryNav({ categoryState, setCategoryState, setOpenMobileCategory, o
 
   }
 
-
   const mobileFilterActionCategory = (mainTitle, main_Id, subTitle, sub_Id) => {
 
     if (subTitle) {
@@ -139,7 +141,6 @@ function CategoryNav({ categoryState, setCategoryState, setOpenMobileCategory, o
     }
 
   }
-
   useEffect(() => {
     function handlerResize() {
       if (window.innerWidth < 1024) {
@@ -201,9 +202,31 @@ function CategoryNav({ categoryState, setCategoryState, setOpenMobileCategory, o
               </div>
             ))
             }
-            <p className={isSunEndClassVisible ? style.otherCatgero : style.otherCatgero} onClick={handleOtherCatHover} >{t("Others Categories...")}</p>
-
-
+            {/* <p className={isSunEndClassVisible ? style.otherCatgero : style.otherCatgero} onClick={handleOtherCatHover} ></p> */}
+           <Box className={style.boxContainer} >
+              <Dropdown
+                className={style.boxContainer}
+                trigger={<Button style={{ color: "white", marginTop: "-18px", textTransform:"capitalize"}}>{t("Others Categories...")}</Button>}
+                menu={navData?.main?.slice(sliceState.end).map((item) => {
+                  return <DropdownNestedMenuItem
+                    style={{padding:"8px"}}
+                    label={`${item?.name}`}
+                    leftIcon={<ArrowRight  style={{display:"flex", justifyContent:"flex-end",textAlign:"end"}}/>}
+                    menu={item?.categories?.map((catego) => {
+                      return <StyledDropdownMenuItem>
+                        <DropdownMenuItem
+                        onClick={() => filterActionCategory(item.name, catego.main_id, catego.name, catego.id) }
+                        >
+                          {catego?.name}
+                        </DropdownMenuItem>
+                      </StyledDropdownMenuItem>
+                    })
+                    }
+                  />
+                })
+                }
+              />
+            </Box> 
           </ul>
 
 

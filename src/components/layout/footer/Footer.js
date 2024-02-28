@@ -19,7 +19,7 @@ function Footer({logoImage}) {
     location.pathname.toLocaleLowerCase() === "/privacy-policy" ||
     location.pathname.toLocaleLowerCase()=== "/terms-conditions" ||
     location.pathname.toLocaleLowerCase() === "/eula";
-
+console.log("footerData?.social_media>>",footerData?.social_media)
   return (
     !hideFooter && (
     <div className={`${style.footer}`}>
@@ -49,10 +49,9 @@ function Footer({logoImage}) {
             </div>
             <div className={style.footerIcon}>
               {footerData?.social_media?.map((item, index) => (
-              <a href={item?.url} target="_blank" key={index}>
-                {" "}
+              <Link to={item?.url} target="_blank" key={index}>
                 <i className={item?.icon}></i>
-              </a>
+              </Link>
               ))}
               {/* <a href={footerData?.instagram_url} target="_blank">
                 {" "}

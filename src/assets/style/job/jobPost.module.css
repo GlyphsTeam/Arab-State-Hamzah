@@ -1,7 +1,7 @@
 
 
 
-  .card {
+.card {
     max-width: 100%; /* Set a maximum width */
     width: 350px; /* Ensure the width is 100% of the parent container */
     box-sizing: border-box; /* Include padding and border in the width calculation */
@@ -28,7 +28,7 @@
   }
   .boxandPublished{
     height: 100%;
-    margin-top: 1px;
+    margin-top: 10px;
     display:flex !important;
     justify-content:space-between;
     align-items: center;
@@ -36,7 +36,7 @@
   }
   .boxandPublishedAr{
     height: 100%;
-    margin-top: 1px;
+    margin-top: 14px;
     display:flex !important;
     justify-content:space-between;
     align-items: center;
@@ -134,11 +134,25 @@
 .publishingClass{
   margin-top:10px !important;
   font-size:12px;
-  color: var(--primary-color);
   height: fit-content !important;
   margin-left: 12px;
-}
+  color: var(--primary-color);
 
+}
+.publishingApproval{
+    margin-left:10px !important;
+    font-size:12px;
+    text-align: center;
+    height: fit-content !important;
+    color: var(--primary-color);
+  }
+  .publishingApprovalAr{
+    margin-right:30px !important;
+    font-size:12px;
+    text-align: center;
+    height: fit-content !important;
+    color: var(--primary-color);
+  }
 .boxsCard{
   margin-left: -20px;
   display:flex;

@@ -16,6 +16,12 @@
     border-radius: 15px;
 
 }
+.boxContainer{
+    padding: 8px !important;
+}
+.categoryUl .MuiPaper-root{
+    padding: 8px !important;
+}
 .sunEndClassAR{
     background-color: var(--secondary-color);
     width: 200px;

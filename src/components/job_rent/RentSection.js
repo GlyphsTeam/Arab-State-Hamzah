@@ -4,7 +4,7 @@ import Pagination from "../blog/Pagination";
 import JobRentFilter from "./sideFilter/JobRentFilter";
 import PopUp from "../PopUp/Popup";
 import { useTranslation } from "react-i18next";
-import NewCardRent from "../common/cards/NewCardRent";
+import NewCardRent from "../common/cards/NewCardRentTwo";
 
 function RentSection({
   rents_api,

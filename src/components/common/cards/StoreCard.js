@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "../../../assets/style/SubCategory.module.css";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -6,33 +6,33 @@ import axios from "axios";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 function SubCategoryCard({ storeData }) {
-  const [t] = useTranslation();
+  const [t, i18n] = useTranslation();
   const [isFavorite, setIsFavorite] = useState();
 
   let urlId;
-  useEffect(()=>{
-     if(storeData?.saved){
+  useEffect(() => {
+    if (storeData?.saved) {
       setIsFavorite(true);
-     }
-     else{
+    }
+    else {
       setIsFavorite(false)
-     }
-  },[storeData?.saved])
+    }
+  }, [storeData?.saved])
   let favoriteIcon = isFavorite ? "fas fa-bookmark" : "far fa-bookmark";
 
   const handlerDelete = async (id) => {
     let url = 'favorite/store'
-    let backend_url =`https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/0/`
+    let backend_url = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/0/`
     const token = localStorage.getItem('arab_user_token');
     let formData = new FormData();
-    formData.append('id',id);
-    await axios.post(`${backend_url}${url}`,formData,{
+    formData.append('id', id);
+    await axios.post(`${backend_url}${url}`, formData, {
       headers: {
-        Authorization : `Bearer ${token}`
+        Authorization: `Bearer ${token}`
       }
-    }).then((res)=>{
+    }).then((res) => {
       deleteDiv(id);
-    }).catch((err)=>console.log(err));
+    }).catch((err) => console.log(err));
   }
   const deleteDiv = (id) => {
     const element = document.getElementById(`${id}`);
@@ -42,18 +42,24 @@ function SubCategoryCard({ storeData }) {
     <>
       <div className={`${style.cardDiv} col-lg-4 col-md-6 col-sm-6`} id={storeData?.id} >
         <div>
-        <Link
-          to={`/Marketprofile/${storeData.slug}/${storeData?.id}`}
-          className={`${style.subCategoryCardLink} `}
-        >
-          <LazyLoadImage className={`${style.categoryImage}`} src={storeData.image} height={215} alt="imag-store" />
-          <p className={`${style.cardTitle} `}>{storeData.name}</p>
+          <Link
+            to={`/Marketprofile/${storeData.slug}/${storeData?.id}`}
+            className={`${style.subCategoryCardLink} `}
+          >
+            <LazyLoadImage className={`${style.categoryImage}`} src={storeData.image} height={215} alt="imag-store" />
+            <p className={`${style.cardTitle} `}>{storeData.name}</p>
           </Link>
-          <i
-            onClick={() => handlerDelete(storeData?.id)}
-            className={`${favoriteIcon} ${style.deleteIcon}`}
-          ></i>
-          </div>
+          {i18n.language === "en" ?
+            <i
+              onClick={() => handlerDelete(storeData?.id)}
+              className={`${favoriteIcon} ${style.deleteIcon}`}
+            ></i> :
+            <i
+              onClick={() => handlerDelete(storeData?.id)}
+              className={`${favoriteIcon} ${style.deleteIconAr}`}
+            ></i>
+          }
+        </div>
       </div>
     </>
   );

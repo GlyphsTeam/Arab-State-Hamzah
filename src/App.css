@@ -40,7 +40,7 @@ body{
   height: fit-content;
 }
 .accordion-public-class .accordion-button {
-height: 24px;
+height: 23px;
 }
 .accordion-public-class .accordion-button::after{
   background-image: var(--accordion-btn-icon);

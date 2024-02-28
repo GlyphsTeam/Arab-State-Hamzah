@@ -9,7 +9,6 @@ import { setMarketNav } from '../../../../redux/Market/market';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLoading } from '../../../../redux/slices/login';
 import axios from 'axios'
-import Button from "@material-ui/core/Button";
 import { Box } from "@mui/material";
 import ArrowRight from "@mui/icons-material/ArrowLeft";
 import styled from 'styled-components';
@@ -206,7 +205,7 @@ function CategoryNav({ categoryState, setCategoryState, setOpenMobileCategory, o
            <Box className={style.boxContainer} >
               <Dropdown
                 className={style.boxContainer}
-                trigger={<Button style={{ color: "white", marginTop: "-18px", textTransform:"capitalize"}}>{t("Others Categories...")}</Button>}
+                trigger={<li style={{ color: "white", marginTop: "-8px", textTransform:"capitalize", cursor:"pointer"}}>{t("Others Categories...")}</li>}
                 menu={navData?.main?.slice(sliceState.end).map((item) => {
                   return <DropdownNestedMenuItem
                     style={{padding:"8px"}}

@@ -13,6 +13,8 @@
 }
 .jobCreatedAt{
   height: fit-content !important;
+  color: var(--secondary-color) !important;
+  font-size: 12px;
 }
 .cardBottom{
   display: flex;

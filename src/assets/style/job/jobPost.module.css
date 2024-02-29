@@ -538,3 +538,19 @@
     flex-wrap: wrap ;
   }
 }
+
+@media (max-width:500px){
+  .deletePostJobAr{
+    right: 220px !important;
+  }
+}
+@media (max-width:820px){
+  .deletePostJobAr{
+    right: 250px ;
+  }
+}
+@media (max-width:1024px){
+  .deletePostJobAr{
+    right: 225px !important;
+  }
+}

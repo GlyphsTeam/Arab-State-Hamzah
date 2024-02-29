@@ -4,6 +4,7 @@ import useAxios from "../hooks/useAxiosGet";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Helmet } from 'react-helmet';
+
 const MainStoreCard = lazy(() => import("../components/marketProfile/MainStoreCard"));
 const Description = lazy(() => import("../components/marketProfile/Description"));
 const OfferComponent = lazy(() => import("../components/marketProfile/OfferComponent"));

@@ -37,7 +37,8 @@ function Home() {
   }
   useEffect(() => {
     getHomeData();
-  }, [])
+  }, []);
+  
   return (
     <>
       <Helmet>

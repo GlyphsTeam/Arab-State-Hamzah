@@ -11,6 +11,7 @@ const LastJob = lazy(() => import("../components/showJob/LastJob"));
 const MiddleJob = lazy(() => import("../components/showJob/MiddleJob"));
 const Alert = lazy(() => import("../components/customAlert/Alert"));
 const HeroBanner = lazy(() => import('../components/common/banner/HeroBanner'));
+
 function ShowJobPage() {
   const [jobData, setJobData] = useState();
   const [count, setCount] = useState();

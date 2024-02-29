@@ -19,7 +19,6 @@ function Footer({logoImage}) {
     location.pathname.toLocaleLowerCase() === "/privacy-policy" ||
     location.pathname.toLocaleLowerCase()=== "/terms-conditions" ||
     location.pathname.toLocaleLowerCase() === "/eula";
-console.log("footerData?.social_media>>",footerData?.social_media)
   return (
     !hideFooter && (
     <div className={`${style.footer}`}>

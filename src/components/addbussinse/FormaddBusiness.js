@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useCallback, lazy, Suspense } from "react";
+import React, { useEffect, useState, useRef, useMemo, useCallback, lazy, Suspense } from "react";
 import style from "../../assets/style/formStyle/addbuinsesFrom.module.css";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -8,7 +8,8 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
-
+// import { useCombobox } from 'downshift';
+import GoogleAddress from "./GoogleAddress";
 import {
     stateBussinse,
     setBusinessMainCat,
@@ -69,59 +70,77 @@ function ForRentForm() {
         time_from: "09:00 AM",
         time_to: "09:00 PM",
         day: "Monday",
-        vacation: false,
+        is_closed: false,
+        always_open: false,
     },
     {
         day_type: "Tue",
         time_from: "09:00 AM",
         time_to: "09:00 PM",
         day: "Tuseday",
-        vacation: false,
-
+        is_closed: false,
+        always_open: false,
     },
     {
         day_type: "Wed",
         time_from: "09:00 AM",
         time_to: "09:00 PM",
         day: "Wednesday",
-        vacation: false,
-
+        is_closed: false,
+        always_open: false,
     },
     {
         day_type: "Thu",
         time_from: "09:00 AM",
         time_to: "09:00 PM",
         day: "Thursday",
-        vacation: false,
+        is_closed: false,
+        always_open: false,
     },
     {
         day_type: "Fri",
         time_from: "09:00 AM",
         time_to: "09:00 PM",
         day: "Friday",
-        vacation: false,
-
+        is_closed: false,
+        always_open: false,
     },
     {
         day_type: "Sat",
         time_from: "09:00 AM",
         time_to: "09:00 PM",
         day: "Saturday",
-        vacation: false,
-
+        is_closed: false,
+        always_open: false,
     },
     {
         day_type: "Sun",
         time_from: "09:00 AM",
         time_to: "09:00 PM",
         day: "Sunday",
-        vacation: false,
+        is_closed: false,
+        always_open: false,
     },
     ]);
-
-    console.log("work_times>>>>>", work_times)
+    const [isAllOpen, setIsAllOpen] = useState(false);
     const handlerChangeCheked = (e, day) => {
+        setIsAllOpen(false)
         updateVacationStatus(e, day)
+    }
+    const handlerChangeAlwaysOpen = (e, day) => {
+        updateAlwaysStatus(e, day)
+    }
+    const handlerChangeAlwaysAll = (e) => {
+        const checked = e.target.checked;
+        setIsAllOpen(checked);
+        setwork_times((prevWorkTimes) => {
+            const newTimes = prevWorkTimes.map((day) => {
+                return { ...day, always_open: checked, is_closed: false };
+            });
+            return newTimes;
+        });
+
+
     }
     const updateWorkTimeFrom = (updatedDay, newTimeFrom) => {
         setwork_times(prevWorkTimes => {
@@ -142,7 +161,23 @@ function ForRentForm() {
                 if (day.day_type === dayType) {
                     return {
                         ...day,
-                        vacation: e.target.checked,
+                        is_closed: e.target.checked,
+                        always_open: false
+                    };
+                }
+                return day;
+            });
+        });
+    };
+
+    const updateAlwaysStatus = (e, dayType) => {
+        setwork_times(prevWorkTimes => {
+            return prevWorkTimes.map(day => {
+                if (day.day_type === dayType) {
+                    return {
+                        ...day,
+                        always_open: e.target.checked,
+                        is_closed: false
                     };
                 }
                 return day;
@@ -412,7 +447,7 @@ function ForRentForm() {
         }
 
         if (city === "") {
-        setMessageAlert("please fill The  City")
+            setMessageAlert("please fill The  City")
             setTypeAlert("warning");
             setShowAlert(true);
             setTimeout(() => {
@@ -547,6 +582,7 @@ function ForRentForm() {
             let formData = new FormData();
             let baseURL = `https://glyphsmarketingbusiness.com/api/${process.env.REACT_APP_City}/en/${state}/business/create`;
             const token = localStorage.getItem('arab_user_token');
+            console.log("work_times>>>", work_times)
             formData.append('name', companyName.current?.value);
             formData.append('main_id', businessType);
             formData.append('state', state);
@@ -577,14 +613,15 @@ function ForRentForm() {
             inputFields?.forEach((offer, index) => {
                 formData.append(`offers[${index}]`, offer.text)
             })
-            const filteredWorkTimes = work_times.filter(time => !time.vacation);
 
-            filteredWorkTimes.forEach((work, index) => {
+            work_times.forEach((work, index) => {
                 formData.append(`work_times[${index}][day_type]`, work.day_type);
                 formData.append(`work_times[${index}][time_from]`, work.time_from);
                 formData.append(`work_times[${index}][time_to]`, work.time_to);
+                formData.append(`work_times[${index}][always_open]`, work.always_open);
+                formData.append(`work_times[${index}][is_closed]`, work.is_closed);
             });
-        
+
             setLoadingBussines(true);
             try {
                 await fetch(`${baseURL}`, {
@@ -656,7 +693,7 @@ function ForRentForm() {
                     },
                     ])
                     setLoadingBussines(false);
-                    navigation("/my-business")
+                    // navigation("/my-business")
                     setTimeout(() => {
                         setShowAlert(false);
                     }, 3000)
@@ -997,27 +1034,31 @@ function ForRentForm() {
                         </div>
                     </div>
                     <label style={{ fontWeight: "bold" }} className={style.labelStyle}>{t("Your Business Working Hours")}</label><br></br>
-                    {work_times.map((time) => {
+                    {work_times?.map((time) => {
                         return <>
-                            <label style={{ fontWeight: "bold" }} className={style.labelBussiness}>{t(`${time.day}`)}</label>
-                            <div className={style.inputFlexWeek} key={time.day}>
+                            <label style={{ fontWeight: "bold" }} className={style.labelBussiness}>{t(`${time?.day}`)}</label>
+                            <div className={style.inputFlexWeek} key={time?.day}>
                                 <div className={style.inputFlexDays}>
                                     <div className={style.inputDiv}>
-                                        <BusinessTime day={time.day_type} handlerChange={handlerDayChangeFrom} dayStatus={time.vacation} />
+                                        <BusinessTime day={time?.day_type} handlerChange={handlerDayChangeFrom} dayStatus={time?.is_closed} />
                                     </div>
                                     <div className={style.inputDiv}>
                                         <h2 className={style.jpgStyle}>{t("Until")}</h2>
                                     </div>
                                     <div className={style.inputDiv}>
-                                        <BusinessTime day={time.day_type} handlerChange={handlerDayChangeTo} dayStatus={time.vacation} />
+                                        <BusinessTime day={time?.day_type} handlerChange={handlerDayChangeTo} dayStatus={time?.is_closed} />
                                     </div>
                                     <div className={style.inputDiv}>
-                                        <FormControlLabel control={<Checkbox />} label={t("Off")} onChange={(e) => handlerChangeCheked(e, time.day_type)} id={time.day} />
+                                        <FormControlLabel control={<Checkbox checked={time?.is_closed}/>} label={t("Closed")} onChange={(e) => handlerChangeCheked(e, time?.day_type)} id={time?.day} />
+                                    </div>
+                                    <div className={style.inputDiv}>
+                                        <FormControlLabel control={<Checkbox checked={time?.always_open} />} label={t("Always Open")} onChange={(e) => handlerChangeAlwaysOpen(e, time?.day_type)} id={time?.day} />
                                     </div>
                                 </div>
                             </div>
                         </>
                     })}
+                    <FormControlLabel control={<Checkbox checked={isAllOpen} />} label={t("Open 24/7")} onChange={(e) => handlerChangeAlwaysAll(e)} />
                 </form>
                 <div className={style.buttonTwoContainer}>
                     <ButtonSeven handlerClick={handlerSubmitForm} buttonType="submit">

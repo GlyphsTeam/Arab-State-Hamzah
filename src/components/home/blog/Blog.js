@@ -83,8 +83,8 @@ function Blog() {
           <Link to="/Blog" className={style.blogTitleLink} onClick={handleChangePage}>
             {/* <h1 className={style.blogTitle}>{t("Blog")}</h1> */}
             <div className={style.titleDiv}>
-              <p className={style.littleTitle}>{homeStateBlog?.sub_title}</p>
-              <h1 className={style.mainTitle}>{homeStateBlog?.title}</h1>
+              <h1 className={style.mainTitle}>{homeStateBlog?.sub_title}</h1>
+              {/* <h1 className={style.mainTitle}>{homeStateBlog?.title}</h1> */}
             </div>
           </Link>
           <div className={`row ${style.cardsRowCenter}`}>

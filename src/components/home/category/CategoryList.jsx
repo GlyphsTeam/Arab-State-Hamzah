@@ -18,11 +18,10 @@ function CategoryList() {
     }
   }, [window.innerWidth]);
 
-
   return (
     <>
       {/* <HomeTitle title={t("Our Services")} /> */}
-      <h2 className={style.titleServerice}>{t("Our Services")}</h2>
+      {/* <h2 className={style.titleServerice}>{t("Our Services")}</h2> */}
       <div className={style.mainCategoryDiv}>
         <div className={`container ${style.container}`}>
 

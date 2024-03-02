@@ -1,16 +1,19 @@
-import React, { useState } from 'react'
-import { useJsApiLoader, GoogleMap, Marker, Autocomplete } from '@react-google-maps/api'
+import React, { useState, useRef } from 'react'
+import { useJsApiLoader, GoogleMap, Autocomplete } from '@react-google-maps/api'
 import clasess from '../../assets/style/formStyle/googleAdre.module.css'
 import { useTranslation } from 'react-i18next'
+
 const center = { lat: 48.8584, lng: 2.2945 }
 const googleMapsLibraries = ['places'];
 
 function GoogleAddress({ setLat, setLng, street, setStreetValue }) {
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: process.env.REACT_APP_MAP_KEY,
+    googleMapsApiKey: "AIzaSyA89sWYbX0dSZWGvwBJcMFgOOYwNjcmDaM",
     libraries: googleMapsLibraries,
   })
+
   const { t } = useTranslation();
+  const searchRef = useRef()
 
   const [map, setMap] = useState(null)
   const [currentMarker, setCurrentMarker] = useState(null);
@@ -20,7 +23,7 @@ function GoogleAddress({ setLat, setLng, street, setStreetValue }) {
   }
 
   function handlePlaceSelect() {
-    const place = street.current.getPlace();
+    const place = searchRef.current.getPlace();
     console.log("place>>", place)
     if (!place.geometry) {
       console.log("Place not found");
@@ -44,9 +47,9 @@ function GoogleAddress({ setLat, setLng, street, setStreetValue }) {
       title: place.name,
     });
     let lat = place.geometry.location.lat();
-    let leng = place.geometry.location.lng();
+    let lng = place.geometry.location.lng();
     setLat(lat);
-    setLng(leng);
+    setLng(lng);
     setCurrentMarker(marker);
   }
 
@@ -82,7 +85,7 @@ function GoogleAddress({ setLat, setLng, street, setStreetValue }) {
         <div className={clasess.googleMapContainer}>
           <div style={{ flexGrow: 1 }}>
             <Autocomplete
-              onLoad={autocomplete => (street.current = autocomplete)}
+              onLoad={autocomplete => (searchRef.current = autocomplete)}
               onPlaceChanged={handlePlaceSelect}
             >
               <input type='text' placeholder={t('Search for a place')} style={{ width: '100%' }} ref={street} />

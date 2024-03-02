@@ -4,6 +4,8 @@ function WorkHours({ data }) {
   const [t] = useTranslation();
 
   const alwaysOpen = data?.worktime?.every((day) => day.always_open);
+  
+  
   return (
     <div className={`${style.workHoursSection} container col-12`}>
       <div className={`${style.workHoursLeft} col-lg-3 col-md-6 col-sm-6`}>

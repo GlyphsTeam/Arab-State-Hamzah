@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useMemo, useCallback, lazy, Suspense } from "react";
+import React, { useEffect, useState, useRef, useCallback, lazy, Suspense } from "react";
 import style from "../../assets/style/formStyle/addbuinsesFrom.module.css";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -48,6 +48,7 @@ function ForRentForm() {
     const tikTokRef = useRef(null);
     const [businessType, setBusinessType] = useState("2");
     const [city, setCity] = useState("");
+    const [streetValue, setStreetValue]= useState("")
     const [state, setState] = useState("");
     const [inputFields, setInputFields] = useState([{ id: 0, text: '' }]);
     const [nextId, setNextId] = useState(1);
@@ -64,7 +65,8 @@ function ForRentForm() {
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [LoadingSub, setLoadingSub] = useState(false);
     const [hiddenBussines, setHiddenBussines] = useState(false);
-
+    const [lat, setLat] = useState("");
+    const [lng, setLng] = useState("");
     const [work_times, setwork_times] = useState([{
         day_type: "Mon",
         time_from: "09:00 AM",
@@ -212,7 +214,11 @@ function ForRentForm() {
         const updatedFields = inputFields.filter((field) => field.id !== id);
         setInputFields(updatedFields);
     };
-
+    const mapProps = {
+        center: { lat: 18.5204, lng: 73.8567 },
+        height: '300px',
+        zoom: 15,
+    };
     const handleImageDropOne = useCallback((acceptedFiles) => {
         const isImage = acceptedFiles.every(file => file.type.startsWith('image/'));
         if (isImage) {
@@ -582,11 +588,12 @@ function ForRentForm() {
             let formData = new FormData();
             let baseURL = `https://glyphsmarketingbusiness.com/api/${process.env.REACT_APP_City}/en/${state}/business/create`;
             const token = localStorage.getItem('arab_user_token');
-            console.log("work_times>>>", work_times)
             formData.append('name', companyName.current?.value);
             formData.append('main_id', businessType);
             formData.append('state', state);
             formData.append("city", city);
+            formData.append("latitude", lat);
+            formData.append("longitude", lng);
             formData.append('zip_code', postalCode.current?.value);
             formData.append('address', street.current?.value);
             formData.append('phone_number', phone.current?.value);
@@ -693,7 +700,7 @@ function ForRentForm() {
                     },
                     ])
                     setLoadingBussines(false);
-                    // navigation("/my-business")
+                    navigation("/my-business")
                     setTimeout(() => {
                         setShowAlert(false);
                     }, 3000)
@@ -740,6 +747,8 @@ function ForRentForm() {
                                 />
                             </div>
                             <>
+
+
                                 <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Your Business Type")}</label>
                                 <div className={`${style.inputDiv}`}>
                                     <InputSelect
@@ -793,15 +802,7 @@ function ForRentForm() {
                     <label style={{ fontWeight: "600" }} className={style.labelStyle}>{t("Your Business Location")}</label><br></br>
                     <div className={style.inputDiv}>
                         <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Street Address")}</label>
-                        <input
-                            required
-                            name="Street Address"
-                            type="text"
-                            id="Street Address"
-                            placeholder={t("Street Address")}
-                            ref={street}
-                            className={style.inputForm}
-                        />
+                        <GoogleAddress setStreetValue={setStreetValue} street={street} setLat={setLat} setLng={setLng}/>
                     </div>
                     <div className={style.inputDiv}>
 
@@ -1049,7 +1050,7 @@ function ForRentForm() {
                                         <BusinessTime day={time?.day_type} handlerChange={handlerDayChangeTo} dayStatus={time?.is_closed} />
                                     </div>
                                     <div className={style.inputDiv}>
-                                        <FormControlLabel control={<Checkbox checked={time?.is_closed}/>} label={t("Closed")} onChange={(e) => handlerChangeCheked(e, time?.day_type)} id={time?.day} />
+                                        <FormControlLabel control={<Checkbox checked={time?.is_closed} />} label={t("Closed")} onChange={(e) => handlerChangeCheked(e, time?.day_type)} id={time?.day} />
                                     </div>
                                     <div className={style.inputDiv}>
                                         <FormControlLabel control={<Checkbox checked={time?.always_open} />} label={t("Always Open")} onChange={(e) => handlerChangeAlwaysOpen(e, time?.day_type)} id={time?.day} />

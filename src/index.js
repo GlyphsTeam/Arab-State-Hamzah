@@ -9,11 +9,12 @@ import  store  from './redux/slices/login';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import {themeGeorgia, themeOther} from './theme/theme'
-const theme = process.env.REACT_APP_City === 'GA' ? themeGeorgia : themeOther;
+const themeF = process.env.REACT_APP_City === 'GA' ? themeGeorgia : themeOther;
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={themeF}>
+
     <Provider store={store}>
       <App />
     </Provider>

@@ -25,7 +25,6 @@
 }
 
 .googleMap{
-    position: relative;
     height: 700px;
     width: 700px;
     max-width: 100%;
@@ -36,10 +35,16 @@
         width: 50vw;
         height: 30vh;
         }
+    .googleMap{
+        width: 500px;
+    }
 }
 @media (max-width:450px){
     .googleContaier{
         width: 80vw;
-        height: 50vh;
+        height: 30vh;
         }
+    .googleMap{
+        width: 300px;
+    }
 }

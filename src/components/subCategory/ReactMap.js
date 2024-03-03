@@ -9,14 +9,14 @@ const containerStyle = {
 
 
 
-function LastMap({ data }) {
+function LastMap({ data, isLoaded}) {
   const [lat, setLat] = useState("");
   const [log, setLong] = useState("");
 
-  const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
-    googleMapsApiKey: process.env.REACT_APP_MAP_KEY,
-  });
+  // const { isLoaded } = useJsApiLoader({
+  //   id: "google-map-script",
+  //   googleMapsApiKey: process.env.REACT_APP_MAP_KEY,
+  // });
   const getLocation = async () => {
     const baseURL = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/en/project`;
     await axiso.get(baseURL).then((res) => {

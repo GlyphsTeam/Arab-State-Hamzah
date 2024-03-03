@@ -15,7 +15,7 @@ const Section = lazy(() => import("../components/marketProfile/Interested"));
 const PhotoPreview = lazy(() => import("../components/marketProfile/ViewImagesSlider"));
 const StoreHero = lazy(() => import("../components/marketProfile/StoreHero"));
 
-function MarketProfile() {
+function MarketProfile({isLoaded }) {
   const [t] = useTranslation();
   const [showPhotoModal, setShowPhotoModal] = useState(false);
   const [showGalleryModal, setShowGalleryModal] = useState(false);
@@ -50,7 +50,7 @@ function MarketProfile() {
             </div>
             <div className={`col-lg-4 col-md-12 col-sm-12 pt-5 ${style.locationMargin}`}>
               <h4 className={style.mapTitle}>{t("Our location")}</h4>
-              <StoreMap data={data} />
+              <StoreMap data={data} isLoaded={isLoaded}/>
               {/* <Map lat='10.305385' lng='77.923029' /> */}
               <div className="mt-5">
                 <div className={style.galleryTitleDiv}>

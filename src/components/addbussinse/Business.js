@@ -1,10 +1,10 @@
 import style from "../../assets/style/common/bannerWInfo.module.css";
 import FormaddBusiness from './FormaddBusiness';
 
-function Business({baseURL}) {
+function Business({baseURL, isLoaded }) {
     return (
         <div className={style.mainDiv}>
-      <FormaddBusiness baseURL={baseURL}/>
+      <FormaddBusiness baseURL={baseURL} isLoaded={isLoaded}/>
 
         </div>
       );

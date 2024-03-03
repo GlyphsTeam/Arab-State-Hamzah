@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 import 'bootstrap/dist/css/bootstrap.min.css'; // Include Bootstrap CSS
 
 
-function SubCategoryBody() {
+function SubCategoryBody({isLoaded}) {
   const [t] = useTranslation();
 
   const location = useLocation();
@@ -75,13 +75,13 @@ function SubCategoryBody() {
               <h1 className={style.showMapButton} onClick={() => setShowMap(!showMap)}>{t('Show Map')}</h1>
             }
               {showMap && (
-                <Map data={categoryCards} />
+                <Map data={categoryCards} isLoaded={isLoaded}/>
               )}
             </div>
             </div>
           ) : (
             <div className={`col-lg-4 col-md-12 col-sm-12 ${style.mapSection}`}>
-            <Map data={categoryCards} />
+            <Map data={categoryCards} isLoaded={isLoaded}/>
             </div>
           )}
       <div className={`col-lg-8 col-md-12 col-sm-12 d-flex flex-wrap`}>

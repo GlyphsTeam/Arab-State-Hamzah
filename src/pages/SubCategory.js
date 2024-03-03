@@ -4,7 +4,7 @@ import DealsCard from '../components/subCategory/DealsCard';
 import style from "../assets/style/SubCategory.module.css";
 import { useLocation } from "react-router-dom";
 
-function SubCategory() {
+function SubCategory({isLoaded}) {
 
   const location = useLocation();
   const id = location.pathname.split('/')[location.pathname.split('/').length - 2];
@@ -13,7 +13,7 @@ function SubCategory() {
     <>
       <Banner bannerUrl={`stores/slider/${id}`} />
       <div className={`${style.subCategoryMainDiv} pt-3`}>
-        <SubCategoryBody advUrl="ads?page=stores" />
+        <SubCategoryBody advUrl="ads?page=stores" isLoaded={isLoaded}/>
       </div>
       <DealsCard />
     </>

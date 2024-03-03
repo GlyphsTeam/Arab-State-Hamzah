@@ -1,31 +1,30 @@
 import React, { useState, useRef } from 'react'
-import { useJsApiLoader, GoogleMap, Autocomplete } from '@react-google-maps/api'
+import {  GoogleMap, Marker, Autocomplete } from '@react-google-maps/api'
 import clasess from '../../assets/style/formStyle/googleAdre.module.css'
 import { useTranslation } from 'react-i18next'
-
 const center = { lat: 48.8584, lng: 2.2945 }
-const googleMapsLibraries = ['places'];
+// const googleMapsLibraries = ['places'];
 
-function GoogleAddress({ setLat, setLng, street, setStreetValue }) {
-  const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyA89sWYbX0dSZWGvwBJcMFgOOYwNjcmDaM",
-    libraries: googleMapsLibraries,
-  })
+function GoogleAddress({ setLat, setLng, street, setStreetValue, isLoaded  }) {
+  // const { isLoaded } = useJsApiLoader({
+  //   googleMapsApiKey: process.env?.REACT_APP_MAP_KEY,
+  //   libraries: googleMapsLibraries,
+  // });
 
   const { t } = useTranslation();
-  const searchRef = useRef()
-
-  const [map, setMap] = useState(null)
+  const searchRef = useRef();
+  const [map, setMap] = useState(null);
   const [currentMarker, setCurrentMarker] = useState(null);
 
   if (!isLoaded) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
+
 
   function handlePlaceSelect() {
     const place = searchRef.current.getPlace();
     console.log("place>>", place)
-    if (!place.geometry) {
+    if (!place?.geometry) {
       console.log("Place not found");
       return;
     }
@@ -47,9 +46,9 @@ function GoogleAddress({ setLat, setLng, street, setStreetValue }) {
       title: place.name,
     });
     let lat = place.geometry.location.lat();
-    let lng = place.geometry.location.lng();
+    let leng = place.geometry.location.lng();
     setLat(lat);
-    setLng(lng);
+    setLng(leng);
     setCurrentMarker(marker);
   }
 

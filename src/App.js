@@ -10,6 +10,7 @@ import useAxios from "./hooks/useAxiosGet";
 import { useSelector } from 'react-redux';
 import { stateCategory } from './redux/slices/login';
 import GetLang from './Utils/language/GetLang'
+import { useJsApiLoader } from "@react-google-maps/api";
 
 const Home = lazy(() => import('./pages/Home'));
 const UserProfilePage = lazy(() => import('./pages/UserProfilePage'));
@@ -65,7 +66,13 @@ const MyBusiness = lazy(() => import('./pages/MyBusiness'));
 const RentFormAc = lazy(() => import('./components/JobRentForm/rentForm/RentFormApartment'));
 const MySavedBlogs = lazy(() => import('./pages/MySavedBlogs'));
 const PostJobCompany = lazy(() => import('./pages/PostJobCompany'))
+const googleMapsLibraries = ['places']
 function App() {
+  const { isLoaded } = useJsApiLoader({
+    id: "google-map-script",
+    googleMapsApiKey: process.env.REACT_APP_MAP_KEY,
+    libraries:googleMapsLibraries
+  });
   let generalUrl = "general-setting";
   const [Data] = useAxios(generalUrl);
   const logoImage = Data?.data?.navbar?.logo;
@@ -194,20 +201,20 @@ function App() {
                 <Route path={`/saved-blogs`} element={<MySavedBlogs />} />
                 <Route path={`/delete-account`} element={<DeleteAccountPage baseUrl={authAPI} logo={logoBlueImage} />} />
                 <Route path={`/changePassword`} element={<ChangePassword baseUrl={authAPI} logo={logoImage} />} />
-                <Route path={'/add-business'} element={<Business baseURL={baseURL} />} />
+                <Route path={'/add-business'} element={<Business baseURL={baseURL} isLoaded={isLoaded}/>} />
               </Route>
 
               <Route path={``} element={<Home baseURL={baseURL} />} />
               <Route path={`/home`} element={<CityHome baseURL={baseURL} />} />
               <Route path={`/jobs`} element={<Jobs baseURL={baseURL} />} />
               <Route path={`/rents`} element={<Rents baseURL={baseURL} />} />
-              <Route exact path={`/SubCategory/:categoryName?/:id`} element={<SubCategory />} />
+              <Route exact path={`/SubCategory/:categoryName?/:id`} element={<SubCategory isLoaded={isLoaded}/>} />
               <Route exact path={`/Category/:type`} element={<Category baseURL={baseURL} />} />
               <Route exact path={`/Blog`} element={<Blog url={blogs_api} />} />
               <Route exact path={`/Contact`} element={<Contact baseURL={guestAPI} />} />
               <Route exact path={`/Login`} element={<Login baseURL={guestAPI} logo={logoBlueImage} />} />
               <Route exact path={`/Register`} element={<Register baseURL={baseURL} logo={logoBlueImage} />} />
-              <Route exact path={`/MarketProfile/:id/:slug?`} element={<MarketProfile />} />
+              <Route exact path={`/MarketProfile/:id/:slug?`} element={<MarketProfile isLoaded={isLoaded}/>} />
               <Route exact path={`/search-result/:keyword/:type?`} element={<SearchResultPage />} />
               <Route exact path={`/Privacy-Policy`} element={<PrivacyPolicy />} />
               <Route exact path={`/Terms-conditions`} element={<Terms_conditions />} />

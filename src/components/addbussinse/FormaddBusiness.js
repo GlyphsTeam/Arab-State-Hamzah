@@ -24,7 +24,7 @@ const LoadingSpiner = lazy(() => import("../Button/LoadingSpiner"));
 const InputSelect = lazy(() => import("../UI/InputSelect"));
 const BusinessTime = lazy(() => import("./BusinessTime"));
 const ImageSelector = lazy(() => import("../UI/ImageSelector"))
-function ForRentForm() {
+function ForRentForm({isLoaded }) {
 
     const [t, i18n] = useTranslation();
     const navigation = useNavigate();
@@ -802,16 +802,16 @@ function ForRentForm() {
                     <label style={{ fontWeight: "600" }} className={style.labelStyle}>{t("Your Business Location")}</label><br></br>
                     <div className={style.inputDiv}>
                         <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Street Address")}</label>
-                        <input
+                        {/* <input
                             required
                             name="Street Address"
                             type="text"
                             id="Street Address"
-                            placeholder={t("Street Address")}
+                            placeholder={t("Street Address")} 
                             ref={street}
                             className={style.inputForm}
-                        />
-                        {/* <GoogleAddress setStreetValue={setStreetValue} street={street} setLat={setLat} setLng={setLng}/> */}
+                        /> */}
+                        <GoogleAddress isLoaded={isLoaded} setStreetValue={setStreetValue} street={street} setLat={setLat} setLng={setLng}/>
                     </div>
                     <div className={style.inputDiv}>
 

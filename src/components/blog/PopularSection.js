@@ -38,10 +38,9 @@ function PopularSection({ data, urlId }) {
       statisticsId.current.scrollIntoView();
     }
   };
-  
   return (
     <>
-      <h2 className={style.popularHeader}>{t("Feed and News")}</h2>
+      <h2 className={style.popularHeader}>{data?.title}</h2>
       <div className={`${style.columnCardsContainer} pt-4`}>
         {currentPosts?.map((item) => (
           <Link

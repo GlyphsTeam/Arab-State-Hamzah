@@ -23,7 +23,6 @@ function GoogleAddress({ setLat, setLng, street, setStreetValue, isLoaded  }) {
 
   function handlePlaceSelect() {
     const place = searchRef.current.getPlace();
-    console.log("place>>", place)
     if (!place?.geometry) {
       console.log("Place not found");
       return;

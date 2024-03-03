@@ -732,6 +732,7 @@ function ForRentForm({isLoaded }) {
             <Suspense fallback={<p>Loading....</p>} >
                 {isLoadingBusines && <SpinnerStatic text={true} textForm={i18n.language === "en" ? "Please do not close the page. Business form submission may take a few minutes. Thank you for your patience!" : "فضلك لا تغلق الصفحة. قد يستغرق إرسال المعلومات بضع دقائق. شكرا لك على انتظارك"} />}
                 <h1 className={style.titleBussines} >{t("Your Business Form")}</h1>
+                <div className={style.containerBusiness}>
                 <form className={style.formDiv} >
                     <div className={style.formFlex}>
                         <div>
@@ -744,6 +745,7 @@ function ForRentForm({isLoaded }) {
                                     placeholder={t("Company Name")}
                                     className={style.inputForm}
                                     ref={companyName}
+                                    style={{width:"100%"}}
                                 />
                             </div>
                             <>
@@ -1070,6 +1072,7 @@ function ForRentForm({isLoaded }) {
                     })}
                     <FormControlLabel control={<Checkbox checked={isAllOpen} />} label={t("Open 24/7")} onChange={(e) => handlerChangeAlwaysAll(e)} />
                 </form>
+                </div>
                 <div className={style.buttonTwoContainer}>
                     <ButtonSeven handlerClick={handlerSubmitForm} buttonType="submit">
                         {t("Submit")}

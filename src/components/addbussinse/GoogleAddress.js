@@ -1,11 +1,15 @@
 import React, { useState, useRef } from 'react'
-import {  GoogleMap, Marker, Autocomplete } from '@react-google-maps/api'
+import { GoogleMap, Marker, Autocomplete } from '@react-google-maps/api'
 import clasess from '../../assets/style/formStyle/googleAdre.module.css'
 import { useTranslation } from 'react-i18next'
 const center = { lat: 48.8584, lng: 2.2945 }
 // const googleMapsLibraries = ['places'];
+const containerStyle = {
+  width: '100%',
+  height: '100%'
+};
 
-function GoogleAddress({ setLat, setLng, street, setStreetValue, isLoaded  }) {
+function GoogleAddress({ setLat, setLng, street, setStreetValue, isLoaded }) {
   // const { isLoaded } = useJsApiLoader({
   //   googleMapsApiKey: process.env?.REACT_APP_MAP_KEY,
   //   libraries: googleMapsLibraries,
@@ -95,7 +99,7 @@ function GoogleAddress({ setLat, setLng, street, setStreetValue, isLoaded  }) {
         <GoogleMap
           center={center}
           zoom={15}
-          mapContainerStyle={{ width: '100%', height: '100%' }}
+          mapContainerStyle={containerStyle}
           options={{
             zoomControl: false,
             streetViewControl: false,

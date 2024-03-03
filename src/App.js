@@ -66,7 +66,8 @@ const MyBusiness = lazy(() => import('./pages/MyBusiness'));
 const RentFormAc = lazy(() => import('./components/JobRentForm/rentForm/RentFormApartment'));
 const MySavedBlogs = lazy(() => import('./pages/MySavedBlogs'));
 const PostJobCompany = lazy(() => import('./pages/PostJobCompany'))
-const googleMapsLibraries = ['places']
+const googleMapsLibraries = ['places'];
+
 function App() {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",

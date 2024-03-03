@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import ResponiveSlider from "../Slider/ResponiveSlider";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import ButtonThree from "../Button/ButtonThree";
+
+
 function PlacesToVisitSection({ urlId, data,lengthCards }) {
   const [t, i18n] = useTranslation();
   const latest_post = data?.model;

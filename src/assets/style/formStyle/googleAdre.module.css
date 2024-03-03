@@ -74,7 +74,7 @@
 }
 
 .googleMap{
-    height: 70vh; /* Use vh instead of px */
+    height: 300px; /* Use vh instead of px */
     width: 70%; /* Use percentage instead of px */
 }
 
@@ -94,6 +94,8 @@
         height: 30vh;
     }
     .googleMap{
+        max-height: 150px !important;
+        height: 150px;
         width: 80%; /* Use percentage instead of px */
     }
 }

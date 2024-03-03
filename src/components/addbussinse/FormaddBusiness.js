@@ -804,15 +804,6 @@ function ForRentForm({isLoaded }) {
                     <label style={{ fontWeight: "600" }} className={style.labelStyle}>{t("Your Business Location")}</label><br></br>
                     <div className={style.inputDiv}>
                         <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Street Address")}</label>
-                        {/* <input
-                            required
-                            name="Street Address"
-                            type="text"
-                            id="Street Address"
-                            placeholder={t("Street Address")} 
-                            ref={street}
-                            className={style.inputForm}
-                        /> */}
                         <GoogleAddress isLoaded={isLoaded} setStreetValue={setStreetValue} street={street} setLat={setLat} setLng={setLng}/>
                     </div>
                     <div className={style.inputDiv}>

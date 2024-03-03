@@ -12,7 +12,7 @@ const Services = lazy(() => import('../components/home/jobs/Services'));
 const AdvBanner = lazy(() => import('../components/common/AdvBanner'));
 const BannerWInfo = lazy(() => import('../components/common/banner/BannerWInfo'));
 const HomeTitle = lazy(() => import('../components/common/title/HomeTitle'));
-
+const Adsens  = lazy(()=>import("../components/Adsens/Adsens"))
 function Home() {
   const dispatch = useDispatch();
   const stateHome = useSelector(homeState);
@@ -52,6 +52,7 @@ function Home() {
       <CategoryList />
       <Services />
       <TryApp />
+      <Adsens dataAdSlot="7940489560"/>
       <Blog />
       </Suspense>
     </>

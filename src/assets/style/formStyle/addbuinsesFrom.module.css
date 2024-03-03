@@ -510,3 +510,14 @@ margin-top: 10px;
     width: 270px !important;
   }
 }
+@media (max-width:280px){
+  input{
+    width: 100% !important;
+  }
+  .uploadImageDiv{
+    width: 200px !important;
+  }
+  .postHousingUploadImage img{
+    width: 160px !important;
+  }
+}

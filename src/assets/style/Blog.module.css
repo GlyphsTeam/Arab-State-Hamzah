@@ -1413,6 +1413,10 @@ transition: all 0.4s ease;
 }
 
 @media (max-width:500px){
+  .lastSectionContainer ul{
+    display: flex !important;
+    justify-content: center !important;
+  }
   .columnCardsContainerDiv{
     min-height: 220px;
   }

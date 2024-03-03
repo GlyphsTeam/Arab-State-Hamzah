@@ -27,7 +27,7 @@ function PlacesToVisitSection({ urlId, data,lengthCards }) {
       <h2 ref={placesToVisitId} className={style.placesTitle}>
         {data?.title}
       </h2>
-      <div className={`${style.lastSectionContainer}`}>
+      <div className={`${style.lastSectionContainer}`} style={{ flexDirection: 'row' }}>
         <div className={`${style.lastCardContainer}`}>
           <div
             className={

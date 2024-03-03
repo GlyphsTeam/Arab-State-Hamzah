@@ -43,7 +43,7 @@ function Similar({ showBlogData, id, urlId }) {
               {t("You may be interested in")}
             </h2>
             <div className={`${style.lastSection}`}>
-              {showBlogData?.similar?.map((item) => (
+              {showBlogData?.similar?.slice(scroll.startSlice, scroll.endSlice)?.map((item) => (
                 item.image && (
                   <div
                     key={item.id}

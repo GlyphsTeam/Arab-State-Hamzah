@@ -45,7 +45,7 @@ function Advertusments() {
                 <div className={style.glyphsContainer}>
                 <p className={style.adverPar}>
                 <LazyLoadImage src={Glyphs} alt="logo" className={style.logoGlyphs} />
-                    {t("For More Services Visit Our website")} : <a href="https://glyphsmarketing.com" target="_blank" rel="noreferrer">{t("Visit")}</a>
+                   <p className={style.parGly}> {t("For More Services Visit Our website")} : <a href="https://glyphsmarketing.com" target="_blank" rel="noreferrer">{t("Visit")}</a></p>
                 </p>
                 <p className={style.adverPar}>
                     {t("Download Our App in")}<a href={homeStateTry?.ios?.link} target="_blank" rel="noreferrer"> IOS</a> {t("or")} <a rel="noreferrer" target="_blank" href={homeStateTry?.android?.link}>Android </a>

@@ -14,7 +14,6 @@ function HeroNav({ index, setIndex  , subData , mainData}) {
  
  let mainSection = mainData?.main
 
- console.log("subData<><<",subData)
   return (
     <>
       <div className={`container ${style.navContainer}`}>

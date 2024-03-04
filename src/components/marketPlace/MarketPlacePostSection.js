@@ -38,6 +38,8 @@ function MarketPlacePostSection() {
   const emailRef = useRef(null);
   const descriptionRef = useRef(null);
   const phone_numberRef = useRef(null);
+  const portfolioRef = useRef(null);
+
 
   const [marketFormData, setMarketFormData] = useState({
     main_category: "",
@@ -131,7 +133,6 @@ function MarketPlacePostSection() {
     getDataModale();
   }, [selectedSubCategoryID]);
 
-console.log("marketFormData>>>>>>,", marketFormData);
   const color = Data?.data;
   const city = cityData?.data;
   const year = colorData?.data;
@@ -221,6 +222,7 @@ console.log("marketFormData>>>>>>,", marketFormData);
         formData.append("phone_number", phone_numberRef.current?.value);
         formData.append("price", priceRef.current?.value);
         formData.append("year", marketFormData.year)
+        formData.append("profile_url", portfolioRef.current?.value);
 
         formData.append("condition", condationRef.current?.value);
         marketFormData.category &&
@@ -260,6 +262,7 @@ console.log("marketFormData>>>>>>,", marketFormData);
           priceRef.current = null;
           condationRef.current = null;
           placeRef.current = null;
+          portfolioRef.current=null;
           setSend(true);
           setTimeout(() => {
             setCount(4);
@@ -577,6 +580,14 @@ console.log("marketFormData>>>>>>,", marketFormData);
         {showEmailWarn && (
           <p className={jobStyle.required}>Email is required</p>
         )}
+         <input
+          type="text"
+          id="portfolio"
+          name="portfolio"
+          ref={portfolioRef}
+          placeholder={t("Portfolio Url")}
+          className={i18n.language === "en" ? style.phoneNumberclasEn : style.phoneNumberclasAr}
+        />
         <input
           type="tel"
           id="phone_number"

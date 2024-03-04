@@ -26,6 +26,8 @@ function ForRentForm({ baseUrl, rentPageData }) {
   const phoneRef = useRef(null);
   const typeRef = useRef(null);
   const placeRef = useRef(null);
+  const portfolioRef = useRef(null);
+
   const [t, i18n] = useTranslation();
 
   const [anonymous, setAnonymous] = useState("");
@@ -151,6 +153,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
         formData.append("bedrooms", bedroomsRef.current?.value);
         formData.append("type", typeRef.current?.value);
         formData.append("area", areaRef.current?.value);
+        formData.append("profile_url", portfolioRef.current?.value);
         formData.append("place", placeRef.current?.value);
         formData.append("looking", 1);
         anonymous && formData.append("anonymous", anonymous);
@@ -389,6 +392,16 @@ function ForRentForm({ baseUrl, rentPageData }) {
               placeholder={t("Area square feet")}
               className={style.inputForm}
               ref={areaRef}
+            />
+          </div>
+          <div className={style.inputDiv}>
+            <input
+              name="portfolio"
+              type="text"
+              id="porfile"
+              placeholder={t("Portfolio Url")}
+              className={style.inputForm}
+              ref={portfolioRef}
             />
           </div>
           <div className={style.inputDiv}>

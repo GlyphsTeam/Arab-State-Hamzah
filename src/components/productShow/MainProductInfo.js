@@ -3,7 +3,7 @@ import style from "../../assets/style/showProduct/mainProductInfo.module.css";
 import Alert from "../common/alert/Alert";
 import Share from "../../Utils/Share";
 import { useTranslation } from "react-i18next";
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 import useFetch from "../../hooks/useFetch";
 function MainProductInfo({ showProductData }) {
   const [showShareModal, setShowShareModal] = useState(false);
@@ -51,6 +51,7 @@ function MainProductInfo({ showProductData }) {
         <div>
           <h1> {showProductData?.title} </h1>
         </div>
+        <div className={style.contactContanier}>
         <div className={style.shareSaveContainer}>
           <i
             className="fas fa-share-square"
@@ -62,6 +63,10 @@ function MainProductInfo({ showProductData }) {
             aria-hidden="true"
             onClick={() => addToFavorite(showProductData?.id)}
           ></i>
+        </div>
+        <Link to={showProductData?.profile_url} target="_blank">
+         <button>{t("Contact me")}</button>
+        </Link>
         </div>
       </div>
       <h3 className={style.showProductPrice}>${showProductData?.price}</h3>

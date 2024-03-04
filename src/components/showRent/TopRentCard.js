@@ -42,16 +42,18 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
     setSaveId(rentData.id);
     setSend(true)
   };
-
+  console.log("rentData>>", rentData)
 
   return (
     <>
       <div className={style.mainTopRentContainer}>
         <h1 className={style.RentTitle}>{rentData?.title} </h1>
+
         <p className={style.addressStyle}>
           <i className={`fas fa-home ${style.accommodationIcon}`}></i>{" "}
           {rentData?.looking_for_text}{" "}
         </p>
+
         <div className={style.firstSection}>
           <div>
             <div className={style.infoSection}>
@@ -188,33 +190,28 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
           </div>
         </div>
       </div>
+      <div className={style.contactMe}>
       <div className={style.shareSaveSection}>
         <i
           className={`fas fa-share-square ${style.rentIcon}`}
           onClick={() => setShowShareModal(true)}
         ></i>
+
         {!rentData?.is_user_post && <i
           className={`${favoriteIcon} ${style.rentIcon}`}
           onClick={handleSaveJob}
         ></i>
         }
       </div>
+      <Link to={rentData?.profile_url} target="_blank">
+      <button >{t("Contact me")} </button>
+      </Link>
+      </div>
       <div
         className={
           i18n.language === "en" ? style.contactStyle : style.contactStyleArabic
         }
       >
-        {/* <p className={style.contactTitle}>{t("Contact Us")}</p> */}
-        {/* <p className={style.contactParagraph}>
-          <i className={`fas fa-envelope-open-text ${style.contactIcon}`}></i>
-          {rentData?.email}
-        </p> */}
-        {/* <p>
-          <i className={`fas fa-phone-alt ${style.}`}></i>
-          {rentData?.phone_number}
-        </p> */}
-
-
       </div>
       {showShareModal && (
         <Share

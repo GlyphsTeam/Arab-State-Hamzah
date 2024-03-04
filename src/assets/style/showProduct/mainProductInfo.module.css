@@ -7,6 +7,18 @@
 .shareSaveContainer{
     display: flex;
 }
+.contactContanier button{
+    color: var(--white);
+    background-color: var(--secondary-color);
+    border: none;
+    margin-top: 25px;
+    border-radius: 15px;
+    padding: 8px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
 
 .contactDiv{
     display: flex;

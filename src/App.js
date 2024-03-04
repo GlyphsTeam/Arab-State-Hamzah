@@ -74,6 +74,7 @@ function App() {
     googleMapsApiKey: process.env.REACT_APP_MAP_KEY,
     libraries:googleMapsLibraries
   });
+  
   let generalUrl = "general-setting";
   const [Data] = useAxios(generalUrl);
   const logoImage = Data?.data?.navbar?.logo;

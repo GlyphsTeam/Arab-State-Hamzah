@@ -3,8 +3,13 @@ import style from '../../assets/style/advertusments.module.css';
 import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import Glyphs from '../../assets/Images/logoGlyphs.png'
+import Glyphs from '../../assets/Images/logoGlyphs.png';
+import { useSelector } from 'react-redux';
+import { homeState } from '../../redux/Home/home';
 function Advertusments() {
+    const stateHome = useSelector(homeState);
+    const homeStateTry = stateHome?.homeData?.try_app;
+
     const [t] = useTranslation();
     const location = useLocation();
     const [adverShow, setAdverShow] = useState(true);
@@ -37,10 +42,15 @@ function Advertusments() {
     return (
         <>
             {adverShow && <div className={style.containerAdver}>
-                <LazyLoadImage src={Glyphs} alt="logo" className={style.logoGlyphs} />
+                <div className={style.glyphsContainer}>
                 <p className={style.adverPar}>
-                    {t("For More Services Visit Our website")} : <a href="https://glyphsmarketing.com" target="_blank" rel="noreferrer">Visit</a>
+                <LazyLoadImage src={Glyphs} alt="logo" className={style.logoGlyphs} />
+                    {t("For More Services Visit Our website")} : <a href="https://glyphsmarketing.com" target="_blank" rel="noreferrer">{t("Visit")}</a>
                 </p>
+                <p className={style.adverPar}>
+                    {t("Download Our App in")}<a href={homeStateTry?.ios?.link} target="_blank" rel="noreferrer"> IOS</a> {t("or")} <a rel="noreferrer" target="_blank" href={homeStateTry?.android?.link}>Android </a>
+                </p>
+                </div>
             </div>
             }
         </>

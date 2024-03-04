@@ -24,6 +24,7 @@ function ShowRentForm({ baseUrl }) {
   const bedroomsRef = useRef(null);
   const phoneRef = useRef(null);
   const typeRef = useRef(null);
+  const portfolioRef = useRef(null);
   const [typeId, setTypeId] = useState("");
 
 
@@ -147,10 +148,6 @@ console.log("typeId>>",typeId)
       try {
 
         const formData = new FormData();
-        console.log("title", titleRef.current?.value, "description",
-          descriptionRef.current?.value, "gender", genderRef.current?.value,
-          "email", emailRef.current?.value, "phone_number", phoneRef.current?.value, "price", priceRef.current?.value,
-          "type>>>", typeRef.current?.value, "place>>>", placeRef.current?.value)
         formData.append("title", titleRef.current?.value);
         formData.append("description", descriptionRef.current?.value);
         formData.append("gender", genderRef.current?.value);
@@ -162,6 +159,7 @@ console.log("typeId>>",typeId)
         formData.append("type", typeId);
         formData.append("area", areaRef.current?.value);
         formData.append("place", placeRef.current?.value);
+        formData.append("profile_url", portfolioRef.current?.value);
         formData.append("looking", 0);
         anonymous && formData.append("anonymous", anonymous);
         is_bathroom_shared &&
@@ -192,11 +190,11 @@ console.log("typeId>>",typeId)
           areaRef.current = null;
           placeRef.current = null;
           setLoadingRent(false);
-          // navigate("/my-housing", {
-          //   state: {
-          //     stateLoading: true
-          //   }
-          // })
+          navigate("/my-housing", {
+            state: {
+              stateLoading: true
+            }
+          })
         });
       } catch (error) {
         console.log(error);
@@ -401,6 +399,16 @@ console.log("typeId>>",typeId)
               placeholder={t("Area square feet")}
               className={style.inputForm}
               ref={areaRef}
+            />
+          </div>
+          <div className={style.inputDiv}>
+            <input
+              name="portfolio"
+              type="text"
+              id="porfile"
+              placeholder={t("Portfolio Url")}
+              className={style.inputForm}
+              ref={portfolioRef}
             />
           </div>
           <div className={style.inputDiv}>

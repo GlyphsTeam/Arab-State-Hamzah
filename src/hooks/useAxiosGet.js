@@ -43,7 +43,8 @@ function useAxios(url, loading , ) {
         })
     }
     catch (error) {
-      console.log(error);
+      console.log("error Ren>>>>>",error);
+
       dispatch(setLoading(false));
     }
   }, [url]);

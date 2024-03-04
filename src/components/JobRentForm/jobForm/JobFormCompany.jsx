@@ -28,6 +28,7 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
   const phoneRef = useRef(null);
   const emailRef = useRef(null);
   const short_descRef = useRef(null);
+  const portfolioRef = useRef(null);
 
   const [jobFormData, setJobFormData] = useState({
     anonymous: "false",
@@ -169,6 +170,7 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
         formData.append("phone", phoneRef.current?.value);
         jobFormData.place && formData.append("place", jobFormData?.place);
         formData.append("looking", 0);
+        formData.append("profile_url", portfolioRef.current?.value);
         formData.append("company_name", companyRef.current?.value);
         jobFormData.logo && formData.append("logo", jobFormData?.logo);
 
@@ -187,7 +189,8 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
           companyRef.current = null;
           emailRef.current = null;
           phoneRef.current = null;
-    
+          portfolioRef.current = null;
+
           setLoadingJob(false);
         })
       } catch (error) {
@@ -372,6 +375,17 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
               ))}
             </select>
 
+          </div>
+          <div className={style.inputDiv}>
+            <label>{t("Portfolio Url")}</label>
+            <input
+              name="portfolio"
+              type="text"
+              id="porfile"
+              placeholder={t("Portfolio Url")}
+              className={style.inputForm}
+              ref={portfolioRef}
+            />
           </div>
 
           <div className={style.inputDiv}>

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import style from "../../assets/style/ShowJobPage.module.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Share from "../../Utils/Share";
 import ReactHtmlParser from "html-react-parser";
 import useFetch from "../../hooks/useFetch";
 import { useDispatch } from 'react-redux';
 import { setSavedJobData } from '../../redux/Rent/rent';
+
 function MiddleJob({ jobData, setShow, token, setCount, id }) {
   const [saveId, setSaveId] = useState();
   const [activeSave, setActiveSave] = useState(jobData?.saved);
@@ -90,21 +91,27 @@ function MiddleJob({ jobData, setShow, token, setCount, id }) {
               </div>
             </div>
           </div>
-          <div
-            className={
-              i18n.language === "en"
-                ? `${style.icon_row} d-flex `
-                : `${style.icon_row_ar} d-flex `
-            }
-          >
-            <i
-              className={`fas fa-share-square ${style.showJobIcon}`}
-              onClick={() => setShowShareModal(true)}
-            ></i>
-            <i
-              onClick={handleSaveJob}
-              className={`${saveIcon} fa-bookmark ${style.showJobIcon}`}
-            ></i>
+          <div className={style.contactContainer}>
+            <div
+              className={
+                i18n.language === "en"
+                  ? `${style.icon_row} d-flex `
+                  : `${style.icon_row_ar} d-flex `
+              }
+            >
+              <i
+                className={`fas fa-share-square ${style.showJobIcon}`}
+                onClick={() => setShowShareModal(true)}
+              ></i>
+              <i
+                onClick={handleSaveJob}
+                className={`${saveIcon} fa-bookmark ${style.showJobIcon}`}
+              ></i>
+            </div>
+
+            <Link to={jobData?.profile_url} target="_blank">
+              <button>{t("Contact me")}</button>
+            </Link>
           </div>
         </div>
       </div>

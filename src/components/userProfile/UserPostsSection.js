@@ -1,5 +1,5 @@
 import JobCard from "../../components/common/cards/JobCardPost";
-import HousingCard from "../../components/common/cards/NewCardRent";
+import HousingCard from "../../components/common/cards/NewCardRentTwo";
 import ProductCard from "../../components/common/cards/ProductCard";
 import style from "../../assets/style/userProfile/userProfile.module.css";
 import { useTranslation } from "react-i18next";

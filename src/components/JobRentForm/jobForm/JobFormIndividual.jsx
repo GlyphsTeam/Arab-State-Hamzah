@@ -25,6 +25,8 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
   const emailRef = useRef(null);
   const phoneRef = useRef(null);
   const short_descRef = useRef(null);
+  const portfolioRef = useRef(null);
+
   const [jobFormData, setJobFormData] = useState({
     anonymous: "false",
     company: "",
@@ -147,6 +149,8 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
         formData.append("phone", phoneRef.current?.value);
         formData.append("place", jobFormData.place);
         formData.append("experience_level", jobFormData.experience_level)
+        formData.append("profile_url", portfolioRef.current?.value);
+
         formData.append("looking", 1);
 
         fetch(`${baseUrl}/jobs/create`, {
@@ -163,7 +167,8 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
           salary_typeRef.current = null;
           emailRef.current = null;
           phoneRef.current = null;
-          
+          portfolioRef.current = null;
+
           setLoadingJob(false);
           navigate("/my-job", {
             state: {
@@ -270,7 +275,7 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
                 isSearchable={true}
                 placeholder={t("Select...")}
               />
-              
+
             </div>
             <div
               className={
@@ -286,7 +291,7 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
                 placeholder={t("Select...")}
                 onChange={filterChange}
               />
-         
+
             </div>
           </div>
 
@@ -318,6 +323,18 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
               ))}
             </select>
 
+          </div>
+          <div className={style.inputDiv}>
+            <label>{t("Portfolio Url")}</label>
+
+            <input
+              name="portfolio"
+              type="text"
+              id="porfile"
+              placeholder={t("Portfolio Url")}
+              className={style.inputForm}
+              ref={portfolioRef}
+            />
           </div>
 
           <div className={style.inputDiv}>
@@ -361,7 +378,7 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
               placeholder={t("Description")}
             ></textarea>
           </div>
-        
+
           <div className={style.checkboxDiv}>
             <input
               id="remember"
@@ -392,7 +409,7 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
       </div>
       <div className={style.submitButton}>
         <ButtonSeven handlerClick={handleSubmit} buttonType="submit">
-        {t("Post a Job")}
+          {t("Post a Job")}
 
         </ButtonSeven>
       </div>

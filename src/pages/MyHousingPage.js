@@ -18,6 +18,7 @@ function SavedJobPage({ baseUrl }) {
   const dispatch = useDispatch();
   const postedRent = useSelector((state) => state.rent.postedRent);
   const [t] = useTranslation();
+  console.log("postedRent>>",postedRent)
   const getPostedRent = async () => {
     const token = localStorage.getItem("arab_user_token");
     const city_ID = process.env.REACT_APP_City_ID;

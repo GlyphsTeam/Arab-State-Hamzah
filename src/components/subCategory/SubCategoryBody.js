@@ -29,7 +29,7 @@ function SubCategoryBody({isLoaded}) {
       ? `stores?main_id=${id}&limit_by=100`
       : `stores?main_id=${id}&category_id=${activeIndex}&limit_by=100`;
 
-  let [Data] = useAxios(url);
+  let [Data] = useAxios(url, "false");
   let categoryCards = Data?.data;
   useEffect(() => {
     if (window.innerWidth < 992) {

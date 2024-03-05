@@ -32,10 +32,6 @@ function Advertusments() {
             location.pathname === "/Register" ||
             location.pathname === "/Profile" ||
             location.pathname === "/Forget-password" ||
-            // location.pathname === "/rent" ||
-            // location.pathname === "/rents" ||
-            // location.pathname === "/jobs" ||
-            // location.pathname === "/job" ||
             location.pathname.includes("Show-Product")) {
             setAdverShow(false)
         }

@@ -15,6 +15,8 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 import Alert from "../../common/alert/Alert";
 import Advert from "../../Advertisement/Advertusments"
 import { MdApps } from 'react-icons/md';
+import { FaBars } from "react-icons/fa6";
+// import { HiMiniBars3CenterLeft } from "react-icons/hi2";
 
 
 
@@ -322,7 +324,7 @@ function NavBar({ logoImage }) {
                   setStatesDropDown(!statesDropDown);
                 }}
               >
-                <MdApps className={style.stateIcon}/>
+                <MdApps className={style.stateIcon} />
                 {/* <i className={`fas fa-th ${style.stateIcon}`}></i> */}
               </button>
 
@@ -438,12 +440,13 @@ function NavBar({ logoImage }) {
                   disableScroll(!statesDropDown);
                 }}
               >
-                <i className={`fas fa-th ${style.stateIcon}`}></i>
+                <MdApps className={style.stateIcon}/>
+                {/* <i className={`fas fa-th ${style.stateIcon}`}></i> */}
               </button>
             </div>
 
             <div className={`${style.burgerMenu}`} onClick={handleShowNavbar}>
-              <i className={`fas fa-bars`}></i>
+              <FaBars className={style.bars}/>
             </div>
           </div>
           {showNavbar && (

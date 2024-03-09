@@ -12,8 +12,11 @@
 .profileDropdown{
   color: var(--primary-color) !important;
 }
-.searchIcon{
+.searchIcon, .bars{
   color:#fff;
+}
+.bars{
+  margin-bottom:5px;
 }
 .stateIcon{
   font-size:25px;

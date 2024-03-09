@@ -97,7 +97,7 @@ function App() {
     import('./assets/style/statesPalettes/arabNewJersey/App.module.css').then(() => {
     }).catch((err) => console.log(err))
   }
-  if (city === "DE") {
+  if (city === "MI") {
     import('./assets/style/statesPalettes/arabdetroit/App.module.css').then(() => {
     }).catch((err) => console.log(err));
   }

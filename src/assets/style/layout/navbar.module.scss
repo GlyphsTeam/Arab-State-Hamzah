@@ -8,6 +8,18 @@
 .linkColor:hover{
   color: var(--secondary-color) !important;
 }
+.linkColor{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 120%;
+}
+.linkColor svg{
+  font-size:25px;
+}
+.languageIcon{
+  margin:5px;
+}
 
 .profileDropdown{
   color: var(--primary-color) !important;

@@ -6,6 +6,10 @@
 .lastSectionContainer{
   margin-bottom: 40px;
 }
+.searchIcon{
+  font-size: 20px;
+  font-weight: bolder;
+}
 .cloumnParagraph p {
   text-align: justify;
 }

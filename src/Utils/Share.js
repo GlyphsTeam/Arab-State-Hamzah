@@ -1,11 +1,14 @@
 import React, { useRef, useState } from "react";
 import style from "../assets/style/share/share.module.css";
 import { useTranslation } from "react-i18next";
+import { FaTwitter, FaWhatsapp } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { BiLogoTelegram } from "react-icons/bi";
 
 function Share({ url, setShowShareModal }) {
   const inputRef = useRef(null);
-  const [t, i18n] = useTranslation();
-  
+  const [t] = useTranslation();
+
   const { protocol, host } = window.location;
   const sharedUrl = `${protocol}//${host}${url}`;
   const [isCopied, setIsCopied] = useState(false);
@@ -59,11 +62,11 @@ function Share({ url, setShowShareModal }) {
                 }
                 target="blank"
               >
-                <i className="fab fa-twitter"></i>
+                <FaTwitter />
               </a>
 
               <a href={emailLink} target="blank">
-                <i className="fas fa-envelope"></i>
+                <MdEmail />
               </a>
 
               <a
@@ -73,7 +76,7 @@ function Share({ url, setShowShareModal }) {
                 }
                 target="blank"
               >
-                <i className="fab fa-whatsapp"></i>
+                <FaWhatsapp />
               </a>
 
               <a
@@ -82,7 +85,7 @@ function Share({ url, setShowShareModal }) {
                 }
                 target="blank"
               >
-                <i className="fab fa-telegram-plane"></i>
+                <BiLogoTelegram />
               </a>
             </ul>
             <p>{t("Or copy link")}</p>
@@ -95,9 +98,8 @@ function Share({ url, setShowShareModal }) {
                 ref={inputRef}
               />
               <button
-                className={`${style.subscribeButton} ${
-                  isCopied ? style.subscribed : ""
-                } button`}
+                className={`${style.subscribeButton} ${isCopied ? style.subscribed : ""
+                  } button`}
                 onClick={handleCopyClick}
               >
                 {isCopied ? (

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import style from "../../assets/style/Blog.module.css";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from 'react-router-dom';
+import { IoSearch } from "react-icons/io5";
+
 function BlogSearch(props) {
   const [t] = useTranslation();
   const [searchQuery, setSearchQuery] = useState("");
@@ -23,7 +25,7 @@ function BlogSearch(props) {
   return (
     <div className={style.searchContainer}>
       <div className={style.blogSearchField}>
-        <i className={`fas fa-search ${style.searchIcon}`}></i>
+        <IoSearch className={style.searchIcon}/>
         <input
           type="search"
           placeholder={t("Search...")}

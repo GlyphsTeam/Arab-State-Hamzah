@@ -3,6 +3,10 @@ import style from "../../assets/style/contactUs.module.css";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import Alert from "../customAlert/Alert";
+import { MdEmail } from "react-icons/md";
+import { FaPhone } from "react-icons/fa6";
+import { FaPen } from "react-icons/fa";
+
 function RightContact({baseURL}) {
   const [t] = useTranslation();
   const [show, setShow] = useState(false);
@@ -61,7 +65,7 @@ function RightContact({baseURL}) {
         <form>
           <div className={`row mt-4 d-flex ${style.formDiv}`}>
             <label htmlFor="email" className={`col-1 `}>
-              <i className={`fas fa-envelope ${style.icon}`}></i>
+              <MdEmail className={style.icon}/>
             </label>
             <input
               className={`col-11 ${style.formControl}`}
@@ -78,7 +82,8 @@ function RightContact({baseURL}) {
           )}
           <div className={`row mt-4 d-flex ${style.formDiv}`}>
             <label htmlFor="name" className={`col-1 `}>
-              <i className={`fas fa-phone-alt ${style.icon}`}></i>
+              {/* <i className={`fas fa-phone-alt ${style.icon}`}></i> */}
+              <FaPhone className={style.icon}/>
             </label>
             <input
               className={`col-11 ${style.formControl}`}
@@ -92,7 +97,7 @@ function RightContact({baseURL}) {
           </div>
           <div className={`row mt-4 d-flex ${style.formDiv}`}>
             <label htmlFor="subject" className={`col-1 `}>
-              <i className={`fas fa-pen ${style.icon}`}></i>
+             <FaPen className={style.icon}/>
             </label>
             <input
               className={`col-11 ${style.formControl}`}

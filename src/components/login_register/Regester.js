@@ -6,6 +6,9 @@ import UseFetchPost from "../../hooks/useFetchPost";
 import { useTranslation } from "react-i18next";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import ButtonSeven from '../Button/ButtonSeven';
+import { MdEmail } from "react-icons/md";
+import { RiLockPasswordFill } from "react-icons/ri";
+import { FaUser } from "react-icons/fa";
 
 const Regester = ({ baseURL, logo }) => {
     const [t] = useTranslation();
@@ -117,7 +120,7 @@ const Regester = ({ baseURL, logo }) => {
 
                             <form className={style.registerForm}>
                                 <div className={`row mt-4 ${style.formRow}`}>
-                                    <label htmlFor="name" className={`col-2 `}><i className={`fas fa-user ${style.icon}`}></i></label>
+                                    <label htmlFor="name" className={`col-2 `}><FaUser className={style.icon}/></label>
                                     <input
                                         className={`col-10 ${style.formControl}`}
                                         id="name"
@@ -130,7 +133,7 @@ const Regester = ({ baseURL, logo }) => {
                                 {showNameWarn && <p className={style.contactValidation}>{t('Name is required.')}</p>}
 
                                 <div className={`row mt-4 ${style.formRow}`}>
-                                    <label htmlFor="email" className={`col-2 `}><i className={`fas fa-envelope ${style.icon}`}></i></label>
+                                    <label htmlFor="email" className={`col-2 `}><MdEmail className={style.icon}/></label>
                                     <input
                                         className={`col-10 ${style.formControl}`}
                                         id="email"
@@ -142,7 +145,7 @@ const Regester = ({ baseURL, logo }) => {
                                 </div>
 
                                 <div className={`row mt-4 ${style.formRow}`}>
-                                    <label htmlFor="email" className={`col-2 `}><i className={`fas fa-lock ${style.icon}`}></i></label>
+                                    <label htmlFor="email" className={`col-2 `}><RiLockPasswordFill className={style.icon}/></label>
                                     <input
                                         className={`col-10 ${style.formControl}`}
                                         id="password"
@@ -157,7 +160,7 @@ const Regester = ({ baseURL, logo }) => {
 
 
                                 <div className={`row mt-4 ${style.formRow}`}>
-                                    <label htmlFor="email" className={`col-2 `}><i className={`fas fa-lock ${style.icon}`}></i></label>
+                                    <label htmlFor="email" className={`col-2 `}><RiLockPasswordFill className={style.icon}/></label>
                                     <input
                                         className={`col-10 ${style.formControl}`}
                                         id="password"

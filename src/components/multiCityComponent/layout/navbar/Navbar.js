@@ -11,10 +11,11 @@ import { useTranslation } from "react-i18next";
 import useAxios from "../../../hooks/useAxiosGet";
 import NestedDropDown from "./NestedDropDown";
 import AccordionMobile from './AccordionMobile';
+import { FaSignOutAlt } from "react-icons/fa";
 
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 
-function NavBar({logoImage}) {
+function NavBar({ logoImage }) {
 
 
   const [showNavbar, setShowNavbar] = useState(false);
@@ -75,70 +76,69 @@ function NavBar({logoImage}) {
 
   useEffect(() => {
     setDropDown(false);
-  },[pathName]);
+  }, [pathName]);
 
 
   const urlChangeLang = (lang, type) => {
     const { pathname } = location;
-      // const params = pathname.split('/');
-      const params = window.location.pathname.split('/');
-      const langUrl = params[1]; 
-      const newUrlLang = params[2];
-      localStorage.setItem("lang", lang);
-      i18n.changeLanguage(lang);
-      langDir(lang);
+    // const params = pathname.split('/');
+    const params = window.location.pathname.split('/');
+    const langUrl = params[1];
+    const newUrlLang = params[2];
+    localStorage.setItem("lang", lang);
+    i18n.changeLanguage(lang);
+    langDir(lang);
 
-      const newPath = pathname.replace(`/${langUrl}`, "");
+    const newPath = pathname.replace(`/${langUrl}`, "");
 
 
-      window.location.replace(`/${i18n.language}${newPath}`);
-           
+    window.location.replace(`/${i18n.language}${newPath}`);
+
   };
 
 
-const langDir = (newLang) => {
-  if(newLang === 'ar'){
+  const langDir = (newLang) => {
+    if (newLang === 'ar') {
       document.getElementById("root").style.direction = "rtl";
-  }else{
+    } else {
       document.getElementById("root").style.direction = "ltr";
-  }
-}; 
+    }
+  };
 
 
 
-const city = [
-  {
+  const city = [
+    {
       id: "1",
       cityName: "Dallas",
       value: "GA",
-  },
-  {
+    },
+    {
       id: "2",
       cityName: "Dallas2",
       value: "DA",
-  },
-]
+    },
+  ]
 
-const cityName = localStorage.getItem("city");
-useEffect(() => {
-  if(city.length > 1){
-    
-    if(cityName){
-    }else if(location.pathname !== '/home'){
-      
+  const cityName = localStorage.getItem("city");
+  useEffect(() => {
+    if (city.length > 1) {
+
+      if (cityName) {
+      } else if (location.pathname !== '/home') {
+
+      }
     }
-  }
- 
+
   }, [city]);
 
   return (
     <>
-    {/* <NavbarChangeLanguage/> */}
+      {/* <NavbarChangeLanguage/> */}
       {!hideNavbar && (
         <header
-          className={`${style.headerContainer} ${
-            navbar ? style.activeNav : ""
-          } `}
+          className={`${style.headerContainer} ${navbar ? style.activeNav : ""
+            } `}
         >
           <div className={i18n.language === "ar" ? style.logoDivAr : ""}>
             <Link to={`/`}>
@@ -154,7 +154,7 @@ useEffect(() => {
           </div>
           <nav className={style.navigationBarContainer}>
             <ul className={style.navigationBarUnorderedList}>
-            <Link to={`/`}>
+              <Link to={`/`}>
                 <li className={pathName === "/" ? style.activePath : ""}>
                   {t("Home")}{" "}
                 </li>
@@ -172,13 +172,13 @@ useEffect(() => {
                 </li>
               </Link>
               <Link to="/Our-Service">
-              <li onMouseEnter={() => setDropDown(!dropDown)} onMouseLeave={() => setDropDown(!dropDown)} className={pathName === "/Our-Service" ? style.activePath : ""} >
-              {t("Our Services")}
-              {dropDown && (
-                <NestedDropDown data={Data?.data} />
-              )}
+                <li onMouseEnter={() => setDropDown(!dropDown)} onMouseLeave={() => setDropDown(!dropDown)} className={pathName === "/Our-Service" ? style.activePath : ""} >
+                  {t("Our Services")}
+                  {dropDown && (
+                    <NestedDropDown data={Data?.data} />
+                  )}
 
-                {/* <MenuDropDown
+                  {/* <MenuDropDown
                   data={Data?.data}
                   dropDownInfo={t("Our Services")}
                   handleCloseModal={handleCloseModal}
@@ -202,7 +202,7 @@ useEffect(() => {
                   ]}
                 /> */}
 
-              </li>
+                </li>
               </Link>
               <Link to="/Contact">
                 <li className={pathName === "/contact" ? style.activePath : ""}>
@@ -221,26 +221,26 @@ useEffect(() => {
               <NavSearch />
             </div>
 
-            <div>              
-                <button
-                  className={style.statesBtn}
-                  onClick={() => {
-                    setStatesDropDown(!statesDropDown);
-                  }}
-                >
-                  <i className={`fas fa-th ${style.stateIcon}`}></i>
-                </button>
-             
-            {statesDropDown && (
-              <div className={`row ${style.statesDropDownDiv}`}>
+            <div>
+              <button
+                className={style.statesBtn}
+                onClick={() => {
+                  setStatesDropDown(!statesDropDown);
+                }}
+              >
+                <i className={`fas fa-th ${style.stateIcon}`}></i>
+              </button>
 
-                {statesData?.map((item, index) =>
-                <a key={index} className={`col-4 ${style.statesImg}`} href={`${item.url}`} target="blank"> <LazyLoadImage src={item.image} height={50} width={50}/> </a>
-                )}
-               
-              </div>
-            )
-            }
+              {statesDropDown && (
+                <div className={`row ${style.statesDropDownDiv}`}>
+
+                  {statesData?.map((item, index) =>
+                    <a key={index} className={`col-4 ${style.statesImg}`} href={`${item.url}`} target="blank"> <LazyLoadImage src={item.image} height={50} width={50} /> </a>
+                  )}
+
+                </div>
+              )
+              }
             </div>
             <div>
               {i18n.language === "en" && (
@@ -306,7 +306,8 @@ useEffect(() => {
                       path: "/",
                       title: (
                         <div onClick={logout}>
-                          <i className="fas fa-sign-out-alt"> {t("LogOut")} </i>{" "}
+                          <FaSignOutAlt />{" "}
+                          {t("LogOut")} {" "}
                         </div>
                       ),
                     },
@@ -379,13 +380,13 @@ useEffect(() => {
                           ]}
                         />
                       </li> */}
-                        <li>
-                            {/* {t("Our Services")}
+                      <li>
+                        {/* {t("Our Services")}
                             {dropDown && (
                               <NestedDropDown data={Data?.data} />
                             )} */}
-                        <AccordionMobile handleCloseModal = {handleCloseModal} />
-                        </li>
+                        <AccordionMobile handleCloseModal={handleCloseModal} />
+                      </li>
                       <Link to="/About" onClick={handleCloseModal}>
                         <li> {t("about us")}</li>
                       </Link>
@@ -435,9 +436,8 @@ useEffect(() => {
                               path: "/",
                               title: (
                                 <div onClick={logout}>
-                                  <i className="fas fa-sign-out-alt">
-                                    {t("LogOut")}
-                                  </i>
+                                  <FaSignOutAlt />
+                                  {t("LogOut")}
                                 </div>
                               ),
                             },
@@ -484,8 +484,9 @@ useEffect(() => {
               </div>
             </div>
           )}
-        </header>
-      )}
+        </header >
+      )
+      }
     </>
   );
 }

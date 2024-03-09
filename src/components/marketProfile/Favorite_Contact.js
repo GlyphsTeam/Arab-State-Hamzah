@@ -8,8 +8,7 @@ import { useDispatch } from 'react-redux';
 import { setSavedBussiness } from '../../redux/Business/business';
 import { FaShareSquare } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa6";
-import { MdOutlineFavoriteBorder } from "react-icons/md";
-import { MdFavorite, MdAttachEmail } from "react-icons/md";
+import { MdFavorite, MdAttachEmail,MdOutlineFavoriteBorder } from "react-icons/md";
 
 function Favorite_Contact({ data, setShow, setCount }) {
   const [t] = useTranslation();

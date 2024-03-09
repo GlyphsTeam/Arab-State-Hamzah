@@ -15,8 +15,9 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 import Alert from "../../common/alert/Alert";
 import Advert from "../../Advertisement/Advertusments"
 import { MdApps } from 'react-icons/md';
-import { FaBars,FaRegUser } from "react-icons/fa6";
-// import { FaSignOutAlt } from "react-icons/fa";
+import { FaBars, FaRegUser } from "react-icons/fa6";
+import { FaSignOutAlt, FaGlobe } from "react-icons/fa";
+
 
 // import { HiMiniBars3CenterLeft } from "react-icons/hi2";
 
@@ -360,7 +361,7 @@ function NavBar({ logoImage }) {
                     urlChangeLang("ar");
                   }}
                 >
-                  <i className={`fas fa-globe ${style.languageIcon}`}></i> AR
+                  <FaGlobe className={style.languageIcon}/>AR
                 </button>
               )}
               {i18n.language === "ar" && (
@@ -373,7 +374,7 @@ function NavBar({ logoImage }) {
                     urlChangeLang("en");
                   }}
                 >
-                  <i className={`fas fa-globe ${style.languageIcon}`}></i> EN
+                  <FaGlobe className={style.languageIcon}/> EN
                 </button>
               )}
             </div>
@@ -385,7 +386,7 @@ function NavBar({ logoImage }) {
                     handleCloseModal={handleCloseModal}
                     btnInfo={
                       <div className={btnStyle.iconUserDiv}>
-                      <FaRegUser className={style.userIcon}/>
+                        <FaRegUser className={style.userIcon} />
                         {/* <i className={`far fa-user  ${style.userIcon}`}></i> */}
                       </div>
                     }
@@ -395,7 +396,7 @@ function NavBar({ logoImage }) {
                 <MenuDropDown
                   dropDownInfo={
                     <div className={btnStyle.userloggedinBtn}>
-                      <FaRegUser className={style.userIcon}/>
+                      <FaRegUser className={style.userIcon} />
                       {/* <i className={`far fa-user  ${style.userIcon}`}></i> */}
                       {initialState.username.split(" ")[0]}
                     </div>
@@ -406,7 +407,8 @@ function NavBar({ logoImage }) {
                       path: "/Profile",
                       title: (
                         <div >
-                          <i className="fas fa-sign-out-alt"> {t("Profile")} </i>{" "}
+                          <FaSignOutAlt> </FaSignOutAlt>{" "}
+                          <span>{t("Profile")}</span>
                         </div>
                       ),
                     },
@@ -414,7 +416,8 @@ function NavBar({ logoImage }) {
                       path: "/",
                       title: (
                         <div onClick={logout}>
-                          <i className="fas fa-sign-out-alt"> {t("LogOut")} </i>{" "}
+                          <FaSignOutAlt> </FaSignOutAlt>{" "}
+                          {t("LogOut")} {" "}
                         </div>
                       ),
                     },
@@ -444,13 +447,13 @@ function NavBar({ logoImage }) {
                   disableScroll(!statesDropDown);
                 }}
               >
-                <MdApps className={style.stateIcon}/>
+                <MdApps className={style.stateIcon} />
                 {/* <i className={`fas fa-th ${style.stateIcon}`}></i> */}
               </button>
             </div>
 
             <div className={`${style.burgerMenu}`} onClick={handleShowNavbar}>
-              <FaBars className={style.bars}/>
+              <FaBars className={style.bars} />
             </div>
           </div>
           {showNavbar && (
@@ -494,9 +497,9 @@ function NavBar({ logoImage }) {
                         <li> {t("Add Business")} </li>
                       </button>
                       <Link to={initialState.username === "Guest" || initialState.username === "زائر" ? `/login` : `/Profile`} onClick={handleCloseModal} className={style.profileNav}>
-                      <FaRegUser className={style.userIcon}/>
+                        <FaRegUser className={style.userIcon} />
                         <i
-                          // className={`far fa-user  ${style.userIcon}`}
+                        // className={`far fa-user  ${style.userIcon}`}
                         ></i>
                         <li>{initialState.username.split(" ")[0]}
                         </li>
@@ -521,9 +524,9 @@ function NavBar({ logoImage }) {
                           handleCloseModal={handleCloseModal}
                           dropDownInfo={
                             <div className={`${btnStyle.userloggedinBtn} ${style.logoutButton}`} onClick={logout}>
-                              <i className="fas fa-sign-out-alt">
-                                {t("LogOut")}
-                              </i>
+                              <FaSignOutAlt> </FaSignOutAlt>{" "}
+                              {t("LogOut")}
+
                             </div>
                           }
                           menuElements={[
@@ -532,9 +535,8 @@ function NavBar({ logoImage }) {
                               path: "/",
                               title: (
                                 <div onClick={logout}>
-                                  <i className={`fas fa-sign-out-alt ${style.loginButton}`}>
-                                    {t("LogOut")}
-                                  </i>
+                                  <FaSignOutAlt> </FaSignOutAlt>{" "}
+                                  {t("LogOut")}
                                 </div>
                               ),
                             },
@@ -553,9 +555,7 @@ function NavBar({ logoImage }) {
                             urlChangeLang("ar");
                           }}
                         >
-                          <i
-                            className={`fas fa-globe ${style.languageIcon}`}
-                          ></i>{" "}
+                         <FaGlobe className={style.languageIcon}/>{" "}
                           AR
                         </button>
                       )}
@@ -569,9 +569,7 @@ function NavBar({ logoImage }) {
                             urlChangeLang("en");
                           }}
                         >
-                          <i
-                            className={`fas fa-globe ${style.languageIcon}`}
-                          ></i>{" "}
+                          <FaGlobe className={style.languageIcon}/>{" "}
                           EN
                         </button>
                       )}
@@ -581,44 +579,48 @@ function NavBar({ logoImage }) {
               </div>
             </div>
           )}
-        </header>
-      )}
+        </header >
+      )
+      }
 
-      {statesDropDown && (
-        <div className={style.mainStateDiv}>
-          <div className={`row ${style.statesDropDownDivMobile}`}>
-            <div className={style.mobilestateHeight}>
-              {statesData?.map((item, index) => (
-                <a
-                  key={index}
-                  className={`col-4 ${style.statesImg}`}
-                  href={`${item.url}`}
-                  target="blank"
-                >
-                  {" "}
-                  <div className={`${style.imageContainerSpan}`}>
-                    <LazyLoadImage
-                      className={`mt-3`}
-                      src={item.image}
-                      height={50}
-                      width={50}
-                      alt="img-countery"
-                    />{" "}
-                    <span style={{ fontSize: "11px", fontWeight: "bold", marginTop: '10px' }} >{item.title}</span >
-                  </div>
-                </a>
-              ))}
+      {
+        statesDropDown && (
+          <div className={style.mainStateDiv}>
+            <div className={`row ${style.statesDropDownDivMobile}`}>
+              <div className={style.mobilestateHeight}>
+                {statesData?.map((item, index) => (
+                  <a
+                    key={index}
+                    className={`col-4 ${style.statesImg}`}
+                    href={`${item.url}`}
+                    target="blank"
+                  >
+                    {" "}
+                    <div className={`${style.imageContainerSpan}`}>
+                      <LazyLoadImage
+                        className={`mt-3`}
+                        src={item.image}
+                        height={50}
+                        width={50}
+                        alt="img-countery"
+                      />{" "}
+                      <span style={{ fontSize: "11px", fontWeight: "bold", marginTop: '10px' }} >{item.title}</span >
+                    </div>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      )}
-      {showAlert && <Alert
-        message={messageAlert}
-        show={showAlert}
-        type={typeAlert}
-        count={count}
-        setCount={setCount}
-      />
+        )
+      }
+      {
+        showAlert && <Alert
+          message={messageAlert}
+          show={showAlert}
+          type={typeAlert}
+          count={count}
+          setCount={setCount}
+        />
       }
     </>
   );

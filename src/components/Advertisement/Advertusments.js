@@ -29,6 +29,7 @@ function Advertusments() {
             location.pathname === "/changePassword" ||
             location.pathname === "/delete-account" ||
             location.pathname === "/login" ||
+            location.pathname === "/Login" ||
             location.pathname === "/Register" ||
             location.pathname === "/Profile" ||
             location.pathname === "/Forget-password" ||

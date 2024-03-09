@@ -8,6 +8,9 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import ButtonSeven from "../Button/ButtonSeven.js";
+import { MdEmail } from "react-icons/md";
+import { RiLockPasswordFill } from "react-icons/ri";
+
 function Login({ baseURL, logo }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -88,7 +91,7 @@ function Login({ baseURL, logo }) {
                   <h1 className={style.signUpTi}>{t("Login")}</h1>
                   <div className={`row mt-4 ${style.formRow}`}>
                     <label htmlFor="email" className={`col-2 `}>
-                      <i className={`fas fa-envelope ${style.icon}`}></i>
+                      <MdEmail className={style.icon}/>
                     </label>
                     <input
                       className={`col-10 ${style.formControl}`}
@@ -112,7 +115,7 @@ function Login({ baseURL, logo }) {
                   )}
                   <div className={`row mt-4 ${style.formRow}`}>
                     <label htmlFor="email" className={`col-2 `}>
-                      <i className={`fas fa-lock ${style.icon}`}></i>
+                      <RiLockPasswordFill className={style.icon}/>
                     </label>
                     <input
                       className={`col-10 ${style.formControl}`}

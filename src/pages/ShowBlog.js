@@ -8,6 +8,9 @@ import axios from "axios";
 import { Helmet } from 'react-helmet';
 import { useDispatch } from 'react-redux';
 import { setSavedBlogData } from '../redux/Blog/blog';
+import { IoLogoYoutube } from "react-icons/io";
+import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
+import { FaShareSquare } from "react-icons/fa";
 
 const LeftShowBlog = lazy(() => import("../components/showBlog/LeftShowBlog"));
 const Similar = lazy(() => import("../components/blog/Similar"));
@@ -68,56 +71,53 @@ function ShowBlog() {
         <meta name="description" content={ReactHtmlParser(`${showBlogData?.web_description}`)} />
       </Helmet>
       <Suspense fallback={<p>Loading...</p>}>
-      <BlogHeader data={sliderData?.slider} />
-      <Banner />
+        <BlogHeader data={sliderData?.slider} />
+        <Banner />
 
-      <div className={`container`}>
-        <div className={`row`}>
-          <div className="col-lg-8 col-md-12 col-sm-12 pt-5">
-            <div className={style.blogTitileConinater}>
-              <h4 className={style.showBlogTitle}>{showBlogData?.title}</h4>
-              <p className={style.showBlogDate}>{showBlogData?.created_at} </p>
-            </div>
-            <div >
-              {/* <img src={showBlogData?.image} className={style.showBlogImage} alt="img-showBlog"/> */}
-              <div className={style.iconsShareAndSave}>
-                <i className={`${favoriteIcon} ${style.favIconColor}`} onClick={() => saveBlogHandler(id)}></i>
-                <p className={`px-3 ${style.favoriteIconCursor}`} onClick={() => setShowShareModal(true)}>
-                  <i
-                    className={`fas fa-share-square ${style.shareIconMargin}`}
-
-                  ></i>
-                </p>
-                <a href={showBlogData?.link_youtube} target="_blank" rel="noreferrer"><i className={`fab fa-youtube ${style.youtubIcon}`}></i></a>
+        <div className={`container`}>
+          <div className={`row`}>
+            <div className="col-lg-8 col-md-12 col-sm-12 pt-5">
+              <div className={style.blogTitileConinater}>
+                <h4 className={style.showBlogTitle}>{showBlogData?.title}</h4>
+                <p className={style.showBlogDate}>{showBlogData?.created_at} </p>
               </div>
-              {showShareModal && <Share url={pathName} setShowShareModal={setShowShareModal} />}
+              <div >
+                {/* <img src={showBlogData?.image} className={style.showBlogImage} alt="img-showBlog"/> */}
+                <div className={style.iconsShareAndSave}>
+                  {isSaved ? <MdFavorite onClick={() => saveBlogHandler(id)} className={style.favIconColor} /> : <MdOutlineFavoriteBorder onClick={() => saveBlogHandler(id)} className={style.favIconColor} />}
+                  <p className={`px-3 ${style.favoriteIconCursor}`} onClick={() => setShowShareModal(true)}>
+                    <FaShareSquare className={style.shareIconMargin} />
+                  </p>
+                  <a href={showBlogData?.link_youtube} target="_blank" rel="noreferrer"><IoLogoYoutube className={style.youtubIcon} /></a>
+                </div>
+                {showShareModal && <Share url={pathName} setShowShareModal={setShowShareModal} />}
 
-              <p className={` ${style.showBlogParagraph}`}>
-                {showBlogData?.web_description && ReactHtmlParser(`${showBlogData?.web_description}`)}
-              </p>
+                <p className={` ${style.showBlogParagraph}`}>
+                  {showBlogData?.web_description && ReactHtmlParser(`${showBlogData?.web_description}`)}
+                </p>
+
+              </div>
+              <ShowBlogParagraph Data={Data} showBlogData={showBlogData} />
+              <LeftShowBlog Data={Data} showBlogData={showBlogData} />
+              {/* <Tag Data={Data} id={id} isShowBlog={true}/> */}
+            </div>
+            <div
+              className={`col-lg-4 col-md-12 col-sm-12 ${style.eventCardContainer}`}
+            >
+              {/* <BlogSearch /> */}
+
+
+              <BlogSearch Data={Data} />
+
+              <EventCards data={sliderData?.events} pathName={pathName} urlId={urlId} />
+              {/* <LatestPosts /> */}
 
             </div>
-            <ShowBlogParagraph Data={Data} showBlogData={showBlogData} />
-            <LeftShowBlog Data={Data} showBlogData={showBlogData} />
-            {/* <Tag Data={Data} id={id} isShowBlog={true}/> */}
-          </div>
-          <div
-            className={`col-lg-4 col-md-12 col-sm-12 ${style.eventCardContainer}`}
-          >
-            {/* <BlogSearch /> */}
-
-
-            <BlogSearch Data={Data} />
-
-            <EventCards data={sliderData?.events} pathName={pathName} urlId={urlId} />
-            {/* <LatestPosts /> */}
-
           </div>
         </div>
-      </div>
-      <div>
-        <Similar showBlogData={showBlogData} id={id} />
-      </div>
+        <div>
+          <Similar showBlogData={showBlogData} id={id} />
+        </div>
       </Suspense>
     </div>
 

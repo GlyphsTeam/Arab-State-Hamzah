@@ -13,6 +13,7 @@
   z-index: 9999;
   cursor: pointer;
 }
+.arrowDiv
   .arrowDiv {
     display: flex;
     justify-content: center;
@@ -20,10 +21,10 @@
     position: relative;
     top: 12px;
   }
-   .arrowDiv i {
+   .arrowDiv svg{
       font-weight: bold;
       color: var(--white);
-      font-size: 32px;
+      font-size: 60px;
 }
 @media (max-width:1024px){
   .scrollToTopDiv{

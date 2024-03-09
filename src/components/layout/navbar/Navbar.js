@@ -14,6 +14,10 @@ import AccordionMobile from "./AccordionMobile";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import Alert from "../../common/alert/Alert";
 import Advert from "../../Advertisement/Advertusments"
+import { MdApps } from 'react-icons/md';
+
+
+
 function NavBar({ logoImage }) {
   const [showNavbar, setShowNavbar] = useState(false);
   const [messageAlert, setMessageAlert] = useState("");
@@ -318,7 +322,8 @@ function NavBar({ logoImage }) {
                   setStatesDropDown(!statesDropDown);
                 }}
               >
-                <i className={`fas fa-th ${style.stateIcon}`}></i>
+                <MdApps className={style.stateIcon}/>
+                {/* <i className={`fas fa-th ${style.stateIcon}`}></i> */}
               </button>
 
               {statesDropDown && (

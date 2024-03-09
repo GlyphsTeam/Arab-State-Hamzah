@@ -25,6 +25,10 @@
   margin-top: 30px;
   font-size: 17px !important;
 }
+.playStoreDiv, .googlePlayDiv{
+  display: flex;
+  align-items: center;
+}
   .tryAppContainer,  
   .tryAppContainerAr {
     width: 100%;
@@ -162,6 +166,10 @@
 .subscribeBtnDiv {
       padding-top: 5px;
     }
+.appIcon{
+
+font-size: 40px;
+}
 .subscribeButton {
         background-color: #01828f;
         padding: 8px;
@@ -575,5 +583,8 @@
   .googleTryAr,
   .playStoreAr{
     margin-right: 30px !important;
+  }
+  .appIcon{
+    font-size: 22px;
   }
 }

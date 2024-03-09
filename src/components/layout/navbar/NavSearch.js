@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import style from "../../../assets/style/layout/navbar.module.scss";
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
+import { FaSearch } from "react-icons/fa";
 
 function NavSearch() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -45,10 +46,11 @@ function NavSearch() {
           value={searchQuery}
         />
       )}
-      <i
-        className={`fa fa-search ${style.searchIcon}`}
-        onClick={() => { handleSearchSubmit(searchQuery) }}
-      ></i>
+
+      <FaSearch className={`fa fa-search ${style.searchIcon}`}
+        onClick={() => { handleSearchSubmit(searchQuery) }} />
+
+
     </div>
   );
 }

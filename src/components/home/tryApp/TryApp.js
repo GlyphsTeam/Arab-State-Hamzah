@@ -6,6 +6,8 @@ import { useInView } from "react-intersection-observer";
 import ReactHtmlParser from "html-react-parser";
 import { homeState } from '../../../redux/Home/home';
 import { useSelector } from 'react-redux';
+import { FaGooglePlay } from "react-icons/fa";
+import { IoLogoApple } from "react-icons/io";
 
 function TryApp() {
   const stateHome = useSelector(homeState);
@@ -60,9 +62,10 @@ function TryApp() {
                   rel="noreferrer"
                 >
                   <div className={style.googlePlayContainer}>
-                    <i className="fab fa-google-play"></i>
                     <div className={style.googlePlayDiv}>
                       {/* <p>Available on the</p> */}
+                      <FaGooglePlay className={style.appIcon}/>
+
                       <p className={i18n.language === "ar" ? style.googleTryAr : ""}> Available on the Google Play</p>
                     </div>
                   </div>
@@ -75,9 +78,10 @@ function TryApp() {
                 >
 
                   <div className={style.playStoreContainer}>
-                    <i className="fab fa-apple"></i>
                     <div className={style.playStoreDiv}>
                       {/* <p>Download on the</p> */}
+                      <IoLogoApple className={style.appIcon}/>
+
                       <p className={i18n.language === "ar" ? style.playStoreAr : ""}> Available on the App Store</p>
                     </div>
                   </div>

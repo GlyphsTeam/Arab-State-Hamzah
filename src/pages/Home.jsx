@@ -1,4 +1,4 @@
-import { useEffect, lazy, Suspense } from "react";
+import { useEffect, lazy, Suspense, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Helmet } from 'react-helmet';
 import { setHomeData, homeState } from '../redux/Home/home';
@@ -12,8 +12,10 @@ const Services = lazy(() => import('../components/home/jobs/Services'));
 const AdvBanner = lazy(() => import('../components/common/AdvBanner'));
 const BannerWInfo = lazy(() => import('../components/common/banner/BannerWInfo'));
 const HomeTitle = lazy(() => import('../components/common/title/HomeTitle'));
-const Adsens  = lazy(()=>import("../components/Adsens/Adsens"))
+const Adsens = lazy(() => import("../components/Adsens/Adsens"));
+const PopUpAdver = lazy(() => import("../components/PopUp/PopUpAdver"));
 function Home() {
+  const [showModale, setShowPopModal] = useState(false);
   const dispatch = useDispatch();
   const stateHome = useSelector(homeState);
   const [t] = useTranslation();
@@ -37,8 +39,11 @@ function Home() {
   }
   useEffect(() => {
     getHomeData();
+    // setTimeout(()=>{
+    //   setShowPopModal(true);
+    // },4000)
   }, []);
-  
+
   return (
     <>
       <Helmet>
@@ -46,14 +51,15 @@ function Home() {
         <meta name='description' content={stateHome?.homeData?.hero[0]?.description} />
       </Helmet>
       <Suspense fallback={<p>Loading...</p>}>
-      <BannerWInfo />
-      <HomeTitle title={t("Advertisement")} />
-      <AdvBanner />
-      <CategoryList />
-      <Services />
-      <TryApp />
-      <Adsens dataAdSlot="7940489560"/>
-      <Blog />
+        <BannerWInfo />
+        <HomeTitle title={t("Advertisement")} />
+        <AdvBanner />
+        <CategoryList />
+        <Services />
+        {showModale && <PopUpAdver setShowPopModal={setShowPopModal} />}
+        <TryApp />
+        <Adsens dataAdSlot="7940489560" />
+        <Blog />
       </Suspense>
     </>
   );

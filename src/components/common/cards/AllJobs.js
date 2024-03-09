@@ -8,6 +8,10 @@ import useFetch from "../../../hooks/useFetch";
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 import { useDispatch } from 'react-redux';
+import { IoLocationSharp } from "react-icons/io5";
+import { FaShareFromSquare } from "react-icons/fa6";
+import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
+
 import { setSavedJobData } from '../../../redux/Rent/rent';
 function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
   const [t, i18n] = useTranslation();
@@ -62,15 +66,16 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
             <LazyLoadImage src={jobData.company_image ? jobData.company_image : jobData.user_image} alt='scs' />
           </Link>
           <div className={style.iconsCard}>
-            <i className={`fas fa-share-square ${style.favIconColor}`} onClick={() => handleClick()}></i>
-            {!jobData.is_user_post ? <i className={`${favoriteIcon} ${style.favIconColor}`} onClick={() => addToFavorite(jobData.id)}></i> : <></>}
+            {/* <i className={`fas fa-share-square ${style.favIconColor}`} onClick={() => handleClick()}></i> */}
+            <FaShareFromSquare onClick={() => handleClick()} className={style.favIconColor} />
+            {!jobData.is_user_post ? isFav ? <MdFavorite onClick={() => addToFavorite(jobData.id)} /> : <MdFavoriteBorder onClick={() => addToFavorite(jobData.id)}/> : <></>}
           </div>
         </div>
         <Link to={`/show-job/${jobData.slug}/${jobData?.id}`} state={(urlId = { id: jobData?.id })}>
           <div className={style.cardBottom}>
             <div className={style.textTitle}>
               <h3 >{jobData.title}</h3>
-              <p><i className="fas fa-map-marker-alt"></i>{jobData.place}</p>
+              <p><IoLocationSharp />{jobData.place}</p>
             </div>
             <div className={pathName === "/saved-job" || pathName === '/jobs' ? style.parCardPublished : style.parCard}>
               <h3>{jobData.looking_for_text}</h3>

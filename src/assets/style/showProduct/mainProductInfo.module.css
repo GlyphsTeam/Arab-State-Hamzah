@@ -3,9 +3,17 @@
     justify-content: space-between;
     align-items: center;
 }
-
+.contactContanier svg{
+    font-size: 25px;
+    color: var(--secondary-color);
+    margin: 8px;
+}
 .shareSaveContainer{
     display: flex;
+}
+.iconMarket{
+    color: var(--secondary-color);
+    margin: 10px;
 }
 .contactContanier button{
     color: var(--white);

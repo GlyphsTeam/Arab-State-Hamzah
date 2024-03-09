@@ -7,6 +7,15 @@
   border-bottom-left-radius: 115px;
   padding: 19px;
 }
+.mainTopRentContainer svg{
+  color: var(--secondary-color) !important;
+  margin: 5px;
+}
+.shareSaveSection svg{
+  color: var(--secondary-color);
+  margin: 5px;
+  font-size: 30px;
+}
 .contactMe{
   display: flex;
   flex-direction: column;
@@ -571,5 +580,8 @@ a .contactIcon {
 }
 .priceClass{
   display: block;
+}
+.mainTopRentContainer svg{
+  margin: 2px !important;
 }
 }

@@ -4,6 +4,8 @@ import style from '../assets/style/ShowJobPage.module.css';
 import { Link, useLocation } from "react-router-dom";
 import useAxios from "../hooks/useAxiosGet";
 import { useTranslation } from "react-i18next";
+import { FaPhoneAlt } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 import { Helmet } from 'react-helmet';
 const JobImg = lazy(() => import("../components/showJob/JobImg"));
@@ -71,9 +73,8 @@ function ShowJobPage() {
           {jobData?.job?.phone && (
             <p className={style.contactParagraph}>
               <a href={`tel:${jobData?.phone}`}>
-                <i
-                  className={`fas fa-phone-alt ${style.iconJobMain}`}
-                ></i>
+                <FaPhoneAlt />
+                
                 {jobData?.job?.phone}
               </a>
             </p>
@@ -82,9 +83,8 @@ function ShowJobPage() {
           {jobData?.job?.email && (
             <p className={style.contactParagraph}>
               <a href={`mailto:${jobData?.email}`}>
-                <i
-                  className={`fas fa-envelope-open-text ${style.iconJobMain}`}
-                ></i>
+                <MdEmail />
+               
                 {jobData?.job?.email}
               </a>
             </p>

@@ -6,6 +6,15 @@
 .socialMediaSection h2{
   color: var(--primary-color);
 }
+.iconPadding{
+  font-size: 20px !important;
+}
+.loveIcon, .loveIconAct{
+  font-size: 18px;
+}
+.favoriteIconCursor svg{
+  color: var(--secondary-color) !important;
+}
 .workHoursRight p{
   height: fit-content;
 }
@@ -61,11 +70,16 @@
   border-bottom-left-radius: 140px;
   -webkit-filter: brightness(0.4) !important;
 }
+.socialMediaSection svg{
+  font-size: 35px;
+  color: var(--secondary-color);
+}
 .MarketingImgContainer {
   width: 100%;
 }
 .shareIconMargin{
   cursor: pointer;
+  margin-bottom: 4px !important;
   color: var(--secondary-color);
 }
 .favoriteIconCursor{
@@ -961,6 +975,9 @@ margin: auto;
   }
   .socialMediaSection i{
     font-size: 25px !important;
+  }
+  .socialMediaSection svg{
+    font-size: 25px;
   }
   
 }

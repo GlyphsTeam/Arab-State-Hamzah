@@ -6,9 +6,10 @@
   padding: 22px;
   height: fit-content;
 }
-.footerIcon i {
+.footerIcon svg {
   font-size: 30px !important;
   cursor: pointer !important;
+  color: var(--white);
 }
 .footerIcon a {
   cursor: pointer !important;

@@ -5,6 +5,11 @@ import Share from "../../Utils/Share";
 import { useTranslation } from "react-i18next";
 import { useLocation, Link } from 'react-router-dom'
 import useFetch from "../../hooks/useFetch";
+import { MdOutlineFavoriteBorder } from "react-icons/md";
+import { MdFavorite, MdAttachEmail } from "react-icons/md";
+import { FaShareSquare } from "react-icons/fa";
+import { FaPhone, FaLocationDot } from "react-icons/fa6";
+
 function MainProductInfo({ showProductData }) {
   const [showShareModal, setShowShareModal] = useState(false);
   const token = localStorage.getItem("arab_user_token");
@@ -52,21 +57,20 @@ function MainProductInfo({ showProductData }) {
           <h1> {showProductData?.title} </h1>
         </div>
         <div className={style.contactContanier}>
-        <div className={style.shareSaveContainer}>
-          <i
-            className="fas fa-share-square"
-            aria-hidden="true"
-            onClick={() => handleClick()}
-          ></i>
-          <i
+          <div className={style.shareSaveContainer}>
+            <FaShareSquare className={style.shareIconMargin} onClick={() => handleClick()}
+            />
+            {isFav ? <MdFavorite className={style.loveIconAct} onClick={() => addToFavorite(showProductData?.id)} /> : <MdOutlineFavoriteBorder className={style.loveIcon} onClick={() => addToFavorite(showProductData?.id)} />}
+
+            {/* <i
             className={favoriteIcon}
             aria-hidden="true"
             onClick={() => addToFavorite(showProductData?.id)}
-          ></i>
-        </div>
-        <Link to={showProductData?.profile_url} target="_blank">
-         <button>{t("Contact me")}</button>
-        </Link>
+          ></i> */}
+          </div>
+          <Link to={showProductData?.profile_url} target="_blank">
+            <button>{t("Contact me")}</button>
+          </Link>
         </div>
       </div>
       <h3 className={style.showProductPrice}>${showProductData?.price}</h3>
@@ -74,7 +78,8 @@ function MainProductInfo({ showProductData }) {
         {showProductData?.phone_number && (
           <p className={style.contactMobile}>
             <a href={`tel:${showProductData?.phone_number}`}>
-              <i className={`fas fa-phone-alt`} aria-hidden="true"></i>
+              <FaPhone className={style.iconMarket}/>
+              {/* <i className={`fas fa-phone-alt`} aria-hidden="true"></i> */}
               {showProductData?.phone_number}
             </a>
           </p>
@@ -83,21 +88,22 @@ function MainProductInfo({ showProductData }) {
         {showProductData?.phone_number && (
           <p className={`${style.spaceParagraph} ${style.contactMobile}`}>
             <a href={`mailto:${showProductData?.email}`}>
-              <i
+              <MdAttachEmail className={style.iconMarket}/>
+              {/* <i
                 className={`fas fa-envelope-open-text ${style.iconJobMain}`}
-              ></i>
+              ></i> */}
               {showProductData?.email}
             </a>
             {/* <i className="fas fa-envelope-open-text " aria-hidden="true"></i>
             {showProductData?.email} */}
           </p>
         )}
-          <div className={style.locationDateContainer}>
-        <p className={style.locationStyle}>
-          <i className="fas fa-map-marker-alt" aria-hidden="true"></i>
-          {showProductData?.place}
-        </p>
-      </div>
+        <div className={style.locationDateContainer}>
+          <p className={style.locationStyle}>
+            <FaLocationDot className={style.iconMarket}/>
+            {showProductData?.place}
+          </p>
+        </div>
       </div>
       <div className={style.generalTipsDiv}>
         <h3>{t("General Tips")}</h3>
@@ -107,10 +113,10 @@ function MainProductInfo({ showProductData }) {
           <li>{t("Inspect the product before you buy it")}</li>
         </ul>
       </div>
-       <div className={style.generalTipsDiv}>
+      <div className={style.generalTipsDiv}>
         <h3>{t("Deatils")}</h3>
         <ul>
-          {showProductData?.details?.map((item)=>{
+          {showProductData?.details?.map((item) => {
             return <li>{item?.title}</li>
           })
 

@@ -5,6 +5,10 @@ import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { aboutState } from '../../redux/About/about'
 import { useSelector } from 'react-redux';
+import { MdBusinessCenter } from "react-icons/md";
+import { PiUsersThreeBold } from "react-icons/pi";
+import { HiDevicePhoneMobile } from "react-icons/hi2";
+
 const UserAnalytics = () => {
   const aboutStateRedx = useSelector(aboutState);
   const aboutRedux = aboutStateRedx?.aboutData?.statistics;
@@ -77,19 +81,20 @@ const UserAnalytics = () => {
           {/* {userAnalyticsDataArr?.map((item, index) => ( */}
           <div className={style.userAnalyticsCard}>
             {/* <img src={aboutRedux?.icon_businesses} alt="" /> */}
-            <i className={aboutRedux?.icon_businesses}></i>
+            {/* <i className={aboutRedux?.icon_businesses}></i> */}
+            <MdBusinessCenter className={style.anIcon} />
             <p>{aboutRedux?.businesses}</p>
             <h5>{aboutRedux?.title_businesses}</h5>
           </div>
 
           <div className={style.userAnalyticsCard}>
-            <i className={aboutRedux?.icon_users}></i>
+              <PiUsersThreeBold  className={style.anIcon}/>
             <p>{aboutRedux?.users}</p>
             <h5>{aboutRedux?.title_users}</h5>
           </div>
 
           <div className={style.userAnalyticsCard}>
-            <i className={aboutRedux?.icon_verified_users}></i>
+            <HiDevicePhoneMobile  className={style.anIcon}/>
             <p>{aboutRedux?.verified_users}</p>
             <h5>{aboutRedux?.title_verified_users}</h5>
           </div>
@@ -99,18 +104,20 @@ const UserAnalytics = () => {
           <Slider {...settings}>
             {/* {userAnalyticsDataArr?.map((item, index) => ( */}
             <div className={style.userAnalyticsCard}>
-              <i className={aboutRedux?.icon_businesses}></i>
+              <MdBusinessCenter className={style.anIcon} />
               <p>{aboutRedux?.businesses}</p>
               <h5>{aboutRedux?.title_businesses}</h5>
             </div>
             <div className={style.userAnalyticsCard}>
-              <i className={aboutRedux?.icon_users}></i>
+              <PiUsersThreeBold  className={style.anIcon}/>
+              {/* <i className={aboutRedux?.icon_users}></i> */}
               <p>{aboutRedux?.users}</p>
               <h5>{aboutRedux?.title_users}</h5>
             </div>
 
             <div className={style.userAnalyticsCard}>
-              <i className={aboutRedux?.icon_verified_users}></i>
+              <HiDevicePhoneMobile  className={style.anIcon}/>
+              {/* <i className={aboutRedux?.icon_verified_users}></i> */}
               <p>{aboutRedux?.verified_users}</p>
               <h5>{aboutRedux?.title_verified_users}</h5>
             </div>

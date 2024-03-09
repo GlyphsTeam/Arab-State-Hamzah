@@ -6,6 +6,11 @@ import Share from "../../Utils/Share";
 import { useLocation } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { setSavedBussiness } from '../../redux/Business/business';
+import { FaShareSquare } from "react-icons/fa";
+import { FaPhone } from "react-icons/fa6";
+import { MdOutlineFavoriteBorder } from "react-icons/md";
+import { MdFavorite, MdAttachEmail } from "react-icons/md";
+
 function Favorite_Contact({ data, setShow, setCount }) {
   const [t] = useTranslation();
   const [isFavorite, setIsFavorite] = useState();
@@ -56,18 +61,20 @@ function Favorite_Contact({ data, setShow, setCount }) {
           className={`favorite-icon ${isFavorite ? "active" : ""}`}
         // onClick={handleAddFavorite}
         >
-          <i
+          {isFavorite ? <MdFavorite className={style.loveIconAct}/> : <MdOutlineFavoriteBorder className={style.loveIcon} />}
+          {/* <i
             className={`${favoriteIcon}  ${style.favoriteIconCursor}`}
-          ></i>
+          ></i> */}
         </span>
         {'  '} {t("Add to Favorite")}
       </p>
 
       <p className={`px-3 ${style.favoriteIconCursor}`} onClick={() => setShowShareModal(true)}>
-        <i
+        {/* <i
           className={`fas fa-share-square ${style.shareIconMargin}`}
 
-        ></i>
+        ></i> */}
+        <FaShareSquare className={style.shareIconMargin} />
         {t("Share Shop")}
       </p>
 
@@ -75,7 +82,8 @@ function Favorite_Contact({ data, setShow, setCount }) {
 
         <p className="px-3">
           <a href={`tel:${data?.phone}`}>
-            <i className={`fas fa-phone-alt ${style.iconPadding}`}></i>
+            <FaPhone className={style.iconPadding} />
+            {/* <i className={`fas fa-phone-alt ${style.iconPadding}`}></i> */}
             {data?.phone}
           </a>
         </p>
@@ -85,9 +93,7 @@ function Favorite_Contact({ data, setShow, setCount }) {
 
         <p className="px-3">
           <a href={`mailto:${data?.email}`}>
-            <i
-              className={`fas fa-envelope-open-text ${style.shareIconMargin}`}
-            ></i>
+            <MdAttachEmail className={style.shareIconMargin}/>
             {data?.email}
           </a>
         </p>

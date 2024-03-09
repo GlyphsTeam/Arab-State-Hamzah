@@ -7,6 +7,8 @@ import ReactHtmlParser from "html-react-parser";
 import useFetch from "../../hooks/useFetch";
 import { useDispatch } from 'react-redux';
 import { setSavedJobData } from '../../redux/Rent/rent';
+import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
+import { FaShareFromSquare } from "react-icons/fa6";
 
 function MiddleJob({ jobData, setShow, token, setCount, id }) {
   const [saveId, setSaveId] = useState();
@@ -27,7 +29,6 @@ function MiddleJob({ jobData, setShow, token, setCount, id }) {
     setCount(4);
     setSend(true);
     dispatch(setSavedJobData(null));
-
   }
   const saveJob = (e) => {
     activeSave ? setActiveSave(false) : setActiveSave(true);
@@ -99,14 +100,11 @@ function MiddleJob({ jobData, setShow, token, setCount, id }) {
                   : `${style.icon_row_ar} d-flex `
               }
             >
-              <i
-                className={`fas fa-share-square ${style.showJobIcon}`}
-                onClick={() => setShowShareModal(true)}
-              ></i>
-              <i
-                onClick={handleSaveJob}
-                className={`${saveIcon} fa-bookmark ${style.showJobIcon}`}
-              ></i>
+              <FaShareFromSquare className={style.showJobIcon} onClick={() => setShowShareModal(true)}
+              />
+              {
+                activeSave ? <MdFavorite onClick={handleSaveJob} className={style.showJobIcon}/> : <MdFavoriteBorder onClick={handleSaveJob} className={style.showJobIcon} />
+              }
             </div>
 
             <Link to={jobData?.profile_url} target="_blank">

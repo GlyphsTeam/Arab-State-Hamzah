@@ -18,6 +18,12 @@
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
 }
+.newCardRent svg{
+  color: var(--secondary-color) !important;
+}
+.favIconColor{
+  margin: 5px;
+}
 .contentRentContain{
     display: flex;
     justify-content: space-between;

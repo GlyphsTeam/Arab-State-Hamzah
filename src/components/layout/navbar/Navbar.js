@@ -15,7 +15,9 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 import Alert from "../../common/alert/Alert";
 import Advert from "../../Advertisement/Advertusments"
 import { MdApps } from 'react-icons/md';
-import { FaBars } from "react-icons/fa6";
+import { FaBars,FaRegUser } from "react-icons/fa6";
+// import { FaSignOutAlt } from "react-icons/fa";
+
 // import { HiMiniBars3CenterLeft } from "react-icons/hi2";
 
 
@@ -383,7 +385,8 @@ function NavBar({ logoImage }) {
                     handleCloseModal={handleCloseModal}
                     btnInfo={
                       <div className={btnStyle.iconUserDiv}>
-                        <i className={`far fa-user  ${style.userIcon}`}></i>
+                      <FaRegUser className={style.userIcon}/>
+                        {/* <i className={`far fa-user  ${style.userIcon}`}></i> */}
                       </div>
                     }
                   />
@@ -392,7 +395,8 @@ function NavBar({ logoImage }) {
                 <MenuDropDown
                   dropDownInfo={
                     <div className={btnStyle.userloggedinBtn}>
-                      <i className={`far fa-user  ${style.userIcon}`}></i>
+                      <FaRegUser className={style.userIcon}/>
+                      {/* <i className={`far fa-user  ${style.userIcon}`}></i> */}
                       {initialState.username.split(" ")[0]}
                     </div>
                   }
@@ -490,8 +494,9 @@ function NavBar({ logoImage }) {
                         <li> {t("Add Business")} </li>
                       </button>
                       <Link to={initialState.username === "Guest" || initialState.username === "زائر" ? `/login` : `/Profile`} onClick={handleCloseModal} className={style.profileNav}>
+                      <FaRegUser className={style.userIcon}/>
                         <i
-                          className={`far fa-user  ${style.userIcon}`}
+                          // className={`far fa-user  ${style.userIcon}`}
                         ></i>
                         <li>{initialState.username.split(" ")[0]}
                         </li>

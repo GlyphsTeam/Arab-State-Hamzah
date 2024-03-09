@@ -5,6 +5,11 @@ import { useTranslation } from "react-i18next";
 import Share from "../../Utils/Share";
 import ReactHtmlParser from 'html-react-parser';
 import { useDispatch } from 'react-redux';
+import { FaShareSquare, FaHome } from "react-icons/fa";
+import { FaPhone, FaLocationDot, FaBath } from "react-icons/fa6";
+import { MdOutlineFavoriteBorder } from "react-icons/md";
+import { MdFavorite, MdAttachEmail, MdBedroomParent, MdOutlineWorkspaces } from "react-icons/md";
+
 import { setSavedDataProfile } from '../../redux/Rent/rent';
 function TopRentCard({ rentData, setShow, token, setCount, id }) {
   const [saveId, setSaveId] = useState();
@@ -42,7 +47,6 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
     setSaveId(rentData.id);
     setSend(true)
   };
-  console.log("rentData>>", rentData)
 
   return (
     <>
@@ -50,14 +54,14 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
         <h1 className={style.RentTitle}>{rentData?.title} </h1>
 
         <p className={style.addressStyle}>
-          <i className={`fas fa-home ${style.accommodationIcon}`}></i>{" "}
+          <FaHome />{" "}
           {rentData?.looking_for_text}{" "}
         </p>
 
         <div className={style.firstSection}>
           <div>
             <div className={style.infoSection}>
-              <i className={`fas fa-phone-alt ${style.locationIcon}`}></i>
+              <FaPhone />
               <h4 className={style.titleInfo}>{t("Phone Number")}</h4>
             </div>
 
@@ -69,9 +73,7 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
           </div>
           <div>
             <div className={style.infoSection}>
-              <i
-                className={`fas fa-envelope-open-text ${style.locationIcon}`}
-              ></i>
+              <MdAttachEmail />
 
               <h4 className={style.titleInfo}>{t("Email")}</h4>
             </div>
@@ -82,7 +84,7 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
           </div>
           <div>
             <div className={style.infoSection}>
-              <i className={`fas fa-map-marker-alt ${style.locationIcon}`}></i>
+              <FaLocationDot />
               <h4 className={style.titleInfo}>{t("Location")}</h4>
             </div>
             <p className={`${style.infoParagraph} ${i18n.language === 'en' ? style.phoneClass : style.phoneClassAr}`}>{rentData?.place}</p>
@@ -99,7 +101,7 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
                     : style.houseNumberParagraphLastRight
                 }
               >
-                <i className="fas fa-bed"></i> {rentData?.bedrooms}{" "}
+                <MdBedroomParent/> {rentData?.bedrooms}{" "}
               </p>
             )}
             {rentData?.bathrooms && (
@@ -110,7 +112,7 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
                     : style.houseNumberParagraphLastRight
                 }
               >
-                <i className="fas fa-bath"></i>
+                <FaBath/>
                 {rentData?.bathrooms}{" "}
               </p>
             )}
@@ -122,7 +124,7 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
                     : style.houseNumberParagraphLastRight
                 }
               >
-                <i className="fas fa-expand-arrows-alt"></i> {rentData?.area}
+                <MdOutlineWorkspaces/> {rentData?.area}
               </p>
             )}
             {rentData?.gender && (
@@ -133,7 +135,7 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
                     : style.houseNumberParagraphLastRight
                 }
               >
-                <i className="fas fa-venus-mars"></i> {rentData?.gender}
+                <MdOutlineWorkspaces/> {rentData?.gender}
               </p>
             )}
             <p
@@ -191,34 +193,39 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
         </div>
       </div>
       <div className={style.contactMe}>
-      <div className={style.shareSaveSection}>
-        <i
-          className={`fas fa-share-square ${style.rentIcon}`}
-          onClick={() => setShowShareModal(true)}
-        ></i>
+        <div className={style.shareSaveSection}>
 
-        {!rentData?.is_user_post && <i
-          className={`${favoriteIcon} ${style.rentIcon}`}
+          <FaShareSquare onClick={() => setShowShareModal(true)}
+          />
+          {!rentData?.is_user_post ? activeSave ? <MdFavorite onClick={handleSaveJob}
+          /> : <MdOutlineFavoriteBorder onClick={handleSaveJob}
+          /> : <></>}
+
+          {/* {!rentData?.is_user_post && {
+            activeSave?<i
+            className = {`${favoriteIcon} ${style.rentIcon}`}
           onClick={handleSaveJob}
-        ></i>
-        }
+          ></i>:}
+          } */}
       </div>
       <Link to={rentData?.profile_url} target="_blank">
-      <button >{t("Contact me")} </button>
+        <button >{t("Contact me")} </button>
       </Link>
-      </div>
+    </div >
       <div
         className={
           i18n.language === "en" ? style.contactStyle : style.contactStyleArabic
         }
       >
       </div>
-      {showShareModal && (
-        <Share
-          url={pathName}
-          setShowShareModal={setShowShareModal}
-        />
-      )}
+  {
+    showShareModal && (
+      <Share
+        url={pathName}
+        setShowShareModal={setShowShareModal}
+      />
+    )
+  }
     </>
   );
 }

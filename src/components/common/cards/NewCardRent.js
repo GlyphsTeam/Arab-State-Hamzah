@@ -1,13 +1,15 @@
 import style from '../../../assets/style/newCardRent.module.css'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { useTranslation } from "react-i18next";
-import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
 import Share from "../../../Utils/Share";
 import Alert from "../alert/Alert";
-import { useDispatch } from 'react-redux';
-import { setSavedDataProfile } from '../../../redux/Rent/rent';
+import { IoLocationSharp } from "react-icons/io5";
+import { FaShareFromSquare, FaBath } from "react-icons/fa6";
+import { MdFavorite, MdFavoriteBorder, MdBedroomParent, MdOutlineWorkspaces } from "react-icons/md";
+
 function NewCardRent({ houseData }) {
     const [t, i18n] = useTranslation();
     const [send, setSend] = useState(false);
@@ -17,7 +19,7 @@ function NewCardRent({ houseData }) {
     const [isFav, setIsFav] = useState(houseData?.saved);
     const token = localStorage.getItem("arab_user_token");
     const [showShareModal, setShowShareModal] = useState(false);
- 
+
     const addToFavorite = (id) => {
         if (token) {
             setIsFav(!isFav);
@@ -60,20 +62,16 @@ function NewCardRent({ houseData }) {
                         <span className={style.newRentTitle}>{houseData?.title}</span>
                         <div className={style.shareNewRent}>
                             <div className={style.shareIconMobile}>
-                                <i
-                                    className={`fas fa-share-square ${style.favIconColor}`}
-                                    onClick={() => handleClick()}
-                                ></i>
-
-                                <i
-                                    className={`${favoriteIcon} ${style.favIconColor}`}
-                                    onClick={() => addToFavorite(houseData?.id)}
-                                ></i>
+                            <FaShareFromSquare className={style.favIconColor} onClick={() => handleClick()}
+                            />
+                            {
+                                isFav ? <MdFavorite className={style.favIconColor} onClick={() => addToFavorite(houseData?.id)}/> : <MdFavoriteBorder   className={style.favIconColor} onClick={() => addToFavorite(houseData?.id)}/>
+                            }
                             </div>
                         </div>
                     </div>
                     <p className={style.rentPar}>
-                        <i className="fas fa-map-marker-alt"></i> {houseData.place}
+                    <IoLocationSharp/>  {houseData.place}
                     </p>
                     <Link
                         to={`/rent/${houseData.slug}/${houseData?.id}`}
@@ -81,15 +79,15 @@ function NewCardRent({ houseData }) {
                     >
                         <div className={style.newhouseInfo}>
                             <p>
-                                <i className="fas fa-bed"></i> {houseData.bedrooms}{" "}
+                            <MdBedroomParent/> {houseData.bedrooms}{" "}
                                 {t("Bedrooms")}
                             </p>
                             <p>
-                                <i className="fas fa-bath"></i> {houseData.bathrooms}{" "}
+                            <FaBath/> {houseData.bathrooms}{" "}
                                 {t("Bathrooms")}
                             </p>
                             <p>
-                                <i className="fas fa-expand-arrows-alt"></i> {houseData.area} sq
+                            <MdOutlineWorkspaces/>  {houseData.area} sq
                                 ft
                             </p>
                         </div>

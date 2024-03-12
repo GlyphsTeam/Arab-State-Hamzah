@@ -38,8 +38,7 @@ function AboutPage() {
     }
   }
   useEffect(() => {
-    getAboutData()
-
+    getAboutData();
   }, []);
 
   return (

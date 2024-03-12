@@ -85,7 +85,6 @@ function CategoryPage() {
   useEffect(() => {
     customApi = `filter-market?main_id=${categoryState.mainId}&sub_id=${categoryState.subId}&page=${page}&limit_by=${limit}&model_id=${filters.model_id}&sort_by=${filters.sort_by}&condition=${filters.condition}&looking=${filters.looking}&place=${filters.place}&year_from=${filters.year_from}&year_to=${filters.year_to}&color=${filters.color}&price_from=${filters.price_from}&price_to=${filters.price_to}`;
   }, [filters]);
-  console.log("customApi> ", customApi)
   const [Data] = useAxios(customApi, "false");
   const categoryData = Data?.data;
   const total = Data?.total;

@@ -77,6 +77,7 @@ function BlogPage() {
           <div className={`container`}>
             <div className={`row `}>
               <div>
+         
                 <BlogCards data={stateBlog?.blogData?.statistics} lengthCards={stateBlog?.blogData?.statistics?.model?.length}/>
 
               </div>

@@ -11,11 +11,11 @@ import ButtonThree from "../Button/ButtonThree";
 function PlacesToVisitSection({ urlId, data,lengthCards }) {
   const [t, i18n] = useTranslation();
   const latest_post = data?.model;
-  const [currentPage, setCurrentPage] = useState(1);
-  const lastPostIndex = currentPage * lengthCards;
-  const firstPostIndex = lastPostIndex - lengthCards;
-  const currentPosts = latest_post?.slice(firstPostIndex, lastPostIndex);
-  const placesToVisitId = useRef(null);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const lastPostIndex = currentPage * lengthCards;
+  // const firstPostIndex = lastPostIndex - lengthCards;
+  // const currentPosts = latest_post?.slice(firstPostIndex, lastPostIndex);
+  // const placesToVisitId = useRef(null);
 
 
   const handleChangePage = () => {
@@ -26,7 +26,7 @@ function PlacesToVisitSection({ urlId, data,lengthCards }) {
 
   return (
     <>
-      <h2 ref={placesToVisitId} className={style.placesTitle}>
+      <h2  className={style.placesTitle}>
         {data?.title}
       </h2>
       <div className={`${style.lastSectionContainer}`} style={{ flexDirection: 'row' }}>
@@ -38,9 +38,9 @@ function PlacesToVisitSection({ urlId, data,lengthCards }) {
                 : style.blogCardContainerAr
             }
           >
-            {currentPosts && currentPosts.length > 0 ? (
+            { data?.model &&  data?.model.length > 0 ? (
               <ResponiveSlider>
-                {currentPosts?.map((item) => (
+                { data?.model?.map((item) => (
                   <div key={item.id} className={style.cardImg} style={{ marginRight: "10px" }}>
                     <Link
                       to={`/show-blog/${item.slug}/${item?.id}`} state={(urlId = { id: item?.id })}

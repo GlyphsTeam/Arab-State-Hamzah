@@ -6,6 +6,10 @@
 .formDiv label{
   color: var(--primary-color) !important;
 }
+.closeBuin{
+  cursor: pointer;
+  color: var(--secondary-color);
+}
 .formFlex{
     display:flex;
     justify-content: space-between;

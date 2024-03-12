@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { setUsername } from "../../redux/slices/login.js";
-
+import { FaUserCog } from "react-icons/fa";
 function UserProfileMenu({ activeList }) {
   const dispatch = useDispatch();
   const [t, i18n] = useTranslation();
@@ -28,7 +28,8 @@ function UserProfileMenu({ activeList }) {
           className={`col-lg-1 col-md-1 col-sm-1 ${style.filterShow}`}
         >
           {" "}
-          <i className="fas fa-user-cog" style={{ fontSize: '34px', color: "#153866" }}></i>
+          <FaUserCog className={style.configIcon}/>
+          {/* <i className="fas fa-user-cog" style={{ fontSize: '34px', color: "#153866" }}></i> */}
         </button>
       </div>
 

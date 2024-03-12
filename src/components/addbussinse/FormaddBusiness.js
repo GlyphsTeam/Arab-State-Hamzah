@@ -8,7 +8,8 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
-// import { useCombobox } from 'downshift';
+import { IoClose } from "react-icons/io5";
+
 import GoogleAddress from "./GoogleAddress";
 import {
     stateBussinse,
@@ -23,8 +24,8 @@ const SpinnerStatic = lazy(() => import("../common/Spinner"));
 const LoadingSpiner = lazy(() => import("../Button/LoadingSpiner"));
 const InputSelect = lazy(() => import("../UI/InputSelect"));
 const BusinessTime = lazy(() => import("./BusinessTime"));
-const ImageSelector = lazy(() => import("../UI/ImageSelector"))
-function ForRentForm({isLoaded }) {
+const ImageSelector = lazy(() => import("../UI/ImageSelector"));
+function ForRentForm({ isLoaded }) {
 
     const [t, i18n] = useTranslation();
     const navigation = useNavigate();
@@ -48,7 +49,7 @@ function ForRentForm({isLoaded }) {
     const tikTokRef = useRef(null);
     const [businessType, setBusinessType] = useState("2");
     const [city, setCity] = useState("");
-    const [streetValue, setStreetValue]= useState("")
+    const [streetValue, setStreetValue] = useState("")
     const [state, setState] = useState("");
     const [inputFields, setInputFields] = useState([{ id: 0, text: '' }]);
     const [nextId, setNextId] = useState(1);
@@ -733,336 +734,336 @@ function ForRentForm({isLoaded }) {
                 {isLoadingBusines && <SpinnerStatic text={true} textForm={i18n.language === "en" ? "Please do not close the page. Business form submission may take a few minutes. Thank you for your patience!" : "فضلك لا تغلق الصفحة. قد يستغرق إرسال المعلومات بضع دقائق. شكرا لك على انتظارك"} />}
                 <h1 className={style.titleBussines} >{t("Your Business Form")}</h1>
                 <div className={style.containerBusiness}>
-                <form className={style.formDiv} >
-                    <div className={style.formFlex}>
-                        <div>
-                            <div className={style.inputDiv}>
-                                <label style={{ fontWeight: "bold" }} className={style.labelStyle}>{t("Company Name")}</label>
-                                <input
-                                    name="company"
-                                    type="text"
-                                    id="company"
-                                    placeholder={t("Company Name")}
-                                    className={style.inputForm}
-                                    ref={companyName}
-                                    style={{width:"100%"}}
-                                />
-                            </div>
-                            <>
-
-
-                                <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Your Business Type")}</label>
-                                <div className={`${style.inputDiv}`}>
-                                    <InputSelect
-                                        handlerChange={handlerSetBusiness}
-                                        name="businessType"
-                                        inputValue={businessType}
-                                        optionsValue={businessState?.businessMainCat}
+                    <form className={style.formDiv} >
+                        <div className={style.formFlex}>
+                            <div>
+                                <div className={style.inputDiv}>
+                                    <label style={{ fontWeight: "bold" }} className={style.labelStyle}>{t("Company Name")}</label>
+                                    <input
+                                        name="company"
+                                        type="text"
+                                        id="company"
+                                        placeholder={t("Company Name")}
+                                        className={style.inputForm}
+                                        ref={companyName}
+                                        style={{ width: "100%" }}
                                     />
                                 </div>
-                                {LoadingSub && <LoadingSpiner />}
-                            </>
-                            {!hiddenBussines && <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Business Subcategories(Select one or more)")}</label>}
-                            {!hiddenBussines && <div className={`${style.inputDiv}`}>
+                                <>
+
+
+                                    <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Your Business Type")}</label>
+                                    <div className={`${style.inputDiv}`}>
+                                        <InputSelect
+                                            handlerChange={handlerSetBusiness}
+                                            name="businessType"
+                                            inputValue={businessType}
+                                            optionsValue={businessState?.businessMainCat}
+                                        />
+                                    </div>
+                                    {LoadingSub && <LoadingSpiner />}
+                                </>
+                                {!hiddenBussines && <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Business Subcategories(Select one or more)")}</label>}
+                                {!hiddenBussines && <div className={`${style.inputDiv}`}>
+                                    <InputSelect
+                                        handlerChange={handlerSetBusinessTest}
+                                        name="SubbusinessType"
+                                        optionsValue={subCategorys}
+                                    />
+                                    {selectedOptions.length !== 0 && selectedOptions?.map((sub) => {
+                                        return <div className={style.optionsContainer} key={sub?.id}>
+                                            <li>{sub?.name}</li>
+                                            <IoClose onClick={() => handleRemoveFromBranchIds(sub?.id)} className={style.closeBuin} />
+                                            {/* <i className="fas fa-times" onClick={() => handleRemoveFromBranchIds(sub?.id)} ></i> */}
+                                        </div>
+                                    })}
+                                </div>}
+                                <label style={{ fontWeight: "bold", marginTop: '10px' }} className={`${style.labelStyle}`}>{t("Your Business Cover")}</label>
+                                <div className={` ${style.uploadImageDiv} ${style.uploadBorder}`}>
+                                    <ImageSelector
+                                        handlerDrop={handleImageDropOne}
+                                        uploadStyle="postHousingUploadImage"
+                                        uploadedImage={uploadedImage}
+                                    />
+                                </div>
+                            </div>
+
+                            <div>
+                                <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Upload Business Logo")}</label>
+                                <div className={` ${style.uploadImageDiv} ${style.uploadBorder}`}>
+                                    <ImageSelector
+                                        handlerDrop={handleImageDropTwo}
+                                        uploadStyle="postHousingUploadImage"
+                                        uploadedImage={uploadedImage2}
+                                    />
+                                </div>
+                                <div className={style.helpDiv}>
+                                    <h3 className={style.h3Help}>{t("Do You Need Any Help! Contact Us")}</h3>
+                                    <Link to='/Contact'><button className={style.buttonHelp}>{t("Contact Us")}</button></Link>
+                                </div>
+                            </div>
+                        </div>
+                        <label style={{ fontWeight: "600" }} className={style.labelStyle}>{t("Your Business Location")}</label><br></br>
+                        <div className={style.inputDiv}>
+                            <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Street Address")}</label>
+                            <GoogleAddress isLoaded={isLoaded} setStreetValue={setStreetValue} street={street} setLat={setLat} setLng={setLng} />
+                        </div>
+                        <div className={style.inputDiv}>
+
+                        </div>
+                        <div className={style.inputFlex}>
+                            <div className={style.inputDiv}>
+                                <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("State / Province")}</label>
                                 <InputSelect
-                                    handlerChange={handlerSetBusinessTest}
-                                    name="SubbusinessType"
-                                    optionsValue={subCategorys}
+                                    name="State"
+                                    inputValue={state}
+                                    handlerChange={handleChangeCity}
+                                    optionsValue={businessState?.businessStateAndCity}
                                 />
-                                {selectedOptions.length !== 0 && selectedOptions?.map((sub) => {
-                                    return <div className={style.optionsContainer} key={sub?.id}>
-                                        <li>{sub?.name}</li>
-                                        <i className="fas fa-times" onClick={() => handleRemoveFromBranchIds(sub?.id)} ></i>
-                                    </div>
-                                })}
-                            </div>}
-                            <label style={{ fontWeight: "bold", marginTop: '10px' }} className={`${style.labelStyle}`}>{t("Your Business Cover")}</label>
-                            <div className={` ${style.uploadImageDiv} ${style.uploadBorder}`}>
-                                <ImageSelector
-                                    handlerDrop={handleImageDropOne}
-                                    uploadStyle="postHousingUploadImage"
-                                    uploadedImage={uploadedImage}
+                            </div>
+                            <div className={style.inputDiv}>
+                                <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("City")}</label>
+                                <InputSelect
+                                    name="City"
+                                    inputValue={city}
+                                    handlerChange={handlerCity}
+                                    optionsValue={cities}
                                 />
                             </div>
                         </div>
-
-                        <div>
-                            <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Upload Business Logo")}</label>
-                            <div className={` ${style.uploadImageDiv} ${style.uploadBorder}`}>
-                                <ImageSelector
-                                    handlerDrop={handleImageDropTwo}
-                                    uploadStyle="postHousingUploadImage"
-                                    uploadedImage={uploadedImage2}
-                                />
-                            </div>
-                            <div className={style.helpDiv}>
-                                <h3 className={style.h3Help}>{t("Do You Need Any Help! Contact Us")}</h3>
-                                <Link to='/Contact'><button className={style.buttonHelp}>{t("Contact Us")}</button></Link>
-                            </div>
-                        </div>
-                    </div>
-                    <label style={{ fontWeight: "600" }} className={style.labelStyle}>{t("Your Business Location")}</label><br></br>
-                    <div className={style.inputDiv}>
-                        <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Street Address")}</label>
-                        <GoogleAddress isLoaded={isLoaded} setStreetValue={setStreetValue} street={street} setLat={setLat} setLng={setLng}/>
-                    </div>
-                    <div className={style.inputDiv}>
-
-                    </div>
-                    <div className={style.inputFlex}>
                         <div className={style.inputDiv}>
-                            <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("State / Province")}</label>
-                            <InputSelect
-                                name="State"
-                                inputValue={state}
-                                handlerChange={handleChangeCity}
-                                optionsValue={businessState?.businessStateAndCity}
-                            />
-                        </div>
-                        <div className={style.inputDiv}>
-                            <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("City")}</label>
-                            <InputSelect
-                                name="City"
-                                inputValue={city}
-                                handlerChange={handlerCity}
-                                optionsValue={cities}
-                            />
-                        </div>
-                    </div>
-                    <div className={style.inputDiv}>
-                        <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Postal Code")}</label>
-                        <input
-                            name="Code"
-                            type="text"
-                            required
-                            id="Code"
-                            placeholder={t("Postal / Zip Code")}
-                            className={style.cityInput}
-                            ref={postalCode}
-                        />
-                    </div>
-                    <div className={style.inputFlex}>
-                        <div className={style.inputDiv}>
-                            <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Phone Number")}</label>
+                            <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Postal Code")}</label>
                             <input
-                                name="phoneNumber"
-                                required
+                                name="Code"
                                 type="text"
-                                id="phoneNumber"
-                                placeholder={t("123-456-789")}
-                                className={style.cityInput}
-                                ref={phone}
-                            />
-                        </div>
-                        <div className={style.inputDiv}>
-                            <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Website Link (if Available)")}</label>
-                            <input
-                                name="webiste"
-                                type="text"
-                                id="website"
-                                placeholder={t("www.domain.com")}
-                                className={style.cityInput}
-                                ref={websiteUrl}
-                            />
-                        </div>
-                    </div>
-                    <div className={style.inputFlex}>
-                        <div className={style.inputDiv}>
-                            <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("E-Mail")}</label>
-                            <input
-                                name="email"
-                                type="email"
-                                id="email"
                                 required
-                                placeholder={t("example@example.com")}
+                                id="Code"
+                                placeholder={t("Postal / Zip Code")}
                                 className={style.cityInput}
-                                ref={emailForm}
+                                ref={postalCode}
                             />
                         </div>
-                        <div className={style.inputDiv}>
-
-                        </div>
-                    </div>
-                    <div className={style.inputDiv}>
-                        <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Describe Your Business (About 1-3 Lines)")}</label>
-                        <textarea
-                            name="businsesLine"
-                            type="text"
-                            required
-                            id="businsesLine"
-                            placeholder={t("Description")}
-                            className={style.textAreayInput}
-                            ref={businessDes}
-                        />
-                    </div>
-                    <div className={style.inputDiv}>
-                        <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("What Services Do you offer?(3-9)")}</label>
-                        {inputFields.map((inputField, index) => (
-                            <div key={inputField.id} className={style.inputContanierFileds}>
+                        <div className={style.inputFlex}>
+                            <div className={style.inputDiv}>
+                                <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Phone Number")}</label>
                                 <input
-                                    className={style.servericeInput}
-                                    placeholder={`${t("Service")} ${1 + index}`}
+                                    name="phoneNumber"
+                                    required
                                     type="text"
-                                    value={inputField.text}
-                                    onChange={(event) => handleInputChange(inputField.id, event)}
+                                    id="phoneNumber"
+                                    placeholder={t("123-456-789")}
+                                    className={style.cityInput}
+                                    ref={phone}
                                 />
-                                <p onClick={() => handleDeleteField(inputField.id)} className={i18n.language === 'en' ? style.deleteInput : style.deleteInputAr}>{t("Delete")}</p>
+                            </div>
+                            <div className={style.inputDiv}>
+                                <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Website Link (if Available)")}</label>
+                                <input
+                                    name="webiste"
+                                    type="text"
+                                    id="website"
+                                    placeholder={t("www.domain.com")}
+                                    className={style.cityInput}
+                                    ref={websiteUrl}
+                                />
+                            </div>
+                        </div>
+                        <div className={style.inputFlex}>
+                            <div className={style.inputDiv}>
+                                <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("E-Mail")}</label>
+                                <input
+                                    name="email"
+                                    type="email"
+                                    id="email"
+                                    required
+                                    placeholder={t("example@example.com")}
+                                    className={style.cityInput}
+                                    ref={emailForm}
+                                />
+                            </div>
+                            <div className={style.inputDiv}>
 
                             </div>
-                        ))}
-                        <p onClick={handleAddFields} className={style.newInput}>{t("Add New Input")}</p>
-                    </div>
-                    <div className={style.inputFlex}>
+                        </div>
                         <div className={style.inputDiv}>
-                            <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Facebook")} :</label>
-                            <input
-                                name="facebook"
-                                type="email"
-                                id="facebook"
-                                className={style.cityInput}
-                                ref={faceBook}
+                            <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Describe Your Business (About 1-3 Lines)")}</label>
+                            <textarea
+                                name="businsesLine"
+                                type="text"
+                                required
+                                id="businsesLine"
+                                placeholder={t("Description")}
+                                className={style.textAreayInput}
+                                ref={businessDes}
                             />
                         </div>
                         <div className={style.inputDiv}>
-                            <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Instagram")} :</label>
-                            <input
-                                name="instagram"
-                                type="email"
-                                id="instagram"
-                                ref={instagramRef}
-                                className={style.cityInput}
-                            />
+                            <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("What Services Do you offer?(3-9)")}</label>
+                            {inputFields.map((inputField, index) => (
+                                <div key={inputField.id} className={style.inputContanierFileds}>
+                                    <input
+                                        className={style.servericeInput}
+                                        placeholder={`${t("Service")} ${1 + index}`}
+                                        type="text"
+                                        value={inputField.text}
+                                        onChange={(event) => handleInputChange(inputField.id, event)}
+                                    />
+                                    <p onClick={() => handleDeleteField(inputField.id)} className={i18n.language === 'en' ? style.deleteInput : style.deleteInputAr}>{t("Delete")}</p>
+
+                                </div>
+                            ))}
+                            <p onClick={handleAddFields} className={style.newInput}>{t("Add New Input")}</p>
                         </div>
-                    </div>
-                    <div className={style.inputFlex}>
-                        <div className={style.inputDiv}>
-                            <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Twitter")} :</label>
-                            <input
-                                name="twitter"
-                                type="email"
-                                id="twitter"
-                                ref={twitterRef}
-                                className={style.cityInput}
-                            />
-                        </div>
-                        <div className={style.inputDiv}>
-                            <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("YouTube")} :</label>
-                            <input
-                                name="youtube"
-                                type="email"
-                                id="youtube"
-                                ref={youtubeRef}
-                                className={style.cityInput}
-                            />
-                        </div>
-                        <div className={style.inputDiv}>
-                            <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("TikTok")} :</label>
-                            <input
-                                name="tikTok"
-                                type="email"
-                                id="tiktok"
-                                className={style.cityInput}
-                                ref={tikTokRef}
-                            />
-                        </div>
-                        <div className={style.inputDiv}>
-                            <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Pinterest")} :</label>
-                            <input
-                                name="Pinterest"
-                                type="email"
-                                id="Pinterest"
-                                className={style.cityInput}
-                                ref={pinterestLine}
-                            />
-                        </div>
-                    </div>
-                    <div className={style.inputFlex}>
-                        <div>
-                            <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Main Photos of Your Business - 6 Pic")}</label>
-                            <div className={` ${style.uploadImageDiv}`}>
-                                <ImageSelector
-                                    handlerDrop={handleImageDrop}
-                                    textButton="Add Photos"
-                                    uploadStyle="mainPh"
+                        <div className={style.inputFlex}>
+                            <div className={style.inputDiv}>
+                                <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Facebook")} :</label>
+                                <input
+                                    name="facebook"
+                                    type="email"
+                                    id="facebook"
+                                    className={style.cityInput}
+                                    ref={faceBook}
                                 />
-                                <div className={style.imageContainerDiv}>
-                                    {images?.map((image, index) => (
-                                        <div key={image.name} className={style.imageContainer}>
-                                            <LazyLoadImage
-                                                src={URL.createObjectURL(image)}
-                                                alt=""
-                                                width='150'
-                                                height='150'
-                                            />
-                                            <button
-                                                className={style.removeButton}
-                                                onClick={() => handleRemoveImage(index)}
-                                            >
-                                                <i className="fas fa-times"></i>
-                                            </button>
-                                        </div>
-                                    ))}
-                                </div>
                             </div>
-                            <h2 className={style.jpgStyle}>Jpg, Jpeg, Png </h2>
-                        </div>
-                        <div>
-                            <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Extra 6-10 photos to gallery")}</label>
-                            <div className={` ${style.uploadImageDiv}`}>
-                                <ImageSelector
-                                    handlerDrop={handleImageDrop2}
-                                    textButton="Add Photos"
-                                    uploadStyle="mainPh"
+                            <div className={style.inputDiv}>
+                                <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Instagram")} :</label>
+                                <input
+                                    name="instagram"
+                                    type="email"
+                                    id="instagram"
+                                    ref={instagramRef}
+                                    className={style.cityInput}
                                 />
-                                <div className={style.imageContainerDiv}>
-                                    {images2?.map((image, index) => (
-                                        <div key={image.name} className={style.imageContainer}>
-                                            <LazyLoadImage
-                                                src={URL.createObjectURL(image)}
-                                                alt=""
-                                                width='150'
-                                                height='150'
-                                            />
-                                            <button
-                                                className={style.removeButton}
-                                                onClick={() => handleRemoveImage2(index)}
-                                            >
-                                                <i className="fas fa-times"></i>
-                                            </button>
-                                        </div>
-                                    ))}
-                                </div>
                             </div>
-                            <h2 className={style.jpgStyle}>Jpg, Jpeg, Png </h2>
                         </div>
-                    </div>
-                    <label style={{ fontWeight: "bold" }} className={style.labelStyle}>{t("Your Business Working Hours")}</label><br></br>
-                    {work_times?.map((time) => {
-                        return <>
-                            <label style={{ fontWeight: "bold" }} className={style.labelBussiness}>{t(`${time?.day}`)}</label>
-                            <div className={style.inputFlexWeek} key={time?.day}>
-                                <div className={style.inputFlexDays}>
-                                    <div className={style.inputDiv}>
-                                        <BusinessTime day={time?.day_type} handlerChange={handlerDayChangeFrom} dayStatus={time?.is_closed} />
-                                    </div>
-                                    <div className={style.inputDiv}>
-                                        <h2 className={style.jpgStyle}>{t("Until")}</h2>
-                                    </div>
-                                    <div className={style.inputDiv}>
-                                        <BusinessTime day={time?.day_type} handlerChange={handlerDayChangeTo} dayStatus={time?.is_closed} />
-                                    </div>
-                                    <div className={style.inputDiv}>
-                                        <FormControlLabel control={<Checkbox checked={time?.is_closed} />} label={t("Closed")} onChange={(e) => handlerChangeCheked(e, time?.day_type)} id={time?.day} />
-                                    </div>
-                                    <div className={style.inputDiv}>
-                                        <FormControlLabel control={<Checkbox checked={time?.always_open} />} label={t("Always Open")} onChange={(e) => handlerChangeAlwaysOpen(e, time?.day_type)} id={time?.day} />
+                        <div className={style.inputFlex}>
+                            <div className={style.inputDiv}>
+                                <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Twitter")} :</label>
+                                <input
+                                    name="twitter"
+                                    type="email"
+                                    id="twitter"
+                                    ref={twitterRef}
+                                    className={style.cityInput}
+                                />
+                            </div>
+                            <div className={style.inputDiv}>
+                                <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("YouTube")} :</label>
+                                <input
+                                    name="youtube"
+                                    type="email"
+                                    id="youtube"
+                                    ref={youtubeRef}
+                                    className={style.cityInput}
+                                />
+                            </div>
+                            <div className={style.inputDiv}>
+                                <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("TikTok")} :</label>
+                                <input
+                                    name="tikTok"
+                                    type="email"
+                                    id="tiktok"
+                                    className={style.cityInput}
+                                    ref={tikTokRef}
+                                />
+                            </div>
+                            <div className={style.inputDiv}>
+                                <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Pinterest")} :</label>
+                                <input
+                                    name="Pinterest"
+                                    type="email"
+                                    id="Pinterest"
+                                    className={style.cityInput}
+                                    ref={pinterestLine}
+                                />
+                            </div>
+                        </div>
+                        <div className={style.inputFlex}>
+                            <div>
+                                <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Main Photos of Your Business - 6 Pic")}</label>
+                                <div className={` ${style.uploadImageDiv}`}>
+                                    <ImageSelector
+                                        handlerDrop={handleImageDrop}
+                                        textButton="Add Photos"
+                                        uploadStyle="mainPh"
+                                    />
+                                    <div className={style.imageContainerDiv}>
+                                        {images?.map((image, index) => (
+                                            <div key={image.name} className={style.imageContainer}>
+                                                <LazyLoadImage
+                                                    src={URL.createObjectURL(image)}
+                                                    alt=""
+                                                    width='150'
+                                                    height='150'
+                                                />
+                                                <button
+                                                    className={style.removeButton}
+                                                    onClick={() => handleRemoveImage(index)}
+                                                >
+                                                    <IoClose className={style.closeBuin} />                                            </button>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
+                                <h2 className={style.jpgStyle}>Jpg, Jpeg, Png </h2>
                             </div>
-                        </>
-                    })}
-                    <FormControlLabel control={<Checkbox checked={isAllOpen} />} label={t("Open 24/7")} onChange={(e) => handlerChangeAlwaysAll(e)} />
-                </form>
+                            <div>
+                                <label style={{ fontWeight: "bold", marginTop: '10px' }} className={style.labelStyle}>{t("Extra 6-10 photos to gallery")}</label>
+                                <div className={` ${style.uploadImageDiv}`}>
+                                    <ImageSelector
+                                        handlerDrop={handleImageDrop2}
+                                        textButton="Add Photos"
+                                        uploadStyle="mainPh"
+                                    />
+                                    <div className={style.imageContainerDiv}>
+                                        {images2?.map((image, index) => (
+                                            <div key={image.name} className={style.imageContainer}>
+                                                <LazyLoadImage
+                                                    src={URL.createObjectURL(image)}
+                                                    alt=""
+                                                    width='150'
+                                                    height='150'
+                                                />
+                                                <button
+                                                    className={style.removeButton}
+                                                    onClick={() => handleRemoveImage2(index)}
+                                                >
+                                                    <IoClose className={style.closeBuin}/>
+                                                </button>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                                <h2 className={style.jpgStyle}>Jpg, Jpeg, Png </h2>
+                            </div>
+                        </div>
+                        <label style={{ fontWeight: "bold" }} className={style.labelStyle}>{t("Your Business Working Hours")}</label><br></br>
+                        {work_times?.map((time) => {
+                            return <>
+                                <label style={{ fontWeight: "bold" }} className={style.labelBussiness}>{t(`${time?.day}`)}</label>
+                                <div className={style.inputFlexWeek} key={time?.day}>
+                                    <div className={style.inputFlexDays}>
+                                        <div className={style.inputDiv}>
+                                            <BusinessTime day={time?.day_type} handlerChange={handlerDayChangeFrom} dayStatus={time?.is_closed} />
+                                        </div>
+                                        <div className={style.inputDiv}>
+                                            <h2 className={style.jpgStyle}>{t("Until")}</h2>
+                                        </div>
+                                        <div className={style.inputDiv}>
+                                            <BusinessTime day={time?.day_type} handlerChange={handlerDayChangeTo} dayStatus={time?.is_closed} />
+                                        </div>
+                                        <div className={style.inputDiv}>
+                                            <FormControlLabel control={<Checkbox checked={time?.is_closed} />} label={t("Closed")} onChange={(e) => handlerChangeCheked(e, time?.day_type)} id={time?.day} />
+                                        </div>
+                                        <div className={style.inputDiv}>
+                                            <FormControlLabel control={<Checkbox checked={time?.always_open} />} label={t("Always Open")} onChange={(e) => handlerChangeAlwaysOpen(e, time?.day_type)} id={time?.day} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                        })}
+                        <FormControlLabel control={<Checkbox checked={isAllOpen} />} label={t("Open 24/7")} onChange={(e) => handlerChangeAlwaysAll(e)} />
+                    </form>
                 </div>
                 <div className={style.buttonTwoContainer}>
                     <ButtonSeven handlerClick={handlerSubmitForm} buttonType="submit">

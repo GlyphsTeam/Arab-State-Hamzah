@@ -9,6 +9,11 @@
   height: fit-content;
   color: var(--primary-color);
 }
+.configIcon{
+  cursor: pointer;
+  color: var(--secondary-color);
+  font-size: 34px;
+}
 .editIcon{
   height: 20px;
 }

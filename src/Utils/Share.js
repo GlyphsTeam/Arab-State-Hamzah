@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { FaTwitter, FaWhatsapp } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { BiLogoTelegram } from "react-icons/bi";
+import { IoClose } from "react-icons/io5";
 
 function Share({ url, setShowShareModal }) {
   const inputRef = useRef(null);
@@ -40,7 +41,7 @@ function Share({ url, setShowShareModal }) {
           <header>
             <span>{t("Share")}</span>
             <div className={style.close} onClick={handleClose}>
-              <i className="fas fa-times"></i>
+              <IoClose className={style.closeBuin}/>
             </div>
           </header>
           <div className={style.content}>

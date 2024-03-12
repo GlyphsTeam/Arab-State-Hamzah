@@ -212,13 +212,12 @@ const JobForm = ({ setJobFormOpen, baseUrl, jobPageData }) => {
       setShow(true);
       setSuccess(true);
       setCount(4);
-      setTimeout(() => {
+      
         navigate("/my-job", {
           state: {
             stateLoading: true
           }
         });
-      }, 3000);
     }
   };
 

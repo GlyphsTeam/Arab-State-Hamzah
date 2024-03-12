@@ -1,7 +1,9 @@
 import style from "../../assets/style/popup/popup.module.css";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-function PopUp({ setShowPopModal, navOne, navTwo, titleOne, titleTwo, title}) {
+import { IoClose } from "react-icons/io5";
+
+function PopUp({ setShowPopModal, navOne, navTwo, titleOne, titleTwo, title }) {
     const [t] = useTranslation();
     const navigate = useNavigate();
 
@@ -21,7 +23,7 @@ function PopUp({ setShowPopModal, navOne, navTwo, titleOne, titleTwo, title}) {
                     <header>
                         <span>{t(`Add ${title}`)}</span>
                         <div className={style.close} onClick={handleClose}>
-                            <i className="fas fa-times"></i>
+                            <IoClose />
                         </div>
                     </header>
                     <div className={style.content}>

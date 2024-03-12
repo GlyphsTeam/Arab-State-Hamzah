@@ -6,6 +6,8 @@ import JobForm from "../JobRentForm/JobForm";
 import RentForm from "../JobRentForm/RentForm";
 import Alert from '../customAlert/Alert';
 import { useTranslation } from "react-i18next";
+import { IoClose } from "react-icons/io5";
+
 function CardSection({
   token,
   index,
@@ -116,7 +118,7 @@ function CardSection({
             <div className={style.modalSection}>
               <div className={style.closeModalDiv}>
                 <button className={`closeBtnModal`} onClick={closeModal}>
-                  <i className={`fas fa-times ${style.closeModalBtn}`}></i>
+                <IoClose className={style.closeModalBtn}/>
                 </button>
               </div>
           

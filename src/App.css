@@ -32,10 +32,11 @@ body{
 }
 
 .termsBtn{
+  color: var(--secondary-color) !important;
+  
   padding: 10px 20px;
-  background: var(--tertiary-color);
+  background: var(--primary-color);
   border-radius: 25px;
-  color: var(--dark-blue) !important;
 }
 .accordion-public-class .accordion-button p{
   height: fit-content;

@@ -26,7 +26,7 @@ function ShowRentForm({ baseUrl }) {
   const typeRef = useRef(null);
   const portfolioRef = useRef(null);
   const [typeId, setTypeId] = useState("");
-
+  // const [typeRent, setTypeRent] = useState("")
 
 
 
@@ -44,6 +44,7 @@ function ShowRentForm({ baseUrl }) {
   const [show, setShow] = useState(false);
   const [warning, setWarning] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [gender, setGender] = useState("");
 
   const [count, setCount] = useState();
 
@@ -56,29 +57,23 @@ function ShowRentForm({ baseUrl }) {
     updatedImages.splice(index, 1);
     setImages(updatedImages);
   };
-console.log("typeId>>",typeId)
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("typeRef.current?.value>>", typeRef.current?.value)
     if (
       titleRef.current?.value === "" ||
-      typeRef.current?.value === "" ||
+      typeId === "" ||
       placeRef.current?.value === "" ||
       phoneRef.current?.value === "" ||
       descriptionRef.current?.value === "" ||
       images.length === 0 ||
       emailRef.current?.value === "" ||
-      genderRef.current?.value === "" ||
+      gender === "" ||
       bathroomsRef.current?.value === "" ||
       bedroomsRef.current?.value === "" ||
       areaRef.current?.value === ""
     ) {
 
-      if (typeRef.current?.value === "") {
-        setSuccess(true);
-        setTypeAlert("warning")
-        setMessageAlert(t("type is required"))
-      }
+
 
       if (descriptionRef.current?.value === "") {
         setSuccess(true);
@@ -122,10 +117,15 @@ console.log("typeId>>",typeId)
         setTypeAlert("warning")
         setMessageAlert(t("Bathrooms is required"))
       }
-      if (genderRef.current?.value === "") {
+      if (gender === "") {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert(t("Gender is required"))
+      }
+      if (typeId === "") {
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert(t("type is required"))
       }
       if (placeRef.current?.value === "") {
         setSuccess(true);
@@ -135,6 +135,8 @@ console.log("typeId>>",typeId)
       if (titleRef.current?.value === "") {
         setSuccess(true);
         setTypeAlert("warning")
+        setCount(4)
+
         setMessageAlert(t("Title is required"))
       }
       if (images.length === 0) {
@@ -150,7 +152,7 @@ console.log("typeId>>",typeId)
         const formData = new FormData();
         formData.append("title", titleRef.current?.value);
         formData.append("description", descriptionRef.current?.value);
-        formData.append("gender", genderRef.current?.value);
+        formData.append("gender", gender);
         formData.append("email", emailRef.current?.value);
         formData.append("phone_number", phoneRef.current?.value);
         formData.append("price", priceRef.current?.value);
@@ -161,6 +163,7 @@ console.log("typeId>>",typeId)
         formData.append("place", placeRef.current?.value);
         formData.append("profile_url", portfolioRef.current?.value);
         formData.append("looking", 0);
+
         anonymous && formData.append("anonymous", anonymous);
         is_bathroom_shared &&
           formData.append("is_bathroom_shared", is_bathroom_shared);
@@ -180,7 +183,7 @@ console.log("typeId>>",typeId)
         }).then(() => {
           titleRef.current = null;
           descriptionRef.current = null;
-          genderRef.current = null;
+          setGender("")
           emailRef.current = null;
           phoneRef.current = null;
           priceRef.current = null;
@@ -331,7 +334,7 @@ console.log("typeId>>",typeId)
             <select
               name="gender"
               id="gender"
-              ref={genderRef}
+              onChange={(e) => setGender(e.target.value)}
               className={`${style.fieldWidth} ${style.fieldHeight}`}
             >
               <option value="choose one">{t("Gender")}</option>

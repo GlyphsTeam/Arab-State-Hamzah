@@ -208,9 +208,9 @@ function TopRentCard({ rentData, setShow, token, setCount, id }) {
           ></i>:}
           } */}
       </div>
-      <Link to={rentData?.profile_url} target="_blank">
+      {rentData?.profile_url&&<Link to={rentData?.profile_url} target="_blank">
         <button >{t("Contact me")} </button>
-      </Link>
+      </Link>}
     </div >
       <div
         className={

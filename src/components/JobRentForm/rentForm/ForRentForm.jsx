@@ -17,14 +17,12 @@ function ForRentForm({ baseUrl, rentPageData }) {
   const [typeAlert, setTypeAlert] = useState("");
   const titleRef = useRef(null);
   const areaRef = useRef(null);
-  const genderRef = useRef(null);
   const emailRef = useRef(null);
   const descriptionRef = useRef(null);
   const priceRef = useRef(null);
   const bathroomsRef = useRef(null);
   const bedroomsRef = useRef(null);
   const phoneRef = useRef(null);
-  const typeRef = useRef(null);
   const placeRef = useRef(null);
   const portfolioRef = useRef(null);
 
@@ -38,10 +36,11 @@ function ForRentForm({ baseUrl, rentPageData }) {
   const [show, setShow] = useState(false);
   const [warning, setWarning] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [typeId, setTypeId] = useState("");
+  const [gender, setGender] = useState("");
 
   const [count, setCount] = useState();
   const [showImageWarn, setShowImageWarn] = useState(false);
-
 
   const handleImageDrop = (acceptedFiles) => {
     setImages((prevImages) => [...prevImages, ...acceptedFiles]);
@@ -60,24 +59,17 @@ function ForRentForm({ baseUrl, rentPageData }) {
     event.preventDefault();
     if (
       titleRef.current?.value === "" ||
-      typeRef.current?.value === "" ||
+      typeId === "" ||
       placeRef.current?.value === "" ||
       phoneRef.current?.value === "" ||
       descriptionRef.current?.value === "" ||
       images.length === 0 ||
-      genderRef.current?.value === "" ||
+      gender === "" ||
       emailRef.current?.value === "" ||
       bathroomsRef.current?.value === "" ||
       bedroomsRef.current?.value === "" ||
       areaRef.current?.value === ""
     ) {
-
-      if (typeRef.current?.value === "") {
-        setSuccess(true);
-        setTypeAlert("warning")
-        setMessageAlert("Type is required")
-      }
-
       if (descriptionRef.current?.value === "") {
         setSuccess(true);
         setTypeAlert("warning")
@@ -119,10 +111,15 @@ function ForRentForm({ baseUrl, rentPageData }) {
         setTypeAlert("warning")
         setMessageAlert("Bathrooms is required")
       }
-      if (genderRef.current?.value === "") {
+      if (gender === "") {
         setSuccess(true);
         setTypeAlert("warning")
         setMessageAlert("Gender is required")
+      }
+      if (typeId === "") {
+        setSuccess(true);
+        setTypeAlert("warning")
+        setMessageAlert("Type is required")
       }
       if (placeRef.current?.value === "") {
         setSuccess(true);
@@ -145,13 +142,13 @@ function ForRentForm({ baseUrl, rentPageData }) {
         const formData = new FormData();
         formData.append("title", titleRef.current?.value);
         formData.append("description", descriptionRef.current?.value);
-        formData.append("gender", genderRef.current?.value);
+        formData.append("gender", gender);
         formData.append("email", emailRef.current?.value);
         formData.append("phone_number", phoneRef.current?.value);
         formData.append("price", priceRef.current?.value);
         formData.append("bathrooms", bathroomsRef.current?.value);
         formData.append("bedrooms", bedroomsRef.current?.value);
-        formData.append("type", typeRef.current?.value);
+        formData.append("type", typeId);
         formData.append("area", areaRef.current?.value);
         formData.append("profile_url", portfolioRef.current?.value);
         formData.append("place", placeRef.current?.value);
@@ -159,11 +156,11 @@ function ForRentForm({ baseUrl, rentPageData }) {
         anonymous && formData.append("anonymous", anonymous);
         is_bathroom_shared &&
           formData.append("is_bathroom_shared", is_bathroom_shared);
-      
+
         images.forEach((image) => {
           formData.append("images[]", image);
         });
-      
+
         fetch(`${baseUrl}/rents/create`, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -174,13 +171,13 @@ function ForRentForm({ baseUrl, rentPageData }) {
         }).then(() => {
           titleRef.current = null;
           descriptionRef.current = null;
-          genderRef.current = null;
+          setGender("")
           emailRef.current = null;
           phoneRef.current = null;
           priceRef.current = null;
           bathroomsRef.current = null;
           bedroomsRef.current = null;
-          typeRef.current = null;
+          setTypeId("");
           areaRef.current = null;
           placeRef.current = null;
           setLoadingRent(false);
@@ -219,7 +216,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
 
   return (
     <>
-      {isLoadingRent && <SpinnerStatic text={true} textForm={i18n.language==="en"?"Please do not close the page. Rent form submission may take a few minutes. Thank you for your patience!":"فضلك لا تغلق الصفحة. قد يستغرق إرسال المعلومات بضع دقائق. شكرا لك على انتظارك"}/>}
+      {isLoadingRent && <SpinnerStatic text={true} textForm={i18n.language === "en" ? "Please do not close the page. Rent form submission may take a few minutes. Thank you for your patience!" : "فضلك لا تغلق الصفحة. قد يستغرق إرسال المعلومات بضع دقائق. شكرا لك على انتظارك"} />}
       <div className={style.titleDiv}>
         <h1>{t("Looking For Rent")}</h1>
         {/* <p>{t("How would you like to post a Rent")}</p> */}
@@ -305,7 +302,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
             <select
               name="type"
               id="type"
-              ref={typeRef}
+              onChange={(e) => setTypeId(e.target.value)}
             >
               <option value="">{t("Type")}</option>
               {rentPageData?.type?.map((item) => {
@@ -323,9 +320,9 @@ function ForRentForm({ baseUrl, rentPageData }) {
               name="gender"
               id="gender"
               className={`${style.fieldWidth} ${style.fieldHeight}`}
-              ref={genderRef}
+              onChange={(e) => setGender(e.target.value)}
             >
-              <option value="choose one">{t("Gender")}</option>
+              <option >{t("Gender")}</option>
               {rentPageData?.gender?.map((item, index) => {
                 return <option key={index} value={item?.value}>{item?.name}</option>;
               })}
@@ -464,7 +461,7 @@ function ForRentForm({ baseUrl, rentPageData }) {
       </div>
       <div className={style.formBtnContainer}>
         <ButtonSeven handlerClick={handleSubmit} buttonType="submit">
-        {t("Submit")}
+          {t("Submit")}
         </ButtonSeven>
       </div>
     </>

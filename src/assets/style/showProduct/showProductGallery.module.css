@@ -17,6 +17,7 @@
 .subGalleryDiv{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .subGalleryDiv img{
     height: 78px;

@@ -18,6 +18,25 @@
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
 }
+.deleteContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.deleteContainer .deleteRent{
+  border: none;
+  font-size: 14px;
+  background-color: var(--secondary-color);
+  color: var(--white);
+  padding: 5px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  margin-bottom: 10px;
+}
 .newCardRent svg{
   color: var(--secondary-color) !important;
 }

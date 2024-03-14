@@ -8,8 +8,23 @@
     box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.1);
     height: 450px;
     padding: 20px;
+    position: relative;
     border: 1px solid rgba(0, 0, 0, 0.25);
   
+}
+.deleteCard{
+  position: absolute;
+  z-index:10000;
+  color: var(--white);
+  border: none;
+  font-size: 14px;
+  left: 13px;
+  top: 25px;
+  transform: skew(50deg,-50deg);
+  -webkit-transform: skew(50deg,-50deg);
+  -moz-transform: skew(50deg,-50deg);
+  -ms-transform: skew(50deg,-50deg);
+  -o-transform: skew(50deg,-50deg);
 }
 .cardTop svg{
   color: var(--secondary-color);

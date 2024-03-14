@@ -11,6 +11,7 @@ import { setSavedDataProfile } from '../../../redux/Rent/rent';
 import { IoLocationSharp } from "react-icons/io5";
 import { FaShareFromSquare, FaBath } from "react-icons/fa6";
 import { MdFavorite, MdFavoriteBorder, MdBedroomParent, MdOutlineWorkspaces } from "react-icons/md";
+import axios from 'axios';
 
 function NewCardRent({ houseData }) {
     const [t, i18n] = useTranslation();
@@ -50,6 +51,20 @@ function NewCardRent({ houseData }) {
     formData.append("id", houseData.id);
     // console.log("houseData.id>>>>>>>",houseData);
     const [Res] = useFetch('favorite/rent', formData, send);
+    const deleteRent = async (id) => {
+        let url = `user/rents/delete/${id}`;
+        let city_ID = process.env.REACT_APP_City_ID;
+
+        let backend_url = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${city_ID}/${url}`
+
+        await axios.delete(`${backend_url}`, {
+            headers: { "Authorization": `Bearer ${token}` }
+
+        }).then((res) => {
+            deleteDiv(id);
+
+        }).catch((err) => console.log(err))
+    }
 
 
     return (
@@ -68,34 +83,40 @@ function NewCardRent({ houseData }) {
                     <span className={style.newRentTitle}>{houseData?.title}</span>
                     <div className={style.shareNewRent}>
                         <div className={style.shareIconMobile}>
-                         
                             <FaShareFromSquare className={style.favIconColor} onClick={() => handleClick()}
                             />
                             {
-                                isFav ? <MdFavorite className={style.favIconColor} onClick={() => addToFavorite(houseData?.id)}/> : <MdFavoriteBorder   className={style.favIconColor} onClick={() => addToFavorite(houseData?.id)}/>
+                                isFav ? <MdFavorite className={style.favIconColor} onClick={() => addToFavorite(houseData?.id)} /> : <MdFavoriteBorder className={style.favIconColor} onClick={() => addToFavorite(houseData?.id)} />
                             }
-                         
+
                         </div>
+
                     </div>
                 </div>
-                <p className={style.rentPar}>
-                   <IoLocationSharp/> {houseData.place}
-                </p>
+                <div className={style.deleteContainer}>
+                    <p className={style.rentPar}>
+                        <IoLocationSharp /> {houseData.place}
+                    </p>
+                    {location.pathname === "/my-housing" && <button className={style.deleteRent} onClick={() => deleteRent(houseData?.id)}>{t("Delete")}</button>}
+
+                </div>
+
+
                 <Link
                     to={`/rent/${houseData.slug}/${houseData?.id}`}
                     className={`row ${style.housingMainInfoBox}`}
                 >
                     <div className={style.newhouseInfo}>
                         <p>
-                            <MdBedroomParent/> {houseData.bedrooms}{" "}
+                            <MdBedroomParent /> {houseData.bedrooms}{" "}
                             {t("Bedrooms")}
                         </p>
                         <p>
-                            <FaBath/> {houseData.bathrooms}{" "}
+                            <FaBath /> {houseData.bathrooms}{" "}
                             {t("Bathrooms")}
                         </p>
                         <p>
-                           <MdOutlineWorkspaces/> {houseData.area} sq
+                            <MdOutlineWorkspaces /> {houseData.area} sq
                             ft
                         </p>
                     </div>

@@ -108,7 +108,7 @@ function MiddleJob({ jobData, setShow, token, setCount, id }) {
             </div>
 
             <Link to={jobData?.profile_url} target="_blank">
-              <button>{t("Contact me")}</button>
+              <button className={style.contactme}>{t("Contact me")}</button>
             </Link>
           </div>
         </div>

@@ -9,6 +9,7 @@
 color: var(--secondary-color);
 margin: 5px;
 }
+
 .contactContainer button{
   margin-top: 25px;
   margin-left: 10px;
@@ -634,5 +635,9 @@ margin: 5px;
   }
   .jobTxtContainer p{
     height: fit-content !important;
+  }
+  .contactme{
+    margin-top: 40px !important;
+    margin-right: 10px;
   }
 }

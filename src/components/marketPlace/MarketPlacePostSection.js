@@ -15,6 +15,7 @@ import InputSelect from "../UI/InputSelect";
 import InputSelectValue from "../UI/InputSelectValue";
 import ButtonSeven from "../Button/ButtonSeven";
 import axios from 'axios';
+import { IoClose } from "react-icons/io5";
 
 function MarketPlacePostSection() {
   const [t, i18n] = useTranslation();
@@ -415,7 +416,7 @@ function MarketPlacePostSection() {
                   className={style.removeButton}
                   onClick={() => handleRemoveImage(index)}
                 >
-                  <i className="fas fa-times"></i>
+                  <IoClose/>
                 </button>
               </div>
             ))}

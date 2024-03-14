@@ -6,6 +6,8 @@ import axios from 'axios';
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { useLocation } from 'react-router-dom'
 import ReactHtmlParser from 'html-react-parser'
+import { RiDeleteBin6Line } from "react-icons/ri";
+
 function ProductCard({ data, isMyPost, baseUrl, type }) {
   const [t, i18n] = useTranslation();
   const [showAlertDelete, setShowAlertDelete] = useState(false);
@@ -97,8 +99,7 @@ function ProductCard({ data, isMyPost, baseUrl, type }) {
           <div className={`${pathName.includes("/my-product")?i18n.language === 'en'?style.myProductPost:style.myProductPostAr:i18n.language === 'en' ? style.enProductPriceBtn : style.arProductPriceBtn} ${style.productPriceBtn}`}>
             <p className={style.productPrice}><span>{data.price}</span>{type === 'blog' ? '' : '$'}</p>
             <p className={style.productDate}>{data.created_at}</p>
-            {type === "blog" || pathName.includes("/market-place/products") ? <></> : <i className={`fas fa-trash-alt ${style.deleteIcon}`} onClick={() => handlerDeleteBlog(data.id)}
-            ></i>}
+            {type === "blog" || pathName.includes("/market-place/products") ? <></> : <RiDeleteBin6Line className={`fas fa-trash-alt ${style.deleteIcon}`} onClick={() => handlerDeleteBlog(data.id)}/>}
           </div>
         </div>
 

@@ -28,7 +28,6 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
     let formData = new FormData();
     formData.append('id', jobData.id);
     const [Res] = useFetch('favorite/job', formData, send);
-    let favoriteIcon = isFav ? 'fas fa-bookmark' : 'far fa-bookmark';
 
     const handleClick = () => {
         setShowShareModal(true);
@@ -61,7 +60,9 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
     }
     const deletePostJob = async (id) => {
         let url = `user/jobs/delete/${id}`;
-        let backend_url = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/0/${url}`
+        const city_ID = process.env.REACT_APP_City_ID;
+
+        let backend_url = `https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${city_ID}/${url}`
         const token = localStorage.getItem('arab_user_token')
         await axios.delete(backend_url, {
             headers: {
@@ -74,16 +75,18 @@ function JobCard({ jobData, isMyPost, baseUrl, urlId, page }) {
     return (
         <>
             <div className={style.card} id={jobData.id}>
-            <div className={style.cardTop}>
-          <Link to={`/show-job/${jobData.slug}/${jobData?.id}`} state={(urlId = { id: jobData?.id })}>
-            <LazyLoadImage src={jobData.company_image ? jobData.company_image : jobData.user_image} alt='scs' />
-          </Link>
-          <div className={style.iconsCard}>
-            {/* <i className={`fas fa-share-square ${style.favIconColor}`} onClick={() => handleClick()}></i> */}
-            <FaShareFromSquare onClick={() => handleClick()} className={style.favIconColor} />
-            {!jobData.is_user_post ? isFav ? <MdFavorite onClick={() => addToFavorite(jobData.id)} /> : <MdFavoriteBorder onClick={() => addToFavorite(jobData.id)}/> : <></>}
-          </div>
-        </div>
+                <button className={style.deleteCard} onClick={() => deletePostJob(jobData.id)}>{t("delete")}</button>
+
+                <div className={style.cardTop}>
+                    <Link to={`/show-job/${jobData.slug}/${jobData?.id}`} state={(urlId = { id: jobData?.id })}>
+                        <LazyLoadImage src={jobData.company_image ? jobData.company_image : jobData.user_image} alt='scs' />
+                    </Link>
+                    <div className={style.iconsCard}>
+                        {/* <i className={`fas fa-share-square ${style.favIconColor}`} onClick={() => handleClick()}></i> */}
+                        <FaShareFromSquare onClick={() => handleClick()} className={style.favIconColor} />
+                        {!jobData.is_user_post ? isFav ? <MdFavorite onClick={() => addToFavorite(jobData.id)} /> : <MdFavoriteBorder onClick={() => addToFavorite(jobData.id)} /> : <></>}
+                    </div>
+                </div>
                 <Link to={`/show-job/${jobData.slug}/${jobData?.id}`} state={(urlId = { id: jobData?.id })}>
                     <div className={style.cardBottom}>
                         <div className={style.textTitle}>

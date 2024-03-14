@@ -8,3 +8,6 @@
 .termsBtn{
     color: var(--secondary-color) !important;
 }
+.privacyText p{
+    color: var(--primary-color) ;
+}

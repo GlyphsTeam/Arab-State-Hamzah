@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 
 function SubCategoryCard({ storeData }) {
   const [t, i18n] = useTranslation();
@@ -50,14 +51,10 @@ function SubCategoryCard({ storeData }) {
             <p className={`${style.cardTitle} `}>{storeData.name}</p>
           </Link>
           {i18n.language === "en" ?
-            <i
-              onClick={() => handlerDelete(storeData?.id)}
-              className={`${favoriteIcon} ${style.deleteIcon}`}
-            ></i> :
-            <i
-              onClick={() => handlerDelete(storeData?.id)}
-              className={`${favoriteIcon} ${style.deleteIconAr}`}
-            ></i>
+            <FaBookmark onClick={() => handlerDelete(storeData?.id)} className={`${favoriteIcon} ${style.deleteIcon}`}/>
+            :
+            <FaBookmark onClick={() => handlerDelete(storeData?.id)} className={`${favoriteIcon} ${style.deleteIconAr}`}/>
+
           }
         </div>
       </div>

@@ -7,6 +7,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { useLocation } from 'react-router-dom'
 import ReactHtmlParser from 'html-react-parser'
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 
 function ProductCard({ data, isMyPost, baseUrl, type }) {
   const [t, i18n] = useTranslation();
@@ -37,7 +38,8 @@ function ProductCard({ data, isMyPost, baseUrl, type }) {
 
   const deleteProduct = (id) => {
     try {
-      fetch(`https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/0/user/market/delete/${id}`, {
+
+      fetch(`https://${process.env.REACT_APP_domain}/api/${process.env.REACT_APP_City}/${t("en")}/${process.env.REACT_APP_City_ID}/user/market/delete/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
           Accept: "application/json",
@@ -85,21 +87,23 @@ function ProductCard({ data, isMyPost, baseUrl, type }) {
             <LazyLoadImage className={i18n.language === 'en' ? style.enImgBorder : style.arImgBorder} src={data.image} alt='productImage' />
           </div>
         </Link>
-
+        {/* favIconColor */}
         <div className={style.productInfo}>
           <div className={style.productText}>
             <div className={style.trashContainer}>
               <h1>{data.title}</h1>
-              {!data?.is_user_post ? <i className={`${favoriteIcon} ${style.favIconColor}`} onClick={() => handlerDeleteBlog(data.id, type)}></i> : <></>}
+              {!data?.is_user_post ? isFav ? <FaBookmark className={style.favIconColor} onClick={() => handlerDeleteBlog(data.id, type)}/> : <FaRegBookmark className={style.favIconColor} onClick={() => handlerDeleteBlog(data.id, type)}/> : <></>}
+
+              {/* {!data?.is_user_post ? <i className={`${favoriteIcon} ${style.favIconColor}`} onClick={() => handlerDeleteBlog(data.id, type)}></i> : <></>} */}
             </div>
             <h2>{data.main_category_name} {" > "} {data.category_name}</h2>
             <p>{ReactHtmlParser(data.description)}</p>
           </div>
-      
-          <div className={`${pathName.includes("/my-product")?i18n.language === 'en'?style.myProductPost:style.myProductPostAr:i18n.language === 'en' ? style.enProductPriceBtn : style.arProductPriceBtn} ${style.productPriceBtn}`}>
+
+          <div className={`${pathName.includes("/my-product") ? i18n.language === 'en' ? style.myProductPost : style.myProductPostAr : i18n.language === 'en' ? style.enProductPriceBtn : style.arProductPriceBtn} ${style.productPriceBtn}`}>
             <p className={style.productPrice}><span>{data.price}</span>{type === 'blog' ? '' : '$'}</p>
             <p className={style.productDate}>{data.created_at}</p>
-            {type === "blog" || pathName.includes("/market-place/products") ? <></> : <RiDeleteBin6Line className={`fas fa-trash-alt ${style.deleteIcon}`} onClick={() => handlerDeleteBlog(data.id)}/>}
+            {type === "blog" || pathName.includes("/market-place/products") ? <></> : <RiDeleteBin6Line className={`fas fa-trash-alt ${style.deleteIcon}`} onClick={() => handlerDeleteBlog(data.id)} />}
           </div>
         </div>
 

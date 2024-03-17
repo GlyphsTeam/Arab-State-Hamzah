@@ -3,6 +3,7 @@ import style from "../assets/style/showRentPage.module.css";
 import { Link, useLocation } from "react-router-dom";
 import useAxios from "../hooks/useAxiosGet";
 import { useTranslation } from "react-i18next";
+import { MdOutlineArrowBackIosNew} from "react-icons/md";
 
 import { Helmet } from 'react-helmet';
 
@@ -44,7 +45,7 @@ const ShowRentPage = () => {
               <Link to={"/rents"}>
                 <div className={style.backArrowMobile}>
                   <div className={style.backArrowIconDivMobile}>
-                    <i class="fas fa-chevron-left"></i>
+                    <MdOutlineArrowBackIosNew/>
                   </div>
                 </div>
               </Link>

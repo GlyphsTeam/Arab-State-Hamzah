@@ -161,14 +161,14 @@ padding: 0;
   right: -20px !important;
 }
 
-.customNextArrow i {
+.customNextArrow svg {
     position: absolute;
     top: 95px;
     font-size: 25px;
     cursor: pointer;
     right: -5px;
   }
-.customPrevArrow i {
+.customPrevArrow svg {
     position: absolute;
     top: 95px;
     font-size: 25px;
@@ -227,12 +227,12 @@ padding: 0;
     width: 155px;
     height: 100px;
   }
-  .customNextArrow i {
+  .customNextArrow svg {
       position: absolute;
       top: 90px !important;
       right: -10px;
     }
-  .customPrevArrow i {
+  .customPrevArrow svg {
       position: absolute;
       top: 90px !important;
       left: -10px;
@@ -255,12 +255,12 @@ padding: 0;
   }
 }
 @media (min-width: 250px) and (max-width: 768px) {
-  .customNextArrow i {
+  .customNextArrow svg {
     position: absolute;
     top: 70px !important;
     right: -2px;
   }
-.customPrevArrow i {
+.customPrevArrow svg {
     position: absolute;
     top: 70px !important;
     left: -2px;
@@ -342,11 +342,11 @@ padding: 0;
     position: relative;
     top: 108px;
   }
-  .customPrevArrow i{
+  .customPrevArrow svg{
     position: absolute;
     top: 101px;
   }
-  .customNextArrow i{
+  .customNextArrow svg{
     position: absolute;
     top: 101px;
   }

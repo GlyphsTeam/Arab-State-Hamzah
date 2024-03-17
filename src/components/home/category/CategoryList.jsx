@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { homeState } from '../../../redux/Home/home';
 import { useSelector } from 'react-redux'
+
 function CategoryList() {
   const [t] = useTranslation();
   const [isWeb, setIsWeb] = useState(false)

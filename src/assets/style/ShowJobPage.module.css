@@ -220,7 +220,7 @@ margin: 5px;
     position: relative;
     top: 9px;
   }
-  .backArrowIconDivMobile i {
+  .backArrowIconDivMobile svg{
     font-weight: bold;
     color: var(--primary-button-font-color);
     font-size: 27px;

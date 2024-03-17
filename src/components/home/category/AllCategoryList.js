@@ -4,13 +4,14 @@ import style from "../../../assets/style/homePage/categoryList.module.css";
 import CategoryCard from "./CategoryCard";
 import { Link } from 'react-router-dom';
 import Title from "../../common/Title";
+import { MdOutlineArrowBackIosNew, MdOutlineArrowForwardIos} from "react-icons/md";
 
       export default function AutoPlay({data, type, dir ,urlId}) {
         function SampleNextArrow(props) {
           const { onClick } = props;
           return (
             <div className={style.customNextArrow} onClick={onClick}>
-              <i className="fas fa-chevron-right"></i>
+              <MdOutlineArrowForwardIos/>
             </div>
           );
         }
@@ -19,7 +20,7 @@ import Title from "../../common/Title";
           const { onClick } = props;
           return (
             <div className={style.customPrevArrow} onClick={onClick}>
-              <i className="fas fa-chevron-left"></i>
+              <MdOutlineArrowBackIosNew/>
             </div>
           );
         }
@@ -124,7 +125,7 @@ import Title from "../../common/Title";
                 {CardList}
                 </Slider>
           </div>
-        );
+        ); 
       }
 
 

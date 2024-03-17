@@ -6,6 +6,7 @@ import useAxios from "../hooks/useAxiosGet";
 import { useTranslation } from "react-i18next";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import { MdOutlineArrowBackIosNew} from "react-icons/md";
 
 import { Helmet } from 'react-helmet';
 const JobImg = lazy(() => import("../components/showJob/JobImg"));
@@ -43,7 +44,7 @@ function ShowJobPage() {
           <Link to={'/Jobs'}>
             <div className={style.backArrowMobile}>
               <div className={style.backArrowIconDivMobile}>
-                <i class="fas fa-chevron-left"></i>
+                <MdOutlineArrowBackIosNew/>
               </div>
             </div>
           </Link>

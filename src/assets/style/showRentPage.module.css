@@ -213,7 +213,7 @@ a .contactIcon {
   display: none;
 }
 
-.customNextArrow i {
+.customNextArrow svg{
   position: absolute;
   top: 122px;
   font-size: 25px;
@@ -221,7 +221,7 @@ a .contactIcon {
   right: 10px;
   z-index: 22;
 }
-.customPrevArrow i {
+.customPrevArrow svg {
   position: absolute;
   top: 122px;
   font-size: 25px;
@@ -252,12 +252,12 @@ a .contactIcon {
 }
 
 @media (max-width: 480px) {
-  .customNextArrow i {
+  .customNextArrow svg {
     position: absolute;
     right: 22px;
     z-index: 22;
   }
-  .customPrevArrow i {
+  .customPrevArrow svg {
     position: absolute;
     left: 22px;
     z-index: 22;
@@ -337,7 +337,7 @@ a .contactIcon {
     top: 9px;
     position: relative;
   }
-  .backArrowIconDivMobile i {
+  .backArrowIconDivMobile svg {
     font-weight: bold;
     color: var(--primary-button-font-color);
     font-size: 27px;
@@ -428,11 +428,14 @@ a .contactIcon {
     padding-top: 24px;
   }
   .rentCardsContainerMobile {
-    width: 85%;
+    width: 75%;
     margin: auto !important;
     height: 205.5px;
     object-fit: cover;
+    position: relative;
     margin: 10px;
+    transform: translateX(-73%);
+    left: 50%;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 50px 0px;
   }

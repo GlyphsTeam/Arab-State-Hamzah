@@ -2,6 +2,7 @@ import style from "../../assets/style/showRentPage.module.css";
 import Slider from "react-slick";
 import { useTranslation } from "react-i18next";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { MdOutlineArrowBackIosNew, MdOutlineArrowForwardIos} from "react-icons/md";
 
 function BottomRentCard({ rentData }) {
   const [t, i18n] = useTranslation();
@@ -11,7 +12,7 @@ function BottomRentCard({ rentData }) {
     const { onClick } = props;
     return (
       <div className={style.customNextArrow} onClick={onClick}>
-        <i className="fas fa-chevron-right"></i>
+              <MdOutlineArrowForwardIos/>
       </div>
     );
   }
@@ -20,7 +21,7 @@ function BottomRentCard({ rentData }) {
     const { onClick } = props;
     return (
       <div className={style.customPrevArrow} onClick={onClick}>
-        <i className="fas fa-chevron-left"></i>
+              <MdOutlineArrowBackIosNew/>
       </div>
     );
   }

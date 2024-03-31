@@ -1,5 +1,6 @@
 import React, { useEffect, useState, lazy, Suspense } from "react";
 import { Crisp } from "crisp-sdk-web";
+import FooterAdsens from "./components/Adsens/FooterAdsens";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/layout/navbar/Navbar";
@@ -250,6 +251,7 @@ function App() {
         <Footer
           logoImage={logoImage}
         />
+        <FooterAdsens/>
       </Router>
     </>
   );

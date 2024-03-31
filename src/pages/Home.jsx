@@ -5,6 +5,8 @@ import { setHomeData, homeState } from '../redux/Home/home';
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios';
 import { setLoading } from '../redux/slices/login';
+import EoneAdsens from "../components/Adsens/EoneAdsens";
+import ConeAdsens from "../components/Adsens/ConeAdsens";
 const CategoryList = lazy(() => import('../components/home/category/CategoryList'));
 const TryApp = lazy(() => import('../components/home/tryApp/TryApp'));
 const Blog = lazy(() => import('../components/home/blog/Blog'));
@@ -12,8 +14,9 @@ const Services = lazy(() => import('../components/home/jobs/Services'));
 const AdvBanner = lazy(() => import('../components/common/AdvBanner'));
 const BannerWInfo = lazy(() => import('../components/common/banner/BannerWInfo'));
 const HomeTitle = lazy(() => import('../components/common/title/HomeTitle'));
-const Adsens = lazy(() => import("../components/Adsens/Adsens"));
+// const Adsens = lazy(() => import("../components/Adsens/Adsens"));
 const PopUpAdver = lazy(() => import("../components/PopUp/PopUpAdver"));
+
 function Home() {
   const [showModale, setShowPopModal] = useState(false);
   const dispatch = useDispatch();
@@ -53,12 +56,14 @@ function Home() {
       <Suspense fallback={<p>Loading...</p>}>
         <BannerWInfo />
         <HomeTitle title={t("Advertisement")} />
+        <EoneAdsens/>
         <AdvBanner />
         <CategoryList />
         <Services />
         {showModale && <PopUpAdver setShowPopModal={setShowPopModal} />}
         <TryApp />
-        <Adsens dataAdSlot="7940489560" />
+        {/* <Adsens dataAdSlot="7940489560" /> */}
+        <ConeAdsens/>
         <Blog />
       </Suspense>
     </>

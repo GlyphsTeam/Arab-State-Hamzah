@@ -56,8 +56,8 @@ function Home() {
       <Suspense fallback={<p>Loading...</p>}>
         <BannerWInfo />
         <HomeTitle title={t("Advertisement")} />
-        <EoneAdsens/>
         <AdvBanner />
+        <EoneAdsens/>
         <CategoryList />
         <Services />
         {showModale && <PopUpAdver setShowPopModal={setShowPopModal} />}

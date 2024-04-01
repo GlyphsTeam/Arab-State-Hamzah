@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { homeState } from '../../../redux/Home/home';
 import { useSelector } from 'react-redux'
+import EoneAdsens from "../../Adsens/EoneAdsens";
 
 function CategoryList() {
   const [t] = useTranslation();
@@ -86,6 +87,7 @@ function CategoryList() {
           }
         </div>
       </div>
+      <EoneAdsens/>
     </>
   );
 }

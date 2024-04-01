@@ -8,6 +8,7 @@ import { homeState } from '../../../redux/Home/home';
 import { useSelector } from 'react-redux';
 import { FaGooglePlay } from "react-icons/fa";
 import { IoLogoApple } from "react-icons/io";
+import ConeAdsens from "../../Adsens/ConeAdsens";
 
 function TryApp() {
   const stateHome = useSelector(homeState);
@@ -31,6 +32,7 @@ function TryApp() {
   return (
 
 
+   <>
     <div style={{ backgroundImage: `url(${homeStateTry?.image})` }} className={style.tryAppMainContainer}>
       <div
         className={
@@ -92,6 +94,8 @@ function TryApp() {
         </div>
       </div>
     </div>
+     <ConeAdsens/>
+     </>
 
   );
 }

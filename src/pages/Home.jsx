@@ -57,13 +57,13 @@ function Home() {
         <BannerWInfo />
         <HomeTitle title={t("Advertisement")} />
         <AdvBanner />
-        <EoneAdsens/>
+{/*         <EoneAdsens/> */}
         <CategoryList />
         <Services />
         {showModale && <PopUpAdver setShowPopModal={setShowPopModal} />}
         <TryApp />
         {/* <Adsens dataAdSlot="7940489560" /> */}
-        <ConeAdsens/>
+{/*         <ConeAdsens/> */}
         <Blog />
       </Suspense>
     </>

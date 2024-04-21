@@ -251,7 +251,7 @@ function App() {
         <Footer
           logoImage={logoImage}
         />
-        <FooterAdsens/>
+        // <FooterAdsens/>
       </Router>
     </>
   );
